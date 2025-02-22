@@ -120,8 +120,8 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 **(e) Resultados Obtidos:** <p align="justify">A análise da sobrevida dos pacientes com câncer colorretal demonstrou uma redução progressiva ao longo do tempo. As taxas de sobrevida foram de 77% em 1 ano, 59% em 3 anos e 53,2% em 5 anos.Na comparação dos modelos, o DeepSurv apresentou o melhor desempenho, com maior capacidade preditiva e menor erro absoluto médio. O Índice de Concordância (C-index) foi superior no DeepSurv em relação ao CoxNet e ao Random Survival Forest (RSF), indicando melhor discriminação entre os tempos de sobrevida. O Brier Score e as curvas de Kaplan-Meier mostraram que o DeepSurv produziu previsões mais alinhadas com os dados reais. Os resultados reforçam a viabilidade do uso de inteligência artificial na predição da sobrevida de pacientes com câncer colorretal, oferecendo maior precisão e adaptabilidade em comparação aos modelos estatísticos tradicionais.</p>
 
 **(f) Atributos:**
-•	Idade: variável contínua representando a idade do paciente no momento do diagnóstico.
-•	Sexo: variável categórica indicando o gênero do paciente (masculino ou feminino).
+<p align="justify">•	Idade: variável contínua representando a idade do paciente no momento do diagnóstico.</p>
+<p align="justify">•	Sexo: variável categórica indicando o gênero do paciente (masculino ou feminino).</p>
 
 
 > **Links Úteis**:

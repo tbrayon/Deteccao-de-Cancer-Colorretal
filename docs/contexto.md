@@ -74,8 +74,8 @@ Adicione informações sobre o público-alvo por meio de uma descrição textual
 > - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
 > - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)"
 
-
-O público-alvo deste projeto abrange profissionais de saúde, pesquisadores e gestores da área médica que buscam ferramentas para otimizar a identificação de fatores prognósticos e desenvolver políticas públicas baseadas em evidências. Com base em um conjunto de dados abrangente e diversificado, serão exploradas abordagens estatísticas e computacionais para gerar insights valiosos e contribuir para o avanço no combate ao câncer colorretal.
+<p align="justify">
+O público-alvo deste projeto abrange *profissionais de saúde*, médicos, enfermeiros, pesquisadores e gestores da área médica que buscam ferramentas para otimizar a identificação de fatores prognósticos e desenvolver políticas públicas baseadas em evidências. *Estudantes de graduação e pós graduação* das áreas de saúde, informática e estatística, que poderão se beneficiar do conhecimento e das técnicas utilizadas no projeto para o desenvolvimento de suas pesquisas e atividades acadêmicas. *População em geral*, que poderá se informar sobre os fatores de risco e a importância da detecção precoce do cancer colorretal. Com base em um conjunto de dados abrangente e diversificado, serão exploradas abordagens estatísticas e computacionais para gerar insights valiosos e contribuir para o avanço no combate ao câncer colorretal. </p>
 
 ## Estado da arte
 

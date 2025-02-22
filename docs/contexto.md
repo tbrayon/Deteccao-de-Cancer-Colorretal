@@ -1,6 +1,12 @@
 # Introdução
-
-Texto descritivo introdutório apresentando a visão geral do projeto a ser desenvolvido considerando o contexto em que ele se insere, os objetivos gerais, a justificativa e o público-alvo do projeto.
+<p align="justify">
+O câncer colorretal é uma das doenças mais preocupantes na área da saúde, pois apresenta alta incidência e mortalidade. Diversos fatores, como genética, estilo de vida e alimentação, podem influenciar o surgimento da doença. A detecção precoce é um dos principais desafios, pois os sintomas podem demorar a aparecer, dificultando o diagnóstico. Nos últimos anos, avanços na tecnologia têm possibilitado novas formas de analisar e interpretar dados médicos, permitindo o desenvolvimento de ferramentas para auxiliar na identificação precoce e na prevenção desse tipo de câncer.</p>
+<p align="justify">
+Com o avanço da inteligência artificial, técnicas de aprendizado de máquina começaram a ser aplicadas na análise de dados clínicos. Alguns estudos demonstram que esses algoritmos podem encontrar padrões em grandes volumes de informações, tornando possível prever a progressão da doença e auxiliar médicos na tomada de decisões. Um estudo recente utilizou registros hospitalares de pacientes diagnosticados entre 2000 e 2021 e obteve uma taxa de acerto de aproximadamente 77%, destacando o estadiamento clínico como um dos fatores mais relevantes na análise da sobrevida dos pacientes (CARDOSO et al., 2023).</p>
+<p align="justify">
+Diante disso, este trabalho tem como objetivo reunir e organizar informações extraídas de estudos científicos para criar um conjunto de dados voltado à prevenção do câncer colorretal. A partir desses dados, será desenvolvido um modelo capaz de fazer previsões sobre a doença, analisando fatores de risco e auxiliando na identificação precoce de possíveis casos. Para isso, será necessário escolher um dataset adequado, levando em consideração a qualidade e a confiabilidade das fontes. Também será avaliada a possibilidade de utilizar bases de dados já existentes ou combinar informações de diferentes estudos para obter um conjunto de dados mais completo e representativo.</p>
+<p align="justify">
+A criação desse modelo pode contribuir significativamente para a área da saúde, oferecendo uma ferramenta adicional para médicos e pesquisadores. Dessa forma, espera-se que este trabalho auxilie na detecção precoce da doença e, consequentemente, aumente as chances de tratamento bem-sucedido para os pacientes.</p>
 
 ## Problema
 

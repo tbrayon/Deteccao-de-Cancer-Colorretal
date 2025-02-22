@@ -97,6 +97,16 @@ O público-alvo deste projeto abrange *profissionais de saúde*, médicos, enfer
 
 Nesta seção, deverão ser descritas outras abordagens identificadas na literatura que foram utilizadas para resolver problemas similares ao problema em questão. Para isso, faça uma pesquisa detalhada e identifique, no mínimo, 5 trabalhos que tenham utilizado dados em contexto similares e então: (a) detalhe e contextualize o problema a ser solucionado no trabalho, (b) descreva as principais características do _dataset_ utilizado, (c) detalhe quais abordagens/algoritmos foram utilizados (e seus parâmetros), (d) identifique as métricas de avaliação empregadas, e (e) fale sobre os resultados obtidos. 
 
+
+<p align="justify">A automação tem sido amplamente aplicada na área da saúde, especialmente no aprimoramento dos diagnósticos médicos. Sistemas baseados em Inteligência Artificial (IA) já demonstram precisão equiparável ou superior à dos profissionais de saúde, auxiliando na identificação precoce de doenças. Um exemplo relevante é o “Médico Assistente Robô” da iFlytek, que utiliza técnicas avançadas para registrar sintomas, analisar exames de imagem e fornecer diagnósticos iniciais, otimizando a tomada de decisão médica sem substituir a atuação dos especialistas (LUDERMIR, 2021).</p>
+
+<p align="justify">No contexto do câncer colorretal, a aplicação dessas tecnologias tem potencial para revolucionar a detecção precoce e o tratamento. Modelos de Machine Learning permitem a análise de grandes volumes de dados clínicos e laboratoriais, identificando padrões em exames de imagem, históricos médicos e fatores genéticos</p>
+
+<p align="justify">Os avanços na capacidade computacional impactaram significativamente a detecção e predição de doenças cardiovasculares por meio da interpretação de prontuários médicos, exames de imagem e bancos de dados biológicos e genômicos. A cardiologia tem sido uma das áreas com maior produção científica envolvendo Machine Learning, desde a predição de eventos cardiovasculares até a melhoria dos diagnósticos eletrocardiográficos, demonstrando o potencial da IA como ferramenta de apoio à pesquisa médica (PAIXÃO et al., 2022).</p>
+
+<p align="justify">A crescente evolução da IA também traz benefícios como a melhoria na qualidade dos serviços de saúde, otimização de processos diagnósticos e personalização dos tratamentos. No entanto, desafios ainda precisam ser superados, como a padronização de bases de dados, a necessidade de validação clínica rigorosa e a integração eficiente dessas soluções aos fluxos de trabalho médicos.</p>
+
+
 > **Links Úteis**:
 > - [Google Scholar](https://scholar.google.com/)
 > - [IEEE Xplore](https://ieeexplore.ieee.org/Xplore/home.jsp)
@@ -124,3 +134,10 @@ Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvo
 
 > **Links Úteis**:
 > - [Padrão ABNT PUC Minas](https://portal.pucminas.br/biblioteca/index_padrao.php?pagina=5886)
+>
+CARDOSO, Lucas Buk; PARRO, Vanderlei Cunha; PERES, Stela Verzinhasse; CURADO, Maria Paula; FERNANDES, Gisele Aparecida; WÜNSCH FILHO, Victor; TOPORCOV, Tatiana Natasha. Aprendizado de máquina para prever a sobrevivência de pacientes com câncer colorretal. Scientific Reports, v. 13, art. 8874, 2023. Disponível em: https://www.nature.com/articles/s41598-023-35649-9. Acesso em: 22 fev. 2025.
+
+LUDERMIR, Teresa Bernarda. Inteligência Artificial. Estudos Avançados, v. 35, n. 101, p. 273-289, jan./abr. 2021. Disponível em: https://www.scielo.br/j/ea/a/wXBdv8yHBV9xHz8qG5RCgZd/?lang=pt. Acesso em: 22 fev. 2025. DOI: 10.1590/s0103-4014.2021.35101.007.
+
+PAIXÃO, G. M. M. et al. Machine Learning na Medicina: Revisão e Aplicabilidade. Arquivos Brasileiros de Cardiologia, v. 118, n. 1, jan. 2022. Disponível em: https://doi.org/10.36660/abc.20200596. Acesso em: 22 fev. 2025.
+

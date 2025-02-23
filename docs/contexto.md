@@ -97,15 +97,13 @@ O público-alvo deste projeto abrange *profissionais de saúde*, médicos, enfer
 
 Nesta seção, deverão ser descritas outras abordagens identificadas na literatura que foram utilizadas para resolver problemas similares ao problema em questão. Para isso, faça uma pesquisa detalhada e identifique, no mínimo, 5 trabalhos que tenham utilizado dados em contexto similares e então: (a) detalhe e contextualize o problema a ser solucionado no trabalho, (b) descreva as principais características do _dataset_ utilizado, (c) detalhe quais abordagens/algoritmos foram utilizados (e seus parâmetros), (d) identifique as métricas de avaliação empregadas, e (e) fale sobre os resultados obtidos. 
 
-<p align="justify">O câncer colorretal é um dos tipos de câncer mais comuns no mundo e pode ser fatal quando não identificado precocemente. O diagnóstico muitas vezes acontece em estágios avançados, pois os sintomas iniciais podem ser leves ou até inexistentes. Por isso, pesquisadores têm buscado novas tecnologias para melhorar a detecção e o tratamento dessa doença.</p>
-
 <p align="justify">Nos últimos anos, a Inteligência Artificial (IA) e o Machine Learning (ML) começaram a ser usados na área da saúde para analisar grandes quantidades de dados médicos. Com essas ferramentas, é possível identificar padrões em exames, históricos de pacientes e fatores genéticos, ajudando os médicos a tomarem decisões mais precisas.</p>
 
-<p align="justify">A automação tem sido amplamente aplicada na área da saúde, especialmente no aprimoramento dos diagnósticos médicos. Sistemas baseados em Inteligência Artificial (IA) já demonstram precisão equiparável ou superior à dos profissionais de saúde, auxiliando na identificação precoce de doenças. Um exemplo relevante é o “Médico Assistente Robô” da iFlytek, que utiliza técnicas avançadas para registrar sintomas, analisar exames de imagem e fornecer diagnósticos iniciais, otimizando a tomada de decisão médica sem substituir a atuação dos especialistas (LUDERMIR, 2021).</p>
+<p align="justify">De acordo com Ludermir (2021), a automação tem sido amplamente aplicada na área da saúde, especialmente no aprimoramento dos diagnósticos médicos. Sistemas baseados em Inteligência Artificial (IA) já demonstram precisão equiparável ou superior à dos profissionais de saúde, auxiliando na identificação precoce de doenças. Um exemplo relevante é o “Médico Assistente Robô” da iFlytek, que utiliza técnicas avançadas para registrar sintomas, analisar exames de imagem e fornecer diagnósticos iniciais, otimizando a tomada de decisão médica sem substituir a atuação dos especialistas.</p>
 
 <p align="justify">No contexto do câncer colorretal, a aplicação dessas tecnologias tem potencial para revolucionar a detecção precoce e o tratamento. Modelos de Machine Learning permitem a análise de grandes volumes de dados clínicos e laboratoriais, identificando padrões em exames de imagem, históricos médicos e fatores genéticos.</p>
 
-<p align="justify">Os avanços na capacidade computacional impactaram significativamente a detecção e predição de doenças cardiovasculares por meio da interpretação de prontuários médicos, exames de imagem e bancos de dados biológicos e genômicos. A cardiologia tem sido uma das áreas com maior produção científica envolvendo Machine Learning, desde a predição de eventos cardiovasculares até a melhoria dos diagnósticos eletrocardiográficos, demonstrando o potencial da IA como ferramenta de apoio à pesquisa médica (PAIXÃO et al., 2022).</p>
+<p align="justify"> Segundo Paixão et al. (2022), os avanços na capacidade computacional impactaram significativamente a detecção e predição de doenças cardiovasculares por meio da interpretação de prontuários médicos, exames de imagem e bancos de dados biológicos e genômicos. A cardiologia tem sido uma das áreas com maior produção científica envolvendo Machine Learning, desde a predição de eventos cardiovasculares até a melhoria dos diagnósticos eletrocardiográficos, demonstrando o potencial da IA como ferramenta de apoio à pesquisa médica.</p>
 
 <p align="justify"><b>(a) Detalhamento e Contextualização do Problema:</b></p>
 <p align="justify">O câncer colorretal é um dos tipos de câncer mais comuns no mundo e pode ser fatal quando não identificado precocemente. O diagnóstico muitas vezes acontece em estágios avançados, pois os sintomas iniciais podem ser leves ou até inexistentes. Por isso, pesquisadores têm buscado novas tecnologias para melhorar a detecção e o tratamento dessa doença.</p>
@@ -142,8 +140,8 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 
 
 **(f) Atributos:**
-<p align="justify">•	Idade: variável contínua representando a idade do paciente no momento do diagnóstico.</p>
-<p align="justify">•	Sexo: variável categórica indicando o gênero do paciente (masculino ou feminino).</p>
+<li><p align="justify">•	Idade: variável contínua representando a idade do paciente no momento do diagnóstico.</p></li>
+<li><p align="justify">•	Sexo: variável categórica indicando o gênero do paciente (masculino ou feminino).</p></li>
 
 
 > **Links Úteis**:

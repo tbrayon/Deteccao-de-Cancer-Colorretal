@@ -122,7 +122,7 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 <b>Erro Absoluto Médio (MAE):</b> Calcula a diferença média entre os tempos de sobrevida previstos e os reais. Quanto menor o erro, mais próximas da realidade são as previsões.
 </p>
 
-<p align="justify"> Além disso, foram usadas as curvas de **Kaplan-Meier** para comparar as previsões dos modelos com os dados observados ao longo do tempo, ajudando a validar a precisão dos algoritmos. Essas métricas permitiram uma análise clara da eficácia de cada modelo na predição da sobrevida dos pacientes.</p>
+<p align="justify">Além disso, foram usadas as curvas de **Kaplan-Meier** para comparar as previsões dos modelos com os dados observados ao longo do tempo, ajudando a validar a precisão dos algoritmos. Essas métricas permitiram uma análise clara da eficácia de cada modelo na predição da sobrevida dos pacientes.</p>
 
 **(e) Resultados Obtidos:**<p align="justify">A análise mostrou que a taxa de sobrevida dos pacientes com câncer colorretal diminui com o tempo: **77% sobrevivem 1 ano, 59% chegam a 3 anos e 53,2% atingem 5 anos** após o diagnóstico. </p>
 <p align="justify">Entre os modelos testados, o **DeepSurv** teve o melhor desempenho, fazendo previsões mais precisas e com menor margem de erro. Ele superou os modelos **CoxNet e Random Survival Forest (RSF) ** no **Índice de Concordância (C-index) **, o que significa que ordenou melhor os tempos de sobrevida dos pacientes. Além disso, o **Brier Score** e as **curvas de Kaplan-Meier** indicaram que suas previsões foram mais próximas dos dados reais</p>.

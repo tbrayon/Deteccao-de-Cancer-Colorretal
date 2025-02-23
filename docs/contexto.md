@@ -214,9 +214,9 @@ INSTITUTO NACIONAL DE CÂNCER. INCA prevê aumento da mortalidade prematura por 
 
 LUDERMIR, Teresa Bernarda. Inteligência Artificial. Estudos Avançados, v. 35, n. 101, p. 273-289, jan./abr. 2021. Disponível em: https://www.scielo.br/j/ea/a/wXBdv8yHBV9xHz8qG5RCgZd/?lang=pt. Acesso em: 22 fev. 2025. DOI: 10.1590/s0103-4014.2021.35101.007.
 
-MULHO, João Augusto Druizian; DUARTE, Maurício. Avaliação de dois Algoritmos de Machine Learning na Previsão do Câncer de Mama. Revista Eletrônica e-Fatec, v. 13, n. 1, 2023. Publicado em: 01 jun. 2023.
+MULHO, João Augusto Druizian; DUARTE, Maurício. Avaliação de dois Algoritmos de Machine Learning na Previsão do Câncer de Mama. Revista Eletrônica e-Fatec, v. 13, n. 1, 2023. Publicado em: 01 jun. 2023.  Disponível em: https://www.pesquisafatec.com.br/ojs/index.php/efatec/article/view/266. Acesso em: 22 fev. 2025.
 
-ORGANIZAÇÃO PAN-AMERICANA DA SAÚDE (OPAS). Tópicos de Saúde: Câncer. Disponível em: https://www.paho.org/pt/topicos/cancer. Acesso em: 23/02/2025.
+ORGANIZAÇÃO PAN-AMERICANA DA SAÚDE (OPAS). Tópicos de Saúde: Câncer. Disponível em: https://www.paho.org/pt/topicos/cancer. Acesso em: 23 fev. 2025.
 
 PAIXÃO, G. M. M. et al. Machine Learning na Medicina: Revisão e Aplicabilidade. Arquivos Brasileiros de Cardiologia, v. 118, n. 1, jan. 2022. Disponível em: https://doi.org/10.36660/abc.20200596. Acesso em: 22 fev. 2025.
 

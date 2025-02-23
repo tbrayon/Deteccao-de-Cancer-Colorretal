@@ -179,3 +179,5 @@ LUDERMIR, Teresa Bernarda. Inteligência Artificial. Estudos Avançados, v. 35, 
 
 PAIXÃO, G. M. M. et al. Machine Learning na Medicina: Revisão e Aplicabilidade. Arquivos Brasileiros de Cardiologia, v. 118, n. 1, jan. 2022. Disponível em: https://doi.org/10.36660/abc.20200596. Acesso em: 22 fev. 2025.
 
+SANTOS, Jeferson Antônio; NASCIMENTO FILHO, Antonio Carlos Maniglia; HISSAYASSU, Gabriela Yaeko; PIASSA, João Pedro Monteiro; SILVA, Pedro Henrique de Souza Sandim. Câncer colorretal – uma revisão abrangente sobre a epidemiologia, fatores de risco, fisiopatologia, diagnóstico e tratamento. Brazilian Journal of Health Review, Curitiba, v. 7, n. 2, p. 01-12, mar./abr. 2024. Disponível em: https://ojs.brazilianjournals.com.br/ojs/index.php/BJHR/article/view/68695/48709. Acesso em: 23 fev. 2025.
+

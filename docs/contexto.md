@@ -140,9 +140,10 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 
 
 **(f) Atributos:**
-<li><p align="justify">•	Idade: variável contínua representando a idade do paciente no momento do diagnóstico.</p></li>
-<li><p align="justify">•	Sexo: variável categórica indicando o gênero do paciente (masculino ou feminino).</p></li>
-
+<ul>
+<li><p align="justify">Idade: variável contínua representando a idade do paciente no momento do diagnóstico.</p></li>
+<li><p align="justify">Sexo: variável categórica indicando o gênero do paciente (masculino ou feminino).</p></li>
+</ul>ul>
 
 > **Links Úteis**:
 > - [Google Scholar](https://scholar.google.com/)

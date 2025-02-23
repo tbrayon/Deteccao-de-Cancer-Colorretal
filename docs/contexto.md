@@ -126,8 +126,11 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 Além disso, foram usadas as curvas de <b>Kaplan-Meier</b> para comparar as previsões dos modelos com os dados observados ao longo do tempo, ajudando a validar a precisão dos algoritmos. Essas métricas permitiram uma análise clara da eficácia de cada modelo na predição da sobrevida dos pacientes.</p>
 
 **(e) Resultados Obtidos:**<p align="justify">A análise mostrou que a taxa de sobrevida dos pacientes com câncer colorretal diminui com o tempo: **77% sobrevivem 1 ano, 59% chegam a 3 anos e 53,2% atingem 5 anos** após o diagnóstico. </p>
-<p align="justify">Entre os modelos testados, o **DeepSurv** teve o melhor desempenho, fazendo previsões mais precisas e com menor margem de erro. Ele superou os modelos **CoxNet e Random Survival Forest (RSF) ** no **Índice de Concordância (C-index) **, o que significa que ordenou melhor os tempos de sobrevida dos pacientes. Além disso, o **Brier Score** e as **curvas de Kaplan-Meier** indicaram que suas previsões foram mais próximas dos dados reais</p>.
-<p align="justify">Esses resultados mostram que a inteligência artificial pode prever a sobrevida de pacientes com câncer colorretal com **mais precisão e flexibilidade** do que os modelos estatísticos tradicionais. </p>
+
+<p align="justify">
+Entre os modelos testados, o <b>DeepSurv</b> teve o melhor desempenho, fazendo previsões mais precisas e com menor margem de erro. Ele superou os modelos <b>CoxNet e Random Survival Forest (RSF)</b> no <b>Índice de Concordância (C-index)</b>, o que significa que ordenou melhor os tempos de sobrevida dos pacientes. Além disso, o <b>Brier Score</b> e as <b>curvas de Kaplan-Meier</b> indicaram que suas previsões foram mais próximas dos dados reais</p>.
+
+<p align="justify">Esses resultados mostram que a inteligência artificial pode prever a sobrevida de pacientes com câncer colorretal com  <b>mais precisão e flexibilidade</b> do que os modelos estatísticos tradicionais.</p>
 
 **(f) Atributos:**
 <p align="justify">•	Idade: variável contínua representando a idade do paciente no momento do diagnóstico.</p>

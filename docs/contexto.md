@@ -231,7 +231,7 @@ Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvo
 CARDOSO, Lucas Buk; PARRO, Vanderlei Cunha; PERES, Stela Verzinhasse; CURADO, Maria Paula; FERNANDES, Gisele Aparecida; WÜNSCH FILHO, Victor; TOPORCOV, Tatiana Natasha. Aprendizado de máquina para prever a sobrevivência de pacientes com câncer colorretal. Scientific Reports, v. 13, art. 8874, 2023. Disponível em: https://www.nature.com/articles/s41598-023-35649-9. Acesso em: 22 fev. 2025.</p>
 
 <p align="justify">
-INSTITUTO NACIONAL DE CÂNCER. INCA prevê aumento da mortalidade prematura por câncer de intestino até 2030. 27 jan. 2023. Disponível em: https://www.inca.gov.br/noticias/inca-preve-aumento-da-mortalidade-prematura-por-cancer-de-intestino-ate-2030. Acesso em: 22 fev. 2025.</p>
+INSTITUTO NACIONAL DE CÂNCER. INCA prevê aumento da mortalidade prematura por câncer de intestino até 2030. 27 jan. 2023. Disponível em: https://www.gov.br/inca/pt-br/assuntos/cancer/numeros/estimativa/introducao. Acesso em: 22 fev. 2025.</p>
 
 <p align="justify">
 KASSIM, Z.; ZAKI, W. M. D. W.; AWANG, S. R. Cervical cancer risk factors classification using machine learning. In: INTERNATIONAL CONFERENCE ON ARTIFICIAL INTELLIGENCE IN COMPUTER SCIENCE AND ARTIFICIAL INTELLIGENCE (AICSAI), 2021, Langkawi, Malaysia. Proceedings of the International Conference on Artificial Intelligence in Computer Science and Artificial Intelligence (AICSAI). New York: ACM, 2021. p. 1–5. Disponível em: https://dl.acm.org/doi/10.1145/3468891.3468894. Acesso em: 18 fev. 2025.</p>

@@ -136,11 +136,74 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 - Exemplo: `radius_worst` (maior raio encontrado), `concavity_worst` (concavidade mais acentuada).  
 - Esses atributos ajudam a identificar tumores mais agressivos.  
 
-> **Links Úteis**:
-> - [Google Scholar](https://scholar.google.com/)
-> - [IEEE Xplore](https://ieeexplore.ieee.org/Xplore/home.jsp)
-> - [Science Direct](https://www.sciencedirect.com/)
-> - [ACM Digital Library](https://dl.acm.org/)
+### The Application of Machine Learning in Cervical Cancer Prediction (Referência [ACM](https://dl.acm.org/doi/10.1145/3468891.3468894))
+
+<p align="justify"><b>(a) Detalhamento e Contextualização do Problema:</b> O trabalho aborda o problema da previsão de câncer cervical utilizando modelos de aprendizado de máquina. O câncer cervical é uma condição grave, mas altamente tratável se diagnosticada precocemente. O objetivo é desenvolver modelos preditivos que possam identificar casos positivos de câncer cervical com maior precisão. Para isso, a pesquisa busca reduzir a pressão sobre o sistema de saúde, aumentando a eficiência na detecção precoce da doença. O problema central é a desbalanceamento dos dados, onde as amostras positivas são significativamente menos frequentes que as amostras negativas, o que pode levar a modelos que não detectam adequadamente os casos positivos.</p>
+
+<p align="justify"><b>(b) Descrição das Principais Características do Dataset Utilizado:</b> O dataset utilizado apresenta algumas características importantes:
+
+#### Distribuição das Variáveis  
+<p align="justify">
+As variáveis categóricas (características qualitativas) não estão uniformemente distribuídas. Por exemplo, se tivermos uma variável categórica como "tipo de câncer", onde as categorias são "câncer cervical", "câncer de mama" e "câncer de pulmão", é provável que a frequência de casos de câncer cervical seja muito maior ou menor do que as outras categorias. Essa falta de uniformidade pode afetar a modelagem, já que algoritmos de aprendizado de máquina podem ser tendenciosos para as categorias com maior número de amostras.
+Já as variáveis numéricas, não seguem uma distribuição normal. Isso significa que os dados numéricos (como idades, níveis de marcador tumoral, etc.) não se distribuem em uma forma de sino típica da distribuição normal (também conhecida como distribuição gaussiana).</p>
+
+Em uma distribuição normal:
+- A maioria dos valores está próxima da média.  
+- Os dados são simétricos em torno da média.  
+- Os valores extremos (muito altos ou muito baixos) são raros.  
+
+Por outro lado, se uma variável numérica não seguir essa distribuição, ela pode apresentar:  
+- Assimetria (a distribuição pode estar inclinada para a direita ou para a esquerda).  
+- Presença de outliers (valores extremos que podem influenciar a média e outras estatísticas).  
+- Distribuições bimodais (duas "picos" distintos na frequência).  
+
+#### Desbalanceamento dos Dados  
+<p align="justify">
+Existe uma notável desproporção entre os casos positivos e negativos, o que justifica a necessidade de utilizar versões ponderadas dos modelos para melhorar a precisão na previsão de casos positivos.so significa que as classes de um conjunto de dados não estão representadas de maneira igualitária.</p>
+
+#### Composição dos Dados  
+<p align="justify">
+Embora não estejam explicitadas, presume-se que as variáveis incluem informações clínicas e demográficas que podem influenciar a probabilidade de desenvolvimento de câncer cervical.</p>
+
+<p align="justify"><b>(c) Abordagens/Algoritmos Utilizados (e seus Parâmetros):</b> Foram utilizados quatro abordagens principais de aprendizado de máquina:</p>
+
+#### Regressão Logística:
+
+-	Versões ponderadas (proporção 1:9 para negativos versus positivos) e não ponderadas.
+-	Foco na relação linear entre as variáveis independentes e dependentes.
+
+#### Árvore de Decisão:
+
+-	Controlada pelo parâmetro "min samples split" (mínimo de amostras necessárias para dividir um nó interno), onde um maior valor resulta em uma árvore mais simples.
+-	Construídas versões ponderadas e não ponderadas.
+
+#### Random Forest:
+
+-	Composta por múltiplas árvores de decisão.
+-	O número ideal de árvores foi determinado como sendo 7.
+-	Inclui versões ponderadas e não ponderadas.
+
+#### Adaboosting:
+
+-	Cria um classificador forte a partir de classificadores fracos, corrigindo erros iterativamente.
+-	Também possui versões ponderadas e não ponderadas.
+
+<p align="justify"><b>(d) Métricas de Avaliação Empregadas:</b> As métricas de avaliação utilizadas para medir o desempenho dos modelos incluem:</p>
+
+-	**Acurácia**: Medida de quão frequentemente o modelo faz previsões corretas.
+-	**Área sob a curva ROC (Receiver Operating Characteristic)**: Avalia a capacidade do modelo em distinguir entre classes.
+-	**Área sob a curva de precisão-recall (PR)**: Medida que considera a proporção de verdadeiros positivos em relação a todos os positivos previstos.
+-	**Matrizes de Confusão**: Usadas para calcular as taxas de verdadeiros positivos, falsos positivos, verdadeiros negativos e falsos negativos.
+
+<p align="justify"><b>(e) Resultados Obtidos:</b> Os resultados indicam que:</p>
+
+-	Para o conjunto de treinamento das versões não ponderadas, o modelo Adaboosting apresentou a maior acurácia e áreas mais altas sob as curvas ROC e PR.
+-	No conjunto de teste não ponderado, a árvore de decisão teve a maior acurácia, enquanto o random forest apresentou as maiores áreas sob as curvas ROC e PR.
+-	Para as versões ponderadas, a árvore de decisão teve a maior acurácia e área sob a curva ROC, enquanto o Adaboosting teve a maior área sob a curva PR.
+-	O random forest demonstrou a maior acurácia para o conjunto de teste ponderado, e a regressão logística teve as maiores áreas sob as curvas ROC e PR nesse contexto.
+-	Embora modelos simples como a regressão logística e a árvore de decisão apresentem menor acurácia, eles tendem a evitar o problema de sobreajuste, enquanto modelos mais complexos como random forest e Adaboosting oferecem melhor capacidade de ajuste, mas podem ser mais propensos a sobreajustar.
+<p align="justify">
+Esses resultados sugerem que, embora modelos mais simples possam ser preferíveis em certas condições, o uso de técnicas de aprendizado de máquina mais complexas pode aumentar a precisão na detecção de casos positivos, o que é crucial para o diagnóstico precoce do câncer cervical.</p>
 
 # Descrição do _dataset_ selecionado
 

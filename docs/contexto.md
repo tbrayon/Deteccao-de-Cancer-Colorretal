@@ -138,6 +138,37 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 
 <p align="justify">Esses resultados mostram que a inteligência artificial pode prever a sobrevida de pacientes com câncer colorretal com <b>mais precisão e flexibilidade</b> do que os modelos estatísticos tradicionais.</p>
 
+***Avaliação de dois Algoritmos de Machine Learning na Previsão do Câncer de Mama*** (Referência [FATEC](https://www.pesquisafatec.com.br/ojs/index.php/efatec/article/view/266)) 
+<p align="justify">**(a) Detalhamento e Contextualização do Problema:** O câncer de mama continua sendo um grande desafio para a saúde pública, especialmente pelo fato de seu diagnóstico envolver múltiplas etapas – desde exames clínicos até análises de tecidos e imagens detalhadas. Diante dessa complexidade, pesquisadores têm buscado alternativas para agilizar e aprimorar a precisão dos processos. Uma das estratégias que vem ganhando espaço é o uso de sistemas computacionais capazes de aprender com dados históricos, identificando padrões que humanos podem não perceber facilmente. Essas ferramentas, quando bem aplicadas, não só aceleram a análise como também minimizam variações nas interpretações pessoais. No entanto, para que os resultados sejam realmente úteis, dois pontos são fundamentais: selecionar o modelo mais adequado para cada situação e garantir que as informações utilizadas passem por um rigoroso preparo prévio.</p>
+
+<p align="justify">**(b) Descrição das Principais Características do Dataset Utilizado:** Para a elaboração dos algoritmos de Machine Learning foi utilizada uma base de dados da Kaggle, que possui inúmeros dados das mais diversas áreas para utilização em trabalhos relacionados à ciência de dados. Nesse caso foram utilizados dados de pacientes que tiveram ou não câncer de mama. A base de dados em questão dispõe de centenas de registros com inúmeros atributos referentes às características do possível tumor, sendo trinta e três colunas de atributos e quinhentos e sessenta e nove linhas de registros disponíveis.</p>
+
+<p align="justify">**(c) Abordagens/Algoritmos Utilizados (e seus Parâmetros):** O trabalho explorou duas estratégias computacionais distintas para analisar dados médicos relacionados ao câncer de mama. A primeira delas envolveu um método baseado em vetores de suporte, conhecido por sua capacidade de lidar com problemas de classificação complexos, o SVM (Máquina de Vetores de Suporte) .A segunda técnica adotada foi um algoritmo probabilístico clássico, fundamentado no teorema de Bayes. (algoritmo Naive Bayes).</p>
+
+<p align="justify">**(d) Métricas de Avaliação Empregadas:** A acurácia e a matriz de confusão como métricas para analisar o desempenho dos algoritmos e também a validação cruzada para gerar resultados com a mistura desses dados. Os dois algoritmos, o Naive Bayes e o SVM (Máquina de Vetor de Suporte), apresentaram acurácia média de 90%.</p>
+
+<p align="justify">
+**(e) Resultados Obtidos: Ao analisar os resultados obtidos pelos algoritmos de Machine Learning aplicados, foi possível concluir que o SVM (Máquina de Vetores de Suporte) obteve um resultado superior quando trabalhado com previsores escalonados (características ajustadas para ficarem na mesma escala), tendo a maior taxa de assertividade de todos os testes realizados, de 97,88%. Já com os previsores comuns, o melhor resultado é do apresentado pelo algoritmo Naive Bayes, que obteve um resultado superior, de 93,82% de assertividade. Portanto, ao analisar os resultados obtidos, o mais recomendado para se utilizar seria o algoritmo SVM com os previsores escalonados.</p>
+
+<p align="justify">**(f) Atributos:** Os atributos são as “características” que os algoritmos usaram para prever se um tumor de mama é benigno (não canceroso) ou maligno (canceroso). Eles foram extraídos do dataset e podem ser divididos em três grupos principais:</p>
+1-Medidas Básicas das Células (Figura 1)
+Raio Médio (radius_mean): Tamanho médio das células.
+    • Textura Média (texture_mean): Como a superfície das células parece nas imagens.
+    • Perímetro Médio (perimeter_mean): Tamanho da borda das células.
+    • Área Média (area_mean): Espaço que as células ocupam.
+    • Suavidade (smoothness_mean): Quão uniformes são as células.
+    • Compacidade (compactness_mean): Relação entre o perímetro e a área (mede a "forma compacta").
+    • Concavidade (concavity_mean): Profundidade das partes "afundadas" nas células.
+    • Simetria (symmetry_mean): Quão simétricas são as células.
+    • Dimensão Fractal (fractal_dimension_mean): Complexidade da borda das células.
+2- Medidas de Dispersão (Erro Padrão)
+    • Para cada medida básica, foi calculado o erro padrão (ex: radius_se, texture_se).
+    • Isso mostra quão variáveis são as medidas entre as células de um mesmo tumor.
+3 - Valores Extremos ("Worst")
+    • Representam os piores casos observados em cada paciente.
+    • Exemplo: radius_worst (maior raio encontrado), concavity_worst (concavidade mais acentuada).
+    • Esses atributos ajudam a identificar tumores mais agressivos.
+
 
 **(f) Atributos:**
 <ul>

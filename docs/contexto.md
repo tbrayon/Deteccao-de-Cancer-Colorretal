@@ -116,11 +116,13 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 <p align="justify"><b>(c) Abordagens/Algoritmos Utilizados (e seus Parâmetros):</b></p>
 <p align="justify">Foram testados três modelos de inteligência artificial para prever a sobrevida de pacientes com câncer colorretal, usando dados do <b>Registro Hospitalar de Câncer do Estado de São Paulo (RHC-SP)</b>:
 
-- **CoxNet**: Baseado em um modelo estatístico tradicional, esse algoritmo identifica quais fatores mais influenciam a sobrevida dos pacientes. Ele também filtra as informações menos relevantes para melhorar as previsões.  
-- **Random Survival Forest (RSF)**: Funciona como uma "floresta" de decisões que analisa padrões nos dados para estimar o tempo de sobrevida, levando em conta diversas variáveis dos pacientes.  
-- **DeepSurv**: Utiliza redes neurais (um tipo avançado de IA inspirado no cérebro humano) para identificar relações complexas entre as informações dos pacientes e o tempo de sobrevida.
+<ul>
+  <li><p align="justify"><b>CoxNet:</b> Baseado em um modelo estatístico tradicional, esse algoritmo identifica quais fatores mais influenciam a sobrevida dos pacientes. Ele também filtra as informações menos relevantes para melhorar as previsões.</p></li>
+  <li><p align="justify"><b>Random Survival Forest (RSF):</b> Funciona como uma "floresta" de decisões que analisa padrões nos dados para estimar o tempo de sobrevida, levando em conta diversas variáveis dos pacientes.</p></li>
+  <li><p align="justify"><b>DeepSurv:</b> Utiliza redes neurais (um tipo avançado de IA inspirado no cérebro humano) para identificar relações complexas entre as informações dos pacientes e o tempo de sobrevida.</p></li>
+</ul>
   
-<p align="justify">Cada modelo foi ajustado e testado para garantir a **maior precisão possível** na previsão da sobrevida dos pacientes.</b>
+<p align="justify">Cada modelo foi ajustado e testado para garantir a <b>maior precisão possível</b> na previsão da sobrevida dos pacientes.</b>
 
 <p align="justify"><b>(d) Métricas de Avaliação Empregadas:</b></p>
 <p align="justify">Para medir o desempenho dos algoritmos de inteligência artificial na predição da sobrevida de pacientes com câncer colorretal, foram usadas três principais métricas:</p>

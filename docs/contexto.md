@@ -101,6 +101,8 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 <li><p align="justify">Sexo: variável categórica indicando o gênero do paciente (masculino ou feminino).</p></li>
 </ul>
 
+---
+
 ### Avaliação de dois Algoritmos de Machine Learning na Previsão do Câncer de Mama (Referência [FATEC](https://www.pesquisafatec.com.br/ojs/index.php/efatec/article/view/266))
 
 <p align="justify"><b>(a) Detalhamento e Contextualização do Problema:</b> O câncer de mama continua sendo um grande desafio para a saúde pública, especialmente pelo fato de seu diagnóstico envolver múltiplas etapas – desde exames clínicos até análises de tecidos e imagens detalhadas. Diante dessa complexidade, pesquisadores têm buscado alternativas para agilizar e aprimorar a precisão dos processos. Uma das estratégias que vem ganhando espaço é o uso de sistemas computacionais capazes de aprender com dados históricos, identificando padrões que humanos podem não perceber facilmente. Essas ferramentas, quando bem aplicadas, não só aceleram a análise como também minimizam variações nas interpretações pessoais. No entanto, para que os resultados sejam realmente úteis, dois pontos são fundamentais: selecionar o modelo mais adequado para cada situação e garantir que as informações utilizadas passem por um rigoroso preparo prévio.</p>
@@ -134,7 +136,9 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 #### 3. Valores Extremos ("Worst")  
 - Representam os **piores casos** observados em cada paciente.  
 - Exemplo: `radius_worst` (maior raio encontrado), `concavity_worst` (concavidade mais acentuada).  
-- Esses atributos ajudam a identificar tumores mais agressivos.  
+- Esses atributos ajudam a identificar tumores mais agressivos.
+
+---
 
 ### The Application of Machine Learning in Cervical Cancer Prediction (Referência [ACM](https://dl.acm.org/doi/10.1145/3468891.3468894))
 
@@ -204,6 +208,69 @@ Embora não estejam explicitadas, presume-se que as variáveis incluem informaç
 -	Embora modelos simples como a regressão logística e a árvore de decisão apresentem menor acurácia, eles tendem a evitar o problema de sobreajuste, enquanto modelos mais complexos como random forest e Adaboosting oferecem melhor capacidade de ajuste, mas podem ser mais propensos a sobreajustar.
 <p align="justify">
 Esses resultados sugerem que, embora modelos mais simples possam ser preferíveis em certas condições, o uso de técnicas de aprendizado de máquina mais complexas pode aumentar a precisão na detecção de casos positivos, o que é crucial para o diagnóstico precoce do câncer cervical.</p>
+
+---
+
+###  Estudo: Colorectal Cancer Detected by Machine Learning Models Using Conventional Laboratory Test Data (Referência [SagePub](https://journals.sagepub.com/doi/full/10.1177/15330338211058352))
+
+#### Data do estudo:  20/11/2021
+
+**a) detalhe e contextualize o problema a ser solucionado no trabalho:** Atualmente, as formas mais utilizadas de detecção do câncer colorretal são a colonoscopia e a sigmoidoscopia, que são processos invasivos e complexos. O estudo tem como objetivo identificar o câncer colorretal através dos resultados de exames convencionais realizados por pacientes. O estudo utiliza modelos de Machine Learning para encontrar a presença da doença de forma não invasiva e com uma grande taxa de acerto, utilizando dados reais de exames de pacientes com diagnósticos positivos e negativos da doença.
+
+**(b) descreva as principais características do *dataset* utilizado:** O estudo utiliza prontuários eletrônicos de pacientes com câncer colorretal e indivíduos saudáveis que visitaram o hospital The Sixth Affiliated Hospital da universidade Sun Yat-sen em Guangdong, na China. Os prontuários incluem dados demográficos, informações de internação, resultados de exames, sinais vitais, diagnósticos e dados de tratamento de cada paciente. O estágio da doença foi dividido em inicial (níveis 0, I e II) e avançado (níveis III e IV).
+
+Os dados provenientes dos prontuários que foram utilizados:  
+| Parâmetro | Tradução |  
+|---------|-------------------|  
+| Sex (male) | Sexo (masculino) |  
+| Age (years) | Idade (anos) |  
+| CEA (ng/mL) – carcinoembryonic antigen | CEA (ng/mL) – antígeno carcinoembrionário |  
+| α-fetoprotein (ng/mL) | α-fetoproteína (ng/mL) |  
+| Alanine transaminase (U/L) | Alanina aminotransferase (U/L) |  
+| Aspartate transaminase (U/L) | Aspartato aminotransferase (U/L) |  
+| γ-glutamyltransferase (U/L) | γ-glutamiltransferase (U/L) |  
+| Triglycerides (mmol/L) | Triglicerídeos (mmol/L) |  
+| Total cholesterol (mmol/L) | Colesterol total (mmol/L) |  
+| HDL (mmol/L) – high-density lipoprotein | HDL (mmol/L) – lipoproteína de alta densidade |  
+| LDL (mmol/L) – low-density lipoprotein | LDL (mmol/L) – lipoproteína de baixa densidade |  
+| ApoA1 (g/L) | ApoA1 (g/L) |  
+| ApoB (g/L) | ApoB (g/L) |  
+| Lipoprotein (a) (g/L) | Lipoproteína (a) (g/L) |  
+| hs-CRP (mg/L) – high-sensitivity C-reactive protein | hs-CRP (mg/L) – proteína C reativa de alta sensibilidade |  
+| Red blood cells (10¹²/L) | Glóbulos vermelhos (10¹²/L) |  
+| Hemoglobin (g/L) | Hemoglobina (g/L) |  
+| White blood cells (10⁹/L) | Glóbulos brancos (10⁹/L) |  
+| Neutrophils (10⁹/L) | Neutrófilos (10⁹/L) |  
+| Lymphocytes (10⁹/L) | Linfócitos (10⁹/L) |  
+| Monocytes (10⁹/L) | Monócitos (10⁹/L) |  
+| Eosinophils (10⁹/L) | Eosinófilos (10⁹/L) |  
+| Platelets (10⁹/L) | Plaquetas (10⁹/L) |  
+| Early colon cancer | Câncer de cólon inicial |  
+| Late colon cancer | Câncer de cólon avançado |  
+| Early rectal cancer | Câncer retal inicial |  
+| Late rectal cancer | Câncer retal avançado |
+
+
+**(c) detalhe quais abordagens/algoritmos foram utilizados (e seus parâmetros):** Cinco modelos de Machine Learning foram utilizados: Logistic regression (LR), random forest (RF), k-nearest neighbors (KNN), support vector machine (SVM) e naive Bayes. Após um estudo de coeficientes de correlação de parâmetros com a presença da doença, os parâmetros utilizados em cada um dos cinco modelos foram:
+
+* alanina aminotransferase (ALT),   
+* gama glutamil transferase (GGT),   
+* lipoproteína de baixa densidade (LDL),  
+* lipoproteína de alta densidade (HDL),   
+* triglicérides (TG),   
+* proteína C-reativa de alta sensibilidade (hs-CRP),   
+* lipoproteína a (Lp(a)),   
+* antígeno carcinoembrionário (CEA),   
+* neutrófilos (NEU),   
+* linfócitos (LYM),   
+* hemoglobina (HGB), e   
+* plaquetas (PLT).
+
+**(d) identifique as métricas de avaliação empregadas:** Antes da execução dos testes, foram utilizados os seguintes critérios de seleção para os pacientes com câncer do dataset final (1) pacientes no primeiro diagnóstico da doença e (2) pacientes entre 30 e 70 anos de idade. Foram excluídos dos testes pacientes com (1) qualquer histórico de câncer, (2) mais de cinco comorbidades além do câncer colorretal e (3) pacientes com dados incompletos.   
+Para os pacientes do grupo de controle, foram utilizados os seguintes critérios de inclusão (1) pacientes entre 30 e 70 anos e (2) fizeram exames completos no hospital.  
+Os modelos foram avaliados com base nas seguintes métricas: Área sob a curva (AUCs), sensibilidade (sensitivity), especificidade (specificity), valores de previsão positivos (PPV) e valores de previsão negativos (NPV)
+
+**(e) fale sobre os resultados obtidos:** Com base em 1164 registros médicos, sendo 582 pacientes com câncer colorretal e 582 pacientes saudáveis do grupo de controle, o modelo de regressão logística (logistic regression) foi o que obteve a melhor performance em identificar o câncer colorretal (AUC: 0.865, sensibilidade: 89.5%, especificidade: 83.5%, PPV: 84.4%, NPV: 88.9%). Os quatro atributos de mais peso no modelo foram carcinoembryonic antigen (CEA), hemoglobin (HGB), lipoprotein (a) (Lp(a)), e high-density lipoprotein (HDL). Um modelo de diagnóstico para o câncer colorretal foi estabelecido baseado nesses quatro indicados, com uma AUC de 0.849 (0.840-0.860) para identificar todos os pacientes com câncer colorretal e teve a performance ainda melhor em diferenciar pacientes com fases avançadas do câncer para pessoas saudáveis com um AUC de 0.905 (0.889-0.929). A conclusão do estudo é de que a confiabilidade dos resultados é alta o suficiente para que o diagnóstico possa ser feito através de exames rotineiros e menos invasivos do que os mais utilizados atualmente.
 
 # Descrição do _dataset_ selecionado
 

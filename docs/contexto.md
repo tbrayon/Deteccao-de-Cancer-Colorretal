@@ -178,6 +178,25 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
     • Exemplo: radius_worst (maior raio encontrado), concavity_worst (concavidade mais acentuada).
     • Esses atributos ajudam a identificar tumores mais agressivos.
 
+### 1. Medidas Básicas das Células (Figura 1)  
+- **Raio Médio (`radius_mean`)**: Tamanho médio das células.  
+- **Textura Média (`texture_mean`)**: Como a superfície das células parece nas imagens.  
+- **Perímetro Médio (`perimeter_mean`)**: Tamanho da borda das células.  
+- **Área Média (`area_mean`)**: Espaço que as células ocupam.  
+- **Suavidade (`smoothness_mean`)**: Quão uniformes são as células.  
+- **Compacidade (`compactness_mean`)**: Relação entre o perímetro e a área (mede a "forma compacta").  
+- **Concavidade (`concavity_mean`)**: Profundidade das partes "afundadas" nas células.  
+- **Simetria (`symmetry_mean`)**: Quão simétricas são as células.  
+- **Dimensão Fractal (`fractal_dimension_mean`)**: Complexidade da borda das células.  
+
+### 2. Medidas de Dispersão (Erro Padrão)  
+- Para cada medida básica, foi calculado o **erro padrão** (ex: `radius_se`, `texture_se`).  
+- Isso mostra **quão variáveis** são as medidas entre as células de um mesmo tumor.  
+
+### 3. Valores Extremos ("Worst")  
+- Representam os **piores casos** observados em cada paciente.  
+- Exemplo: `radius_worst` (maior raio encontrado), `concavity_worst` (concavidade mais acentuada).  
+- Esses atributos ajudam a identificar tumores mais agressivos.  
 
 > **Links Úteis**:
 > - [Google Scholar](https://scholar.google.com/)

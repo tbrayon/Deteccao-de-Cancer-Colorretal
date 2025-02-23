@@ -159,25 +159,8 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 <b>(e) Resultados Obtidos:</b> Ao analisar os resultados obtidos pelos algoritmos de Machine Learning aplicados, foi possível concluir que o SVM (Máquina de Vetores de Suporte) obteve um resultado superior quando trabalhado com previsores escalonados (características ajustadas para ficarem na mesma escala), tendo a maior taxa de assertividade de todos os testes realizados, de 97,88%. Já com os previsores comuns, o melhor resultado é do apresentado pelo algoritmo Naive Bayes, que obteve um resultado superior, de 93,82% de assertividade. Portanto, ao analisar os resultados obtidos, o mais recomendado para se utilizar seria o algoritmo SVM com os previsores escalonados.</p>
 
 <p align="justify"><b>(f) Atributos:</b> Os atributos são as “características” que os algoritmos usaram para prever se um tumor de mama é benigno (não canceroso) ou maligno (canceroso). Eles foram extraídos do dataset e podem ser divididos em três grupos principais:</p>
-<li>1-Medidas Básicas das Células (Figura 1).</li>
-<p><li>Raio Médio (radius_mean): Tamanho médio das células.</li></p>
-    • Textura Média (texture_mean): Como a superfície das células parece nas imagens.
-    • Perímetro Médio (perimeter_mean): Tamanho da borda das células.
-    • Área Média (area_mean): Espaço que as células ocupam.
-    • Suavidade (smoothness_mean): Quão uniformes são as células.
-    • Compacidade (compactness_mean): Relação entre o perímetro e a área (mede a "forma compacta").
-    • Concavidade (concavity_mean): Profundidade das partes "afundadas" nas células.
-    • Simetria (symmetry_mean): Quão simétricas são as células.
-    • Dimensão Fractal (fractal_dimension_mean): Complexidade da borda das células.
-2- Medidas de Dispersão (Erro Padrão)
-    • Para cada medida básica, foi calculado o erro padrão (ex: radius_se, texture_se).
-    • Isso mostra quão variáveis são as medidas entre as células de um mesmo tumor.
-3 - Valores Extremos ("Worst")
-    • Representam os piores casos observados em cada paciente.
-    • Exemplo: radius_worst (maior raio encontrado), concavity_worst (concavidade mais acentuada).
-    • Esses atributos ajudam a identificar tumores mais agressivos.
 
-### 1. Medidas Básicas das Células (Figura 1)  
+#### 1. Medidas Básicas das Células (Figura 1)  
 - **Raio Médio (`radius_mean`)**: Tamanho médio das células.  
 - **Textura Média (`texture_mean`)**: Como a superfície das células parece nas imagens.  
 - **Perímetro Médio (`perimeter_mean`)**: Tamanho da borda das células.  
@@ -188,11 +171,11 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 - **Simetria (`symmetry_mean`)**: Quão simétricas são as células.  
 - **Dimensão Fractal (`fractal_dimension_mean`)**: Complexidade da borda das células.  
 
-### 2. Medidas de Dispersão (Erro Padrão)  
+#### 2. Medidas de Dispersão (Erro Padrão)  
 - Para cada medida básica, foi calculado o **erro padrão** (ex: `radius_se`, `texture_se`).  
 - Isso mostra **quão variáveis** são as medidas entre as células de um mesmo tumor.  
 
-### 3. Valores Extremos ("Worst")  
+#### 3. Valores Extremos ("Worst")  
 - Representam os **piores casos** observados em cada paciente.  
 - Exemplo: `radius_worst` (maior raio encontrado), `concavity_worst` (concavidade mais acentuada).  
 - Esses atributos ajudam a identificar tumores mais agressivos.  

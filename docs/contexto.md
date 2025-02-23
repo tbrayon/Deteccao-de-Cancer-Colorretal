@@ -66,11 +66,11 @@ O câncer colorretal (CCR) configura-se como um grave problema de saúde públic
   .justificado {
     text-align: justify;
   }
-
+</style>
 
 <p class="justificado">
 O Instituto Nacional de Câncer (<a href="https://www.gov.br/inca/pt-br/assuntos/noticias/2023/inca-preve-aumento-da-mortalidade-prematura-por-cancer-de-intestino-ate-2030">INCA</a>) há uma projeção de aumento na mortalidade prematura por câncer de intestino até o ano de 2030. Esta tendência alarmante sublinha a urgência da implementação de medidas preventivas e de diagnóstico precoce. Segundo o Instituto Nacional de Câncer (<a href="https://www.gov.br/inca/pt-br/assuntos/noticias/2023/inca-preve-aumento-da-mortalidade-prematura-por-cancer-de-intestino-ate-2030">INCA, 2023</a>), "a probabilidade de óbito prematuro por câncer de intestino entre indivíduos de 30 a 69 anos pode apresentar um incremento de 10% até 2030". Adicionalmente, informações provenientes dos Registros Hospitalares de Câncer (RHC) indicam que, no período de 2015 a 2019, aproximadamente 65% dos casos de câncer de intestino foram diagnosticados em estágios avançados, abrangendo todas as faixas etárias. Estes dados reforçam a necessidade de intervenções eficazes e podem ser consultados em: <a href="https://www.gov.br/inca/pt-br/assuntos/noticias/2023/inca-preve-aumento-da-mortalidade-prematura-por-cancer-de-intestino-ate-2030">INCA</a>.
-</p></style>
+</p>
 
 <p align="justify">
 A Organização Pan-Americana da Saúde (OPAS/OMS) destaca a relevância do câncer como uma das principais causas de óbito nas Américas, enfatizando a necessidade de estratégias abrangentes de prevenção e controle.</p>

@@ -227,17 +227,27 @@ Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvo
 > **Links Úteis**:
 > - [Padrão ABNT PUC Minas](https://portal.pucminas.br/biblioteca/index_padrao.php?pagina=5886)
 >
-CARDOSO, Lucas Buk; PARRO, Vanderlei Cunha; PERES, Stela Verzinhasse; CURADO, Maria Paula; FERNANDES, Gisele Aparecida; WÜNSCH FILHO, Victor; TOPORCOV, Tatiana Natasha. Aprendizado de máquina para prever a sobrevivência de pacientes com câncer colorretal. Scientific Reports, v. 13, art. 8874, 2023. Disponível em: https://www.nature.com/articles/s41598-023-35649-9. Acesso em: 22 fev. 2025.
+<p align="justify">
+CARDOSO, Lucas Buk; PARRO, Vanderlei Cunha; PERES, Stela Verzinhasse; CURADO, Maria Paula; FERNANDES, Gisele Aparecida; WÜNSCH FILHO, Victor; TOPORCOV, Tatiana Natasha. Aprendizado de máquina para prever a sobrevivência de pacientes com câncer colorretal. Scientific Reports, v. 13, art. 8874, 2023. Disponível em: https://www.nature.com/articles/s41598-023-35649-9. Acesso em: 22 fev. 2025.</p>
 
-INSTITUTO NACIONAL DE CÂNCER. INCA prevê aumento da mortalidade prematura por câncer de intestino até 2030. 27 jan. 2023. Disponível em: https://www.inca.gov.br/noticias/inca-preve-aumento-da-mortalidade-prematura-por-cancer-de-intestino-ate-2030. Acesso em: 22 fev. 2025.
+<p align="justify">
+INSTITUTO NACIONAL DE CÂNCER. INCA prevê aumento da mortalidade prematura por câncer de intestino até 2030. 27 jan. 2023. Disponível em: https://www.inca.gov.br/noticias/inca-preve-aumento-da-mortalidade-prematura-por-cancer-de-intestino-ate-2030. Acesso em: 22 fev. 2025.</p>
 
-LUDERMIR, Teresa Bernarda. Inteligência Artificial. Estudos Avançados, v. 35, n. 101, p. 273-289, jan./abr. 2021. Disponível em: https://www.scielo.br/j/ea/a/wXBdv8yHBV9xHz8qG5RCgZd/?lang=pt. Acesso em: 22 fev. 2025. DOI: 10.1590/s0103-4014.2021.35101.007.
+<p align="justify">
+KASSIM, Z.; ZAKI, W. M. D. W.; AWANG, S. R. Cervical cancer risk factors classification using machine learning. In: INTERNATIONAL CONFERENCE ON ARTIFICIAL INTELLIGENCE IN COMPUTER SCIENCE AND ARTIFICIAL INTELLIGENCE (AICSAI), 2021, Langkawi, Malaysia. Proceedings of the International Conference on Artificial Intelligence in Computer Science and Artificial Intelligence (AICSAI). New York: ACM, 2021. p. 1–5. Disponível em: https://dl.acm.org/doi/10.1145/3468891.3468894. Acesso em: 18 fev. 2025.</p>
 
-MULHO, João Augusto Druizian; DUARTE, Maurício. Avaliação de dois Algoritmos de Machine Learning na Previsão do Câncer de Mama. Revista Eletrônica e-Fatec, v. 13, n. 1, 2023. Publicado em: 01 jun. 2023.  Disponível em: https://www.pesquisafatec.com.br/ojs/index.php/efatec/article/view/266. Acesso em: 22 fev. 2025.
+<p align="justify">
+LUDERMIR, Teresa Bernarda. Inteligência Artificial. Estudos Avançados, v. 35, n. 101, p. 273-289, jan./abr. 2021. Disponível em: https://www.scielo.br/j/ea/a/wXBdv8yHBV9xHz8qG5RCgZd/?lang=pt. Acesso em: 22 fev. 2025. DOI: 10.1590/s0103-4014.2021.35101.007.</p>
 
-ORGANIZAÇÃO PAN-AMERICANA DA SAÚDE (OPAS). Tópicos de Saúde: Câncer. Disponível em: https://www.paho.org/pt/topicos/cancer. Acesso em: 23 fev. 2025.
+<p align="justify">
+MULHO, João Augusto Druizian; DUARTE, Maurício. Avaliação de dois Algoritmos de Machine Learning na Previsão do Câncer de Mama. Revista Eletrônica e-Fatec, v. 13, n. 1, 2023. Publicado em: 01 jun. 2023.  Disponível em: https://www.pesquisafatec.com.br/ojs/index.php/efatec/article/view/266. Acesso em: 22 fev. 2025.</p>
 
-PAIXÃO, G. M. M. et al. Machine Learning na Medicina: Revisão e Aplicabilidade. Arquivos Brasileiros de Cardiologia, v. 118, n. 1, jan. 2022. Disponível em: https://doi.org/10.36660/abc.20200596. Acesso em: 22 fev. 2025.
+<p align="justify">
+ORGANIZAÇÃO PAN-AMERICANA DA SAÚDE (OPAS). Tópicos de Saúde: Câncer. Disponível em: https://www.paho.org/pt/topicos/cancer. Acesso em: 23 fev. 2025.</p>
 
-SANTOS, Jeferson Antônio; NASCIMENTO FILHO, Antonio Carlos Maniglia; HISSAYASSU, Gabriela Yaeko; PIASSA, João Pedro Monteiro; SILVA, Pedro Henrique de Souza Sandim. Câncer colorretal – uma revisão abrangente sobre a epidemiologia, fatores de risco, fisiopatologia, diagnóstico e tratamento. Brazilian Journal of Health Review, Curitiba, v. 7, n. 2, p. 01-12, mar./abr. 2024. Disponível em: https://ojs.brazilianjournals.com.br/ojs/index.php/BJHR/article/view/68695/48709. Acesso em: 23 fev. 2025.
+<p align="justify">
+PAIXÃO, G. M. M. et al. Machine Learning na Medicina: Revisão e Aplicabilidade. Arquivos Brasileiros de Cardiologia, v. 118, n. 1, jan. 2022. Disponível em: https://doi.org/10.36660/abc.20200596. Acesso em: 22 fev. 2025.</p>
+
+<p align="justify">
+SANTOS, Jeferson Antônio; NASCIMENTO FILHO, Antonio Carlos Maniglia; HISSAYASSU, Gabriela Yaeko; PIASSA, João Pedro Monteiro; SILVA, Pedro Henrique de Souza Sandim. Câncer colorretal – uma revisão abrangente sobre a epidemiologia, fatores de risco, fisiopatologia, diagnóstico e tratamento. Brazilian Journal of Health Review, Curitiba, v. 7, n. 2, p. 01-12, mar./abr. 2024. Disponível em: https://ojs.brazilianjournals.com.br/ojs/index.php/BJHR/article/view/68695/48709. Acesso em: 23 fev. 2025.</p>
 

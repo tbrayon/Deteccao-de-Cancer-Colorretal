@@ -63,7 +63,7 @@ O presente projeto tem como objetivo a análise de dados relacionados ao câncer
 O câncer colorretal (CCR) configura-se como um grave problema de saúde pública, tanto no Brasil quanto em escala global. Dados provenientes do Ministério da Saúde e da Organização Mundial da Saúde (OMS) revelam um aumento progressivo na incidência e mortalidade associadas ao CCR, consolidando-o como uma das neoplasias mais prevalentes e letais. A detecção precoce assume um papel crucial no sucesso do tratamento e na elevação das taxas de sobrevida dos pacientes. Contudo, o diagnóstico em estágios iniciais representa um desafio significativo, em grande parte devido à natureza assintomática da doença em suas fases iniciais e à baixa adesão aos programas de rastreamento.</p>
 
 <p align="justify">
-O Instituto Nacional de Câncer (INCA) há uma projeção de aumento na mortalidade prematura por câncer de intestino até o ano de 2030. Esta tendência alarmante sublinha a urgência da implementação de medidas preventivas e de diagnóstico precoce. Segundo o Instituto Nacional de Câncer (INCA, 2023), "a probabilidade de óbito prematuro por câncer de intestino entre indivíduos de 30 a 69 anos pode apresentar um incremento de 10% até 2030". Adicionalmente, informações provenientes dos Registros Hospitalares de Câncer (RHC) indicam que, no período de 2015 a 2019, aproximadamente 65% dos casos de câncer de intestino foram diagnosticados em estágios avançados, abrangendo todas as faixas etárias.[INCA](https://www.gov.br/inca/pt-br/assuntos/noticias/2023/inca-preve-aumento-da-mortalidade-prematura-por-cancer-de-intestino-ate-2030).</p>
+O Instituto Nacional de Câncer (INCA) há uma projeção de aumento na mortalidade prematura por câncer de intestino até o ano de 2030. Esta tendência alarmante sublinha a urgência da implementação de medidas preventivas e de diagnóstico precoce. Segundo o Instituto Nacional de Câncer (INCA, 2023), "a probabilidade de óbito prematuro por câncer de intestino entre indivíduos de 30 a 69 anos pode apresentar um incremento de 10% até 2030". Adicionalmente, informações provenientes dos Registros Hospitalares de Câncer (RHC) indicam que, no período de 2015 a 2019, aproximadamente 65% dos casos de câncer de intestino foram diagnosticados em estágios avançados, abrangendo todas as faixas etárias. [INCA](https://www.gov.br/inca/pt-br/assuntos/noticias/2023/inca-preve-aumento-da-mortalidade-prematura-por-cancer-de-intestino-ate-2030).</p>
 
 <p align="justify">
 A Organização Pan-Americana da Saúde (OPAS/OMS) destaca a relevância do câncer como uma das principais causas de óbito nas Américas, enfatizando a necessidade de estratégias abrangentes de prevenção e controle.</p>
@@ -161,7 +161,7 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 
 <p align="justify"><b>(f) Atributos:</b> Os atributos são as “características” que os algoritmos usaram para prever se um tumor de mama é benigno (não canceroso) ou maligno (canceroso). Eles foram extraídos do dataset e podem ser divididos em três grupos principais:</p>
 <li>1-Medidas Básicas das Células (Figura 1).</li>
-<li>Raio Médio (radius_mean): Tamanho médio das células.</li>
+<p><li>Raio Médio (radius_mean): Tamanho médio das células.</li></p>
     • Textura Média (texture_mean): Como a superfície das células parece nas imagens.
     • Perímetro Médio (perimeter_mean): Tamanho da borda das células.
     • Área Média (area_mean): Espaço que as células ocupam.

@@ -207,7 +207,168 @@ Esses resultados sugerem que, embora modelos mais simples possam ser preferívei
 
 # Descrição do _dataset_ selecionado
 
-Nesta seção, você deverá descrever detalhadamente o _dataset_ selecionado. Lembre-se de informar o link de acesso a ele, bem como, de descrever cada um dos seus atributos (a que se refere, tipo do atributo etc.), se existem atributos faltantes etc.
+## **_Dataset_: Colorectal Cancer Risk & Survival Data**
+
+Link de acesso: [Colorectal Cancer Risk & Survival Data](https://www.kaggle.com/datasets/ankushpanday1/colorectal-cancer-risk-and-survival-data)
+<p align="justify">O *dataset* selecionado possui **89.945** entradas com **30** atributos de dados de pacientes de câncer colorretal de diferentes partes e realidades ao redor do mundo. O intuito do dataset é colaborar com pesquisadores e profissionais da saúde a entender quem está sob maior risco, utilizando dados como idade, gênero, raça, histórico médico dentre outros. O dataset também conta com informações como acesso ao tratamento e quais fatores contribuem para um taxa de sucesso maior no tratamento dos pacientes.</p>
+ 	Abaixo, segue o descritivo dos atributos do *dataset*, subdivididos por categoria:
+
+### **Informações Demográficas**
+
+* **Patient\_ID**  
+  * **Descrição:** Identificador único de cada paciente.  
+  * **Tipo:** Número inteiro (chave primária).  
+* **Age (Idade)**  
+  * **Descrição:** Idade do paciente em anos.  
+  * **Tipo:** Número inteiro.  
+* **Gender (Gênero)**  
+  * **Descrição:** Gênero do paciente.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**
+    * `Male` (Masculino)
+    * `Female` (Feminino)
+* **Race (Raça)**  
+  * **Descrição:** Raça/etnia do paciente.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**
+    * `Asian` (Asiático)
+    * `Black` (Negro)
+    * `Hispanic` (Hispânico)
+    * `White` (Branco)
+    * `Other` (Outro)
+* **Region (Região)**  
+  * **Descrição:** Região geográfica do paciente.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**
+    * `Europe` (Europa)
+    * `North America` (América do Norte)
+    * `Asia Pacific` (Asia Pacífica)
+    * `Latin America` (América Latina)
+    * `Africa` (África)
+* **Urban\_or\_Rural (Zona de Residência)**  
+  * **Descrição:** Zona de residência do paciente (urbano ou rural).  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**
+    * `Urban` (Urbano)
+    * `Rural` (Rural)
+* **Socioeconomic\_Status (Status Socioeconômico)**  
+  * **Descrição:** Status socioeconômico do paciente.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**  
+    * `Low` (Renda baixa)
+    * `Middle` (Renda média)
+    * `High` (Renda alta)
+* **Family\_History (Histórico Familiar)**  
+  * **Descrição:** Indica se há histórico de câncer na família do paciente.  
+  * **Tipo:** Booleano (`Sim` / `Não`).  
+* **Previous\_Cancer\_History (Histórico de Câncer Prévio)**  
+  * **Descrição:** Indica se o paciente já teve câncer anteriormente.  
+  * **Tipo:** Booleano (`Sim` / `Não`).
+
+---
+
+### **Diagnóstico e Características do Câncer**
+
+* **Stage\_at\_Diagnosis (Estágio no Diagnóstico)**  
+  * **Descrição:** Estágio do câncer no momento do diagnóstico.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**  
+    * `I` (Tumor localizado, sem disseminação)
+    * `II` (Tumor invadiu tecidos próximos)
+    * `III` (Tumor com envolvimento significativo dos linfonodos)
+    * `IV` (Câncer metastático (espalhado para órgãos distantes)
+* **Tumor\_Aggressiveness (Agressividade do Tumor)**  
+  * **Descrição:** Nível de agressividade do tumor.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**  
+    * `Low` (Baixa)
+    * `Medium` (Média)
+    * `High` (Alta)
+
+---
+
+### **Triagem e Estilo de Vida**
+
+* **Colonoscopy\_Access (Acesso à Colonoscopia)**  
+  * **Descrição:** Paciente teve acesso à colonoscopia para rastreamento.  
+  * **Tipo:** Booleano (`Sim` / `Não`).  
+* **Screening\_Regularity (Regularidade dos Exames)**  
+  * **Descrição:** Frequência com que o paciente faz exames preventivos.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**  
+    * `Never` (Nunca realizou exames)
+    * `Irregular` (Exames esporádicos) 
+    * `Regular` (Exames regulares)
+* **Diet\_Type (Tipo de Dieta)**  
+  * **Descrição:** Tipo de dieta predominante do paciente.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**  
+    * `Balanced` (Dieta saudável e equilibrada) 
+    * `Traditional` (Dieta comum, mas não excessivamente restritiva)
+    * `Western` (Dieta rica em gordura, açúcar e processados)
+* **BMI (Índice de Massa Corporal \- IMC)**  
+  * **Descrição:** Índice de Massa Corporal (IMC) do paciente.  
+  * **Tipo:** Número decimal.  
+* **Physical\_Activity\_Level (Nível de Atividade Física)**  
+  * **Descrição:** Nível de atividade física do paciente.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**   
+    * `Low` (Baixa)
+    * `Medium` (Média)
+    * `High` (Alta)
+* **Smoking\_Status (Tabagismo)**  
+  * **Descrição:** Histórico de tabagismo do paciente.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**   
+    * `Never` (Nunca)
+    * `Former` (Já foi fumante) 
+    * `Current` (É fumante)
+
+---
+
+### **Diagnóstico e Tratamento**
+
+* **Time\_to\_Diagnosis (Tempo até o Diagnóstico)**  
+  * **Descrição:** Tempo decorrido entre os primeiros sintomas e o diagnóstico.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**
+    * `Delayed` (Tardio)
+    * `Timely` (Precoce)
+* **Treatment\_Access (Acesso ao Tratamento)**  
+  * **Descrição:** Nível de acesso ao tratamento.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**   
+    * `Good` (Adequado)
+    * `Limited` (Limitado) 
+* **Chemotherapy\_Received (Quimioterapia)**  
+  * **Descrição:** O paciente realizou quimioterapia?  
+  * **Tipo:** Booleano (`Sim` / `Não`)  
+* **Radiotherapy\_Received (Radioterapia)**  
+  * **Descrição:** O paciente realizou radioterapia?  
+  * **Tipo:** Booleano (`Sim` / `Não`).
+
+---
+
+### **Acompanhamento e Sobrevivência**
+
+* **Follow\_Up\_Adherence (Acompanhamento Pós-Tratamento)**  
+  * **Descrição:** Grau de acompanhamento do paciente após o tratamento.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**   
+    * `Good` (Bom)   
+    * `Poor` (Ruim)
+* **Survival\_Status (Status de Sobrevivência)**  
+  * **Descrição:** Sobrevivência do paciente.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**   
+    * `Survived` (Sobreviveu)   
+    * `Deceased` (Faleceu)
+* **Recurrence (Recorrência do Câncer)**  
+  * **Descrição:** O câncer reapareceu após o tratamento?  
+  * **Tipo:** Booleano (`Sim` / `Não`).  
+* **Time\_to\_Recurrence (Tempo até a Recorrência)**  
+  * **Descrição:** Tempo decorrido até a recorrência do câncer (em meses).  
+  * **Tipo:** Número inteiro.
 
 # Canvas analítico
 
@@ -251,3 +412,5 @@ PAIXÃO, G. M. M. et al. Machine Learning na Medicina: Revisão e Aplicabilidade
 <p align="justify">
 SANTOS, Jeferson Antônio; NASCIMENTO FILHO, Antonio Carlos Maniglia; HISSAYASSU, Gabriela Yaeko; PIASSA, João Pedro Monteiro; SILVA, Pedro Henrique de Souza Sandim. Câncer colorretal – uma revisão abrangente sobre a epidemiologia, fatores de risco, fisiopatologia, diagnóstico e tratamento. Brazilian Journal of Health Review, Curitiba, v. 7, n. 2, p. 01-12, mar./abr. 2024. Disponível em: https://ojs.brazilianjournals.com.br/ojs/index.php/BJHR/article/view/68695/48709. Acesso em: 23 fev. 2025.</p>
 
+<p align="justify"> Li H, Lin J, Xiao Y, et al. Colorectal Cancer Detected by Machine Learning Models Using Conventional Laboratory Test Data. Technology in Cancer Research & Treatment. 2021;20. doi:10.1177/15330338211058352
+</p>

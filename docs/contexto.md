@@ -62,7 +62,8 @@ O presente projeto tem como objetivo a análise de dados relacionados ao câncer
 <p align="justify">
 O câncer colorretal (CCR) configura-se como um grave problema de saúde pública, tanto no Brasil quanto em escala global. Dados provenientes do Ministério da Saúde e da Organização Mundial da Saúde (OMS) revelam um aumento progressivo na incidência e mortalidade associadas ao CCR, consolidando-o como uma das neoplasias mais prevalentes e letais. A detecção precoce assume um papel crucial no sucesso do tratamento e na elevação das taxas de sobrevida dos pacientes. Contudo, o diagnóstico em estágios iniciais representa um desafio significativo, em grande parte devido à natureza assintomática da doença em suas fases iniciais e à baixa adesão aos programas de rastreamento.</p>
 
-O Instituto Nacional de Câncer (INCA) há uma projeção de aumento na mortalidade prematura por câncer de intestino até o ano de 2030. Esta tendência alarmante sublinha a urgência da implementação de medidas preventivas e de diagnóstico precoce. Segundo o Instituto Nacional de Câncer (INCA, 2023), "a probabilidade de óbito prematuro por câncer de intestino entre indivíduos de 30 a 69 anos pode apresentar um incremento de 10% até 2030". Adicionalmente, informações provenientes dos Registros Hospitalares de Câncer (RHC) indicam que, no período de 2015 a 2019, aproximadamente 65% dos casos de câncer de intestino foram diagnosticados em estágios avançados, abrangendo todas as faixas etárias. [INCA](https://www.gov.br/inca/pt-br/assuntos/noticias/2023/inca-preve-aumento-da-mortalidade-prematura-por-cancer-de-intestino-ate-2030).
+<p align="justify">
+O Instituto Nacional de Câncer (INCA) há uma projeção de aumento na mortalidade prematura por câncer de intestino até o ano de 2030. Esta tendência alarmante sublinha a urgência da implementação de medidas preventivas e de diagnóstico precoce. Segundo o Instituto Nacional de Câncer (INCA, 2023), "a probabilidade de óbito prematuro por câncer de intestino entre indivíduos de 30 a 69 anos pode apresentar um incremento de 10% até 2030". Adicionalmente, informações provenientes dos Registros Hospitalares de Câncer (RHC) indicam que, no período de 2015 a 2019, aproximadamente 65% dos casos de câncer de intestino foram diagnosticados em estágios avançados, abrangendo todas as faixas etárias.</p>
 
 <p align="justify">
 A Organização Pan-Americana da Saúde (OPAS/OMS) destaca a relevância do câncer como uma das principais causas de óbito nas Américas, enfatizando a necessidade de estratégias abrangentes de prevenção e controle.</p>
@@ -71,7 +72,7 @@ A Organização Pan-Americana da Saúde (OPAS/OMS) destaca a relevância do cân
 No que concerne à distribuição por sexo, os tipos de câncer mais frequentemente diagnosticados em homens são: próstata (21,8%), pulmão (8,6%), colorretal (7,7%) e bexiga (4,5%). Em mulheres, os tipos mais comuns são: mama (26,1%), pulmão (8,5%), colorretal (7,9%) e útero (5,4%).</p>
 
 <p align="justify">
-No tocante à mortalidade, os cânceres que mais contribuem para o óbito em homens são: pulmão (17,5%), próstata (13,3%), colorretal (9,6%) e pâncreas (6,4%). Em mulheres, as principais causas de morte por câncer são: mama (15,7%), pulmão (16,5%), colorretal (9,6%) e pâncreas (6,6%). [OPAS](https://www.paho.org/pt/topicos/cancer.))</p>
+No tocante à mortalidade, os cânceres que mais contribuem para o óbito em homens são: pulmão (17,5%), próstata (13,3%), colorretal (9,6%) e pâncreas (6,4%). Em mulheres, as principais causas de morte por câncer são: mama (15,7%), pulmão (16,5%), colorretal (9,6%) e pâncreas (6,6%).(OPAS)</p>
 
 <p align="justify">
 Dessa forma, a relevância do estudo se justifica pelo impacto significativo do câncer colorretal na sociedade, tanto em termos de custos para o sistema de saúde quanto no bem-estar dos pacientes e suas famílias. A aplicação de modelos de aprendizado de máquina pode contribuir para a detecção precoce junto aos médicos da atenção primária, a personalização do tratamento e a melhoria do prognóstico dos indivíduos acometidos pela doença.</p>
@@ -215,6 +216,8 @@ INSTITUTO NACIONAL DE CÂNCER. INCA prevê aumento da mortalidade prematura por 
 LUDERMIR, Teresa Bernarda. Inteligência Artificial. Estudos Avançados, v. 35, n. 101, p. 273-289, jan./abr. 2021. Disponível em: https://www.scielo.br/j/ea/a/wXBdv8yHBV9xHz8qG5RCgZd/?lang=pt. Acesso em: 22 fev. 2025. DOI: 10.1590/s0103-4014.2021.35101.007.
 
 MULHO, João Augusto Druizian; DUARTE, Maurício. Avaliação de dois Algoritmos de Machine Learning na Previsão do Câncer de Mama. Revista Eletrônica e-Fatec, v. 13, n. 1, 2023. Publicado em: 01 jun. 2023.
+
+ORGANIZAÇÃO PAN-AMERICANA DA SAÚDE (OPAS). Tópicos de Saúde: Câncer. Disponível em: https://www.paho.org/pt/topicos/cancer. Acesso em: 23/02/2025.
 
 PAIXÃO, G. M. M. et al. Machine Learning na Medicina: Revisão e Aplicabilidade. Arquivos Brasileiros de Cardiologia, v. 118, n. 1, jan. 2022. Disponível em: https://doi.org/10.36660/abc.20200596. Acesso em: 22 fev. 2025.
 

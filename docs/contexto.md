@@ -9,22 +9,9 @@ Diante disso, este trabalho tem como objetivo reunir e organizar informações e
 A criação desse modelo pode contribuir significativamente para a área da saúde, oferecendo uma ferramenta adicional para médicos e pesquisadores. Dessa forma, espera-se que este trabalho auxilie na detecção precoce da doença e, consequentemente, aumente as chances de tratamento bem-sucedido para os pacientes.</p>
 
 ## Problema
-
-"Nesta seção, você deve apresentar o problema que a sua investigação/experimentação busca resolver. Por exemplo, caso o _dataset_ selecionado, seja um _dataset_ que contenha uma série temporal com o preço de diversas ações da bolsa de valores, o problema pode estar relacionado a dificuldade em saber a melhor hora (hora certa??) de comprar ou então, de executar a venda de uma determinada ação.
-
-Descreva ainda o contexto em que essa aplicação será usada, se houver: empresa parceira, tecnologias etc. Novamente, descreva apenas o que de fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos."
-
-
-
-
+<p align="justify">
 O câncer colorretal é uma das principais causas de morte no mundo e sua incidência tem aumentado significativamente, especialmente em regiões urbanizadas e em populações com acesso desigual aos serviços de saúde. Identificar fatores de risco, padrões de tratamento e desfechos da doença é essencial para desenvolver estratégias preventivas e melhorar o prognóstico dos pacientes.
-O impacto desse problema na sociedade é expressivo, pois envolve custos elevados com tratamento, perda de produtividade, além dos desafios emocionais e psicológicos para os pacientes e suas famílias. A identificação precoce e o tratamento adequado podem melhorar significativamente a taxa de sobrevivência, tornando-se um objetivo fundamental para pesquisadores e profissionais de saúde.
-
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+O impacto desse problema na sociedade é expressivo, pois envolve custos elevados com tratamento, perda de produtividade, além dos desafios emocionais e psicológicos para os pacientes e suas famílias. A identificação precoce e o tratamento adequado podem melhorar significativamente a taxa de sobrevivência, tornando-se um objetivo fundamental para pesquisadores e profissionais de saúde.</p>
 
 ## Questão de pesquisa
 
@@ -35,30 +22,10 @@ A questão de pesquisa é a base de todo o trabalho que será desenvolvido. É e
 > - [Problema de pesquisa](https://blog.even3.com.br/problema-de-pesquisa/)
 
 ## Objetivos preliminares
-
-"Aqui você deve descrever os objetivos preliminares do trabalho indicando que o objetivo geral é experimentar modelos de aprendizado de máquina adequados para solucionar o problema apresentado acima. 
-
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
-
-Por exemplo: um objetivo específico pode estar relacionado a predizer a tendência de alta, estabilidade ou queda de uma determinada ação em uma determinada janela do tempo ou então, predizer o valor exato de uma determinada ação.
-Lembre-se que, à medida que a pesquisa/experimentação evolui, os objetivos podem evoluir também, portanto, não se esqueça de fazer as atualizações necessárias.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)"
-
-
-
-
-
-O presente projeto tem como objetivo a análise de dados relacionados ao câncer colorretal utilizando técnicas de aprendizado de máquina. Considerando a alta incidência e mortalidade dessa doença, torna-se fundamental investigar fatores de risco, padrões de tratamento e desfechos clínicos para auxiliar na tomada de decisão e aprimorar estratégias de prevenção e intervenção.
+<p align="justify">
+O presente projeto tem como objetivo a análise de dados relacionados ao câncer colorretal utilizando técnicas de aprendizado de máquina. Considerando a alta incidência e mortalidade dessa doença, torna-se fundamental investigar fatores de risco, padrões de tratamento e desfechos clínicos para auxiliar na tomada de decisão e aprimorar estratégias de prevenção e intervenção.</p>
 
 ## Justificativa
-
-"Descreva a importância ou a motivação para trabalhar com o conjunto de dados escolhido. Indique as razões pelas quais você escolheu seus objetivos específicos, as razões para aprofundar o estudo do problema identificado e qual o impacto que tal problema provoca na sociedade. Lembre-se de quantificar (com dados reais e suas respectivas fontes) este impacto.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)"
-
 <p align="justify">
 O câncer colorretal (CCR) configura-se como um grave problema de saúde pública, tanto no Brasil quanto em escala global. Dados provenientes do Ministério da Saúde e da Organização Mundial da Saúde (OMS) revelam um aumento progressivo na incidência e mortalidade associadas ao CCR, consolidando-o como uma das neoplasias mais prevalentes e letais. A detecção precoce assume um papel crucial no sucesso do tratamento e na elevação das taxas de sobrevida dos pacientes. Contudo, o diagnóstico em estágios iniciais representa um desafio significativo, em grande parte devido à natureza assintomática da doença em suas fases iniciais e à baixa adesão aos programas de rastreamento.</p>
 
@@ -78,17 +45,6 @@ No tocante à mortalidade, os cânceres que mais contribuem para o óbito em hom
 Dessa forma, a relevância do estudo se justifica pelo impacto significativo do câncer colorretal na sociedade, tanto em termos de custos para o sistema de saúde quanto no bem-estar dos pacientes e suas famílias. A aplicação de modelos de aprendizado de máquina pode contribuir para a detecção precoce junto aos médicos da atenção primária, a personalização do tratamento e a melhoria do prognóstico dos indivíduos acometidos pela doença.</p>
 
 ## Público-Alvo
-
-"Descreva quem serão as pessoas que poderão se beneficiar com a sua investigação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc.
-
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
-
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)"
-
 <p align="justify">
 O público-alvo deste projeto abrange *profissionais de saúde*, médicos, enfermeiros, pesquisadores e gestores da área médica que buscam ferramentas para otimizar a identificação de fatores prognósticos e desenvolver políticas públicas baseadas em evidências. *Estudantes de graduação e pós graduação* das áreas de saúde, informática e estatística, que poderão se beneficiar do conhecimento e das técnicas utilizadas no projeto para o desenvolvimento de suas pesquisas e atividades acadêmicas. *População em geral*, que poderá se informar sobre os fatores de risco e a importância da detecção precoce do cancer colorretal. Com base em um conjunto de dados abrangente e diversificado, serão exploradas abordagens estatísticas e computacionais para gerar insights valiosos e contribuir para o avanço no combate ao câncer colorretal.</p>
 

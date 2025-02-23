@@ -72,7 +72,7 @@ A Organização Pan-Americana da Saúde (OPAS/OMS) destaca a relevância do cân
 No que concerne à distribuição por sexo, os tipos de câncer mais frequentemente diagnosticados em homens são: próstata (21,8%), pulmão (8,6%), colorretal (7,7%) e bexiga (4,5%). Em mulheres, os tipos mais comuns são: mama (26,1%), pulmão (8,5%), colorretal (7,9%) e útero (5,4%).</p>
 
 <p align="justify">
-No tocante à mortalidade, os cânceres que mais contribuem para o óbito em homens são: pulmão (17,5%), próstata (13,3%), colorretal (9,6%) e pâncreas (6,4%). Em mulheres, as principais causas de morte por câncer são: mama (15,7%), pulmão (16,5%), colorretal (9,6%) e pâncreas (6,6%). Informações adicionais sobre o câncer como um problema de saúde global podem ser encontradas em: https://www.paho.org/pt/topicos/cancer."</p>
+No tocante à mortalidade, os cânceres que mais contribuem para o óbito em homens são: pulmão (17,5%), próstata (13,3%), colorretal (9,6%) e pâncreas (6,4%). Em mulheres, as principais causas de morte por câncer são: mama (15,7%), pulmão (16,5%), colorretal (9,6%) e pâncreas (6,6%). [OPAS](https://www.paho.org/pt/topicos/cancer.))</p>
 
 <p align="justify">
 Dessa forma, a relevância do estudo se justifica pelo impacto significativo do câncer colorretal na sociedade, tanto em termos de custos para o sistema de saúde quanto no bem-estar dos pacientes e suas famílias. A aplicação de modelos de aprendizado de máquina pode contribuir para a detecção precoce junto aos médicos da atenção primária, a personalização do tratamento e a melhoria do prognóstico dos indivíduos acometidos pela doença.</p>
@@ -96,6 +96,8 @@ O público-alvo deste projeto abrange *profissionais de saúde*, médicos, enfer
 ## Estado da arte
 
 Nesta seção, deverão ser descritas outras abordagens identificadas na literatura que foram utilizadas para resolver problemas similares ao problema em questão. Para isso, faça uma pesquisa detalhada e identifique, no mínimo, 5 trabalhos que tenham utilizado dados em contexto similares e então: (a) detalhe e contextualize o problema a ser solucionado no trabalho, (b) descreva as principais características do _dataset_ utilizado, (c) detalhe quais abordagens/algoritmos foram utilizados (e seus parâmetros), (d) identifique as métricas de avaliação empregadas, e (e) fale sobre os resultados obtidos. 
+
+### Aprendizado de máquina para prever a sobrevivência de pacientes com câncer colorretal (Referência [Scientific reports](https://www.nature.com/articles/s41598-023-35649-9))
 
 <p align="justify">Nos últimos anos, a Inteligência Artificial (IA) e o Machine Learning (ML) começaram a ser usados na área da saúde para analisar grandes quantidades de dados médicos. Com essas ferramentas, é possível identificar padrões em exames, históricos de pacientes e fatores genéticos, ajudando os médicos a tomarem decisões mais precisas.</p>
 
@@ -144,7 +146,7 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 <li><p align="justify">Sexo: variável categórica indicando o gênero do paciente (masculino ou feminino).</p></li>
 </ul>
 
-## Avaliação de dois Algoritmos de Machine Learning na Previsão do Câncer de Mama (Referência [FATEC](https://www.pesquisafatec.com.br/ojs/index.php/efatec/article/view/266))
+### Avaliação de dois Algoritmos de Machine Learning na Previsão do Câncer de Mama (Referência [FATEC](https://www.pesquisafatec.com.br/ojs/index.php/efatec/article/view/266))
 
 <p align="justify"><b>(a) Detalhamento e Contextualização do Problema:</b> O câncer de mama continua sendo um grande desafio para a saúde pública, especialmente pelo fato de seu diagnóstico envolver múltiplas etapas – desde exames clínicos até análises de tecidos e imagens detalhadas. Diante dessa complexidade, pesquisadores têm buscado alternativas para agilizar e aprimorar a precisão dos processos. Uma das estratégias que vem ganhando espaço é o uso de sistemas computacionais capazes de aprender com dados históricos, identificando padrões que humanos podem não perceber facilmente. Essas ferramentas, quando bem aplicadas, não só aceleram a análise como também minimizam variações nas interpretações pessoais. No entanto, para que os resultados sejam realmente úteis, dois pontos são fundamentais: selecionar o modelo mais adequado para cada situação e garantir que as informações utilizadas passem por um rigoroso preparo prévio.</p>
 
@@ -158,8 +160,8 @@ Nesta seção, deverão ser descritas outras abordagens identificadas na literat
 <b>(e) Resultados Obtidos:</b> Ao analisar os resultados obtidos pelos algoritmos de Machine Learning aplicados, foi possível concluir que o SVM (Máquina de Vetores de Suporte) obteve um resultado superior quando trabalhado com previsores escalonados (características ajustadas para ficarem na mesma escala), tendo a maior taxa de assertividade de todos os testes realizados, de 97,88%. Já com os previsores comuns, o melhor resultado é do apresentado pelo algoritmo Naive Bayes, que obteve um resultado superior, de 93,82% de assertividade. Portanto, ao analisar os resultados obtidos, o mais recomendado para se utilizar seria o algoritmo SVM com os previsores escalonados.</p>
 
 <p align="justify"><b>(f) Atributos:</b> Os atributos são as “características” que os algoritmos usaram para prever se um tumor de mama é benigno (não canceroso) ou maligno (canceroso). Eles foram extraídos do dataset e podem ser divididos em três grupos principais:</p>
-1-Medidas Básicas das Células (Figura 1).
-Raio Médio (radius_mean): Tamanho médio das células.
+<li>1-Medidas Básicas das Células (Figura 1).</li>
+<li>Raio Médio (radius_mean): Tamanho médio das células.</li>
     • Textura Média (texture_mean): Como a superfície das células parece nas imagens.
     • Perímetro Médio (perimeter_mean): Tamanho da borda das células.
     • Área Média (area_mean): Espaço que as células ocupam.
@@ -210,6 +212,8 @@ CARDOSO, Lucas Buk; PARRO, Vanderlei Cunha; PERES, Stela Verzinhasse; CURADO, Ma
 INSTITUTO NACIONAL DE CÂNCER. INCA prevê aumento da mortalidade prematura por câncer de intestino até 2030. 27 jan. 2023. Disponível em: https://www.inca.gov.br/noticias/inca-preve-aumento-da-mortalidade-prematura-por-cancer-de-intestino-ate-2030. Acesso em: 22 fev. 2025.
 
 LUDERMIR, Teresa Bernarda. Inteligência Artificial. Estudos Avançados, v. 35, n. 101, p. 273-289, jan./abr. 2021. Disponível em: https://www.scielo.br/j/ea/a/wXBdv8yHBV9xHz8qG5RCgZd/?lang=pt. Acesso em: 22 fev. 2025. DOI: 10.1590/s0103-4014.2021.35101.007.
+
+MULHO, João Augusto Druizian; DUARTE, Maurício. Avaliação de dois Algoritmos de Machine Learning na Previsão do Câncer de Mama. Revista Eletrônica e-Fatec, v. 13, n. 1, 2023. Publicado em: 01 jun. 2023.
 
 PAIXÃO, G. M. M. et al. Machine Learning na Medicina: Revisão e Aplicabilidade. Arquivos Brasileiros de Cardiologia, v. 118, n. 1, jan. 2022. Disponível em: https://doi.org/10.36660/abc.20200596. Acesso em: 22 fev. 2025.
 

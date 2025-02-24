@@ -491,10 +491,10 @@ Link de acesso: [Colorectal Cancer Risk & Survival Data](https://www.kaggle.com/
 
 # Canvas analítico
 
-Nesta seção, você deverá estruturar o seu Canvas Analítico. O Canvas Analítico tem o papel de registrar a organização das ideias e apresentar o modelo de negócio. O Canvas Analítico deverá ser preenchido integralmente mesmo que você não tenha "tantas certezas".
+O Canvas Analítico tem a função de estruturar e registrar a organização das ideias, proporcionando uma visão clara e detalhada do modelo de negócio. Através dele, é possível visualizar os principais componentes estratégicos e operacionais, facilitando a análise e a tomada de decisões. Aqui está o canvas:
 
-> **Links Úteis**:
-> - [Modelo do Canvas Analítico](https://github.com/ICEI-PUC-Minas-PMV-SI/PesquisaExperimentacao-Template/blob/main/help/Software-Analtics-Canvas-v1.0.pdf)
+![Canvas_Analitico](https://github.com/user-attachments/assets/f82dbb19-d1dc-46f2-be0c-81ed08f8f0cf)
+
 
 # Vídeo de apresentação da Etapa 01
 
@@ -532,4 +532,8 @@ PAIXÃO, G. M. M. et al. Machine Learning na Medicina: Revisão e Aplicabilidade
 SANTOS, Jeferson Antônio; NASCIMENTO FILHO, Antonio Carlos Maniglia; HISSAYASSU, Gabriela Yaeko; PIASSA, João Pedro Monteiro; SILVA, Pedro Henrique de Souza Sandim. Câncer colorretal – uma revisão abrangente sobre a epidemiologia, fatores de risco, fisiopatologia, diagnóstico e tratamento. Brazilian Journal of Health Review, Curitiba, v. 7, n. 2, p. 01-12, mar./abr. 2024. Disponível em: https://ojs.brazilianjournals.com.br/ojs/index.php/BJHR/article/view/68695/48709. Acesso em: 23 fev. 2025.</p>
 
 <p align="justify"> Li H, Lin J, Xiao Y, et al. Colorectal Cancer Detected by Machine Learning Models Using Conventional Laboratory Test Data. Technology in Cancer Research & Treatment. 2021;20. doi:10.1177/15330338211058352
+</p>
+
+<p align="justify">
+Cai, Y., Chen, X., Chen, J., Liao, J., Han, M., Lin, D., Hong, X., Hu, H., & Hu, J. (2024). *Deep learning-assisted colonoscopy images for prediction of mismatch repair deficiency in colorectal cancer.* Surgical Endoscopy, **39**, 859-867. [https://doi.org/10.1007/s00464-024-11426-1](https://doi.org/10.1007/s00464-024-11426-1).
 </p>

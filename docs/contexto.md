@@ -21,6 +21,11 @@ Ana e Alexandre
 ## Questão de Pesquisa
 
 - Quais fatores presentes no conjunto de dados, do dataset escolhido, estão mais associados ao diagnóstico de câncer colorretal?
+- Quais fatores presentes no conjunto de dados, do dataset escolhido, influenciam na sobrevida dos pacientes associados ao diagnóstico de câncer colorretal?
+- Quais fatores relacionados ao tipo de tratamento, presentes no conjunto de dados, tiveram maior relevância para a sobrevivência dos pacientes com câncer colorretal?
+- Quais fatores presentes no conjunto de dados, do dataset escolhido, influenciam na recorrência do câncer colorretal nos pacientes?
+- Quais fatores relacionados ao estilo de vida, presentes no conjunto de dados, tiveram maior relevância para o desenvolvimento do câncer colorretal?
+- Quais fatores relacionados ao tipo de tratamento, presentes no conjunto de dados, tiveram maior relevância para a sobrevivência dos pacientes com câncer colorretal?
 
 ### Questões Secundárias
 
@@ -31,7 +36,7 @@ Ana e Alexandre
 5. O **nível socioeconômico** (representado pela renda) está relacionado ao risco de desenvolver câncer colorretal?  
 6. Há uma associação entre **alimentação** e a ocorrência da doença?  
 7. O **histórico familiar de câncer** aumenta a probabilidade de desenvolver câncer colorretal?  
-8. Pacientes que já tiveram **outro tipo de câncer** apresentam maior predisposição ao câncer colorretal?  
+8. Pacientes que já tiveram **outro tipo de câncer** apresentam maior predisposição ao câncer colorretal?
 
 > **Links Úteis**:
 > - [Questão de pesquisa](https://www.enago.com.br/academy/how-to-develop-good-research-question-types-examples/)

@@ -17,9 +17,10 @@ O impacto desse problema na sociedade é expressivo, pois envolve custos elevado
 
 A questão de pesquisa é a base de todo o trabalho que será desenvolvido. É ela que motiva a realização da pesquisa e deverá ser adequada ao problema identificado. Ao término de sua pesquisa/experimentação, o objetivo é que seja encontrada a resposta da questão de pesquisa previamente definida.
 
+Ana e Alexandre
 ## Questão de Pesquisa
 
-- **Quais fatores presentes no conjunto de dados estão mais associados ao diagnóstico de câncer colorretal?**
+- Quais fatores presentes no conjunto de dados, do dataset escolhido, estão mais associados ao diagnóstico de câncer colorretal?
 
 ### Questões Secundárias
 

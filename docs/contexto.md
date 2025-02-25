@@ -19,13 +19,13 @@ A questão de pesquisa é a base de todo o trabalho que será desenvolvido. É e
 
 Ana e Alexandre
 ## Questão de Pesquisa
-<p align="justify">
+
 - Quais fatores presentes no conjunto de dados, do dataset escolhido, estão mais associados ao diagnóstico de câncer colorretal?
 - Quais fatores presentes no conjunto de dados, do dataset escolhido, influenciam na sobrevida dos pacientes associados ao diagnóstico de câncer colorretal?
 - Quais fatores relacionados ao tipo de tratamento, presentes no conjunto de dados, tiveram maior relevância para a sobrevivência dos pacientes com câncer colorretal?
 - Quais fatores presentes no conjunto de dados, do dataset escolhido, influenciam na recorrência do câncer colorretal nos pacientes?
 - Quais fatores relacionados ao estilo de vida, presentes no conjunto de dados, tiveram maior relevância para o desenvolvimento do câncer colorretal?
-</p>
+
 ### Questões Secundárias
 
 1. Existe uma relação significativa entre **idade** e a ocorrência do câncer colorretal?  

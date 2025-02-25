@@ -24,10 +24,39 @@ A questão de pesquisa é a base de todo o trabalho que será desenvolvido. É e
 - Quais são os principais fatores que contribuem para o surgimento do câncer colorretal em nível global e como otimizar as estratégias de prevenção e intervenção?
 - Como uma Landing Page interativa pode auxiliar na conscientização e prevenção ao identificar hábitos e estilos de vida comuns entre portadores da doença?
 - A página permitirá que os usuários façam o upload de imagens do cólon para análise comparativa, caso desejem. O envio de imagens de endoscopia poderá contribuir para uma avaliação mais detalhada ?
+
+#### Gina
+-Considerando idade, região, dieta alimentar, estilo de vida, raça, quais os principais fatores que estão relacionados ao estágio do câncer no momento do diagnóstico?
+
+-Considerando idade, região, dieta alimentar, estilo de vida, raça, quais os principais fatores que estão relacionados ao nível de agressividade do tumor?
+
+-Considerando idade, região, dieta alimentar, estilo de vida, raça, quais os principais fatores que estão relacionados ao tempo decorrido entre os primeiros sintomas e o diagnóstico?
+
+-Considerando idade, região, dieta alimentar, estilo de vida, raça e tipo de tratamento quais os principais fatores que estão relacionados à reincidência do câncer após o tratamento?
+
+-Considerando idade, região, dieta alimentar, estilo de vida, raça e tipo de tratamento quais os principais fatores que estão relacionados ao tempo decorrido até a recorrência do câncer (em meses)?
+
   
 ## Objetivos preliminares
+#### Objetivo Geral
 <p align="justify">
-O presente projeto tem como objetivo a análise de dados relacionados ao câncer colorretal utilizando técnicas de aprendizado de máquina. Considerando a alta incidência e mortalidade dessa doença, torna-se fundamental investigar fatores de risco, padrões de tratamento e desfechos clínicos para auxiliar na tomada de decisão e aprimorar estratégias de prevenção e intervenção.</p>
+O presente projeto tem como objetivo geral desenvolver um modelo preditivo baseado em aprendizado de máquina para auxiliar na detecção precoce e na análise de fatores de risco do câncer colorretal. Para isso, será estruturado um conjunto de dados que permita a extração de padrões relevantes, possibilitando a identificação de variáveis que influenciam o diagnóstico, o prognóstico e a recorrência da doença. Com isso, busca-se fornecer uma ferramenta que possa ser utilizada por profissionais da saúde e pesquisadores para aprimorar estratégias de prevenção, diagnóstico e tratamento do câncer colorretal.</p>
+
+#### Objetivos Específicos
+<p align="justify">
+1.	Coletar e organizar dados relevantes: Selecionar e estruturar um conjunto de dados confiável e abrangente sobre pacientes diagnosticados com câncer colorretal, considerando variáveis como idade, região, dieta alimentar, estilo de vida, raça, histórico familiar e tipo de tratamento.</p>
+<p align="justify">
+2.	Analisar fatores de risco: Identificar e quantificar os principais fatores que influenciam o desenvolvimento e a progressão do câncer colorretal, incluindo aspectos genéticos, ambientais e comportamentais.</p>
+<p align="justify">
+3.	Desenvolver um modelo de aprendizado de máquina: Implementar e treinar algoritmos preditivos capazes de analisar grandes volumes de dados e prever padrões associados à incidência, agressividade e reincidência da doença.</p>
+<p align="justify">
+4.	Validar a precisão do modelo: Testar e ajustar o modelo utilizando técnicas estatísticas e métricas de desempenho para garantir sua confiabilidade na predição de casos e na análise de fatores prognósticos.</p>
+<p align="justify">
+5.	Aplicar os resultados para suporte à tomada de decisão: Desenvolver uma abordagem que possa ser utilizada por médicos, pesquisadores e gestores de saúde para otimizar a detecção precoce, personalizar tratamentos e melhorar o prognóstico dos pacientes.</p>
+<p align="justify">
+6.	Divulgar os achados da pesquisa: Publicar os resultados em periódicos científicos e disponibilizar o modelo para a comunidade acadêmica e médica, incentivando a colaboração e o aprimoramento contínuo da ferramenta.</p>
+<p align="justify"> 
+Com a implementação deste projeto, espera-se contribuir significativamente para o avanço da medicina preditiva, auxiliando na redução da mortalidade e dos impactos socioeconômicos associados ao câncer colorretal.</p>
 
 ## Justificativa
 <p align="justify">

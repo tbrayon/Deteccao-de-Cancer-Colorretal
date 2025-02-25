@@ -4,7 +4,7 @@ O câncer colorretal é uma das doenças mais preocupantes na área da saúde, p
 <p align="justify">
 Com o avanço da inteligência artificial, técnicas de aprendizado de máquina começaram a ser aplicadas na análise de dados clínicos. Alguns estudos demonstram que esses algoritmos podem encontrar padrões em grandes volumes de informações, tornando possível prever a progressão da doença e auxiliar médicos na tomada de decisões. Um estudo recente utilizou registros hospitalares de pacientes diagnosticados entre 2000 e 2021 e obteve uma taxa de acerto de aproximadamente 77%, destacando o estadiamento clínico como um dos fatores mais relevantes na análise da sobrevida dos pacientes (CARDOSO et al., 2023).</p>
 <p align="justify">
-Diante disso, este trabalho tem como objetivo reunir e organizar informações extraídas de estudos científicos para a construção de um conjunto de dados voltado à análise do câncer colorretal. A partir desse conjunto, serão examinadas as informações disponíveis para identificar possíveis padrões relacionados à doença, considerando fatores de risco e outras variáveis relevantes. Para isso, será utilizado o dataset "Colorectal Cancer Risk & Survival Data" [Colorectal Cancer Risk & Survival Data](https://www.kaggle.com/datasets/ankushpanday1/colorectal-cancer-risk-and-survival-data), sobre o câncer colorretal, levando em conta a qualidade e a confiabilidade das fontes. Além disso, será avaliada a viabilidade de utilizar bases de dados já existentes ou combinar informações de diferentes estudos, a fim de obter um conjunto de dados mais abrangente para futuras análises.</p>
+Diante disso, este trabalho tem como objetivo reunir e organizar informações extraídas de estudos científicos para a construção de um conjunto de dados voltado à análise do câncer colorretal. A partir desse conjunto, serão examinadas as informações disponíveis para identificar possíveis padrões relacionados à doença, considerando fatores de risco e outras variáveis relevantes. Para isso, será utilizado o dataset "Colorectal Cancer Risk & Survival Data", sobre o câncer colorretal, levando em conta a qualidade e a confiabilidade das fontes. Além disso, será avaliada a viabilidade de utilizar bases de dados já existentes ou combinar informações de diferentes estudos, a fim de obter um conjunto de dados mais abrangente para futuras análises.</p>
 <p align="justify">
 A criação desse modelo pode contribuir significativamente para a área da saúde, oferecendo uma ferramenta adicional para médicos e pesquisadores. Dessa forma, espera-se que este trabalho auxilie na detecção precoce da doença e, consequentemente, aumente as chances de tratamento bem-sucedido para os pacientes.</p>
 
@@ -16,6 +16,21 @@ O impacto desse problema na sociedade é expressivo, pois envolve custos elevado
 ## Questão de pesquisa
 
 A questão de pesquisa é a base de todo o trabalho que será desenvolvido. É ela que motiva a realização da pesquisa e deverá ser adequada ao problema identificado. Ao término de sua pesquisa/experimentação, o objetivo é que seja encontrada a resposta da questão de pesquisa previamente definida.
+
+## Questão de Pesquisa
+
+- **Quais fatores presentes no conjunto de dados estão mais associados ao diagnóstico de câncer colorretal?**
+
+### Questões Secundárias
+
+1. Existe uma relação significativa entre **idade** e a ocorrência do câncer colorretal?  
+2. O **gênero** influencia a probabilidade de diagnóstico da doença?  
+3. Há diferença na incidência do câncer colorretal entre diferentes **raças**?  
+4. Qual a distribuição geográfica da doença? Algumas **regiões** apresentam maior incidência?  
+5. O **nível socioeconômico** (representado pela renda) está relacionado ao risco de desenvolver câncer colorretal?  
+6. Há uma associação entre **alimentação** e a ocorrência da doença?  
+7. O **histórico familiar de câncer** aumenta a probabilidade de desenvolver câncer colorretal?  
+8. Pacientes que já tiveram **outro tipo de câncer** apresentam maior predisposição ao câncer colorretal?  
 
 > **Links Úteis**:
 > - [Questão de pesquisa](https://www.enago.com.br/academy/how-to-develop-good-research-question-types-examples/)

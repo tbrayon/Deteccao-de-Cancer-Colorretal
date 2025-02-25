@@ -443,21 +443,21 @@ Link de acesso: [Colorectal Cancer Risk & Survival Data](https://www.kaggle.com/
     * `Former` (Já foi fumante) 
     * `Current` (É fumante)
 * **Alcohol\_Consumption (Consumo de Álcool)**  
-  * **Descrição:** Status socioeconômico do paciente.  
+  * **Descrição:** Nível de consumo de álcool do paciente.  
   * **Tipo:** Texto.  
   * **Valores possíveis:**  
     * `Low` (Consumo baixo)  
     * `Middle` (Consumo médio)  
     * `High` (Consumo alto) 
 * **Red\_Meat\_Consumption (Consumo de Carne Vermelha)**  
-  * **Descrição:** Status socioeconômico do paciente.  
+  * **Descrição:** Nível de consumo de carne vermelha do paciente.  
   * **Tipo:** Texto.  
   * **Valores possíveis:**  
     * `Low` (Consumo baixo)  
     * `Middle` (Consumo médio)  
     * `High` (Consumo alto) 
 * **Fiber\_Consumption (Consumo de Carne Fibras)**  
-  * **Descrição:** Status socioeconômico do paciente.  
+  * **Descrição:** Nível de consumo de fibras do paciente.  
   * **Tipo:** Texto.  
   * **Valores possíveis:**  
     * `Low` (Consumo baixo)  

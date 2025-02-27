@@ -435,26 +435,6 @@ Link de acesso: [Colorectal Cancer Risk & Survival Data](https://www.kaggle.com/
 
 ---
 
-### **Diagnóstico e Características do Câncer**
-
-* **Stage\_at\_Diagnosis (Estágio no Diagnóstico)**  
-  * **Descrição:** Estágio do câncer no momento do diagnóstico.  
-  * **Tipo:** Texto.  
-  * **Valores possíveis:**  
-    * `I` (Tumor localizado, sem disseminação)
-    * `II` (Tumor invadiu tecidos próximos)
-    * `III` (Tumor com envolvimento significativo dos linfonodos)
-    * `IV` (Câncer metastático (espalhado para órgãos distantes)
-* **Tumor\_Aggressiveness (Agressividade do Tumor)**  
-  * **Descrição:** Nível de agressividade do tumor.  
-  * **Tipo:** Texto.  
-  * **Valores possíveis:**  
-    * `Low` (Baixa)
-    * `Medium` (Média)
-    * `High` (Alta)
-
----
-
 ### **Triagem e Estilo de Vida**
 
 * **Colonoscopy\_Access (Acesso à Colonoscopia)**  
@@ -514,8 +494,23 @@ Link de acesso: [Colorectal Cancer Risk & Survival Data](https://www.kaggle.com/
     * `High` (Consumo alto)
 ---
 
-### **Diagnóstico e Tratamento**
+### **Diagnóstico, Características do Câncer e Tratamento**
 
+* **Stage\_at\_Diagnosis (Estágio no Diagnóstico)**  
+  * **Descrição:** Estágio do câncer no momento do diagnóstico.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**  
+    * `I` (Tumor localizado, sem disseminação)
+    * `II` (Tumor invadiu tecidos próximos)
+    * `III` (Tumor com envolvimento significativo dos linfonodos)
+    * `IV` (Câncer metastático (espalhado para órgãos distantes)
+* **Tumor\_Aggressiveness (Agressividade do Tumor)**  
+  * **Descrição:** Nível de agressividade do tumor.  
+  * **Tipo:** Texto.  
+  * **Valores possíveis:**  
+    * `Low` (Baixa)
+    * `Medium` (Média)
+    * `High` (Alta)
 * **Insurance\_Coverage (Plano de saúde)**  
   * **Descrição:** Paciente possui plano de saúde.  
   * **Tipo:** Booleano (`Sim` / `Não`).

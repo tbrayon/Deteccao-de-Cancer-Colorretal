@@ -37,13 +37,17 @@ Ana e Alexandre
 7. O **histórico familiar de câncer** aumenta a probabilidade de desenvolver câncer colorretal?  
 8. Pacientes que já tiveram **outro tipo de câncer** apresentam maior predisposição ao câncer colorretal?
 
-> **Links Úteis**:
-> - [Questão de pesquisa](https://www.enago.com.br/academy/how-to-develop-good-research-question-types-examples/)
-> - [Problema de pesquisa](https://blog.even3.com.br/problema-de-pesquisa/)
 
-- Quais são os principais fatores que contribuem para o surgimento do câncer colorretal em nível global e como otimizar as estratégias de prevenção e intervenção?
-- Como uma Landing Page interativa pode auxiliar na conscientização e prevenção ao identificar hábitos e estilos de vida comuns entre portadores da doença?
-- A página permitirá que os usuários façam o upload de imagens do cólon para análise comparativa, caso desejem. O envio de imagens de endoscopia poderá contribuir para uma avaliação mais detalhada ?
+#### Brayon
+- Qual é o **índice de massa corporal (IMC/ BMI)** médio dos pacientes no momento do diagnóstico de câncer colorretal?
+- Qual é a **distribuição proporcional** de pacientes provenientes de **áreas urbanas e rurais** no conjunto analisado?
+- Qual é a **idade média** dos pacientes no **momento do diagnóstico** de câncer colorretal?
+- Como se distribuem as variáveis **gênero e raça** entre os pacientes **diagnosticados** com câncer colorretal?
+- O **consumo regular de fibras** reduz o risco de tumores agressivos?
+- Como o **acesso à colonoscopia** afeta o estágio do diagnóstico?
+- Quais fatores de **estilo de vida** estão associados à **recorrência**?
+  
+  
 
 #### Gina
 -Considerando idade, região, dieta alimentar, estilo de vida, raça, quais os principais fatores que estão relacionados ao estágio do câncer no momento do diagnóstico?

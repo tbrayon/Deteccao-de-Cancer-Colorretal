@@ -15,56 +15,15 @@ O impacto desse problema na sociedade é expressivo, pois envolve custos elevado
 
 ## Questão de pesquisa
 
-A questão de pesquisa é a base de todo o trabalho que será desenvolvido. É ela que motiva a realização da pesquisa e deverá ser adequada ao problema identificado. Ao término de sua pesquisa/experimentação, o objetivo é que seja encontrada a resposta da questão de pesquisa previamente definida.
-
-Ana e Alexandre
-## Questão de Pesquisa
-
-- Quais fatores presentes no conjunto de dados, do dataset escolhido, estão mais associados ao diagnóstico de câncer colorretal?
-- Quais fatores presentes no conjunto de dados, do dataset escolhido, influenciam na sobrevida dos pacientes associados ao diagnóstico de câncer colorretal?
-- Quais fatores relacionados ao tipo de tratamento, presentes no conjunto de dados, tiveram maior relevância para a sobrevivência dos pacientes com câncer colorretal?
-- Quais fatores presentes no conjunto de dados, do dataset escolhido, influenciam na recorrência do câncer colorretal nos pacientes?
-- Quais fatores relacionados ao estilo de vida, presentes no conjunto de dados, tiveram maior relevância para o desenvolvimento do câncer colorretal?
-
-### Questões Secundárias
-
-1. Existe uma relação significativa entre **idade** e a ocorrência do câncer colorretal?  
-2. O **gênero** influencia a probabilidade de diagnóstico da doença?  
-3. Há diferença na incidência do câncer colorretal entre diferentes **raças**?  
-4. Qual a distribuição geográfica da doença? Algumas **regiões** apresentam maior incidência?  
-5. O **nível socioeconômico** (representado pela renda) está relacionado ao risco de desenvolver câncer colorretal?  
-6. Há uma associação entre **alimentação** e a ocorrência da doença?  
-7. O **histórico familiar de câncer** aumenta a probabilidade de desenvolver câncer colorretal?  
-8. Pacientes que já tiveram **outro tipo de câncer** apresentam maior predisposição ao câncer colorretal?
-
-
-#### Brayon
-- Qual é o **índice de massa corporal (IMC/ BMI)** médio dos pacientes no momento do diagnóstico de câncer colorretal?
-- Qual é a **distribuição proporcional** de pacientes provenientes de **áreas urbanas e rurais** no conjunto analisado?
-- Qual é a **idade média** dos pacientes no **momento do diagnóstico** de câncer colorretal?
-- Como se distribuem as variáveis **gênero e raça** entre os pacientes **diagnosticados** com câncer colorretal?
-- O **consumo regular de fibras** reduz o risco de tumores agressivos?
-- Como o **acesso à colonoscopia** afeta o estágio do diagnóstico?
-- Quais fatores de **estilo de vida** estão associados à **recorrência**?
-  
-  
-
-#### Gina
--Considerando idade, região, dieta alimentar, estilo de vida, raça, quais os principais fatores que estão relacionados ao estágio do câncer no momento do diagnóstico?
-
--Considerando idade, região, dieta alimentar, estilo de vida, raça, quais os principais fatores que estão relacionados ao nível de agressividade do tumor?
-
--Considerando idade, região, dieta alimentar, estilo de vida, raça, quais os principais fatores que estão relacionados ao tempo decorrido entre os primeiros sintomas e o diagnóstico?
-
--Considerando idade, região, dieta alimentar, estilo de vida, raça e tipo de tratamento quais os principais fatores que estão relacionados à reincidência do câncer após o tratamento?
-
--Considerando idade, região, dieta alimentar, estilo de vida, raça e tipo de tratamento quais os principais fatores que estão relacionados ao tempo decorrido até a recorrência do câncer (em meses)?
-
+1 - Considerando os atributos relacionados às **informações demográficas e ao diagnóstico e tratamento**, qual o tipo de tratamento é mais eficaz?
+2 - Quais fatores de **estilo de vida** estão associados à **reincidência do câncer após o tratamento**?
+3 - Considerando **estilo de vida, status socioeconômico e informações demográficas**, quais os principais fatores que estão relacionados ao nível de agressividade do tumor?
+4 - Considerando os atributos relacionados às **diagnóstico e tratamento**, existe uma relação com fato do paciente ter se submetido ao exame de colonoscopia?
   
 ## Objetivos preliminares
 #### Objetivo Geral
 <p align="justify">
-O presente projeto tem como objetivo geral desenvolver um modelo preditivo baseado em aprendizado de máquina para auxiliar na detecção precoce e na análise de fatores de risco do câncer colorretal. Para isso, será estruturado um conjunto de dados que permita a extração de padrões relevantes, possibilitando a identificação de variáveis que influenciam o diagnóstico, o prognóstico e a recorrência da doença. Com isso, busca-se fornecer uma ferramenta que possa ser utilizada por profissionais da saúde e pesquisadores para aprimorar estratégias de prevenção, diagnóstico e tratamento do câncer colorretal.</p>
+O presente projeto tem como objetivo geral desenvolver um modelo preditivo baseado em aprendizado de máquina para a análise de fatores de risco do câncer colorretal. Para isso, será estruturado, a partir de um dataset de pacientes com câncer colorretal, conjuntos de dados que permitam a extração de padrões relevantes, possibilitando a identificação de variáveis que influenciam o diagnóstico, o prognóstico e a recorrência da doença. Com isso, busca-se fornecer uma ferramenta que possa ser utilizada por profissionais da saúde e pesquisadores para aprimorar estratégias de diagnóstico e tratamento do câncer colorretal.</p>
 
 #### Objetivos Específicos
 <p align="justify">

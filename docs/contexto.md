@@ -15,11 +15,11 @@ O impacto desse problema na sociedade é expressivo, pois envolve custos elevado
 
 ## Questão de pesquisa
 
-1 - Considerando os atributos relacionados às **informações demográficas e ao diagnóstico e tratamento**, qual o tipo de tratamento é mais eficaz?
-2 - Quais fatores de **estilo de vida** estão associados à **reincidência do câncer após o tratamento**?
-3 - Considerando **estilo de vida, status socioeconômico e informações demográficas**, quais os principais fatores que estão relacionados ao nível de agressividade do tumor?
-4 - Considerando os atributos relacionados às **diagnóstico e tratamento**, existe uma relação com fato do paciente ter se submetido ao exame de colonoscopia?
-  
+1. Considerando os atributos relacionados às **informações demográficas e ao diagnóstico e tratamento**, qual o tipo de tratamento é mais eficaz?  
+2. Quais fatores de **estilo de vida** estão associados à **reincidência do câncer após o tratamento**?  
+3. Considerando **estilo de vida, status socioeconômico e informações demográficas**, quais os principais fatores que estão relacionados ao nível de agressividade do tumor?  
+4. Considerando os atributos relacionados ao **diagnóstico e tratamento**, existe uma relação com o fato de o paciente ter se submetido ao exame de colonoscopia?  
+
 ## Objetivos preliminares
 #### Objetivo Geral
 <p align="justify">

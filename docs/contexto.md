@@ -14,6 +14,8 @@ O câncer colorretal é uma das principais causas de morte no mundo e sua incid�
 O impacto desse problema na sociedade é expressivo, pois envolve custos elevados com tratamento, perda de produtividade, além dos desafios emocionais e psicológicos para os pacientes e suas famílias. A identificação precoce e o tratamento adequado podem melhorar significativamente a taxa de sobrevivência, tornando-se um objetivo fundamental para pesquisadores e profissionais de saúde.</p>
 
 ## Questão de pesquisa
+<p align="justify">
+As questões de pesquisa a seguir foram elaboradas para investigar os principais fatores associados ao câncer colorretal, incluindo diagnóstico, tratamento, reincidência e nível de agressividade do tumor.</p>
 
 1. Considerando os atributos relacionados às **informações demográficas e ao diagnóstico e tratamento**, qual o tratamento é mais recomendável?  
 2. Quais fatores de **estilo de vida** estão associados à **reincidência do câncer após o tratamento**?  
@@ -27,17 +29,23 @@ O presente projeto tem como objetivo geral desenvolver um modelo preditivo basea
 
 #### Objetivos Específicos
 <p align="justify">
-1.	Coletar e organizar dados relevantes: Selecionar e estruturar um conjunto de dados confiável e abrangente sobre pacientes diagnosticados com câncer colorretal, considerando variáveis como idade, região, dieta alimentar, estilo de vida, raça, histórico familiar e tipo de tratamento.</p>
+1.	Coletar e organizar dados relevantes: Estruturar um conjunto de dados confiável e abrangente sobre pacientes diagnosticados com câncer colorretal, considerando variáveis demográficas, socioeconômicas, de estilo de vida e de tratamento, incluindo o impacto do exame de colonoscopia nos desfechos clínicos.</p>
 <p align="justify">
-2.	Analisar fatores de risco: Identificar e quantificar os principais fatores que influenciam o desenvolvimento e a progressão do câncer colorretal, incluindo aspectos genéticos, ambientais e comportamentais.</p>
+2.	Analisar fatores de risco e recorrência: Identificar e quantificar os principais fatores associados à reincidência do câncer após o tratamento, incluindo hábitos de vida, histórico médico e tipo de tratamento realizado.</p>
 <p align="justify">
-3.	Desenvolver um modelo de aprendizado de máquina: Implementar e treinar algoritmos preditivos capazes de analisar grandes volumes de dados e prever padrões associados à incidência, agressividade e reincidência da doença.</p>
+3.	Avaliar a recomendação de tratamentos: Explorar quais características dos pacientes influenciam a escolha do tratamento mais adequado e sua eficácia, considerando fatores como estágio do câncer, idade e condições pré-existentes.</p>
 <p align="justify">
-4.	Validar a precisão do modelo: Testar e ajustar o modelo utilizando técnicas estatísticas e métricas de desempenho para garantir sua confiabilidade na predição de casos e na análise de fatores prognósticos.</p>
+4.	Investigar a relação entre fatores socioeconômicos e a agressividade do tumor: Analisar a influência do estilo de vida, do status socioeconômico e das informações demográficas no nível de agressividade do tumor, verificando padrões que possam impactar o prognóstico da doença.</p>
 <p align="justify">
-5.	Aplicar os resultados para suporte à tomada de decisão: Desenvolver uma abordagem que possa ser utilizada por médicos, pesquisadores e gestores de saúde para otimizar a detecção precoce, personalizar tratamentos e melhorar o prognóstico dos pacientes.</p>
+5.	Desenvolver um modelo de aprendizado de máquina: Implementar e treinar algoritmos preditivos para identificar padrões associados à incidência, agressividade e recorrência da doença, bem como avaliar a recomendação de tratamentos mais eficazes.</p>
 <p align="justify">
-6.	Divulgar os achados da pesquisa: Publicar os resultados em periódicos científicos e disponibilizar o modelo para a comunidade acadêmica e médica, incentivando a colaboração e o aprimoramento contínuo da ferramenta.</p>
+6.	Validar a precisão do modelo: Testar e ajustar o modelo utilizando métricas estatísticas para garantir sua confiabilidade na predição de casos e na análise de fatores prognósticos.</p>
+<p align="justify"> 
+  <p align="justify">
+7.	Aplicar os resultados para suporte à tomada de decisão: Desenvolver uma abordagem prática que auxilie médicos, pesquisadores e gestores de saúde na personalização dos tratamentos, na identificação precoce de casos de alto risco e na melhoria do prognóstico dos pacientes.</p>
+<p align="justify"> 
+  <p align="justify">
+8.	Divulgar os achados da pesquisa: Publicar os resultados em periódicos científicos e disponibilizar o modelo para a comunidade acadêmica e médica, incentivando a colaboração e o aprimoramento contínuo da ferramenta.</p>
 <p align="justify"> 
 Com a implementação deste projeto, espera-se contribuir significativamente para o avanço da medicina preditiva, auxiliando na redução da mortalidade e dos impactos socioeconômicos associados ao câncer colorretal.</p>
 

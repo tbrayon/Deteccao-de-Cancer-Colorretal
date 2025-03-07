@@ -47,7 +47,8 @@ O presente projeto tem como objetivo geral desenvolver um modelo preditivo basea
 6.	Aplicar os resultados para suporte à tomada de decisão: Desenvolver uma abordagem prática que auxilie médicos, pesquisadores e gestores de saúde na personalização dos tratamentos, na identificação precoce de casos de alto risco e na melhoria do prognóstico dos pacientes.</p>
 <p align="justify"> 
   <p align="justify">
-7.	Divulgar os achados da pesquisa: Publicar os resultados em periódicos científicos e disponibilizar o modelo para a comunidade acadêmica e médica, incentivando a colaboração e o aprimoramento contínuo da ferramenta.</p>
+7.	Divulgar os achados da pesquisa: Publicar os resultados em periódicos científicos e disponibilizar o modelo para a comunidade acadêmica, médica e rede pública de saúde, oferecendo suporte ao tratamento do câncer e 
+colaboração à sociedade.</p>
 <p align="justify"> 
 Com a implementação deste projeto, espera-se contribuir significativamente para o avanço da medicina preditiva, auxiliando na redução da mortalidade e dos impactos socioeconômicos associados ao câncer colorretal.</p>
 

@@ -34,21 +34,20 @@ O presente projeto tem como objetivo geral desenvolver um modelo preditivo basea
 <p align="justify">
 1.	Coletar e organizar dados relevantes: Estruturar um conjunto de dados confiável e abrangente sobre pacientes diagnosticados com câncer colorretal, considerando variáveis demográficas, socioeconômicas, de estilo de vida e de tratamento, incluindo o impacto do exame de colonoscopia nos desfechos clínicos.</p>
 <p align="justify">
-2.	Analisar fatores de risco e recorrência: Identificar e quantificar os principais fatores associados à reincidência do câncer após o tratamento, incluindo hábitos de vida, histórico médico e tipo de tratamento realizado.</p>
+2.	Analisar fatores de risco e recorrência: Identificar e quantificar os principais fatores associados à reincidência do câncer após o tratamento, incluindo hábitos de vida e tipo de tratamento realizado.</p>
 <p align="justify">
-3.	Avaliar a recomendação de tratamentos: Explorar quais características dos pacientes influenciam a escolha do tratamento mais adequado e sua eficácia, considerando fatores como estágio do câncer, idade e condições pré-existentes.</p>
 <p align="justify">
-4.	Investigar a relação entre fatores socioeconômicos e a agressividade do tumor: Analisar a influência do estilo de vida, do status socioeconômico e das informações demográficas no nível de agressividade do tumor, verificando padrões que possam impactar o prognóstico da doença.</p>
+3.	Investigar a relação entre fatores socioeconômicos e a agressividade do tumor: Analisar a influência do estilo de vida, do status socioeconômico e das informações demográficas no nível de agressividade do tumor, verificando padrões que possam impactar o prognóstico da doença.</p>
 <p align="justify">
-5.	Desenvolver um modelo de aprendizado de máquina: Implementar e treinar algoritmos preditivos para identificar padrões associados à incidência, agressividade e recorrência da doença, bem como avaliar a recomendação de tratamentos mais eficazes.</p>
+4.	Desenvolver um modelo de aprendizado de máquina: Implementar e treinar algoritmos preditivos para identificar padrões associados à incidência, agressividade e recorrência da doença, bem como avaliar a recomendação de tratamentos mais eficazes.</p>
 <p align="justify">
-6.	Validar a precisão do modelo: Testar e ajustar o modelo utilizando métricas estatísticas para garantir sua confiabilidade na predição de casos e na análise de fatores prognósticos.</p>
+5.	Validar a precisão do modelo: Testar e ajustar o modelo utilizando métricas estatísticas para garantir sua confiabilidade na predição de casos e na análise de fatores prognósticos.</p>
 <p align="justify"> 
   <p align="justify">
-7.	Aplicar os resultados para suporte à tomada de decisão: Desenvolver uma abordagem prática que auxilie médicos, pesquisadores e gestores de saúde na personalização dos tratamentos, na identificação precoce de casos de alto risco e na melhoria do prognóstico dos pacientes.</p>
+6.	Aplicar os resultados para suporte à tomada de decisão: Desenvolver uma abordagem prática que auxilie médicos, pesquisadores e gestores de saúde na personalização dos tratamentos, na identificação precoce de casos de alto risco e na melhoria do prognóstico dos pacientes.</p>
 <p align="justify"> 
   <p align="justify">
-8.	Divulgar os achados da pesquisa: Publicar os resultados em periódicos científicos e disponibilizar o modelo para a comunidade acadêmica e médica, incentivando a colaboração e o aprimoramento contínuo da ferramenta.</p>
+7.	Divulgar os achados da pesquisa: Publicar os resultados em periódicos científicos e disponibilizar o modelo para a comunidade acadêmica e médica, incentivando a colaboração e o aprimoramento contínuo da ferramenta.</p>
 <p align="justify"> 
 Com a implementação deste projeto, espera-se contribuir significativamente para o avanço da medicina preditiva, auxiliando na redução da mortalidade e dos impactos socioeconômicos associados ao câncer colorretal.</p>
 

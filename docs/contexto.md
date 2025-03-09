@@ -535,7 +535,11 @@ O Canvas Analítico tem a função de estruturar e registrar a organização das
 
 # Vídeo de apresentação da Etapa 01
 
-Nesta seção, um vídeo de, 5 a 8 minutos deverá ser produzido. No vídeo, cada aluno do grupo deverá apresentar uma parte do trabalho realizado nesta etapa. Todos os alunos deverão participar do vídeo. Alunos que não participarem, serão penalizados na nota final da etapa.
+
+
+https://github.com/user-attachments/assets/6e42a3fc-d79a-43fa-b226-85b343884b38
+
+
 
 # Referências
 

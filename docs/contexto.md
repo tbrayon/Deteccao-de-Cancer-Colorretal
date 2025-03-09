@@ -533,11 +533,23 @@ O Canvas Analítico tem a função de estruturar e registrar a organização das
 ![Canvas_Analitico](https://github.com/user-attachments/assets/fc3dbd87-4aa9-4f5a-9fb3-a08c54437336)
 
 
-# Vídeo de apresentação da Etapa 01
+# Vídeo de Apresentação da Etapa 01 
 
+Neste vídeo, apresentaremos o que foi desenvolvido na primeira etapa do projeto, destacando a contribuição essencial de cada integrante para a construção de cada seção descrita a seguir:
 
+- **Introdução** – *Ana Paula*: Apresentação do projeto e contextualização do tema.  
+- **Problema** – *Ana Paula*: Descrição do problema central que motivou o estudo.  
+- **Questão de Pesquisa** – *Salomão Andre*: Definição da pergunta que guia a pesquisa.  
+- **Objetivos Preliminares** – *Gina Rocha*: Estabelecimento dos objetivos gerais e específicos do projeto.  
+- **Justificativa** – *Alexandre Guzmán*: Importância do projeto e seus impactos esperados.  
+- **Público-Alvo** – *Gina Rocha*: Definição dos usuários e beneficiários da solução.  
+- **Estado da Arte** – *Todos os integrantes*: Explicação dos datasets existentes relacionadas ao tema.  
+- **Descrição do Dataset Selecionado** – *Salomão Andre*: Explicação sobre o conjunto de dados escolhido para análise.  
+- **Canvas Analítico** – *Todos os integrantes*: Estruturação do modelo analítico do projeto.  
+- **Vídeo de Apresentação da Etapa 01** – *Brayon Matheus*: Edição e finalização do vídeo de apresentação.  
+- **Referências** – *Todos os integrantes*: Lista de artigos, livros e materiais utilizados como base para o projeto.  
 
-https://github.com/user-attachments/assets/6e42a3fc-d79a-43fa-b226-85b343884b38
+https://github.com/user-attachments/assets/b3b9c00b-a305-4bb5-9798-91b8101491dc
 
 
 

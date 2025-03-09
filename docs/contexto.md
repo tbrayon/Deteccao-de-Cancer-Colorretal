@@ -531,7 +531,7 @@ Link de acesso: [Colorectal Cancer Risk & Survival Data](https://www.kaggle.com/
 
 O Canvas Analítico tem a função de estruturar e registrar a organização das ideias, proporcionando uma visão clara e detalhada do modelo de negócio. Através dele, é possível visualizar os principais componentes estratégicos e operacionais, facilitando a análise e a tomada de decisões. Aqui está o canvas:
 
-![Canvas_Analitico](https://github.com/user-attachments/assets/f82dbb19-d1dc-46f2-be0c-81ed08f8f0cf)
+![Canvas_Analitico](https://github.com/user-attachments/assets/f82dbb19-d1dc-46f2-be0c-81ed08f8f0cf)![Canvas_Analitico](https://github.com/user-attachments/assets/132b1537-e28e-46c9-b374-4357ccd29470)
 
 
 # Vídeo de apresentação da Etapa 01

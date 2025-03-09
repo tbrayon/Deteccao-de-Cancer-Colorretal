@@ -239,9 +239,9 @@ Esses resultados sugerem que, embora modelos mais simples possam ser preferívei
 
 #### Data do estudo:  20/11/2021
 
-**a) detalhe e contextualize o problema a ser solucionado no trabalho:** Atualmente, as formas mais utilizadas de detecção do câncer colorretal são a colonoscopia e a sigmoidoscopia, que são processos invasivos e complexos. O estudo tem como objetivo identificar o câncer colorretal através dos resultados de exames convencionais realizados por pacientes. O estudo utiliza modelos de Machine Learning para encontrar a presença da doença de forma não invasiva e com uma grande taxa de acerto, utilizando dados reais de exames de pacientes com diagnósticos positivos e negativos da doença.
+<p align="justify"><strong> a) detalhe e contextualize o problema a ser solucionado no trabalho: </strong> Atualmente, as formas mais utilizadas de detecção do câncer colorretal são a colonoscopia e a sigmoidoscopia, que são processos invasivos e complexos. O estudo tem como objetivo identificar o câncer colorretal através dos resultados de exames convencionais realizados por pacientes. O estudo utiliza modelos de Machine Learning para encontrar a presença da doença de forma não invasiva e com uma grande taxa de acerto, utilizando dados reais de exames de pacientes com diagnósticos positivos e negativos da doença. </p>
 
-**(b) descreva as principais características do *dataset* utilizado:** O estudo utiliza prontuários eletrônicos de pacientes com câncer colorretal e indivíduos saudáveis que visitaram o hospital The Sixth Affiliated Hospital da universidade Sun Yat-sen em Guangdong, na China. Os prontuários incluem dados demográficos, informações de internação, resultados de exames, sinais vitais, diagnósticos e dados de tratamento de cada paciente. O estágio da doença foi dividido em inicial (níveis 0, I e II) e avançado (níveis III e IV).
+<p align="justify"><strong>(b) descreva as principais características do *dataset* utilizado: </strong> O estudo utiliza prontuários eletrônicos de pacientes com câncer colorretal e indivíduos saudáveis que visitaram o hospital The Sixth Affiliated Hospital da universidade Sun Yat-sen em Guangdong, na China. Os prontuários incluem dados demográficos, informações de internação, resultados de exames, sinais vitais, diagnósticos e dados de tratamento de cada paciente. O estágio da doença foi dividido em inicial (níveis 0, I e II) e avançado (níveis III e IV). </p>
 
 Os dados provenientes dos prontuários que foram utilizados:  
 | Parâmetro | Tradução |  
@@ -275,7 +275,7 @@ Os dados provenientes dos prontuários que foram utilizados:
 | Late rectal cancer | Câncer retal avançado |
 
 
-**(c) detalhe quais abordagens/algoritmos foram utilizados (e seus parâmetros):** Cinco modelos de Machine Learning foram utilizados: Logistic regression (LR), random forest (RF), k-nearest neighbors (KNN), support vector machine (SVM) e naive Bayes. Após um estudo de coeficientes de correlação de parâmetros com a presença da doença, os parâmetros utilizados em cada um dos cinco modelos foram:
+<p align="justify"><strong> (c) detalhe quais abordagens/algoritmos foram utilizados (e seus parâmetros): </strong> Cinco modelos de Machine Learning foram utilizados: Logistic regression (LR), random forest (RF), k-nearest neighbors (KNN), support vector machine (SVM) e naive Bayes. Após um estudo de coeficientes de correlação de parâmetros com a presença da doença, os parâmetros utilizados em cada um dos cinco modelos foram: </p>
 
 * alanina aminotransferase (ALT),   
 * gama glutamil transferase (GGT),   
@@ -290,11 +290,11 @@ Os dados provenientes dos prontuários que foram utilizados:
 * hemoglobina (HGB), e   
 * plaquetas (PLT).
 
-**(d) identifique as métricas de avaliação empregadas:** Antes da execução dos testes, foram utilizados os seguintes critérios de seleção para os pacientes com câncer do dataset final (1) pacientes no primeiro diagnóstico da doença e (2) pacientes entre 30 e 70 anos de idade. Foram excluídos dos testes pacientes com (1) qualquer histórico de câncer, (2) mais de cinco comorbidades além do câncer colorretal e (3) pacientes com dados incompletos.   
+<p align="justify"><strong> (d) identifique as métricas de avaliação empregadas: </strong> Antes da execução dos testes, foram utilizados os seguintes critérios de seleção para os pacientes com câncer do dataset final (1) pacientes no primeiro diagnóstico da doença e (2) pacientes entre 30 e 70 anos de idade. Foram excluídos dos testes pacientes com (1) qualquer histórico de câncer, (2) mais de cinco comorbidades além do câncer colorretal e (3) pacientes com dados incompletos.   
 Para os pacientes do grupo de controle, foram utilizados os seguintes critérios de inclusão (1) pacientes entre 30 e 70 anos e (2) fizeram exames completos no hospital.  
-Os modelos foram avaliados com base nas seguintes métricas: Área sob a curva (AUCs), sensibilidade (sensitivity), especificidade (specificity), valores de previsão positivos (PPV) e valores de previsão negativos (NPV)
+Os modelos foram avaliados com base nas seguintes métricas: Área sob a curva (AUCs), sensibilidade (sensitivity), especificidade (specificity), valores de previsão positivos (PPV) e valores de previsão negativos (NPV) </p>
 
-**(e) fale sobre os resultados obtidos:** Com base em 1164 registros médicos, sendo 582 pacientes com câncer colorretal e 582 pacientes saudáveis do grupo de controle, o modelo de regressão logística (logistic regression) foi o que obteve a melhor performance em identificar o câncer colorretal (AUC: 0.865, sensibilidade: 89.5%, especificidade: 83.5%, PPV: 84.4%, NPV: 88.9%). Os quatro atributos de mais peso no modelo foram carcinoembryonic antigen (CEA), hemoglobin (HGB), lipoprotein (a) (Lp(a)), e high-density lipoprotein (HDL). Um modelo de diagnóstico para o câncer colorretal foi estabelecido baseado nesses quatro indicados, com uma AUC de 0.849 (0.840-0.860) para identificar todos os pacientes com câncer colorretal e teve a performance ainda melhor em diferenciar pacientes com fases avançadas do câncer para pessoas saudáveis com um AUC de 0.905 (0.889-0.929). A conclusão do estudo é de que a confiabilidade dos resultados é alta o suficiente para que o diagnóstico possa ser feito através de exames rotineiros e menos invasivos do que os mais utilizados atualmente.
+<p align="justify"><strong> (e) fale sobre os resultados obtidos: </strong> Com base em 1164 registros médicos, sendo 582 pacientes com câncer colorretal e 582 pacientes saudáveis do grupo de controle, o modelo de regressão logística (logistic regression) foi o que obteve a melhor performance em identificar o câncer colorretal (AUC: 0.865, sensibilidade: 89.5%, especificidade: 83.5%, PPV: 84.4%, NPV: 88.9%). Os quatro atributos de mais peso no modelo foram carcinoembryonic antigen (CEA), hemoglobin (HGB), lipoprotein (a) (Lp(a)), e high-density lipoprotein (HDL). Um modelo de diagnóstico para o câncer colorretal foi estabelecido baseado nesses quatro indicados, com uma AUC de 0.849 (0.840-0.860) para identificar todos os pacientes com câncer colorretal e teve a performance ainda melhor em diferenciar pacientes com fases avançadas do câncer para pessoas saudáveis com um AUC de 0.905 (0.889-0.929). A conclusão do estudo é de que a confiabilidade dos resultados é alta o suficiente para que o diagnóstico possa ser feito através de exames rotineiros e menos invasivos do que os mais utilizados atualmente.  </p>
 
 ---
 ### Previsão de Câncer Colorretal Usando Processamento de Imagem e Aprendizado de Máquina (Referência [ResearchGate](https://www.researchgate.net/publication/386344593_Deep_learning-assisted_colonoscopy_images_for_prediction_of_mismatch_repair_deficiency_in_colorectal_cancer))
@@ -349,8 +349,8 @@ Um total de 5226 imagens elegíveis de 892 tumores de pacientes consecutivos for
 ## **_Dataset_: Colorectal Cancer Risk & Survival Data**
 
 Link de acesso: [Colorectal Cancer Risk & Survival Data](https://www.kaggle.com/datasets/ankushpanday1/colorectal-cancer-risk-and-survival-data)
-<p align="justify">O *dataset* selecionado possui **89.945** entradas com **30** atributos de dados de pacientes de câncer colorretal de diferentes partes e realidades ao redor do mundo. O intuito do dataset é colaborar com pesquisadores e profissionais da saúde a entender quem está sob maior risco, utilizando dados como idade, gênero, raça, histórico médico dentre outros. O dataset também conta com informações como acesso ao tratamento e quais fatores contribuem para um taxa de sucesso maior no tratamento dos pacientes.</p>
- 	Abaixo, segue o descritivo dos atributos do *dataset*, subdivididos por categoria:
+<p align="justify">O dataset selecionado possui <strong> 89.945 </strong> entradas com <strong> 30 </strong> atributos de dados de pacientes de câncer colorretal de diferentes partes e realidades ao redor do mundo. O intuito do dataset é colaborar com pesquisadores e profissionais da saúde a entender quem está sob maior risco, utilizando dados como idade, gênero, raça, histórico médico dentre outros. O dataset também conta com informações como acesso ao tratamento e quais fatores contribuem para um taxa de sucesso maior no tratamento dos pacientes.</p>
+ 	Abaixo, segue o descritivo dos atributos do dataset, subdivididos por categoria:
 
 ### **Informações Demográficas**
 

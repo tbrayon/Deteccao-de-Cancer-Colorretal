@@ -315,8 +315,7 @@ Imagens com qualidade inadequada, como aquelas com preparação intestinal inade
 
 
 
-**(c) Abordagens/Algoritmos Utilizados (e seus Parâmetros):**  
-**Processamento de Imagens:**  
+**(c) Abordagens/Algoritmos Utilizados (e seus Parâmetros):**  A fim de aprimorar a análise das imagens, foram empregadas diversas técnicas de pré-processamento, extração de características e algoritmos avançados, visando melhorar a precisão e eficiência do modelo. A seguir, detalhamos os métodos utilizados:
 - **Técnicas de Pré-processamento:** Normalização, redução de ruído (desfoque Gaussiano, filtragem mediana), e segmentação (detecção de objetos e isolamento de estruturas).  
 - **Extração de Características:** Utilização de Histograma de Gradientes Orientados (HOG) para detecção de objetos e Redes Neurais Convolucionais (CNNs) para extração automática de características.  
 - **Algoritmos Utilizados:** Limitação (Thresholding) para identificação de bordas de objetos com limiares de intensidade, detecção de bordas (Canny), e modelos de aprendizado profundo como CNN ou modelos pré-treinados como VGG16 e ResNet.
@@ -327,17 +326,16 @@ Imagens com qualidade inadequada, como aquelas com preparação intestinal inade
 - **Análise de Regressão:** Regressão Linear e Regressão Logística.  
 - **Análise Multivariada:** Análise de Componentes Principais (PCA) e Análise Fatorial.
 
-**(d) Métricas de Avaliação Empregadas:**  
-As métricas de avaliação foram divididas em três categorias principais: análise estatística, avaliação de modelos de machine learning, e processamento de imagens.
+**(d) Métricas de Avaliação Empregadas:** As métricas de avaliação foram divididas em três categorias principais: análise estatística, avaliação de modelos de machine learning, e processamento de imagens.
 
 - **Métricas Estatísticas:** P-Valor (p-value), Intervalo de Confiança, e Valor de Efeito (Effect Size).
 - **Métricas para Modelos de Machine Learning:** Acurácia, Precisão, Revocação, F1-Score, AUC-ROC e Matriz de Confusão.
 - **Métricas para Processamento de Imagens:** PSNR (Peak Signal-to-Noise Ratio), SSIM (Structural Similarity Index), IoU (Intersection over Union), Dice Coefficient e MSE (Mean Squared Error).
 
-**(e) Resultados Obtidos:**  
-Um total de 5226 imagens elegíveis de 892 tumores de pacientes consecutivos foram utilizadas para desenvolver e validar o modelo de aprendizado profundo. O modelo obteve um AUROC de 0.948 (IC de 95%: 0.919–0.977) no conjunto de dados de teste. No conjunto de validação independente, o AUROC foi 0.807 (0.760–0.854), e o NPV foi 94.2% (IC de 95%: 0.918–0.967). No conjunto de dados do ensaio prospectivo, o modelo identificou 29 tumores entre os 33 tumores deficientes em reparo de erro de correspondência (87,88%).
+**(e) Resultados Obtidos:** Um total de 5226 imagens elegíveis de 892 tumores de pacientes consecutivos foram utilizadas para desenvolver e validar o modelo de aprendizado profundo. O modelo obteve um AUROC de 0.948 (IC de 95%: 0.919–0.977) no conjunto de dados de teste. No conjunto de validação independente, o AUROC foi 0.807 (0.760–0.854), e o NPV foi 94.2% (IC de 95%: 0.918–0.967). No conjunto de dados do ensaio prospectivo, o modelo identificou 29 tumores entre os 33 tumores deficientes em reparo de erro de correspondência (87,88%).
 
-**(f) Atributos:**  
+**(f) Atributos:** 
+Os dados utilizados no estudo englobam imagens de colonoscopia e informações associadas aos tumores, além das especificações dos modelos de aprendizado profundo e das métricas empregadas para avaliação do desempenho. A seguir, apresentamos os principais atributos considerados:
 - **Imagens de Colonoscopia:** 5226 imagens elegíveis, com resolução variando de 200 a 700 pixels de largura e 150 a 650 pixels de altura.  
 - **Tumores:** 306 tumores com e 488 sem deficiência de MMR.  
 - **Modelo de Aprendizado Profundo:** CNNs, VGG16, ResNet, com técnicas de pré-processamento como normalização e segmentação.  

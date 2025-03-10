@@ -300,14 +300,14 @@ Os modelos foram avaliados com base nas seguintes métricas: Área sob a curva (
 ### Previsão de Câncer Colorretal Usando Processamento de Imagem e Aprendizado de Máquina (Referência [ResearchGate](https://www.researchgate.net/publication/386344593_Deep_learning-assisted_colonoscopy_images_for_prediction_of_mismatch_repair_deficiency_in_colorectal_cancer))
 
 
-<p align="justify">(a) detalhe e contextualize o problema a ser solucionado no trabalho: O câncer colorretal (CRC) é uma das formas mais prevalentes de câncer no mundo, com alta incidência e mortalidade. Um subconjunto bem descrito deste câncer envolve tumores com deficiência no reparo de erros de correspondência (dMMR). Tumores dMMR têm dificuldade em reparar certos tipos de mutações, resultando em uma carga mutacional elevada e instabilidade microsatélite (MSI-H). Atualmente, as diretrizes recomendam que todos os cânceres colorretais recém-diagnosticados sejam testados para o status de MMR/MSI, já que pacientes com esses tumores podem ser elegíveis para terapias com inibidores de checkpoint imunológico (ICI). A detecção de dMMR/MSI também é recomendada como um teste de triagem para a síndrome de Lynch.</p>
+<p align="justify"><b>(a) detalhe e contextualize o problema a ser solucionado no trabalho:</b> O câncer colorretal (CRC) é uma das formas mais prevalentes de câncer no mundo, com alta incidência e mortalidade. Um subconjunto bem descrito deste câncer envolve tumores com deficiência no reparo de erros de correspondência (dMMR). Tumores dMMR têm dificuldade em reparar certos tipos de mutações, resultando em uma carga mutacional elevada e instabilidade microsatélite (MSI-H). Atualmente, as diretrizes recomendam que todos os cânceres colorretais recém-diagnosticados sejam testados para o status de MMR/MSI, já que pacientes com esses tumores podem ser elegíveis para terapias com inibidores de checkpoint imunológico (ICI). A detecção de dMMR/MSI também é recomendada como um teste de triagem para a síndrome de Lynch.</p>
 
 <p align="justify">Entretanto, os métodos atuais de teste para MMR/MSI, como análise imunoquímica ou ensaios PCR para marcadores microsatélites, exigem recursos adicionais e nem sempre estão disponíveis em todas as unidades médicas, resultando em uma falta de teste para muitos pacientes com câncer colorretal. Portanto, há uma necessidade crítica de ferramentas acessíveis, aplicáveis universalmente e de baixo custo para auxiliar na triagem precoce de dMMR ou MSI-H em pacientes com câncer colorretal.</p>
 
 <p align="justify">O uso de inteligência artificial (IA) tem mostrado grande potencial na classificação e predição utilizando dados de histopatologia e imagens, incluindo imagens de colonoscopia. Esse trabalho visa explorar o uso de aprendizado profundo para prever a deficiência no reparo de erros de correspondência (dMMR) em câncer colorretal, usando imagens de colonoscopia.</p>
 
 
-<p align="justify">(b) descreva as principais características do dataset utilizado:** O dataset utilizado neste estudo foi composto por um total de 5226 imagens elegíveis provenientes de 892 tumores de pacientes consecutivos. Para o desenvolvimento do modelo, 2105 imagens de câncer colorretal de 306 tumores foram selecionadas aleatoriamente para formar o conjunto de dados de treinamento do modelo, com uma abordagem balanceada entre as classes de tumores. Um conjunto de dados independente foi formado com 3121 imagens de 488 tumores proficientes no reparo de erro de correspondência (MMR) e 98 tumores deficientes em MMR (dMMR).</p>
+<p align="justify"><b>(b) descreva as principais características do dataset utilizado:</b> O dataset utilizado neste estudo foi composto por um total de 5226 imagens elegíveis provenientes de 892 tumores de pacientes consecutivos. Para o desenvolvimento do modelo, 2105 imagens de câncer colorretal de 306 tumores foram selecionadas aleatoriamente para formar o conjunto de dados de treinamento do modelo, com uma abordagem balanceada entre as classes de tumores. Um conjunto de dados independente foi formado com 3121 imagens de 488 tumores proficientes no reparo de erro de correspondência (MMR) e 98 tumores deficientes em MMR (dMMR).</p>
 
 <p align="justify">Essas imagens foram capturadas com alta resolução a partir de diferentes endoscópios (CF-H290, CF-H260, Olympus Medical Systems, Japão; ou EC590WM4, EC760R-V/M, Fujifilm Medical Systems, Japão), com dimensões variando de 200 a 700 pixels de largura e 150 a 650 pixels de altura. As imagens foram classificadas por um classificador de categorias de lesões, separando-as em tumores e não-tumores (incluindo mucosa normal, pólipos e outras categorias).</p>
 
@@ -315,7 +315,7 @@ Os modelos foram avaliados com base nas seguintes métricas: Área sob a curva (
 
 
 
-<p align="justify">(c) Abordagens/Algoritmos Utilizados (e seus Parâmetros):**  A fim de aprimorar a análise das imagens, foram empregadas diversas técnicas de pré-processamento, extração de características e algoritmos avançados, visando melhorar a precisão e eficiência do modelo. A seguir, detalhamos os métodos utilizados:</p>
+<p align="justify"><b>(c) Abordagens/Algoritmos Utilizados (e seus Parâmetros):</b> A fim de aprimorar a análise das imagens, foram empregadas diversas técnicas de pré-processamento, extração de características e algoritmos avançados, visando melhorar a precisão e eficiência do modelo. A seguir, detalhamos os métodos utilizados:</p>
 - **Técnicas de Pré-processamento:** Normalização, redução de ruído (desfoque Gaussiano, filtragem mediana), e segmentação (detecção de objetos e isolamento de estruturas).  
 - **Extração de Características:** Utilização de Histograma de Gradientes Orientados (HOG) para detecção de objetos e Redes Neurais Convolucionais (CNNs) para extração automática de características.  
 - **Algoritmos Utilizados:** Limitação (Thresholding) para identificação de bordas de objetos com limiares de intensidade, detecção de bordas (Canny), e modelos de aprendizado profundo como CNN ou modelos pré-treinados como VGG16 e ResNet.
@@ -326,15 +326,15 @@ Os modelos foram avaliados com base nas seguintes métricas: Área sob a curva (
 - **Análise de Regressão:** Regressão Linear e Regressão Logística.  
 - **Análise Multivariada:** Análise de Componentes Principais (PCA) e Análise Fatorial.
 
-**(d) Métricas de Avaliação Empregadas:** As métricas de avaliação foram divididas em três categorias principais: análise estatística, avaliação de modelos de machine learning, e processamento de imagens.
+<p align="justify"><b>(d) Métricas de Avaliação Empregadas:</p> As métricas de avaliação foram divididas em três categorias principais: análise estatística, avaliação de modelos de machine learning, e processamento de imagens.
 
 - **Métricas Estatísticas:** P-Valor (p-value), Intervalo de Confiança, e Valor de Efeito (Effect Size).
 - **Métricas para Modelos de Machine Learning:** Acurácia, Precisão, Revocação, F1-Score, AUC-ROC e Matriz de Confusão.
 - **Métricas para Processamento de Imagens:** PSNR (Peak Signal-to-Noise Ratio), SSIM (Structural Similarity Index), IoU (Intersection over Union), Dice Coefficient e MSE (Mean Squared Error).
 
-**(e) Resultados Obtidos:** Um total de 5226 imagens elegíveis de 892 tumores de pacientes consecutivos foram utilizadas para desenvolver e validar o modelo de aprendizado profundo. O modelo obteve um AUROC de 0.948 (IC de 95%: 0.919–0.977) no conjunto de dados de teste. No conjunto de validação independente, o AUROC foi 0.807 (0.760–0.854), e o NPV foi 94.2% (IC de 95%: 0.918–0.967). No conjunto de dados do ensaio prospectivo, o modelo identificou 29 tumores entre os 33 tumores deficientes em reparo de erro de correspondência (87,88%).
+<p align="justify"><b>(e) Resultados Obtidos:</p> Um total de 5226 imagens elegíveis de 892 tumores de pacientes consecutivos foram utilizadas para desenvolver e validar o modelo de aprendizado profundo. O modelo obteve um AUROC de 0.948 (IC de 95%: 0.919–0.977) no conjunto de dados de teste. No conjunto de validação independente, o AUROC foi 0.807 (0.760–0.854), e o NPV foi 94.2% (IC de 95%: 0.918–0.967). No conjunto de dados do ensaio prospectivo, o modelo identificou 29 tumores entre os 33 tumores deficientes em reparo de erro de correspondência (87,88%).
 
-**(f) Atributos:** 
+<p align="justify"><b>(f) Atributos:</p> 
 Os dados utilizados no estudo englobam imagens de colonoscopia e informações associadas aos tumores, além das especificações dos modelos de aprendizado profundo e das métricas empregadas para avaliação do desempenho. A seguir, apresentamos os principais atributos considerados:
 - **Imagens de Colonoscopia:** 5226 imagens elegíveis, com resolução variando de 200 a 700 pixels de largura e 150 a 650 pixels de altura.  
 - **Tumores:** 306 tumores com e 488 sem deficiência de MMR.  

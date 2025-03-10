@@ -316,6 +316,7 @@ Os modelos foram avaliados com base nas seguintes métricas: Área sob a curva (
 
 
 <p align="justify"><b>(c) Abordagens/Algoritmos Utilizados (e seus Parâmetros):</b> A fim de aprimorar a análise das imagens, foram empregadas diversas técnicas de pré-processamento, extração de características e algoritmos avançados, visando melhorar a precisão e eficiência do modelo. A seguir, detalhamos os métodos utilizados:</p>
+
 - **Técnicas de Pré-processamento:** Normalização, redução de ruído (desfoque Gaussiano, filtragem mediana), e segmentação (detecção de objetos e isolamento de estruturas).  
 - **Extração de Características:** Utilização de Histograma de Gradientes Orientados (HOG) para detecção de objetos e Redes Neurais Convolucionais (CNNs) para extração automática de características.  
 - **Algoritmos Utilizados:** Limitação (Thresholding) para identificação de bordas de objetos com limiares de intensidade, detecção de bordas (Canny), e modelos de aprendizado profundo como CNN ou modelos pré-treinados como VGG16 e ResNet.

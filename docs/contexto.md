@@ -17,13 +17,15 @@ O impacto desse problema na sociedade é expressivo, pois envolve custos elevado
 <p align="justify">
 As questões de pesquisa a seguir foram elaboradas para investigar os principais fatores associados ao câncer colorretal, incluindo diagnóstico, tratamento, reincidência e nível de agressividade do tumor.</p>
 <p align="justify">
-1. Considerando os atributos relacionados às <strong>informações demográficas e ao diagnóstico e tratamento</strong>, qual o tratamento é mais recomendável?</p>
+1. Considerando <strong>estilo de vida e informações demográficas</strong>, quais os principais fatores que estão relacionados a ter ou não ter o câncer?</p>
+<p align="justify">
+2. Considerando os atributos relacionados às <strong>informações demográficas e ao diagnóstico e tratamento</strong>, qual o tratamento é mais recomendável?</p>
 <p align="justify">  
-2. Quais fatores de <strong>estilo de vida</strong> estão associados à <stong>reincidência do câncer após o tratamento</stong>?</p> 
+3. Quais fatores de <strong>estilo de vida</strong> estão associados à <stong>reincidência do câncer após o tratamento</stong>?</p> 
 <p align="justify">
-3. Considerando <strong>estilo de vida, status socioeconômico e informações demográficas</strong>, quais os principais fatores que estão relacionados ao nível de agressividade do tumor?</p>  
+4. Considerando <strong>estilo de vida, status socioeconômico e informações demográficas</strong>, quais os principais fatores que estão relacionados ao nível de agressividade do tumor?</p>  
 <p align="justify">
-4. Considerando os atributos relacionados ao <strong>diagnóstico e tratamento</strong>, existe uma relação com o fato de o paciente ter se submetido ao exame de colonoscopia?</p>  
+5. Considerando os atributos relacionados ao <strong>diagnóstico e tratamento</strong>, existe uma relação com o fato de o paciente ter se submetido ao exame de colonoscopia?</p>  
 
 ## Objetivos preliminares
 #### Objetivo Geral

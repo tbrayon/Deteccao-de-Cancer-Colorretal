@@ -327,7 +327,7 @@ Os modelos foram avaliados com base nas seguintes métricas: Área sob a curva (
 - **Análise de Regressão:** Regressão Linear e Regressão Logística.  
 - **Análise Multivariada:** Análise de Componentes Principais (PCA) e Análise Fatorial.
 
-<p align="justify"><b>(d) Métricas de Avaliação Empregadas:</p> As métricas de avaliação foram divididas em três categorias principais: análise estatística, avaliação de modelos de machine learning, e processamento de imagens.</b>
+<p align="justify"><b>(d) Métricas de Avaliação Empregadas:</b> As métricas de avaliação foram divididas em três categorias principais: análise estatística, avaliação de modelos de machine learning, e processamento de imagens.</p>
 
 - **Métricas Estatísticas:** P-Valor (p-value), Intervalo de Confiança, e Valor de Efeito (Effect Size).
 - **Métricas para Modelos de Machine Learning:** Acurácia, Precisão, Revocação, F1-Score, AUC-ROC e Matriz de Confusão.

@@ -335,7 +335,7 @@ Os modelos foram avaliados com base nas seguintes métricas: Área sob a curva (
 
 <p align="justify"><b>(e) Resultados Obtidos:</b> Um total de 5226 imagens elegíveis de 892 tumores de pacientes consecutivos foram utilizadas para desenvolver e validar o modelo de aprendizado profundo. O modelo obteve um AUROC de 0.948 (IC de 95%: 0.919–0.977) no conjunto de dados de teste. No conjunto de validação independente, o AUROC foi 0.807 (0.760–0.854), e o NPV foi 94.2% (IC de 95%: 0.918–0.967). No conjunto de dados do ensaio prospectivo, o modelo identificou 29 tumores entre os 33 tumores deficientes em reparo de erro de correspondência (87,88%).</p> 
 
-<p align="justify"><b>(f) Atributos:<b> Os dados utilizados no estudo englobam imagens de colonoscopia e informações associadas aos tumores, além das especificações dos modelos de aprendizado profundo e das métricas empregadas para avaliação do desempenho. A seguir, apresentamos os principais atributos considerados:</p> 
+<p align="justify"><b>(f) Atributos:</b> Os dados utilizados no estudo englobam imagens de colonoscopia e informações associadas aos tumores, além das especificações dos modelos de aprendizado profundo e das métricas empregadas para avaliação do desempenho. A seguir, apresentamos os principais atributos considerados:</p> 
   
 - **Imagens de Colonoscopia:** 5226 imagens elegíveis, com resolução variando de 200 a 700 pixels de largura e 150 a 650 pixels de altura.  
 - **Tumores:** 306 tumores com e 488 sem deficiência de MMR.  

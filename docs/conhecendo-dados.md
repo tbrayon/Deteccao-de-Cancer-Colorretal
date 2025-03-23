@@ -11,14 +11,14 @@ Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere 
 A partir da análise descrita e exploratória realizada, descreva todos os achados considerados relevantes para o contexto em que o trabalho se insere. Por exemplo: com relação à centralidade dos dados algo chamou a atenção? Foi possível identificar correlação entre os atributos? Que tipo de correlação (forte, fraca, moderada)? 
 
 ## Ferramentas utilizadas
-
-Para o desenvolvimento deste projeto de estudo, que visa a criação de modelos preditivos para o câncer colorretal utilizando técnicas de aprendizado de máquina, foram empregadas as seguintes ferramentas:
+<p align="justify">
+Para a análise descritiva e exploratória sobre o dataset escolhido, com o objetivo de compreender a estrutura dos dados, detectar eventuais outliers e também, avaliar/detectar as relações existentes entre as variantes verificadas, foram empregadas as seguintes ferramentas:
 
 * **Microsoft Excel**: Utilizado na etapa inicial para a inspeção e verificação da integridade do conjunto de dados, garantindo a qualidade e consistência das informações.
 * **Google Colab**: Plataforma de notebook interativa baseada em nuvem, que possibilitou a execução de códigos Python de forma eficiente e colaborativa.
 * **Python**: Linguagem de programação central do projeto, utilizada para:
     * **Análise exploratória de dados (EDA)**: Através de bibliotecas como Pandas e NumPy, realizamos a limpeza, transformação e análise estatística dos dados.
-    * **Visualização de dados**: Com Matplotlib, Seaborn e Ploty, criamos gráficos e visualizações para identificar padrões e insights relevantes nos dados.
+    * **Visualização de dados**: Com Matplotlib, Seaborn e Ploty, criamos gráficos e visualizações para identificar padrões e insights relevantes nos dados.</p>
    
 Existem muitas ferramentas diferentes que podem ser utilizadas para fazer a análise dos dados. Nesta seção, descreva as ferramentas/tecnologias utilizadas e sua aplicação. Vale destacar que, preferencialmente, as análises deverão ser realizadas utilizando a linguagem de programação Python.
 

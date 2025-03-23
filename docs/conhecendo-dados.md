@@ -515,6 +515,7 @@ desenvolvimento de modelos preditivos.</p>
 
 <p align="justify">
 7) Identificação de Outliers com Boxplot. Outliers são valores que fogem do padrão esperado em um conjunto de dados. O Boxplot mostra a distribuição dos dados com base nos quartis e destaca possíveis valores extremos.</p>
+
 ```python
 plt.figure(figsize=(12, 6))
 # Selecionando apenas variáveis numéricas para o boxplot
@@ -524,7 +525,9 @@ plt.title("Distribuição das Variáveis Numéricas")
 plt.show()
 ```
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/18c7f70b-4d98-40b4-af13-0d68a7bc6d94)
+
+
 <p align="justify">
 O boxplot gerado revela a distribuição das variáveis numéricas do seu conjunto
 de dados, destacando potenciais outliers. A variável 'Stage_at_Diagnosis'

@@ -12,6 +12,14 @@ A partir da análise descrita e exploratória realizada, descreva todos os achad
 
 ## Ferramentas utilizadas
 
+Para o desenvolvimento deste projeto de estudo, que visa a criação de modelos preditivos para o câncer colorretal utilizando técnicas de aprendizado de máquina, foram empregadas as seguintes ferramentas:
+
+* **Microsoft Excel**: Utilizado na etapa inicial para a inspeção e verificação da integridade do conjunto de dados, garantindo a qualidade e consistência das informações.
+* **Google Colab**: Plataforma de notebook interativa baseada em nuvem, que possibilitou a execução de códigos Python de forma eficiente e colaborativa.
+* **Python**: Linguagem de programação central do projeto, utilizada para:
+    * **Análise exploratória de dados (EDA)**: Através de bibliotecas como Pandas e NumPy, realizamos a limpeza, transformação e análise estatística dos dados.
+    * **Visualização de dados**: Com Matplotlib, Seaborn e Ploty, criamos gráficos e visualizações para identificar padrões e insights relevantes nos dados.
+   
 Existem muitas ferramentas diferentes que podem ser utilizadas para fazer a análise dos dados. Nesta seção, descreva as ferramentas/tecnologias utilizadas e sua aplicação. Vale destacar que, preferencialmente, as análises deverão ser realizadas utilizando a linguagem de programação Python.
 
 # Vídeo de apresentação da Etapa 02

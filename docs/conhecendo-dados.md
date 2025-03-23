@@ -547,9 +547,7 @@ baixa variabilidade, o que pode ser resultado de dados binários ou de uma escal
 limitada.</p>
 
 
-
-
-#### Tentando respondendo as questões de pesquisa relacionada à categoria Diagnóstico, Características do Câncer e Tratamento utilizando métodos de estatística:
+#### Tentando responder as questões de pesquisa relacionada à categoria Diagnóstico, Características do Câncer e Tratamento utilizando métodos de estatística:
 
 1) Pergunta: Considerando os atributos relacionados às informações demográficas e ao diagnóstico e tratamento, qual o tratamento é mais recomendável?
 
@@ -690,6 +688,19 @@ planejamento de estratégias de intervenção. Em resumo, esta análise estatís
 ## Descrição dos achados
 
 A partir da análise descrita e exploratória realizada, descreva todos os achados considerados relevantes para o contexto em que o trabalho se insere. Por exemplo: com relação à centralidade dos dados algo chamou a atenção? Foi possível identificar correlação entre os atributos? Que tipo de correlação (forte, fraca, moderada)? 
+
+#### Gina
+
+<p align="justify">
+A análise exploratória inicial do conjunto de dados revelou características cruciais para o contexto da predição de câncer colorretal. Primeiramente, a ausência de dados faltantes e linhas vazias simplifica significativamente as etapas de pré-processamento, permitindo focar na análise de relações complexas entre as variáveis. A conversão de dados categóricos e booleanos para representações numéricas foi fundamental para aplicar métodos estatísticos e modelos de aprendizado de máquina, abrindo caminho para a identificação de padrões preditivos.</p>
+<p align="justify">
+A análise de dispersão entre tempo de diagnóstico e estágio do câncer, assim como entre estágio do diagnóstico e agressividade do tumor, demonstra a ausência de correlações lineares fortes. Isso sugere que a progressão do câncer colorretal é influenciada por múltiplos fatores, além dos analisados individualmente. A distribuição uniforme da cobertura de seguro entre diferentes estágios e agressividades tumorais reforça essa complexidade, indicando que fatores socioeconômicos podem não ser determinantes isolados.</p>
+<p align="justify">
+A análise das medidas de tendência central e dispersão revela uma população de pacientes com idade média de 54 anos, predominância de diagnósticos em estágios iniciais e tumores de baixa agressividade. A alta variabilidade na idade e no tempo de recorrência destaca a heterogeneidade da doença, enquanto a baixa variabilidade em variáveis binárias como cobertura de seguro e acesso ao tratamento sugere padrões de atendimento relativamente uniformes.</p>
+<p align="justify">
+A ausência de correlações lineares fortes na matriz de correlação reforça a necessidade de explorar relações não lineares e interações complexas entre as variáveis. A análise de boxplots e gráficos de barras complementa essa visão, evidenciando a distribuição assimétrica de estágios de diagnóstico e a influência limitada do estágio do câncer na decisão de administrar quimioterapia ou realizar colonoscopia.</p>
+<p align="justify">
+Em resumo, a análise exploratória revela um conjunto de dados rico e complexo, com padrões que desafiam explicações lineares simplistas. A ausência de correlações fortes e a presença de outliers destacam a necessidade de modelos preditivos sofisticados, capazes de capturar as nuances da progressão do câncer colorretal e identificar os fatores que realmente impactam o diagnóstico, tratamento e recorrência da doença.</p>
 
 ### Informações Demográficas
 

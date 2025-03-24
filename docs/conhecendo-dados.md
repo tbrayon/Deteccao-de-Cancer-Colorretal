@@ -194,7 +194,7 @@ plt.ylabel('Histórico Familiar (0: Não, 1: Sim)')
 # Ajustando a posição da legenda para o canto direito e no meio do gráfico
 plt.legend(title='Histórico Familiar', labels=['Não', 'Sim'], bbox_to_anchor=(1.05, 0.5), loc='center left')
 ```
-imagem
+[Gráfico de dispersão Ana] url:(docs/img/Grafico dispersão 01 - Ana.jpg)
 
 <p align="justify">
 A análise do gráfico de dispersão revela padrões interessantes relacionados ao Histórico Familiar de Câncer. Observamos que os pontos representados por "X", que indicam a ausência de histórico familiar de câncer ("Não"), estão concentrados na parte superior dos gráficos. Por outro lado, os pontos representados por "bolinhas", que indicam a presença de histórico familiar de câncer ("Sim"), estão posicionados na parte inferior. Esse padrão sugere que, para uma amostra comprovada, a maioria dos pacientes sem histórico familiar de câncer apresenta idades mais altas, enquanto os pacientes com histórico familiar de câncer estão, em sua maioria, em faixas etárias mais baixas.</p>

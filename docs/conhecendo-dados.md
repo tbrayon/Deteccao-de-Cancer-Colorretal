@@ -199,7 +199,7 @@ imagem
 <p align="justify">
 A análise do gráfico de dispersão revela padrões interessantes relacionados ao Histórico Familiar de Câncer. Observamos que os pontos representados por "X", que indicam a ausência de histórico familiar de câncer ("Não"), estão concentrados na parte superior dos gráficos. Por outro lado, os pontos representados por "bolinhas", que indicam a presença de histórico familiar de câncer ("Sim"), estão posicionados na parte inferior. Esse padrão sugere que, para uma amostra comprovada, a maioria dos pacientes sem histórico familiar de câncer apresenta idades mais altas, enquanto os pacientes com histórico familiar de câncer estão, em sua maioria, em faixas etárias mais baixas.</p>
 
-#### Realizando análises estatísticas na categoria "Idade":
+#### Realizando análises estatísticas na categoria "Gênero, Raça, Região, Zona de Residência, Status Socioeconômico, Histórico Familiar e Histórico de Câncer Prévio":
 
 1) Moda das variáveis da categoria: Gender, Race, Urban_or_Rural, Socioeconomic_Status, Family_History, Previous_Cancer_History.
 
@@ -236,21 +236,21 @@ Moda do Histórico de Câncer Prévio: No
 ```
 ### Moda das Variáveis
 
-A **moda** é a medida estatística que representa o valor mais frequente em um conjunto de dados. No contexto da análise dos dados dos pacientes, calculamos a moda de várias variáveis para entender os valores que mais se repetem em cada uma delas. Abaixo estão as explicações para a moda de cada variável relevante:
-
-- **Idade**: A moda da idade dos pacientes foi de **58 anos**, o que indica que a maioria dos pacientes no momento do diagnóstico tem essa idade. Esse valor reflete a faixa etária mais comum entre os pacientes analisados.
-
-- **Gênero**: A moda do **Gênero** foi **0**, que corresponde a **Masculino**. Isso significa que a maioria dos pacientes na amostra são do sexo masculino.
-
-- **Raça**: A moda da **Raça** foi **3**, que representa a categoria **Branco**. Assim, a maior parte dos pacientes da amostra se identificam como brancos.
-
-- **Zona de Residência**: A moda da **Zona de Residência** foi **0**, o que corresponde a **Urbano**. Isso indica que a maioria dos pacientes reside em áreas urbanas.
-
-- **Status Socioeconômico**: A moda do **Status Socioeconômico** foi **1**, representando **Renda média**. A maior parte dos pacientes na amostra pertence à classe socioeconômica de renda média.
-
-- **Histórico Familiar de Câncer**: A moda do **Histórico Familiar** foi **0**, ou seja, **Não**. A maioria dos pacientes não possui histórico familiar de câncer.
-
-- **Histórico de Câncer Prévio**: A moda do **Histórico de Câncer Prévio** também foi **0**, indicando que a maior parte dos pacientes nunca teve câncer anteriormente.
+<p align="justify">A <strong>moda</strong>strong> é a medida estatística que representa o valor mais frequente em um conjunto de dados. No contexto da análise dos dados dos pacientes, calculamos a moda de várias variáveis para entender os valores que mais se repetem em cada uma delas. Abaixo estão as explicações para a moda de cada variável relevante:</p>
+<p align="justify">
+- <strong>Idade</strong>: A moda da idade dos pacientes foi de <strong>77 anos</strong>, o que indica que a maioria dos pacientes no momento do diagnóstico tem essa idade. Esse valor reflete a faixa etária mais comum entre os pacientes analisados.</p>
+<p align="justify">
+- <strong>Gênero</strong>: A moda do <strong>Gênero</strong> foi <strong>0</strong>, que corresponde a <strong>Masculino</strong>. Isso significa que a maioria dos pacientes na amostra são do sexo masculino.</p>
+<p align="justify">
+- <strong>Raça</strong>: A moda da <strong>Raça</strong> foi <strong>3</strong>, que representa a categoria <strong>Branco</strong>. Assim, a maior parte dos pacientes da amostra se identificam como brancos.</p>
+<p align="justify">
+- <strong>Zona de Residência</strong>: A moda da <strong>Zona de Residência</strong> foi <strong>0</strong>, o que corresponde a <strong>Urbano</strong>. Isso indica que a maioria dos pacientes reside em áreas urbanas.</p>
+<p align="justify">
+- <strong>Status Socioeconômico</strong>: A moda do <strong>Status Socioeconômico</strong> foi <strong>1</strong>, representando <strong>Renda média</strong>. A maior parte dos pacientes na amostra pertence à classe socioeconômica de renda média.</p>
+<p align="justify">
+- <strong>Histórico Familiar de Câncer</strong>: A moda do <strong>Histórico Familiar</strong> foi <strong>0</strong>, ou seja, <strong>Não</strong>. A maioria dos pacientes não possui histórico familiar de câncer.</p>
+<p align="justify">
+- <strong>Histórico de Câncer Prévio</strong>: A moda do <strong>Histórico de Câncer Prévio</strong> também foi <strong>0</strong>, indicando que a maior parte dos pacientes nunca teve câncer anteriormente.</p>
 
 
 ### - Triagem e Estilo de Vida

@@ -265,7 +265,7 @@ median_age = df['Age'].median()
 print(f"A mediana da idade dos pacientes é: {median_age} anos")
 ```
 <p align="justify">
-A mediana é uma medida de tendência central que representa o valor central em um conjunto de dados quando os valores são organizados em ordem crescente. Quando o número de elementos é ímpar, a mediana é simplesmente o valor do meio. Quando o número de elementos é par, a mediana é a média dos dois valores centrais. Para calcular a mediana da idade dos pacientes no conjunto de dados, utilizamos a função median() do pandas, que organiza os dados em ordem crescente e seleciona o valor central.</p>
+A mediana é uma medida de tendência central que representa o valor central em um conjunto de dados quando os valores são organizados em ordem crescente. Quando o número de elementos é ímpar, a mediana é simplesmente o valor do meio. Quando o número de elementos é par, a mediana é a média dos dois valores centrais. Para calcular a mediana da idade dos pacientes no conjunto de dados, utilizamos a função median() do pandas, que organiza os dados em ordem crescente e seleciona o valor central. A mediana da idade dos pacientes é: 54.0 anos</p>
 
 ####  Realizando a média central da categoria "Status Socioeconômico":
 1) Média de frequência da categoria "Status Socioeconômico"

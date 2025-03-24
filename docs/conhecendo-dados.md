@@ -170,6 +170,35 @@ A análise inicial do dataset revelou que ele é composto por 89945 registros e 
 <p align="justify">
 Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age</strong> (Idade) foi identificada como um número inteiro. As colunas categóricas <strong>Gender</strong> (Gênero), <strong>Race</strong> (Raça), <strong>Region</strong> (Região), <strong>Urban_or_Rural</strong> (Zona de Residência) e <strong>Socioeconomic_Status</strong> (Status Socioeconômico) foram convertidas para valores numéricos. Além disso, as colunas booleanas <strong>Family_History</strong> (Histórico Familiar) e <strong>Previous_Cancer_History</strong> (Histórico de Câncer Prévio), originalmente representadas por "sim" e "não", também foram transformadas em valores numéricos. Essas conversões possibilitam a aplicação de métodos estatísticos e modelos de aprendizado de máquina, facilitando a identificação de padrões e a previsão de resultados relacionados ao câncer colorretal.</p>
 
+#### Realizando análises estatísticas na categoria "Idade, Histórico Familiar de Câncer e Histórico de Câncer Prévio":
+1) Gráfico de dispersão: Análise de relação entre as variáveis Age, Family_History e Previous_Cancer_History
+
+```python
+# Exemplo de dados com variáveis booleanas para Family_History e Previous_Cancer_History
+data = {
+    'Age': [25, 30, 35, 40, 45],
+    'Family_History': ['Sim', 'Não', 'Sim', 'Não', 'Sim'],  # "Sim" ou "Não"
+    'Previous_Cancer_History': ['Não', 'Sim', 'Sim', 'Não', 'Sim']  # "Sim" ou "Não"
+}
+# Criando um DataFrame com os dados
+df = pd.DataFrame(data)
+# Convertendo as variáveis Family_History e Previous_Cancer_History para valores binários (0 ou 1)
+df['Family_History'] = df['Family_History'].map({'Sim': 1, 'Não': 0})
+df['Previous_Cancer_History'] = df['Previous_Cancer_History'].map({'Sim': 1, 'Não': 0})
+# Gráfico de dispersão com Age no eixo X e Family_History no eixo Y
+plt.figure(figsize=(8,6))
+sns.scatterplot(data=df, x='Age', y='Family_History', hue='Family_History', palette='coolwarm', style='Family_History', s=100)
+plt.title('Dispersão entre Idade e Histórico Familiar de Câncer')
+plt.xlabel('Idade')
+plt.ylabel('Histórico Familiar (0: Não, 1: Sim)')
+# Ajustando a posição da legenda para o canto direito e no meio do gráfico
+plt.legend(title='Histórico Familiar', labels=['Não', 'Sim'], bbox_to_anchor=(1.05, 0.5), loc='center left')
+```
+imagem
+
+<p align="justify">
+A análise do gráfico de dispersão revela padrões interessantes relacionados ao Histórico Familiar de Câncer. Observamos que os pontos representados por "X", que indicam a ausência de histórico familiar de câncer ("Não"), estão concentrados na parte superior dos gráficos. Por outro lado, os pontos representados por "bolinhas", que indicam a presença de histórico familiar de câncer ("Sim"), estão posicionados na parte inferior. Esse padrão sugere que, para uma amostra comprovada, a maioria dos pacientes sem histórico familiar de câncer apresenta idades mais altas, enquanto os pacientes com histórico familiar de câncer estão, em sua maioria, em faixas etárias mais baixas.</p>
+
 ### - Triagem e Estilo de Vida
 
 ### - Diagnóstico, Características do Câncer e Tratamento

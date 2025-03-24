@@ -252,6 +252,39 @@ Moda do Histórico de Câncer Prévio: No
 <p align="justify">
 - <strong>Histórico de Câncer Prévio</strong>: A moda do <strong>Histórico de Câncer Prévio</strong> também foi <strong>0</strong>, indicando que a maior parte dos pacientes nunca teve câncer anteriormente.</p>
 
+####  Realizando a mediana central da categoria "Idade":
+1) Mediana das variáveis da categoria: Age
+
+```python
+import pandas as pd
+# Carregando os dados
+df = pd.read_excel('colorectal_cancer_prediction.xlsx')
+# Calculando a mediana da Idade
+median_age = df['Age'].median()
+# Exibindo a mediana
+print(f"A mediana da idade dos pacientes é: {median_age} anos")
+```
+<p align="justify">
+A mediana é uma medida de tendência central que representa o valor central em um conjunto de dados quando os valores são organizados em ordem crescente. Quando o número de elementos é ímpar, a mediana é simplesmente o valor do meio. Quando o número de elementos é par, a mediana é a média dos dois valores centrais. Para calcular a mediana da idade dos pacientes no conjunto de dados, utilizamos a função median() do pandas, que organiza os dados em ordem crescente e seleciona o valor central.</p>
+
+####  Realizando a média central da categoria "Status Socioeconômico":
+1) Média de frequência da categoria "Status Socioeconômico"
+   
+import pandas as pd
+# Carregando os dados
+df = pd.read_excel('colorectal_cancer_prediction.xlsx')
+# Convertendo 'Socioeconomic_Status' para valores numéricos
+status_mapping = {'Low': 0, 'Middle': 1, 'High': 2} 
+df['Socioeconomic_Status'] = df['Socioeconomic_Status'].map(status_mapping)
+# Calculando a média do Status Socioeconômico
+mean_socioeconomic_status = df['Socioeconomic_Status'].mean()
+# Exibindo a média
+print(f"A média do Status Socioeconômico dos pacientes é: {mean_socioeconomic_status}")
+
+<p align="justify">
+Ao analisar a distribuição de frequência do Status Socioeconômico, podemos observar como os pacientes estão distribuídos entre as diferentes categorias de renda: baixa, média e alta. A média calculada, que é de aproximadamente 0.90, reflete o valor central dessa distribuição, sugerindo que a maioria dos pacientes se encontra na faixa de renda média (representada pelo valor 1).</p>
+<p align="justify">
+A visualização da distribuição de frequência também ajuda a entender melhor esse valor médio. A distribuição mostra que a proporção de pacientes com renda média é maior, o que explica o valor da média ser tão próximo de 1. Essa análise contextualiza o valor da média, fornecendo uma visão mais detalhada sobre como os pacientes estão distribuídos entre as diferentes faixas de status socioeconômico, o que é crucial para compreender o perfil socioeconômico da amostra analisada.</p>
 
 ### - Triagem e Estilo de Vida
 

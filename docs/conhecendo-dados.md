@@ -199,6 +199,22 @@ imagem
 <p align="justify">
 A análise do gráfico de dispersão revela padrões interessantes relacionados ao Histórico Familiar de Câncer. Observamos que os pontos representados por "X", que indicam a ausência de histórico familiar de câncer ("Não"), estão concentrados na parte superior dos gráficos. Por outro lado, os pontos representados por "bolinhas", que indicam a presença de histórico familiar de câncer ("Sim"), estão posicionados na parte inferior. Esse padrão sugere que, para uma amostra comprovada, a maioria dos pacientes sem histórico familiar de câncer apresenta idades mais altas, enquanto os pacientes com histórico familiar de câncer estão, em sua maioria, em faixas etárias mais baixas.</p>
 
+#### Realizando análises estatísticas na categoria "Idade":
+
+1) Moda das variáveis da categoria Gender (Gênero).
+
+```python 
+import pandas as pd
+# Carregar os dados
+df = pd.read_excel('colorectal_cancer_prediction.xlsx')
+# Calcular a moda da idade
+mode_age = df['Age'].mode()
+# Exibir a moda
+print(f"A moda da idade dos pacientes: {mode_age.values[0]}")
+```
+<p align="justify">
+A moda é uma medida de tendência central que representa o valor mais frequente em um conjunto de dados. No caso da variável Idade, calcular a moda permite identificar a faixa etária mais comum entre os pacientes diagnosticados com câncer colorretal. A análise revelou que a idade mais recorrente no conjunto de dados foi 77 anos. Esse dado pode ser útil para compreender a distribuição etária da população analisada, auxiliando na identificação de grupos etários mais afetados pela doença.</p>
+
 ### - Triagem e Estilo de Vida
 
 ### - Diagnóstico, Características do Câncer e Tratamento

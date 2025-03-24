@@ -194,7 +194,6 @@ plt.ylabel('Histórico Familiar (0: Não, 1: Sim)')
 # Ajustando a posição da legenda para o canto direito e no meio do gráfico
 plt.legend(title='Histórico Familiar', labels=['Não', 'Sim'], bbox_to_anchor=(1.05, 0.5), loc='center left')
 ```
-![Texto Alternativo](https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/Grafico%20dispers%C3%A3o%2001%20-%20Ana.jpg
 
 ![Gráfico de dispersão Ana](https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/Grafico%20dispers%C3%A3o%2001%20-%20Ana.jpg)
 

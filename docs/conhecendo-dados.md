@@ -269,7 +269,8 @@ A mediana é uma medida de tendência central que representa o valor central em 
 
 ####  Realizando a média central da categoria "Status Socioeconômico":
 1) Média de frequência da categoria "Status Socioeconômico"
-   
+
+```python 
 import pandas as pd
 # Carregando os dados
 df = pd.read_excel('colorectal_cancer_prediction.xlsx')
@@ -280,7 +281,7 @@ df['Socioeconomic_Status'] = df['Socioeconomic_Status'].map(status_mapping)
 mean_socioeconomic_status = df['Socioeconomic_Status'].mean()
 # Exibindo a média
 print(f"A média do Status Socioeconômico dos pacientes é: {mean_socioeconomic_status}")
-
+```
 <p align="justify">
 Ao analisar a distribuição de frequência do Status Socioeconômico, podemos observar como os pacientes estão distribuídos entre as diferentes categorias de renda: baixa, média e alta. A média calculada, que é de aproximadamente 0.90, reflete o valor central dessa distribuição, sugerindo que a maioria dos pacientes se encontra na faixa de renda média (representada pelo valor 1).</p>
 <p align="justify">

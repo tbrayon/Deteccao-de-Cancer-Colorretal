@@ -201,19 +201,57 @@ A análise do gráfico de dispersão revela padrões interessantes relacionados 
 
 #### Realizando análises estatísticas na categoria "Idade":
 
-1) Moda das variáveis da categoria Gender (Gênero).
+1) Moda das variáveis da categoria: Gender, Race, Urban_or_Rural, Socioeconomic_Status, Family_History, Previous_Cancer_History.
 
 ```python 
+# Calcular a moda de Gender, Race, Urban_or_Rural, Socioeconomic_Status, Family_History, Previous_Cancer_History
 import pandas as pd
 # Carregar os dados
 df = pd.read_excel('colorectal_cancer_prediction.xlsx')
-# Calcular a moda da idade
+# Calcular a moda da Idade
 mode_age = df['Age'].mode()
-# Exibir a moda
-print(f"A moda da idade dos pacientes: {mode_age.values[0]}")
+mode_gender = df['Gender'].mode()
+mode_race = df['Race'].mode()
+mode_urban_or_rural = df['Urban_or_Rural'].mode()
+mode_socioeconomic_status = df['Socioeconomic_Status'].mode()
+mode_family_history = df['Family_History'].mode()
+mode_previous_cancer_history = df['Previous_Cancer_History'].mode()
+
+# Exibir os resultados
+print(f"Moda da Idade: {mode_age.values[0]}")
+print(f"Moda do Gênero: {mode_gender.values[0]}")
+print(f"Moda da Raça: {mode_race.values[0]}")
+print(f"Moda da Zona de Residência: {mode_urban_or_rural.values[0]}")
+print(f"Moda do Status Socioeconômico: {mode_socioeconomic_status.values[0]}")
+print(f"Moda do Histórico Familiar: {mode_family_history.values[0]}")
+print(f"Moda do Histórico de Câncer Prévio: {mode_previous_cancer_history.values[0]}")
+
+Moda da Idade: 77
+Moda do Gênero: Male
+Moda da Raça: White
+Moda da Zona de Residência: Urban
+Moda do Status Socioeconômico: Middle
+Moda do Histórico Familiar: No
+Moda do Histórico de Câncer Prévio: No
 ```
-<p align="justify">
-A moda é uma medida de tendência central que representa o valor mais frequente em um conjunto de dados. No caso da variável Idade, calcular a moda permite identificar a faixa etária mais comum entre os pacientes diagnosticados com câncer colorretal. A análise revelou que a idade mais recorrente no conjunto de dados foi 77 anos. Esse dado pode ser útil para compreender a distribuição etária da população analisada, auxiliando na identificação de grupos etários mais afetados pela doença.</p>
+### Moda das Variáveis
+
+A **moda** é a medida estatística que representa o valor mais frequente em um conjunto de dados. No contexto da análise dos dados dos pacientes, calculamos a moda de várias variáveis para entender os valores que mais se repetem em cada uma delas. Abaixo estão as explicações para a moda de cada variável relevante:
+
+- **Idade**: A moda da idade dos pacientes foi de **58 anos**, o que indica que a maioria dos pacientes no momento do diagnóstico tem essa idade. Esse valor reflete a faixa etária mais comum entre os pacientes analisados.
+
+- **Gênero**: A moda do **Gênero** foi **0**, que corresponde a **Masculino**. Isso significa que a maioria dos pacientes na amostra são do sexo masculino.
+
+- **Raça**: A moda da **Raça** foi **3**, que representa a categoria **Branco**. Assim, a maior parte dos pacientes da amostra se identificam como brancos.
+
+- **Zona de Residência**: A moda da **Zona de Residência** foi **0**, o que corresponde a **Urbano**. Isso indica que a maioria dos pacientes reside em áreas urbanas.
+
+- **Status Socioeconômico**: A moda do **Status Socioeconômico** foi **1**, representando **Renda média**. A maior parte dos pacientes na amostra pertence à classe socioeconômica de renda média.
+
+- **Histórico Familiar de Câncer**: A moda do **Histórico Familiar** foi **0**, ou seja, **Não**. A maioria dos pacientes não possui histórico familiar de câncer.
+
+- **Histórico de Câncer Prévio**: A moda do **Histórico de Câncer Prévio** também foi **0**, indicando que a maior parte dos pacientes nunca teve câncer anteriormente.
+
 
 ### - Triagem e Estilo de Vida
 

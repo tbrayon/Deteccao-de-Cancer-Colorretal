@@ -167,8 +167,9 @@ A análise inicial do dataset revelou que ele é composto por 89945 registros e 
 ## Análises por categoria
 
 ### - Informações Demográficas
-<p align="justify">
-Na categoria **Informações Demográficas**, a coluna **Age** (Idade) foi identificada como um número inteiro. As colunas categóricas **Gender** (Gênero), **Race** (Raça), **Region** (Região), **Urban_or_Rural** (Zona de Residência) e **Socioeconomic_Status** (Status Socioeconômico) foram convertidas para valores numéricos. Além disso, as colunas booleanas **Family_History** (Histórico Familiar) e **Previous_Cancer_History** (Histórico de Câncer Prévio), originalmente representadas por "sim" e "não", também foram transformadas em valores numéricos. Essas conversões possibilitam a aplicação de métodos estatísticos e modelos de aprendizado de máquina, facilitando a identificação de padrões e a previsão de resultados relacionados ao câncer colorretal.</p>
+<p style="text-align: justify;">
+Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age</strong> (Idade) foi identificada como um número inteiro. As colunas categóricas <strong>Gender</strong> (Gênero), <strong>Race</strong> (Raça), <strong>Region</strong> (Região), <strong>Urban_or_Rural</strong> (Zona de Residência) e <strong>Socioeconomic_Status</strong> (Status Socioeconômico) foram convertidas para valores numéricos. Além disso, as colunas booleanas <strong>Family_History</strong> (Histórico Familiar) e <strong>Previous_Cancer_History</strong> (Histórico de Câncer Prévio), originalmente representadas por "sim" e "não", também foram transformadas em valores numéricos. Essas conversões possibilitam a aplicação de métodos estatísticos e modelos de aprendizado de máquina, facilitando a identificação de padrões e a previsão de resultados relacionados ao câncer colorretal.
+</p>
 
 ### - Triagem e Estilo de Vida
 

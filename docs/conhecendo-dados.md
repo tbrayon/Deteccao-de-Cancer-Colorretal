@@ -295,71 +295,23 @@ A visualização da distribuição de frequência também ajuda a entender melho
 O conjunto de dados em análise contém informações cruciais relacionadas ao diagnóstico, características do câncer e tratamento de pacientes. Inicialmente, as colunas <strong>Stage_at_Diagnosis, Tumor_Aggressiveness e Time_to_Diagnosis</strong> foram carregadas como texto, enquanto <strong>Insurance_Coverage, Chemotherapy_Received e Radiotherapy_Received</strong> foram identificadas como booleanas. Para facilitar a análise quantitativa e a modelagem, foi realizada a conversão dos tipos de dados para numérico, mapeando os valores textuais e booleanos para representações numéricas apropriadas. A conversão dessas colunas permite a aplicação de métodos estatísticos e modelos de aprendizado de máquina, facilitando a identificação de padrões e a previsão de resultados relacionados ao câncer colorretal.</p>
 
 #### Realizando análises estatísticas na categoria "Diagnóstico, Características do Câncer e Tratamento":
-1) Gráfico de dispersão: Análise de relação entre as variáveis Time_to_Diagnosis e Stage_at_Diagnosis
+1) Distribuição dos pacientes em relação ao tempo até o diagnóstico (Timely ou Delayed) e o estágio do câncer no diagnóstico (I, II, III, IV). 
 
-```python
-# Aumentando o tamanho da figura para melhor visualização
-plt.figure(figsize=(10, 6))
-# Aumentando o tamanho dos pontos para melhor visualização
-sns.scatterplot(x="Time_to_Diagnosis", y="Stage_at_Diagnosis", data=df, s=80)
-plt.title("Relação entre Tempo até Diagnóstico e Estágio do Câncer")
-# Adicionando rótulos aos eixos para melhor clareza
-plt.xlabel("Tempo até o Diagnóstico")  
-plt.ylabel("Estágio do Diagnóstico")
-# Garante que os rótulos não sejam cortados
-plt.tight_layout() 
-plt.show()
-```
-![image](https://github.com/user-attachments/assets/9984a9ee-be77-488a-b38d-9a39196d566f)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/10434325-b77e-4d9b-953e-533d226af3bc" alt="image">
+</p>
 
 <p align="justify">
-O gráfico de dispersão gerado analisa a relação entre o tempo até o diagnóstico
-e o estágio do câncer. Observa-se que os dados estão distribuídos em pontos
-discretos, indicando que tanto o tempo até o diagnóstico quanto o estágio do
-câncer são variáveis categóricas ou discretas. Não há uma correlação linear
-clara entre as duas variáveis, sugerindo que o tempo até o diagnóstico não
-determina diretamente o estágio do câncer, e vice-versa. A distribuição dos
-pontos sugere que existem pacientes diagnosticados em diferentes estágios da
-doença, independentemente do tempo que levou para o diagnóstico. A análise
-sugere que outros fatores, além do tempo até o diagnóstico, podem influenciar o
-estágio do câncer. É importante notar que a ausência de uma correlação linear
-não exclui a possibilidade de relações não lineares ou interações complexas
-entre as variáveis.</p>
+A tabela cruzada revela que, independentemente do tempo até o diagnóstico (precoce ou tardio), a maioria dos pacientes é diagnosticada nos estágios I e II do câncer colorretal, com uma ligeira predominância no estágio II. No entanto, o diagnóstico precoce está associado a um número maior de pacientes diagnosticados em todos os estágios, sugerindo que a detecção precoce pode levar a um diagnóstico em estágios mais iniciais. A diferença mais acentuada entre diagnósticos precoces e tardios é observada no estágio II, indicando que este estágio pode ser mais sensível ao tempo de diagnóstico. Apesar disso, um número significativo de pacientes ainda é diagnosticado em estágios avançados (III e IV), independentemente do tempo de diagnóstico, o que aponta para a influência de outros fatores além do tempo decorrido até o diagnóstico na progressão da doença.</p>
 
-2) Gráficos de dispersão: Análise de relação entre variáveis Stage_at_Diagnosis, Tumor_Aggressiveness e Insurance_Coverage
+2) Distribuição dos pacientes em relação ao tempo até o diagnóstico (Timely ou Delayed) e a agressividade do tumor (Low, Medium, High). 
 
-```python
-if 'Stage_at_Diagnosis' in df.columns and 'Tumor_Aggressiveness' in df.columns:
- # Aumentando o tamanho da figura para melhor visualização
-    plt.figure(figsize=(10, 6))
-# Aumentando o tamanho dos pontos para melhor visualização
-    sns.scatterplot(data=df, x="Stage_at_Diagnosis", y="Tumor_Aggressiveness", hue="Insurance_Coverage", s=80) 
-    plt.title("Relação entre Estágio no Diagnóstico e Agressividade do Tumor")
- # Adicionando rótulos aos eixos para melhor clareza
-    plt.xlabel("Estágio no Diagnóstico") 
-    plt.ylabel("Agressividade do Tumor")
- # Garante que os rótulos não sejam cortados
-    plt.tight_layout()
-    plt.show()
-```
-
-![image](https://github.com/user-attachments/assets/5fb9abe4-d85f-49c3-a17d-623bcab8d65e)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3b6e4788-cba3-46be-8fd5-268d8c9c3d87" alt="image">
+</p>
 
 <p align="justify">
-O gráfico de dispersão gerado analisa a relação entre o estágio do diagnóstico e
-a agressividade do tumor, com a cobertura de seguro codificada por cores.
-Observa-se que os dados estão distribuídos em pontos discretos, indicando que
-tanto o estágio do diagnóstico quanto a agressividade do tumor são variáveis
-categóricas ou discretas. Não há uma correlação linear clara entre as duas
-variáveis, sugerindo que o estágio do diagnóstico não determina diretamente a
-agressividade do tumor, e vice-versa. A cobertura de seguro (codificada por
-cores) parece estar distribuída uniformemente entre os diferentes estágios de
-diagnóstico e níveis de agressividade do tumor, o que indica que a cobertura de
-seguro não está fortemente associada a essas duas variáveis. A análise sugere
-que outros fatores, além do estágio do diagnóstico e da cobertura de seguro,
-podem influenciar a agressividade do tumor. É importante notar que a ausência de
-uma correlação linear não exclui a possibilidade de relações não lineares ou
-interações complexas entre as variáveis.</p>
+A tabela cruzada apresenta a distribuição de pacientes com câncer colorretal em relação ao tempo até o diagnóstico e a agressividade do tumor. Observa-se que a maioria dos pacientes foi diagnosticada precocemente (Timely) e apresentou tumores de baixa ou média agressividade. No entanto, mesmo com o diagnóstico tardio (Delayed), ainda há um número significativo de pacientes com tumores de baixa e média agressividade. A distribuição dos pacientes entre os níveis de agressividade do tumor é relativamente uniforme, tanto para diagnósticos precoces quanto tardios, sugerindo que o tempo até o diagnóstico pode não ser um fator determinante na agressividade do tumor. A categoria de alta agressividade (High) apresenta o menor número de pacientes em ambos os grupos de tempo de diagnóstico, indicando que tumores altamente agressivos são menos comuns na população estudada.</p>
 
 #### Realizando análises estatísticas na categoria "Diagnóstico, Características do Câncer e Tratamento" X demais categorias do dataset:
 

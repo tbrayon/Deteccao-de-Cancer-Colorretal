@@ -327,8 +327,8 @@ mode_values.columns = ["Modo (valor mais frequente)"]
 print(mode_values)
 
                        Modo (valor mais frequente)
-Stage_at_Diagnosis                               1
-Tumor_Aggressiveness                             1
+Stage_at_Diagnosis                               2
+Tumor_Aggressiveness                             2
 Insurance_Coverage                               1
 Time_to_Diagnosis                                1
 Treatment_Access                                 1
@@ -336,14 +336,7 @@ Chemotherapy_Received                            1
 Radiotherapy_Received                            0
 ```
 <p align="justify">
-O cálculo do modo das variáveis relacionadas ao diagnóstico, características do
-câncer e tratamento revelou os seguintes resultados: a maioria dos pacientes
-está no estágio 1 do diagnóstico, com tumores de baixa agressividade, possuem
-cobertura de seguro de saúde e tiveram diagnóstico em um curto intervalo de
-tempo. Além disso, a maioria dos pacientes teve acesso ao tratamento e recebeu
-quimioterapia, enquanto a maioria não recebeu radioterapia. Esses resultados
-refletem os padrões mais comuns entre os pacientes e podem auxiliar na definição
-de estratégias de tratamento e acompanhamento.</p>
+O resultado da análise da moda das variáveis relacionadas ao diagnóstico, características do câncer e tratamento revela os valores mais frequentes encontrados no conjunto de dados. A maioria dos pacientes foi diagnosticada no estágio 2 do câncer, com tumores de agressividade média (valor 2). A maioria possui cobertura de seguro de saúde (valor 1), teve diagnóstico em um curto intervalo de tempo (valor 1) e acesso ao tratamento (valor 1). Além disso, a maioria dos pacientes recebeu quimioterapia (valor 1), enquanto a maioria não recebeu radioterapia (valor 0). Esses resultados refletem os padrões mais comuns entre os pacientes e podem auxiliar na definição de estratégias de tratamento e acompanhamento.</p>
 
 2) Medidas de Tendência Central e Dispersão
 ```python
@@ -359,53 +352,14 @@ Medidas de Tendência Central e Dispersãos:
 Médias e Medidas de Dispersão das Variáveis Numéricas:
 
             Age  Stage_at_Diagnosis  Tumor_Aggressiveness  Colonoscopy_Access  Insurance_Coverage  Time_to_Diagnosis  Treatment_Access  Chemotherapy_Received  Radiotherapy_Received  Time_to_Recurrence
-mean  54.332892            1.399778              0.801090            0.751204            0.801801           0.601256          0.699283               0.501051               0.400167           29.543299
-50%   54.000000            1.000000              1.000000            1.000000            1.000000           1.000000          1.000000               1.000000               0.000000           30.000000
+mean  54.332892            2.399778              1.801090            0.751204            0.801801           1.398744          1.300717               0.501051               0.400167           29.543299
+50%   54.000000            2.000000              2.000000            1.000000            1.000000           1.000000          1.000000               1.000000               0.000000           30.000000
 std   20.182220            1.069657              0.748656            0.432318            0.398645           0.489643          0.458572               0.500002               0.489935           17.268440
 ```
 <p align="justify">
-A análise das medidas de tendência central e dispersão revela insights
-importantes sobre as variáveis numéricas do conjunto de dados. A idade média dos
-pacientes é de aproximadamente 54 anos, com uma mediana similar, indicando uma
-distribuição relativamente simétrica. O estágio médio do diagnóstico é 1.4,
-sugerindo que a maioria dos pacientes foi diagnosticada em estágios iniciais. A
-agressividade tumoral média é 0.8, com uma mediana de 1, indicando uma tendência
-para tumores de baixa agressividade. A maioria dos pacientes possui cobertura de
-seguro de saúde, teve diagnóstico rápido e acesso ao tratamento. A proporção de
-pacientes que receberam quimioterapia e radioterapia é aproximadamente igual. O
-tempo médio para recorrência é de cerca de 29.5 meses, com uma mediana de 30
-meses, sugerindo uma distribuição relativamente simétrica.O desvio padrão para
-idade e tempo de recorrência indicam uma variação considerável entre os
-pacientes, enquanto as outras variáveis mostram menor variação.É importante
-notar que algumas variáveis, como 'Insurance_Coverage', 'Time_to_Diagnosis',
-'Treatment_Access', 'Chemotherapy_Received' e 'Radiotherapy_Received' parecem
-ser binárias ou ter uma escala limitada, o que explica a baixa variabilidade.</p>
+A análise das medidas de tendência central e dispersão revela insights importantes sobre as variáveis numéricas do conjunto de dados. A idade média dos pacientes é de aproximadamente 54 anos, com uma mediana similar, indicando uma distribuição relativamente simétrica. O estágio médio do diagnóstico é 1.4, sugerindo que a maioria dos pacientes foi diagnosticada em estágios iniciais. A agressividade tumoral média é 0.8, com uma mediana de 1, indicando uma tendência para tumores de baixa agressividade. A maioria dos pacientes possui cobertura de seguro de saúde, teve diagnóstico rápido e acesso ao tratamento. A proporção de pacientes que receberam quimioterapia e radioterapia é aproximadamente igual. O tempo médio para recorrência é de cerca de 29.5 meses, com uma mediana de 30 meses, sugerindo uma distribuição relativamente simétrica. O desvio padrão para idade e tempo de recorrência indicam uma variação considerável entre os pacientes, enquanto as outras variáveis mostram menor variação. É importante notar que algumas variáveis, como 'Insurance_Coverage', 'Time_to_Diagnosis', 'Treatment_Access', 'Chemotherapy_Received' e 'Radiotherapy_Received' parecem ser binárias ou ter uma escala limitada, o que explica a baixa variabilidade.</p>
 
-3) Matriz de correlação
-```python
-numerical_df = df.select_dtypes(include=np.number)
-if not numerical_df.empty:
-    plt.figure(figsize=(8, 6))
-    sns.heatmap(numerical_df.corr(), annot=True, cmap="coolwarm", linewidths=0.5)
-    plt.title("Matriz de Correlação")
-    plt.show()
-else:
-    print("\nNenhuma variável numérica disponível para correlação.")
-```
-
-![image](https://github.com/user-attachments/assets/6189dec0-d63b-4967-af68-301ef49efc8b)
-
-<p align="justify">
-A matriz de correlação exibe as relações lineares entre as variáveis numéricas
-do conjunto de dados. Os valores variam de -1 a 1, onde 1 indica uma correlação
-positiva perfeita, -1 indica uma correlação negativa perfeita e 0 indica nenhuma
-correlação. Neste caso, observa-se que as correlações entre as variáveis são
-fracas, com valores próximos de zero. Isso sugere que não há relações lineares
-fortes entre as variáveis numéricas analisadas. A ausência de correlações fortes
-pode indicar que as variáveis são independentes entre si ou que as relações
-entre elas são não lineares.</p>
-
-4) Resumo estatístico das colunas numéricas
+3) Resumo estatístico de algumas colunas numéricas
 
 ```python
 resumo_estatistico = df.describe()
@@ -416,37 +370,18 @@ print(resumo_formatado)
 
                 Age  Stage_at_Diagnosis  Tumor_Aggressiveness  Colonoscopy_Access  Insurance_Coverage  Time_to_Diagnosis  Treatment_Access  Chemotherapy_Received  Radiotherapy_Received  Time_to_Recurrence
 count  89945.000000        89945.000000          89945.000000        89945.000000        89945.000000       89945.000000      89945.000000           89945.000000           89945.000000        89945.000000
-mean      54.332892            1.399778              0.801090            0.751204            0.801801           0.601256          0.699283               0.501051               0.400167           29.543299
+mean      54.332892            2.399778              1.801090            0.751204            0.801801           1.398744          1.300717               0.501051               0.400167           29.543299
 std       20.182220            1.069657              0.748656            0.432318            0.398645           0.489643          0.458572               0.500002               0.489935           17.268440
-min       20.000000            0.000000              0.000000            0.000000            0.000000           0.000000          0.000000               0.000000               0.000000            0.000000
-25%       37.000000            0.000000              0.000000            1.000000            1.000000           0.000000          0.000000               0.000000               0.000000           15.000000
-50%       54.000000            1.000000              1.000000            1.000000            1.000000           1.000000          1.000000               1.000000               0.000000           30.000000
-75%       72.000000            2.000000              1.000000            1.000000            1.000000           1.000000          1.000000               1.000000               1.000000           44.000000
-max       89.000000            3.000000              2.000000            1.000000            1.000000           1.000000          1.000000               1.000000               1.000000           59.000000
+min       20.000000            1.000000              1.000000            0.000000            0.000000           1.000000          1.000000               0.000000               0.000000            0.000000
+25%       37.000000            1.000000              1.000000            1.000000            1.000000           1.000000          1.000000               0.000000               0.000000           15.000000
+50%       54.000000            2.000000              2.000000            1.000000            1.000000           1.000000          1.000000               1.000000               0.000000           30.000000
+75%       72.000000            3.000000              2.000000            1.000000            1.000000           2.000000          2.000000               1.000000               1.000000           44.000000
+max       89.000000            4.000000              3.000000            1.000000            1.000000           2.000000          2.000000               1.000000               1.000000           59.000000
 ```
 <p align="justify">
-O resumo estatístico acima apresenta as principais medidas descritivas das
-variáveis numéricas do conjunto de dados. A contagem (count) indica o número de
-observações válidas em cada coluna. A média (mean) representa o valor médio de
-cada variável. O desvio padrão (std) mede a dispersão dos dados em relação à
-média. O valor mínimo (min) e o valor máximo (max) indicam os limites da
-variação de cada variável. Os quartis (25%, 50%, 75%) dividem os dados em quatro
-partes iguais, permitindo analisar a distribuição dos dados. Observa-se que a
-variável 'Idade' (Age) apresenta uma média de 54.33 anos, com uma variação
-considerável (desvio padrão de 20.18 anos). A variável 'Tempo até a Recorrência'
-(Time_to_Recurrence) apresenta uma média de 29.54 meses, com uma variação de até
-59 meses. As demais variáveis, como 'Estágio do Diagnóstico'
-(Stage_at_Diagnosis), 'Agressividade do Tumor' (Tumor_Aggressiveness),
-'Cobertura do Plano de Saúde' (Insurance_Coverage), 'Tempo até o Diagnóstico'
-(Time_to_Diagnosis), 'Acesso ao Tratamento' (Treatment_Access), 'Recebimento de
-Quimioterapia' (Chemotherapy_Received) e 'Recebimento de Radioterapia'
-(Radiotherapy_Received), são variáveis categóricas binárias (0 ou 1), com médias
-próximas de 0.5, indicando uma distribuição equilibrada entre as categorias. A
-análise do resumo estatístico pode auxiliar na compreensão da distribuição e
-variação das variáveis numéricas, fornecendo informações importantes para a
-análise exploratória dos dados e o desenvolvimento de modelos preditivos.</p>
+O resumo estatístico acima apresenta as principais medidas descritivas das variáveis numéricas do conjunto de dados. A contagem (count) indica o número de observações válidas em cada coluna. A média (mean) representa o valor médio de cada variável. O desvio padrão (std) mede a dispersão dos dados em relação à média. O valor mínimo (min) e o valor máximo (max) indicam os limites da variação de cada variável. Os quartis (25%, 50%, 75%) dividem os dados em quatro partes iguais, permitindo analisar a distribuição dos dados. Observa-se que a variável 'Idade' (Age) apresenta uma média de 54.33 anos, com uma variação considerável (desvio padrão de 20.18 anos). A variável 'Tempo até a Recorrência' (Time_to_Recurrence) apresenta uma média de 29.54 meses, com uma variação de até 59 meses. As demais variáveis, como 'Estágio do Diagnóstico' (Stage_at_Diagnosis), 'Agressividade do Tumor' (Tumor_Aggressiveness), 'Cobertura do Plano de Saúde' (Insurance_Coverage), 'Tempo até o Diagnóstico' (Time_to_Diagnosis), 'Acesso ao Tratamento' (Treatment_Access), 'Recebimento de Quimioterapia' (Chemotherapy_Received) e 'Recebimento de Radioterapia' (Radiotherapy_Received), são variáveis categóricas binárias (0 ou 1), com médias próximas de 0.5, indicando uma distribuição equilibrada entre as categorias. A análise do resumo estatístico pode auxiliar na compreensão da distribuição e variação das variáveis numéricas, fornecendo informações importantes para a análise exploratória dos dados e o desenvolvimento de modelos preditivos.</p>
 
-5) Medidas de Tendência Central (Média, Mediana, Moda)
+4) Medidas de Tendência Central (Média, Mediana, Moda)
 
 ```python
 media = df.mean(numeric_only=True)
@@ -459,20 +394,20 @@ print("\nModa:\n", moda.to_string())
 
 Média:
  Age                      54.332892
-Stage_at_Diagnosis        1.399778
-Tumor_Aggressiveness      0.801090
+Stage_at_Diagnosis        2.399778
+Tumor_Aggressiveness      1.801090
 Colonoscopy_Access        0.751204
 Insurance_Coverage        0.801801
-Time_to_Diagnosis         0.601256
-Treatment_Access          0.699283
+Time_to_Diagnosis         1.398744
+Treatment_Access          1.300717
 Chemotherapy_Received     0.501051
 Radiotherapy_Received     0.400167
 Time_to_Recurrence       29.543299
 
 Mediana:
  Age                      54.0
-Stage_at_Diagnosis        1.0
-Tumor_Aggressiveness      1.0
+Stage_at_Diagnosis        2.0
+Tumor_Aggressiveness      2.0
 Colonoscopy_Access        1.0
 Insurance_Coverage        1.0
 Time_to_Diagnosis         1.0
@@ -491,8 +426,8 @@ Urban_or_Rural                     Urban
 Socioeconomic_Status              Middle
 Family_History                        No
 Previous_Cancer_History               No
-Stage_at_Diagnosis                   1.0
-Tumor_Aggressiveness                 1.0
+Stage_at_Diagnosis                   2.0
+Tumor_Aggressiveness                 2.0
 Colonoscopy_Access                   1.0
 Screening_Regularity             Regular
 Diet_Type                        Western
@@ -515,24 +450,9 @@ Time_to_Recurrence                  53.0
 ```
 
 <p align="justify">
-As medidas de tendência central fornecem informações sobre o valor típico de um
-conjunto de dados. A média representa o valor médio, a mediana representa o
-valor central e a moda representa o valor mais frequente. Neste caso, a média e
-a mediana das variáveis 'Estágio do Diagnóstico' (Stage_at_Diagnosis),
-'Agressividade do Tumor' (Tumor_Aggressiveness), 'Cobertura do Plano de Saúde'
-(Insurance_Coverage), 'Tempo até o Diagnóstico' (Time_to_Diagnosis), 'Acesso ao
-Tratamento' (Treatment_Access), 'Recebimento de Quimioterapia'
-(Chemotherapy_Received) e 'Recebimento de Radioterapia' (Radiotherapy_Received)
-são próximas de 1, indicando que a maioria dos pacientes se encontra nas
-categorias 'Sim' ou 'Adequado' para essas variáveis. A moda, que representa o
-valor mais frequente, confirma essa tendência, com a maioria das variáveis
-categóricas binárias apresentando o valor 1 como moda. A variável 'Tempo até a
-Recorrência' (Time_to_Recurrence) apresenta uma moda de 53 meses, indicando que
-esse é o tempo mais frequente para a recorrência do câncer. A análise das
-medidas de tendência central pode auxiliar na compreensão da distribuição dos
-dados e na identificação de valores típicos para cada variável.</p>
+A análise estatística apresentada oferece uma visão abrangente das características do conjunto de dados, abrangendo medidas de tendência central (média, mediana e moda) e dispersão (desvio padrão). A idade média dos pacientes é de 54 anos, com uma distribuição simétrica, enquanto o tempo médio para recorrência é de aproximadamente 29.5 meses. A maioria dos pacientes foi diagnosticada no estágio 2 do câncer, com tumores de agressividade média. A cobertura de seguro, o diagnóstico precoce e o acesso ao tratamento são comuns na amostra. A quimioterapia é mais frequente que a radioterapia. A moda revela que a maioria dos pacientes é do sexo masculino, raça branca, da América do Norte, residente em áreas urbanas, de classe média, sem histórico familiar ou prévio de câncer, com diagnóstico regular, dieta ocidental, baixo nível de atividade física, nunca fumou, baixo consumo de álcool e carne vermelha, consumo médio de fibras, cobertura de seguro, diagnóstico precoce, acesso ao tratamento, quimioterapia, cirurgia, boa adesão ao acompanhamento, sobrevida e sem recorrência. O tempo mais frequente para recorrência é de 53 meses.</p>
 
-6) Medidas de Dispersão (Desvio Padrão e Intervalo Interquartil - IQR)
+5) Medidas de Dispersão (Desvio Padrão e Intervalo Interquartil - IQR)
 
 ```python
 # Desvio padrão
@@ -570,54 +490,7 @@ Radiotherapy_Received     1.0
 Time_to_Recurrence       29.0
 ```
 <p align="justify">
-As medidas de dispersão fornecem informações sobre a variabilidade dos dados em
-relação à média ou à mediana. O desvio padrão mede a dispersão dos dados em
-torno da média, enquanto o intervalo interquartil (IQR) mede a dispersão dos
-dados em torno da mediana. Neste caso, observa-se que a variável 'Idade' (Age)
-apresenta o maior desvio padrão (20.18 anos) e o maior IQR (35 anos), indicando
-uma alta variabilidade na idade dos pacientes. A variável 'Tempo até a
-Recorrência' (Time_to_Recurrence) também apresenta um desvio padrão considerável
-(17.27 meses) e um IQR de 29 meses, sugerindo uma ampla variação no tempo até a
-recorrência do câncer. As demais variáveis, que são categóricas binárias (0 ou
-1), apresentam desvios padrão próximos de 0.5 e IQRs de 1 ou 0, indicando uma
-baixa variabilidade e uma distribuição equilibrada entre as categorias. A
-análise das medidas de dispersão pode auxiliar na identificação de variáveis com
-alta variabilidade, o que pode ter implicações para a análise dos dados e o
-desenvolvimento de modelos preditivos.</p>
-
-<p align="justify">
-7) Identificação de Outliers com Boxplot. Outliers são valores que fogem do padrão esperado em um conjunto de dados. O Boxplot mostra a distribuição dos dados com base nos quartis e destaca possíveis valores extremos.</p>
-
-```python
-plt.figure(figsize=(12, 6))
-# Selecionando apenas variáveis numéricas para o boxplot
-sns.boxplot(data=df[["Stage_at_Diagnosis", "Tumor_Aggressiveness", "Insurance_Coverage","Time_to_Diagnosis", "Treatment_Access", "Chemotherapy_Received", "Radiotherapy_Received"]])
-plt.xticks(rotation=45)
-plt.title("Distribuição das Variáveis Numéricas")
-plt.show()
-```
-
-![image](https://github.com/user-attachments/assets/18c7f70b-4d98-40b4-af13-0d68a7bc6d94)
-
-
-<p align="justify">
-O boxplot gerado revela a distribuição das variáveis numéricas do seu conjunto
-de dados, destacando potenciais outliers. A variável 'Stage_at_Diagnosis'
-demonstra uma distribuição assimétrica, com uma grande concentração de dados na
-faixa inferior e alguns valores atípicos na faixa superior, sugerindo casos com
-estágios de diagnóstico mais avançados. 'Tumor_Aggressiveness' exibe uma
-distribuição mais uniforme, com alguns outliers na faixa inferior, indicando
-tumores menos agressivos em certos casos. 'Insurance_Coverage' apresenta uma
-distribuição extremamente concentrada, com um único outlier, possivelmente
-representando um caso com cobertura de seguro incomum. As variáveis
-'Time_to_Diagnosis', 'Treatment_Access', 'Chemotherapy_Received' e
-'Radiotherapy_Received' mostram distribuições semelhantes, com dados
-concentrados em um único valor, sugerindo que a maioria dos pacientes
-experimentou tempos de diagnóstico, acesso a tratamento e recebimento de
-terapias similares. A ausência de caixas e bigodes nessas variáveis indica uma
-baixa variabilidade, o que pode ser resultado de dados binários ou de uma escala
-limitada.</p>
-
+As medidas de dispersão fornecem informações sobre a variabilidade dos dados em relação à média ou à mediana. O desvio padrão mede a dispersão dos dados em torno da média, enquanto o intervalo interquartil (IQR) mede a dispersão dos dados em torno da mediana. Neste caso, observa-se que a variável 'Idade' (Age) apresenta o maior desvio padrão (20.18 anos) e o maior IQR (35 anos), indicando uma alta variabilidade na idade dos pacientes. A variável 'Tempo até a Recorrência' (Time_to_Recurrence) também apresenta um desvio padrão considerável (17.27 meses) e um IQR de 29 meses, sugerindo uma ampla variação no tempo até a recorrência do câncer. As demais variáveis, que são categóricas binárias (0 ou 1), apresentam desvios padrão próximos de 0.5 e IQRs de 1 ou 0, indicando uma baixa variabilidade e uma distribuição equilibrada entre as categorias. A análise das medidas de dispersão pode auxiliar na identificação de variáveis com alta variabilidade, o que pode ter implicações para a análise dos dados e o desenvolvimento de modelos preditivos.</p>
 
 #### Tentando responder as questões de pesquisa relacionada à categoria Diagnóstico, Características do Câncer e Tratamento utilizando métodos de estatística:
 
@@ -670,7 +543,10 @@ plt.tight_layout(rect=[0, 0.03, 1, 0.75])  # Ajusta o layout para evitar sobrepo
 
 plt.show()
 ```
-![image](https://github.com/user-attachments/assets/007a8ac8-644e-498c-b81a-b8f5d6412b42)
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/007a8ac8-644e-498c-b81a-b8f5d6412b42" alt="image">
+</p>
 
 <p align="justify">
 O gráfico de barras acima exibe a relação entre o estágio do câncer no
@@ -735,7 +611,10 @@ if "Colonoscopy_Access" in df.columns:
 
     plt.show()
 ```
-![image](https://github.com/user-attachments/assets/0940ae32-090d-45fc-8ca1-89956391bf6b)
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0940ae32-090d-45fc-8ca1-89956391bf6b" alt="image">
+</p>
 
 <p align="justify">
 O gráfico de barras acima exibe a relação entre o estágio do câncer no
@@ -752,33 +631,6 @@ podendo ser determinada por outros fatores clínicos ou individuais do paciente.
 A análise da relação entre o estágio do câncer e a realização de colonoscopia
 pode auxiliar na compreensão dos protocolos de rastreamento adotados e no
 planejamento de estratégias de intervenção. Em resumo, esta análise estatística não responde à questão de pesquisa.</p>
-
-
-### - Acompanhamento e Sobrevivência
-
-
-## Descrição dos achados
-
-A partir da análise descrita e exploratória realizada, descreva todos os achados considerados relevantes para o contexto em que o trabalho se insere. Por exemplo: com relação à centralidade dos dados algo chamou a atenção? Foi possível identificar correlação entre os atributos? Que tipo de correlação (forte, fraca, moderada)? 
-
-#### Gina
-
-<p align="justify">
-A análise exploratória inicial do conjunto de dados revelou características cruciais para o contexto da predição de câncer colorretal. Primeiramente, a ausência de dados faltantes e linhas vazias simplifica significativamente as etapas de pré-processamento, permitindo focar na análise de relações complexas entre as variáveis. A conversão de dados categóricos e booleanos para representações numéricas foi fundamental para aplicar métodos estatísticos e modelos de aprendizado de máquina, abrindo caminho para a identificação de padrões preditivos.</p>
-<p align="justify">
-A análise de dispersão entre tempo de diagnóstico e estágio do câncer, assim como entre estágio do diagnóstico e agressividade do tumor, demonstra a ausência de correlações lineares fortes. Isso sugere que a progressão do câncer colorretal é influenciada por múltiplos fatores, além dos analisados individualmente. A distribuição uniforme da cobertura de seguro entre diferentes estágios e agressividades tumorais reforça essa complexidade, indicando que fatores socioeconômicos podem não ser determinantes isolados.</p>
-<p align="justify">
-A análise das medidas de tendência central e dispersão revela uma população de pacientes com idade média de 54 anos, predominância de diagnósticos em estágios iniciais e tumores de baixa agressividade. A alta variabilidade na idade e no tempo de recorrência destaca a heterogeneidade da doença, enquanto a baixa variabilidade em variáveis binárias como cobertura de seguro e acesso ao tratamento sugere padrões de atendimento relativamente uniformes.</p>
-<p align="justify">
-A ausência de correlações lineares fortes na matriz de correlação reforça a necessidade de explorar relações não lineares e interações complexas entre as variáveis. A análise de boxplots e gráficos de barras complementa essa visão, evidenciando a distribuição assimétrica de estágios de diagnóstico e a influência limitada do estágio do câncer na decisão de administrar quimioterapia ou realizar colonoscopia.</p>
-<p align="justify">
-Em resumo, a análise exploratória revela um conjunto de dados rico e complexo, com padrões que desafiam explicações lineares simplistas. A ausência de correlações fortes e a presença de outliers destacam a necessidade de modelos preditivos sofisticados, capazes de capturar as nuances da progressão do câncer colorretal e identificar os fatores que realmente impactam o diagnóstico, tratamento e recorrência da doença.</p>
-
-### Informações Demográficas
-
-### Triagem e Estilo de Vida
-
-### Diagnóstico, Características do Câncer e Tratamento
 
 ### Acompanhamento e Sobrevivência
 
@@ -825,6 +677,22 @@ Por fim, na matriz de correlação abaixo temos a correlação entre as principa
 
 A matriz tem valores de -1 a 1, onde valores próximos a -1 tendem a uma forte relação negativa e valores próximos a 1 tendem a uma forte relação positiva. A conclusão é que os atributos deste grupo não possuem correlação entre si.
 
+## Descrição dos achados
+
+A partir da análise descrita e exploratória realizada, descreva todos os achados considerados relevantes para o contexto em que o trabalho se insere. Por exemplo: com relação à centralidade dos dados algo chamou a atenção? Foi possível identificar correlação entre os atributos? Que tipo de correlação (forte, fraca, moderada)? 
+
+#### Gina
+
+<p align="justify">
+A análise exploratória inicial do conjunto de dados revelou características cruciais para o contexto da predição de câncer colorretal. Primeiramente, a ausência de dados faltantes e linhas vazias simplifica significativamente as etapas de pré-processamento, permitindo focar na análise de relações complexas entre as variáveis. A conversão de dados categóricos e booleanos para representações numéricas foi fundamental para aplicar métodos estatísticos e modelos de aprendizado de máquina, abrindo caminho para a identificação de padrões preditivos.</p>
+<p align="justify">
+A análise de dispersão entre tempo de diagnóstico e estágio do câncer, assim como entre estágio do diagnóstico e agressividade do tumor, demonstra a ausência de correlações lineares fortes. Isso sugere que a progressão do câncer colorretal é influenciada por múltiplos fatores, além dos analisados individualmente. A distribuição uniforme da cobertura de seguro entre diferentes estágios e agressividades tumorais reforça essa complexidade, indicando que fatores socioeconômicos podem não ser determinantes isolados.</p>
+<p align="justify">
+A análise das medidas de tendência central e dispersão revela uma população de pacientes com idade média de 54 anos, predominância de diagnósticos em estágios iniciais e tumores de baixa agressividade. A alta variabilidade na idade e no tempo de recorrência destaca a heterogeneidade da doença, enquanto a baixa variabilidade em variáveis binárias como cobertura de seguro e acesso ao tratamento sugere padrões de atendimento relativamente uniformes.</p>
+<p align="justify">
+A ausência de correlações lineares fortes na matriz de correlação reforça a necessidade de explorar relações não lineares e interações complexas entre as variáveis. A análise de boxplots e gráficos de barras complementa essa visão, evidenciando a distribuição assimétrica de estágios de diagnóstico e a influência limitada do estágio do câncer na decisão de administrar quimioterapia ou realizar colonoscopia.</p>
+<p align="justify">
+Em resumo, a análise exploratória revela um conjunto de dados rico e complexo, com padrões que desafiam explicações lineares simplistas. A ausência de correlações fortes e a presença de outliers destacam a necessidade de modelos preditivos sofisticados, capazes de capturar as nuances da progressão do câncer colorretal e identificar os fatores que realmente impactam o diagnóstico, tratamento e recorrência da doença.</p>
 
 ## Ferramentas utilizadas
 <p align="justify">

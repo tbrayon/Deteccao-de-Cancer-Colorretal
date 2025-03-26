@@ -317,20 +317,39 @@ Moda do Histórico de Câncer Prévio: No
 <p align="justify">
 - <strong>Histórico de Câncer Prévio</strong>: A moda do <strong>Histórico de Câncer Prévio</strong> também foi <strong>0</strong>, indicando que a maior parte dos pacientes nunca teve câncer anteriormente.</p>
 
-####  Realizando a mediana central da categoria "Idade":
-1) Mediana das variáveis da categoria: Age
+#### Medidas Estatísticas da Distribuição Etária
 
+1) Mediana das variáveis da categoria: Age
 ```python
 import pandas as pd
-# Carregando os dados
-df = pd.read_excel('colorectal_cancer_prediction.xlsx')
-# Calculando a mediana da Idade
-median_age = df['Age'].median()
-# Exibindo a mediana
-print(f"A mediana da idade dos pacientes é: {median_age} anos")
+# Supondo que df_xlsx seja o seu DataFrame
+# Média
+media_idade = df_xlsx['Age'].mean()
+# Mediana
+mediana_idade = df_xlsx['Age'].median()
+# Desvio Padrão
+desvio_padrao_idade = df_xlsx['Age'].std()
+# Imprimir os resultados
+print(f"Média da idade: {media_idade:.2f}")
+print(f"Mediana da idade: {mediana_idade:.2f}")
+print(f"Desvio padrão da idade: {desvio_padrao_idade:.2f}")
 ```
-<p align="justify">
-A mediana é uma medida de tendência central que representa o valor central em um conjunto de dados quando os valores são organizados em ordem crescente. Quando o número de elementos é ímpar, a mediana é simplesmente o valor do meio. Quando o número de elementos é par, a mediana é a média dos dois valores centrais. Para calcular a mediana da idade dos pacientes no conjunto de dados, utilizamos a função median() do pandas, que organiza os dados em ordem crescente e seleciona o valor central. A mediana da idade dos pacientes é: 54.0 anos</p>
+#### Medidas Estatísticas da Idade
+
+- **Média da idade:** 54,33
+- **Mediana da idade:** 54,00
+- **Desvio padrão da idade:** 20,18
+- 
+<p align="justify">Para compreender a distribuição etária dos pacientes com câncer colorretal, foram calculadas três medidas estatísticas essenciais: média, mediana e desvio padrão.</p>
+
+<p align="justify"><strong>Média:</strong> Representa o valor médio das idades dos pacientes, que foi de <strong>54,33 anos</strong>. Esse valor indica a tendência central dos dados.</p>
+
+<p align="justify"><strong>Mediana:</strong> Corresponde à idade central quando os valores são ordenados, resultando em <strong>54,00 anos</strong>. Como a mediana está próxima da média, sugere-se uma distribuição relativamente simétrica.</p>
+
+<p align="justify"><strong>Desvio Padrão:</strong> Mede a dispersão dos dados em relação à média. O valor obtido foi <strong>20,18</strong>, indicando que há uma variação significativa nas idades dos pacientes.</p>
+
+<p align="justify">Essas métricas ajudam a compreender o perfil etário dos pacientes, fornecendo informações importantes para estudos epidemiológicos e estratégias de prevenção do câncer colorretal.</p>
+
 
 ####  Realizando a média central da categoria "Status Socioeconômico":
 1) Média de frequência da categoria "Status Socioeconômico"

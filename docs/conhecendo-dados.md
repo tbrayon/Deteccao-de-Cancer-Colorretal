@@ -632,8 +632,6 @@ planejamento de estratégias de intervenção. Em resumo, esta análise estatís
 
 ### Acompanhamento e Sobrevivência
 
-### Acompanhamento e Sobrevivência
-
 #### Outliers
 Para a verificação de outliers, foi considerado apenas o atributo de tempo de recorrência, pois os demais valores do recorte são categóricos e não possuem valores fora do padrão. A análise de dispersão foi realizada através de um boxplot que pode ser observado abaixo:
 
@@ -645,12 +643,18 @@ Para a verificação de outliers, foi considerado apenas o atributo de tempo de 
 A conclusão da análise foi que não existem outliers, isto é, todos os tempos de recorrência estão dentro de um intervalo considerado padrão.
 
 #### Relação idade e sobrevivência
+<p align="justify">
 Foi verificada a relação de sobrevivência com a idade do paciente a partir de dois métodos: teste t e Mann-Whitney U. O objetivo desta análise foi visualizar se a taxa de sobrevivência de pacientes está condicionada à idade de alguma forma, se pacientes mais novos possuem mais chances de sobrevivência, por exemplo. Os valores encontrados foram:
-Estatística U: 763629194.0, p-valor: 0.4518
-Estatística t: 0.7523573566766071, p-valor: 0.4518
+</p>
+
+- Estatística U: 763629194.0, p-valor: 0.4518
+- Estatística t: 0.7523573566766071, p-valor: 0.4518
+
 Onde um p-valor > 0.05 indica a não relação entre os valores. 
 
+<p align="justify">
 O gráfico de histograma KDE abaixo demonstra de forma visual como os valores não são relacionados, já que sua distribuição não apresenta nenhuma tendência:
+</p>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/664849c9-6c44-45d3-93e7-3fb55d2c71bd" alt="Histograma de Idade por Sobrevivência">
@@ -658,6 +662,7 @@ O gráfico de histograma KDE abaixo demonstra de forma visual como os valores n�
 
 
 #### Tempo até a recorrência e adesão ao acompanhamento
+
 Abaixo, temos as análises básicas dos atributos Time_to_Recurrence e Follow_Up_Adherence:
 
 | Variable         	| Count   | Mean  	| Std Dev   | Min  | 25%  | 50%  | 75%  | Max  | Mode |
@@ -677,14 +682,15 @@ Utilizando o teste U, o resultado foi U-Statistic: 969471225.5 e p-valor: 0.8599
 Assim, a conclusão é que a adesão ao acompanhamento não está relacionada à sobrevivência.
 
 #### Correlação entre as principais variáveis do subconjunto
-Por fim, na matriz de correlação abaixo temos a correlação entre as principais variáveis do recorte Acompanhamento e Sobrevivência do dataset:
+Por fim, na matriz de correlação abaixo temos a correlação entre as principais variáveis do recorte Acompanhamento e Sobrevivência do _dataset_:
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c512abc1-5604-49ec-9436-f2f96ae2ef58" alt="Matriz de correlação">
 </p>
 
-
+<p align="justify">
 A matriz tem valores de -1 a 1, onde valores próximos a -1 tendem a uma forte relação negativa e valores próximos a 1 tendem a uma forte relação positiva. A conclusão é que os atributos deste grupo não possuem correlação entre si.
+</p>
 
 ## Descrição dos achados
 

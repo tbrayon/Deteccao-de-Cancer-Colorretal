@@ -229,7 +229,7 @@ Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age<
 
 1) Histograma de Distribuição de Idade dos Pacientes.
 
-Colocar a imagem
+Colocar a imagem 02
 
 ```python
 import seaborn as sns

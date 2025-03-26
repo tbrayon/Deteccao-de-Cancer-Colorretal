@@ -412,12 +412,14 @@ Antes de realizar análises estatísticas, algumas colunas categóricas foram co
 #### Análise Estatística Preliminar  
 
 <p style="text-align: justify;">
+
 A análise estatística preliminar permite compreender melhor o comportamento das variáveis categóricas e numéricas do conjunto de dados. Para isso, foram realizadas as seguintes etapas no pré-processamento:
 </p>  
 
 ### Passos realizados:  
 
 <p style="text-align: center;">
+       
 1. Aplicação do **Label Encoding** para converter variáveis categóricas em valores numéricos.  
 2. Armazenamento dos mapeamentos originais para futura referência.  
 3. Normalização da coluna **BMI** para um intervalo entre 0 e 1.  
@@ -426,6 +428,7 @@ A análise estatística preliminar permite compreender melhor o comportamento da
 </p>
 
 <p style="text-align: center;">
+       
 Na categoria **Triagem e Estilo de Vida**, todas as seguintes colunas foram convertidas para valores numéricos:  
 </p>
 
@@ -440,10 +443,12 @@ Na categoria **Triagem e Estilo de Vida**, todas as seguintes colunas foram conv
 - **Fiber_Consumption** (Consumo de fibras)  
 
 <p style="text-align: justify;">
+       
 A **normalização da variável BMI** garante que seus valores fiquem dentro de uma escala padronizada, facilitando comparações e prevenindo distorções nos modelos preditivos.  
 </p>
 
 <p style="text-align: justify;">
+       
 Além disso, as **estatísticas descritivas** fornecem uma visão clara da distribuição dos dados, enquanto a **moda** permite identificar os valores mais frequentes, auxiliando na interpretação dos padrões encontrados.  
 </p>
 
@@ -496,10 +501,12 @@ for column in categorical_cols + ['BMI']:
 ```
 
 <p style="text-align: justify;">
+
 A análise estatística preliminar permite compreender melhor o comportamento das variáveis categóricas e numéricas do conjunto de dados. Com a aplicação do Label Encoding, garantimos que os dados categóricos possam ser utilizados de maneira eficiente em análises posteriores. Além disso, a normalização da variável BMI (IMC) assegura que os valores fiquem em uma escala padronizada, facilitando comparações e prevenindo distorções nos modelos preditivos.
 </p>
 
 <p style="text-align: justify;">
+       
 As estatísticas descritivas fornecem insights importantes sobre a distribuição dos dados, incluindo a média, mediana e dispersão de cada variável. A moda, por sua vez, destaca os valores mais frequentes, permitindo identificar padrões que podem influenciar os resultados finais da pesquisa. Com essa base sólida, podemos avançar para análises mais aprofundadas, buscando relações entre hábitos de vida, exames preventivos e condições de saúde.
 </p>
 
@@ -550,14 +557,17 @@ Os resultados obtidos mostram que:
 - **O índice de massa corporal (IMC) mais frequente** é **38.1**, um valor alto que indica obesidade, sugerindo um possível risco aumentado para doenças metabólicas.  
 
 <p style="text-align: justify;">
+       
 Os valores estatísticos e a moda das variáveis revelam tendências importantes no comportamento da população analisada. Os dados indicam que a maioria dos indivíduos tem acesso à colonoscopia e realiza exames regulares, o que é positivo para a prevenção de doenças. No entanto, a predominância de uma dieta ocidental, associada a um nível de atividade física baixo, pode ser um fator preocupante para a saúde geral da amostra.
 </p>
 
 <p style="text-align: justify;">
+       
 Outro ponto relevante é o IMC médio elevado (38.1), característico de obesidade, o que pode indicar um risco aumentado para doenças metabólicas. A análise do consumo alimentar também sugere que a ingestão de carne vermelha é predominantemente baixa, enquanto a ingestão de fibras está em um nível médio. Esses padrões podem desempenhar um papel fundamental na investigação de fatores de risco para condições gastrointestinais e outras doenças associadas à dieta e ao estilo de vida.
 </p>
 
 <p style="text-align: justify;">
+       
 Tentando responder às questões de pesquisa relacionadas à categoria de informações demográficas, triagem e estilo de vida, diagnóstico, características do câncer e tratamento acompanhamento e sobrevivência, utilizando métodos de estatística:
 </p>
 

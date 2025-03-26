@@ -294,7 +294,7 @@ A visualização da distribuição de frequência também ajuda a entender melho
 <p align="justify">
 O conjunto de dados em análise contém informações cruciais relacionadas ao diagnóstico, características do câncer e tratamento de pacientes. Inicialmente, as colunas <strong>Stage_at_Diagnosis, Tumor_Aggressiveness e Time_to_Diagnosis</strong> foram carregadas como texto, enquanto <strong>Insurance_Coverage, Chemotherapy_Received e Radiotherapy_Received</strong> foram identificadas como booleanas. Para facilitar a análise quantitativa e a modelagem, foi realizada a conversão dos tipos de dados para numérico, mapeando os valores textuais e booleanos para representações numéricas apropriadas. A conversão dessas colunas permite a aplicação de métodos estatísticos e modelos de aprendizado de máquina, facilitando a identificação de padrões e a previsão de resultados relacionados ao câncer colorretal.</p>
 
-#### Realizando análises estatísticas na categoria "Diagnóstico, Características do Câncer e Tratamento":
+#### Realizando análises de ditribuição de pacientes na categoria "Diagnóstico, Características do Câncer e Tratamento":
 1) Distribuição dos pacientes em relação ao tempo até o diagnóstico (Timely ou Delayed) e o estágio do câncer no diagnóstico (I, II, III, IV). 
 
 <p align="center">
@@ -313,7 +313,7 @@ A tabela cruzada revela que, independentemente do tempo até o diagnóstico (pre
 <p align="justify">
 A tabela cruzada apresenta a distribuição de pacientes com câncer colorretal em relação ao tempo até o diagnóstico e a agressividade do tumor. Observa-se que a maioria dos pacientes foi diagnosticada precocemente (Timely) e apresentou tumores de baixa ou média agressividade. No entanto, mesmo com o diagnóstico tardio (Delayed), ainda há um número significativo de pacientes com tumores de baixa e média agressividade. A distribuição dos pacientes entre os níveis de agressividade do tumor é relativamente uniforme, tanto para diagnósticos precoces quanto tardios, sugerindo que o tempo até o diagnóstico pode não ser um fator determinante na agressividade do tumor. A categoria de alta agressividade (High) apresenta o menor número de pacientes em ambos os grupos de tempo de diagnóstico, indicando que tumores altamente agressivos são menos comuns na população estudada.</p>
 
-#### Realizando análises estatísticas na categoria "Diagnóstico, Características do Câncer e Tratamento" X demais categorias do dataset:
+#### Realizando análises de ditribuição de pacientes na categoria "Diagnóstico, Características do Câncer e Tratamento" X demais categorias do dataset:
 
 1) Moda das variáveis da categoria Diagnóstico, Características do Câncer e Tratamento.
 ```python

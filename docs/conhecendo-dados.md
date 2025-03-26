@@ -374,7 +374,7 @@ A visualização da distribuição de frequência também ajuda a entender melho
 #### Análise da Média de Agressividade do Tumor por Status de Tabagismo:
 1) O gráfico de contagem apresenta a distribuição dos níveis de agressividade do tumor (**Tumor_Aggressiveness**) em relação ao status de tabagismo (**Smoking_Status**).
 
-imagem 3
+![Grafico Violino 01](https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/GraficoViolino%2001.jpg)
 
 Para entender como o gráfico de violino está calculando a agressividade do tumor para cada status de tabagismo, analisamos a **média de agressividade do tumor** para cada grupo.  
 

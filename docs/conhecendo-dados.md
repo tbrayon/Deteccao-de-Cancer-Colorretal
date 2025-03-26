@@ -225,34 +225,43 @@ Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age<
 | Não       | 0      | 80.985     |
 | Sim       | 1      | 8.960      |
 
+#### Realizando análises estatísticas na categoria "Idade":
 
-#### Realizando análises estatísticas na categoria "Idade, Histórico Familiar de Câncer e Histórico de Câncer Prévio":
-1) 
+1) Histograma de Distribuição de Idade dos Pacientes.
+
+Colocar a imagem
+
 ```python
-# Exemplo de dados com variáveis booleanas para Family_History e Previous_Cancer_History
-data = {
-    'Age': [25, 30, 35, 40, 45],
-    'Family_History': ['Sim', 'Não', 'Sim', 'Não', 'Sim'],  # "Sim" ou "Não"
-    'Previous_Cancer_History': ['Não', 'Sim', 'Sim', 'Não', 'Sim']  # "Sim" ou "Não"
-}
-# Criando um DataFrame com os dados
-df = pd.DataFrame(data)
-# Convertendo as variáveis Family_History e Previous_Cancer_History para valores binários (0 ou 1)
-df['Family_History'] = df['Family_History'].map({'Sim': 1, 'Não': 0})
-df['Previous_Cancer_History'] = df['Previous_Cancer_History'].map({'Sim': 1, 'Não': 0})
-# Gráfico de dispersão com Age no eixo X e Family_History no eixo Y
-plt.figure(figsize=(8,6))
-sns.scatterplot(data=df, x='Age', y='Family_History', hue='Family_History', palette='coolwarm', style='Family_History', s=100)
-plt.title('Dispersão entre Idade e Histórico Familiar de Câncer')
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.histplot(df_xlsx['Age'], bins=10, kde=True, color='skyblue')
+plt.title('Distribuição de Idade dos Pacientes com Densidade')
 plt.xlabel('Idade')
-plt.ylabel('Histórico Familiar (0: Não, 1: Sim)')
-# Ajustando a posição da legenda para o canto direito e no meio do gráfico
-plt.legend(title='Histórico Familiar', labels=['Não', 'Sim'], bbox_to_anchor=(1.05, 0.5), loc='center left')
+plt.ylabel('Densidade')
+plt.show()
 ```
+## Distribuição de Idade dos Pacientes
 
+### Compreensão da Distribuição  
+<p align="justify">Para compreender a distribuição da idade dos pacientes incluídos no estudo, foi elaborado um <strong>histograma</strong> utilizando a coluna `"Age"` do conjunto de dados. O histograma divide os dados em <strong>intervalos de idade <strong>(bins)</strong> e exibe a frequência (quantidade de pacientes) em cada intervalo.</p>       
 
-<p align="justify">
-</p>
+### Construção do Histograma  
+<p align="justify">O histograma foi construído utilizando a biblioteca <strong>matplotlib.pyplot</strong> em Python. A coluna `'Age'` do DataFrame `df_xlsx` foi utilizada como fonte de dados.</p>  
+
+### Parâmetros Utilizados:  
+- **Número de intervalos:** 10 (`bins=10`), permitindo uma visualização clara da distribuição.  
+- **Cor das barras:** Azul claro (`color='skyblue'`).  
+- **Bordas das barras:** Pretas (`edgecolor='black'`) para melhor contraste.  
+- **Título do gráfico:** "Distribuição de Idade dos Pacientes".  
+- **Rótulos dos eixos:** `"Idade"` (eixo x) e `"Quantidade"` (eixo y).  
+- **Exibição do gráfico:** `plt.show()`.  
+
+### Observações Adicionais
+
+<p align="justify">- O histograma apresenta a distribuição etária dos pacientes com câncer colorretal, organizada em intervalos de <strong>10 anos</strong>, abrangendo a faixa de <strong>30 a 90 anos<strong>.</p>    
+<p align="justify">- Observa-se um aumento na quantidade de pacientes nos grupos de <strong>40-50 anos</strong> e <strong>70-80 anos</strong>, em comparação com os demais intervalos.</p>    
+<p align="justify">- Esse padrão sugere que essas faixas etárias possuem uma <strong>maior incidência da doença</strong>.</p>    
+<p align="justify">- A identificação desses grupos é fundamental para a implementação de <strong>programas de prevenção e detecção precoce</strong>, permitindo a adoção de estratégias voltadas ao <strong>monitoramento e à conscientização</strong> sobre os riscos e sintomas do câncer colorretal.</p>    
 
 #### Realizando análises estatísticas na categoria "Gênero, Raça, Região, Zona de Residência, Status Socioeconômico, Histórico Familiar e Histórico de Câncer Prévio":
 

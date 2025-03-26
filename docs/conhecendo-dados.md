@@ -222,7 +222,9 @@ Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age<
 |-----------|--------|------------|
 | Não       | 0      | 80.985     |
 | Sim       | 1      | 8.960      |
---
+<p align="center">
+  <hr width="50%">
+</p>
 #### Realizando análises estatísticas na categoria "Idade":
 
 1) Histograma de Distribuição de Idade dos Pacientes.

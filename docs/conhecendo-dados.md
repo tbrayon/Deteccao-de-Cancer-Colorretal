@@ -240,15 +240,15 @@ plt.xlabel('Idade')
 plt.ylabel('Densidade')
 plt.show()
 ```
-## Distribuição de Idade dos Pacientes
+### Distribuição de Idade dos Pacientes
 
-### Compreensão da Distribuição  
-<p align="justify">Para compreender a distribuição da idade dos pacientes incluídos no estudo, foi elaborado um <strong>histograma</strong> utilizando a coluna `"Age"` do conjunto de dados. O histograma divide os dados em <strong>intervalos de idade <strong>(bins)</strong> e exibe a frequência (quantidade de pacientes) em cada intervalo.</p>       
+#### Compreensão da Distribuição  
+<p align="justify">Para compreender a distribuição da idade dos pacientes incluídos no estudo, foi elaborado um <strong>histograma</strong> utilizando a coluna `"Age"` do conjunto de dados. O histograma divide os dados em <strong>intervalos de idade (bins)</strong> e exibe a frequência (quantidade de pacientes) em cada intervalo.</p>       
 
-### Construção do Histograma  
-<p align="justify">O histograma foi construído utilizando a biblioteca <strong>matplotlib.pyplot</strong> em Python. A coluna `'Age'` do DataFrame `df_xlsx` foi utilizada como fonte de dados.</p>  
+#### Construção do Histograma  
+<p align="justify">O histograma foi construído utilizando a biblioteca <strong>matplotlib.pyplot</strong> em Python. A coluna `'Age'` do DataFrame `df_xlsx` foi utilizada como fonte de dados.</p>
 
-### Parâmetros Utilizados:  
+#### Parâmetros Utilizados:  
 - **Número de intervalos:** 10 (`bins=10`), permitindo uma visualização clara da distribuição.  
 - **Cor das barras:** Azul claro (`color='skyblue'`).  
 - **Bordas das barras:** Pretas (`edgecolor='black'`) para melhor contraste.  

@@ -171,7 +171,7 @@ A análise inicial do dataset revelou que ele é composto por 89945 registros e 
 Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age</strong> (Idade) foi identificada como um número inteiro. As colunas categóricas <strong>Gender</strong> (Gênero), <strong>Race</strong> (Raça), <strong>Region</strong> (Região), <strong>Urban_or_Rural</strong> (Zona de Residência) e <strong>Socioeconomic_Status</strong> (Status Socioeconômico) foram convertidas para valores numéricos. Além disso, as colunas booleanas <strong>Family_History</strong> (Histórico Familiar) e <strong>Previous_Cancer_History</strong> (Histórico de Câncer Prévio), originalmente representadas por "sim" e "não", também foram transformadas em valores numéricos. Essas conversões possibilitam a aplicação de métodos estatísticos e modelos de aprendizado de máquina, facilitando a identificação de padrões e a previsão de resultados relacionados ao câncer colorretal.</p>
 
 
-#### Realizando o tratamento dos dados para o Python das Informações Demográficas
+### Realizando o tratamento dos dados para o Python das Informações Demográficas
 
 #### Idade
 - **Idade média dos pacientes no momento do diagnóstico:** 54.33
@@ -225,7 +225,7 @@ Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age<
 | Não       | 0      | 80.985     |
 | Sim       | 1      | 8.960      |
 
-#### Realizando análises estatísticas na categoria "Idade":
+### Realizando análises estatísticas na categoria "Idade":
 
 1) Histograma de Distribuição de Idade dos Pacientes.
 
@@ -240,8 +240,6 @@ plt.xlabel('Idade')
 plt.ylabel('Densidade')
 plt.show()
 ```
-### Distribuição de Idade dos Pacientes
-
 #### Compreensão da Distribuição  
 <p align="justify">Para compreender a distribuição da idade dos pacientes incluídos no estudo, foi elaborado um <strong>histograma</strong> utilizando a coluna `"Age"` do conjunto de dados. O histograma divide os dados em <strong>intervalos de idade (bins)</strong> e exibe a frequência (quantidade de pacientes) em cada intervalo.</p>       
 
@@ -263,8 +261,7 @@ plt.show()
 <p align="justify">- Esse padrão sugere que essas faixas etárias possuem uma <strong>maior incidência da doença</strong>.</p>    
 <p align="justify">- A identificação desses grupos é fundamental para a implementação de <strong>programas de prevenção e detecção precoce</strong>, permitindo a adoção de estratégias voltadas ao <strong>monitoramento e à conscientização</strong> sobre os riscos e sintomas do câncer colorretal.</p>
  
-
-#### Realizando análises estatísticas na categoria "Gênero, Raça, Região, Zona de Residência, Status Socioeconômico, Histórico Familiar e Histórico de Câncer Prévio":
+### Realizando análises estatísticas na categoria "Gênero, Raça, Região, Zona de Residência, Status Socioeconômico, Histórico Familiar e Histórico de Câncer Prévio":
 
 1) Moda das variáveis da categoria: Gender, Race, Urban_or_Rural, Socioeconomic_Status, Family_History, Previous_Cancer_History.
 
@@ -273,8 +270,7 @@ plt.show()
 import pandas as pd
 # Carregar os dados
 df = pd.read_excel('colorectal_cancer_prediction.xlsx')
-# Calcular a moda da Idade
-mode_age = df['Age'].mode()
+# Calcular a moda 
 mode_gender = df['Gender'].mode()
 mode_race = df['Race'].mode()
 mode_urban_or_rural = df['Urban_or_Rural'].mode()
@@ -283,7 +279,6 @@ mode_family_history = df['Family_History'].mode()
 mode_previous_cancer_history = df['Previous_Cancer_History'].mode()
 
 # Exibir os resultados
-print(f"Moda da Idade: {mode_age.values[0]}")
 print(f"Moda do Gênero: {mode_gender.values[0]}")
 print(f"Moda da Raça: {mode_race.values[0]}")
 print(f"Moda da Zona de Residência: {mode_urban_or_rural.values[0]}")
@@ -291,7 +286,6 @@ print(f"Moda do Status Socioeconômico: {mode_socioeconomic_status.values[0]}")
 print(f"Moda do Histórico Familiar: {mode_family_history.values[0]}")
 print(f"Moda do Histórico de Câncer Prévio: {mode_previous_cancer_history.values[0]}")
 
-Moda da Idade: 77
 Moda do Gênero: Male
 Moda da Raça: White
 Moda da Zona de Residência: Urban
@@ -302,8 +296,7 @@ Moda do Histórico de Câncer Prévio: No
 ### Moda das Variáveis
 
 <p align="justify">A <strong>moda</strong>strong> é a medida estatística que representa o valor mais frequente em um conjunto de dados. No contexto da análise dos dados dos pacientes, calculamos a moda de várias variáveis para entender os valores que mais se repetem em cada uma delas. Abaixo estão as explicações para a moda de cada variável relevante:</p>
-<p align="justify">
-- <strong>Idade</strong>: A moda da idade dos pacientes foi de <strong>77 anos</strong>, o que indica que a maioria dos pacientes no momento do diagnóstico tem essa idade. Esse valor reflete a faixa etária mais comum entre os pacientes analisados.</p>
+
 <p align="justify">
 - <strong>Gênero</strong>: A moda do <strong>Gênero</strong> foi <strong>0</strong>, que corresponde a <strong>Masculino</strong>. Isso significa que a maioria dos pacientes na amostra são do sexo masculino.</p>
 <p align="justify">

@@ -256,12 +256,13 @@ plt.show()
 - **Rótulos dos eixos:** `"Idade"` (eixo x) e `"Quantidade"` (eixo y).  
 - **Exibição do gráfico:** `plt.show()`.  
 
-### Observações Adicionais
+#### Observações Adicionais
 
-<p align="justify">- O histograma apresenta a distribuição etária dos pacientes com câncer colorretal, organizada em intervalos de <strong>10 anos</strong>, abrangendo a faixa de <strong>30 a 90 anos<strong>.</p>    
+<p align="justify">- O histograma apresenta a distribuição etária dos pacientes com câncer colorretal, organizada em intervalos de <strong>10 anos</strong>, abrangendo a faixa de <strong>30 a 90 anos</strong>.</p>    
 <p align="justify">- Observa-se um aumento na quantidade de pacientes nos grupos de <strong>40-50 anos</strong> e <strong>70-80 anos</strong>, em comparação com os demais intervalos.</p>    
 <p align="justify">- Esse padrão sugere que essas faixas etárias possuem uma <strong>maior incidência da doença</strong>.</p>    
-<p align="justify">- A identificação desses grupos é fundamental para a implementação de <strong>programas de prevenção e detecção precoce</strong>, permitindo a adoção de estratégias voltadas ao <strong>monitoramento e à conscientização</strong> sobre os riscos e sintomas do câncer colorretal.</p>    
+<p align="justify">- A identificação desses grupos é fundamental para a implementação de <strong>programas de prevenção e detecção precoce</strong>, permitindo a adoção de estratégias voltadas ao <strong>monitoramento e à conscientização</strong> sobre os riscos e sintomas do câncer colorretal.</p>
+ 
 
 #### Realizando análises estatísticas na categoria "Gênero, Raça, Região, Zona de Residência, Status Socioeconômico, Histórico Familiar e Histórico de Câncer Prévio":
 

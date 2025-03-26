@@ -1,4 +1,4 @@
-# Conhecendo os dados
+       # Conhecendo os dados
 
 Nesta seção, deverá ser registrada uma detalhada análise descritiva e exploratória sobre a base de dados selecionada na Etapa 1 com o objetivo de compreender a estrutura dos dados, detectar eventuais _outliers_ e também, avaliar/detectar as relações existentes entre as variáveis analisadas.
 
@@ -223,9 +223,7 @@ Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age<
 | Não       | 0      | 80.985     |
 | Sim       | 1      | 8.960      |
 
-<p align="center">
-  <hr style="width: 50%; border: 1px solid black;">
-</p>
+<p align="center">----------------</p>
 
 #### Realizando análises estatísticas na categoria "Idade":
 

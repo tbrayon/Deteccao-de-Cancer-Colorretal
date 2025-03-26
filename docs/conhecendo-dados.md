@@ -238,13 +238,13 @@ plt.xlabel('Idade')
 plt.ylabel('Densidade')
 plt.show()
 ```
-#### Compreensão da Distribuição  
+##### Compreensão da Distribuição  
 <p align="justify">Para compreender a distribuição da idade dos pacientes incluídos no estudo, foi elaborado um <strong>histograma</strong> utilizando a coluna `"Age"` do conjunto de dados. O histograma divide os dados em <strong>intervalos de idade (bins)</strong> e exibe a frequência (quantidade de pacientes) em cada intervalo.</p>       
 
-#### Construção do Histograma  
+##### Construção do Histograma  
 <p align="justify">O histograma foi construído utilizando a biblioteca <strong>matplotlib.pyplot</strong> em Python. A coluna `'Age'` do DataFrame `df_xlsx` foi utilizada como fonte de dados.</p>
 
-#### Parâmetros Utilizados:  
+##### Parâmetros Utilizados:  
 - **Número de intervalos:** 10 (`bins=10`), permitindo uma visualização clara da distribuição.  
 - **Cor das barras:** Azul claro (`color='skyblue'`).  
 - **Bordas das barras:** Pretas (`edgecolor='black'`) para melhor contraste.  
@@ -258,7 +258,9 @@ plt.show()
 <p align="justify">- Observa-se um aumento na quantidade de pacientes nos grupos de <strong>40-50 anos</strong> e <strong>70-80 anos</strong>, em comparação com os demais intervalos.</p>    
 <p align="justify">- Esse padrão sugere que essas faixas etárias possuem uma <strong>maior incidência da doença</strong>.</p>    
 <p align="justify">- A identificação desses grupos é fundamental para a implementação de <strong>programas de prevenção e detecção precoce</strong>, permitindo a adoção de estratégias voltadas ao <strong>monitoramento e à conscientização</strong> sobre os riscos e sintomas do câncer colorretal.</p>
+
 --- 
+
 #### Realizando análises estatísticas na categoria "Gênero, Raça, Região, Zona de Residência, Status Socioeconômico, Histórico Familiar e Histórico de Câncer Prévio":
 1) Moda das variáveis da categoria: Gender, Race, Urban_or_Rural, Socioeconomic_Status, Family_History, Previous_Cancer_History.
 
@@ -290,7 +292,7 @@ Moda do Status Socioeconômico: Middle
 Moda do Histórico Familiar: No
 Moda do Histórico de Câncer Prévio: No
 ```
-#### Moda das Variáveis
+##### Moda das Variáveis
 
 <p align="justify">A <strong>moda</strong> é a medida estatística que representa o valor mais frequente em um conjunto de dados. No contexto da análise dos dados dos pacientes, calculamos a moda de várias variáveis para entender os valores que mais se repetem em cada uma delas. Abaixo estão as explicações para a moda de cada variável relevante:</p>
 
@@ -306,10 +308,13 @@ Moda do Histórico de Câncer Prévio: No
 - <strong>Histórico Familiar de Câncer</strong>: A moda do <strong>Histórico Familiar</strong> foi <strong>0</strong>, ou seja, <strong>Não</strong>. A maioria dos pacientes não possui histórico familiar de câncer.</p>
 <p align="justify">
 - <strong>Histórico de Câncer Prévio</strong>: A moda do <strong>Histórico de Câncer Prévio</strong> também foi <strong>0</strong>, indicando que a maior parte dos pacientes nunca teve câncer anteriormente.</p>
+
 ---
+
 #### Medidas Estatísticas da Distribuição Etária
 
 1) Mediana das variáveis da categoria: Age
+   
 ```python
 import pandas as pd
 # Supondo que df_xlsx seja o seu DataFrame
@@ -339,7 +344,9 @@ print(f"Desvio padrão da idade: {desvio_padrao_idade:.2f}")
 <p align="justify"><strong>Desvio Padrão:</strong> Mede a dispersão dos dados em relação à média. O valor obtido foi <strong>20,18</strong>, indicando que há uma variação significativa nas idades dos pacientes.</p>
 
 <p align="justify">Essas métricas ajudam a compreender o perfil etário dos pacientes, fornecendo informações importantes para estudos epidemiológicos e estratégias de prevenção do câncer colorretal.</p>
+
 ---
+
 ####  Realizando a média central da categoria "Status Socioeconômico":
 1) Média de frequência da categoria "Status Socioeconômico"
 

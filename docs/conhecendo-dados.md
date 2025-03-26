@@ -404,6 +404,186 @@ O **gráfico de violino** mostra a distribuição dessas médias:
 
 
 ### - Triagem e Estilo de Vida
+#### Pré-processamento dos Dados  
+
+Antes de realizar análises estatísticas, algumas colunas categóricas foram convertidas para valores numéricos usando **Label Encoding**. Além disso, a coluna **BMI (IMC)** foi normalizada utilizando **MinMaxScaler**.  
+
+
+#### Análise Estatística Preliminar  
+
+<p style="text-align: justify;">
+A análise estatística preliminar permite compreender melhor o comportamento das variáveis categóricas e numéricas do conjunto de dados. Para isso, foram realizadas as seguintes etapas no pré-processamento:
+</p>  
+
+### Passos realizados:  
+
+<p style="text-align: center;">
+1. Aplicação do **Label Encoding** para converter variáveis categóricas em valores numéricos.  
+2. Armazenamento dos mapeamentos originais para futura referência.  
+3. Normalização da coluna **BMI** para um intervalo entre 0 e 1.  
+4. Cálculo de estatísticas descritivas, incluindo média, desvio padrão, valores mínimos e máximos.  
+5. Cálculo da moda para cada coluna.  
+</p>
+
+<p style="text-align: center;">
+Na categoria **Triagem e Estilo de Vida**, todas as seguintes colunas foram convertidas para valores numéricos:  
+</p>
+
+- **Colonoscopy_Access** (Acesso à colonoscopia)  
+- **Screening_Regularity** (Regularidade da triagem)  
+- **Diet_Type** (Tipo de dieta)  
+- **BMI** (Índice de Massa Corporal)  
+- **Physical_Activity_Level** (Nível de atividade física)  
+- **Smoking_Status** (Status de fumante)  
+- **Alcohol_Consumption** (Consumo de álcool)  
+- **Red_Meat_Consumption** (Consumo de carne vermelha)  
+- **Fiber_Consumption** (Consumo de fibras)  
+
+<p style="text-align: justify;">
+A **normalização da variável BMI** garante que seus valores fiquem dentro de uma escala padronizada, facilitando comparações e prevenindo distorções nos modelos preditivos.  
+</p>
+
+<p style="text-align: justify;">
+Além disso, as **estatísticas descritivas** fornecem uma visão clara da distribuição dos dados, enquanto a **moda** permite identificar os valores mais frequentes, auxiliando na interpretação dos padrões encontrados.  
+</p>
+
+### Código de Pré-processamento  
+
+```python
+
+# Lista de colunas categóricas a serem codificadas
+categorical_cols = [
+    'Colonoscopy_Access', 'Screening_Regularity', 'Diet_Type',
+    'Physical_Activity_Level', 'Smoking_Status', 'Alcohol_Consumption',
+    'Red_Meat_Consumption', 'Fiber_Consumption'
+]
+
+# Inicialização do LabelEncoder e dicionário para armazenar mapeamentos
+label_encoder = LabelEncoder()
+label_mappings = {}
+
+# Aplicação do Label Encoding e armazenamento dos mapeamentos
+for col in categorical_cols:
+    df[col] = label_encoder.fit_transform(df[col])
+    label_mappings[col] = dict(zip(label_encoder.classes_, label_encoder.transform(label_encoder.classes_)))
+
+# Normalização da coluna BMI
+scaler = MinMaxScaler()
+df['BMI'] = scaler.fit_transform(df[['BMI']])
+original_bmi_values = df['BMI'].values.reshape(-1, 1)  # Armazena os valores originais de BMI
+
+# Cálculo de estatísticas descritivas
+descriptive_stats = df[categorical_cols + ['BMI']].describe()
+
+# Cálculo da moda das colunas categóricas e BMI
+mode_stats = df[categorical_cols + ['BMI']].mode()
+
+# Exibição dos resultados
+print("📊 **Valores Estatísticos:**")
+print(descriptive_stats.to_string(float_format='{:.2f}'.format))
+
+print("\n🔹 **Moda das Colunas:**")
+for column in categorical_cols + ['BMI']:
+    mode_value = mode_stats[column].iloc[0]
+    if column in label_mappings:
+        original_value = next(key for key, value in label_mappings[column].items() if value == mode_value)
+        print(f"🔹 Moda de **{column}**: {original_value}")
+    elif column == 'BMI':
+        original_bmi_mode = scaler.inverse_transform([[mode_value]])[0][0]
+        print(f"🔹 Moda de **{column}**: {original_bmi_mode:.2f}")
+    else:
+        print(f"🔹 Moda de **{column}**: {mode_value}")
+```
+
+<p style="text-align: justify;">
+A análise estatística preliminar permite compreender melhor o comportamento das variáveis categóricas e numéricas do conjunto de dados. Com a aplicação do Label Encoding, garantimos que os dados categóricos possam ser utilizados de maneira eficiente em análises posteriores. Além disso, a normalização da variável BMI (IMC) assegura que os valores fiquem em uma escala padronizada, facilitando comparações e prevenindo distorções nos modelos preditivos.
+</p>
+
+<p style="text-align: justify;">
+As estatísticas descritivas fornecem insights importantes sobre a distribuição dos dados, incluindo a média, mediana e dispersão de cada variável. A moda, por sua vez, destaca os valores mais frequentes, permitindo identificar padrões que podem influenciar os resultados finais da pesquisa. Com essa base sólida, podemos avançar para análises mais aprofundadas, buscando relações entre hábitos de vida, exames preventivos e condições de saúde.
+</p>
+
+
+##### Valores Estatísticos  
+
+| Estatística        | Colonoscopy_Access | Screening_Regularity | Diet_Type | Physical_Activity_Level | Smoking_Status | Alcohol_Consumption | Red_Meat_Consumption | Fiber_Consumption | BMI  |  
+|--------------------|-------------------|----------------------|-----------|------------------------|----------------|----------------------|----------------------|-------------------|------|  
+| **count**         | 89,945             | 89,945               | 89,945    | 89,945                 | 89,945         | 89,945               | 89,945               | 89,945            | 89,945  |  
+| **mean**          | 0.75               | 1.20                 | 1.20      | 1.20                   | 1.30           | 1.10                 | 1.20                 | 1.30              | 0.50  |  
+| **std**           | 0.43               | 0.87                 | 0.87      | 0.68                   | 0.78           | 0.70                 | 0.75                 | 0.78              | 0.29  |  
+| **min**           | 0.00               | 0.00                 | 0.00      | 0.00                   | 0.00           | 0.00                 | 0.00                 | 0.00              | 0.00  |  
+| **25%**           | 1.00               | 0.00                 | 0.00      | 1.00                   | 1.00           | 1.00                 | 1.00                 | 1.00              | 0.25  |  
+| **50% (Mediana)** | 1.00               | 2.00                 | 1.00      | 1.00                   | 1.00           | 1.00                 | 1.00                 | 1.00              | 0.50  |  
+| **75%**           | 1.00               | 2.00                 | 2.00      | 2.00                   | 2.00           | 2.00                 | 2.00                 | 2.00              | 0.75  |  
+| **max**           | 1.00               | 2.00                 | 2.00      | 2.00                   | 2.00           | 2.00                 | 2.00                 | 2.00              | 1.00  |  
+
+
+#### Análise dos Resultados  
+
+
+#####  Moda  
+
+| Variável                   | Moda      |  
+|----------------------------|----------|  
+| **Colonoscopy_Access**      | Yes      |  
+| **Screening_Regularity**    | Regular  |  
+| **Diet_Type**               | Western  |  
+| **Physical_Activity_Level** | Low      |  
+| **Smoking_Status**          | Never    |  
+| **Alcohol_Consumption**     | Low      |  
+| **Red_Meat_Consumption**    | Low      |  
+| **Fiber_Consumption**       | Medium   |  
+| **BMI**                     | 38.1     |  
+
+
+<p style="text-align: center;">
+Os resultados obtidos mostram que:
+</p>
+
+- **O acesso à colonoscopia** tem como valor mais comum "Sim", indicando que a maioria das pessoas no conjunto de dados teve acesso ao exame.  
+- **A regularidade do rastreamento** mais frequente é "Regular", sugerindo que os pacientes seguem uma rotina de exames periódicos.  
+- **O tipo de dieta predominante** é "Ocidental", que geralmente está associada a um alto consumo de alimentos processados e menor ingestão de fibras.  
+- **O nível de atividade física** mais comum é "Baixo", o que pode estar relacionado a um estilo de vida sedentário.  
+- **A maioria dos indivíduos nunca fumou**, o que pode ser um fator positivo para a saúde geral da amostra.  
+- **O consumo de álcool mais frequente** é "Baixo", o que indica uma possível tendência a um consumo moderado ou ocasional.  
+- **O consumo de carne vermelha** e **de fibras** apresentam como valores mais comuns "Baixo" e "Médio", respectivamente, refletindo variações na dieta da amostra.  
+- **O índice de massa corporal (IMC) mais frequente** é **38.1**, um valor alto que indica obesidade, sugerindo um possível risco aumentado para doenças metabólicas.  
+
+<p style="text-align: justify;">
+Os valores estatísticos e a moda das variáveis revelam tendências importantes no comportamento da população analisada. Os dados indicam que a maioria dos indivíduos tem acesso à colonoscopia e realiza exames regulares, o que é positivo para a prevenção de doenças. No entanto, a predominância de uma dieta ocidental, associada a um nível de atividade física baixo, pode ser um fator preocupante para a saúde geral da amostra.
+</p>
+
+<p style="text-align: justify;">
+Outro ponto relevante é o IMC médio elevado (38.1), característico de obesidade, o que pode indicar um risco aumentado para doenças metabólicas. A análise do consumo alimentar também sugere que a ingestão de carne vermelha é predominantemente baixa, enquanto a ingestão de fibras está em um nível médio. Esses padrões podem desempenhar um papel fundamental na investigação de fatores de risco para condições gastrointestinais e outras doenças associadas à dieta e ao estilo de vida.
+</p>
+
+<p style="text-align: justify;">
+Tentando responder às questões de pesquisa relacionadas à categoria de informações demográficas, triagem e estilo de vida, diagnóstico, características do câncer e tratamento acompanhamento e sobrevivência, utilizando métodos de estatística:
+</p>
+
+
+#### 1. Pergunta: Considerando estilo de vida e informações demográficas, quais os principais fatores que estão relacionados a ter ou não ter o câncer?
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3f270ec6-769c-4df1-8a8c-145585cba02a" alt="Mapa de calor de correlação 1">
+</p>
+
+A correlação entre as variáveis foi analisada através de um mapa de calor, onde os valores variam entre -1 e 1. Valores próximos de 1 indicam uma relação forte e positiva entre duas variáveis, enquanto valores próximos de -1 indicam uma relação forte e negativa. Já valores próximos de 0 sugerem que não há uma relação significativa entre as variáveis analisadas. No gráfico, a diagonal principal apresenta valores de 1.00, indicando uma correlação perfeita consigo mesma. Fora da diagonal principal, os valores são próximos de zero, sinalizando correlação fraca ou inexistente entre as variáveis.
+
+Em relação à idade e agressividade do tumor, a correlação é praticamente zero (-0.00), sugerindo que a idade não influencia a agressividade do tumor. O mesmo ocorre entre o índice de massa corporal (BMI) e a agressividade do tumor, com uma correlação muito baixa (-0.01), indicando que o BMI não tem impacto significativo sobre essa característica. Além disso, a idade e o BMI também não apresentam correlação entre si (0.00). Esses resultados sugerem que nem a idade nem o índice de massa corporal têm influência relevante na agressividade do tumor. Para identificar fatores que impactem essa característica, seria necessário ampliar o conjunto de dados e incluir novas variáveis para análise.
+
+
+#### 2. Pergunta: Quais fatores de estilo de vida estão associados à reincidência do câncer após o tratamento?
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5ee6790d-9f4d-4328-ba25-5e1c20ad5ab9" alt="Mapa de calor de correlação 2">
+</p>
+
+Neste caso, um outro mapa de calor foi utilizado para ilustrar a matriz de correlação entre diferentes características relacionadas à saúde e hábitos de vida. O gráfico mostra como as variáveis se relacionam entre si, com a escala variando de -1 a 1. Quando o valor é 1.00 (vermelho escuro), isso indica uma correlação perfeita positiva, ou seja, quando uma variável aumenta, a outra também aumenta. Valores próximos de 0.00 (azul escuro) indicam ausência de correlação significativa entre as variáveis, enquanto valores próximos de -1.00 representariam uma correlação perfeita negativa, o que não é observado nesse caso.
+
+A análise revela que, embora as correlações entre as variáveis sejam baixas, com valores próximos de zero, há algumas correlações fracas entre os fatores analisados. A diagonal principal do gráfico sempre exibe uma correlação de 1.00, indicando que cada variável está perfeitamente correlacionada consigo mesma. Contudo, as demais correlações são bem próximas de zero, sugerindo que os fatores de estilo de vida analisados não apresentam uma relação forte ou significativa com a reincidência do câncer após o tratamento.
+
+
 
 ### - Diagnóstico, Características do Câncer e Tratamento
 <p align="justify">

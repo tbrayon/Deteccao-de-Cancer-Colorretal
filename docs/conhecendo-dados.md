@@ -229,7 +229,7 @@ Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age<
 
 1) Histograma de Distribuição de Idade dos Pacientes.
 
-Colocar a imagem 02
+![Histograma 01](https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/Histograma%20Ana%2001.jpg)
 
 ```python
 import seaborn as sns

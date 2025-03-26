@@ -170,6 +170,62 @@ A análise inicial do dataset revelou que ele é composto por 89945 registros e 
 <p align="justify">
 Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age</strong> (Idade) foi identificada como um número inteiro. As colunas categóricas <strong>Gender</strong> (Gênero), <strong>Race</strong> (Raça), <strong>Region</strong> (Região), <strong>Urban_or_Rural</strong> (Zona de Residência) e <strong>Socioeconomic_Status</strong> (Status Socioeconômico) foram convertidas para valores numéricos. Além disso, as colunas booleanas <strong>Family_History</strong> (Histórico Familiar) e <strong>Previous_Cancer_History</strong> (Histórico de Câncer Prévio), originalmente representadas por "sim" e "não", também foram transformadas em valores numéricos. Essas conversões possibilitam a aplicação de métodos estatísticos e modelos de aprendizado de máquina, facilitando a identificação de padrões e a previsão de resultados relacionados ao câncer colorretal.</p>
 
+
+#### Realizando o tratamento dos dados para o Pythin das Informações Demográficas
+
+## Idade
+- **Idade média dos pacientes no momento do diagnóstico:** 54.33
+
+## Gênero  
+| Gênero   | Código | Quantidade |
+|----------|--------|------------|
+| Feminino | 1      | 49.369     |
+| Masculino | 2     | 40.576     |
+
+## Raça  
+| Raça      | Código | Quantidade |
+|-----------|--------|------------|
+| Asiático  | 1      | 13.502     |
+| Negro     | 2      | 18.005     |
+| Hispânico | 3      | 9.040      |
+| Branco    | 4      | 44.887     |
+| Outros    | 5      | 4.511      |
+
+## Região  
+| Região           | Código | Quantidade |
+|-----------------|--------|------------|
+| Europa         | 1      | 27.019     |
+| América do Norte | 2      | 31.537     |
+| Ásia           | 3      | 17.916     |
+| América Latina | 4      | 9.050      |
+| África        | 5      | 4.423      |
+
+## Zona de Residência  
+| Zona   | Código | Quantidade |
+|--------|--------|------------|
+| Urbana | 1      | 62.990     |
+| Rural  | 2      | 26.955     |
+
+## Status Socioeconômico  
+| Status | Código | Quantidade |
+|--------|--------|------------|
+| Baixa  | 1      | 26.868     |
+| Média  | 2      | 45.088     |
+| Alta   | 3      | 17.989     |
+
+## Histórico Familiar  
+| Histórico | Código | Quantidade |
+|-----------|--------|------------|
+| Não       | 0      | 67.372     |
+| Sim       | 1      | 22.573     |
+
+## Histórico de Câncer Prévio  
+| Histórico | Código | Quantidade |
+|-----------|--------|------------|
+| Não       | 0      | 80.985     |
+| Sim       | 1      | 8.960      |
+
+
 #### Realizando análises estatísticas na categoria "Idade, Histórico Familiar de Câncer e Histórico de Câncer Prévio":
 1) 
 ```python

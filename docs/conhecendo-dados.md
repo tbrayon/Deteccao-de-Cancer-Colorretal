@@ -996,7 +996,7 @@ Por fim, na matriz de correlação abaixo temos a correlação entre as principa
 </p>
 
 <p align="justify">
-A matriz tem valores de -1 a 1, onde valores próximos a -1 tendem a uma forte relação negativa e valores próximos a 1 tendem a uma forte relação positiva. A conclusão é que os atributos deste grupo não possuem correlação entre si.
+A conclusão é que os atributos deste grupo não possuem correlação entre si, apresentando valores próximos a zero.
 </p>
 
 ## Descrição dos achados

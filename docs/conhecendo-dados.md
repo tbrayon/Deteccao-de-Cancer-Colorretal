@@ -306,9 +306,7 @@ Moda do Histórico de Câncer Prévio: No
 - <strong>Histórico Familiar de Câncer</strong>: A moda do <strong>Histórico Familiar</strong> foi <strong>0</strong>, ou seja, <strong>Não</strong>. A maioria dos pacientes não possui histórico familiar de câncer.</p>
 <p align="justify">
 - <strong>Histórico de Câncer Prévio</strong>: A moda do <strong>Histórico de Câncer Prévio</strong> também foi <strong>0</strong>, indicando que a maior parte dos pacientes nunca teve câncer anteriormente.</p>
-
 ---
-
 #### Medidas Estatísticas da Distribuição Etária
 
 1) Mediana das variáveis da categoria: Age
@@ -331,7 +329,7 @@ print(f"Desvio padrão da idade: {desvio_padrao_idade:.2f}")
 - **Média da idade:** 54,33
 - **Mediana da idade:** 54,00
 - **Desvio padrão da idade:** 20,18
-- 
+  
 <p align="justify">Para compreender a distribuição etária dos pacientes com câncer colorretal, foram calculadas três medidas estatísticas essenciais: média, mediana e desvio padrão.</p>
 
 <p align="justify"><strong>Média:</strong> Representa o valor médio das idades dos pacientes, que foi de <strong>54,33 anos</strong>. Esse valor indica a tendência central dos dados.</p>
@@ -341,9 +339,7 @@ print(f"Desvio padrão da idade: {desvio_padrao_idade:.2f}")
 <p align="justify"><strong>Desvio Padrão:</strong> Mede a dispersão dos dados em relação à média. O valor obtido foi <strong>20,18</strong>, indicando que há uma variação significativa nas idades dos pacientes.</p>
 
 <p align="justify">Essas métricas ajudam a compreender o perfil etário dos pacientes, fornecendo informações importantes para estudos epidemiológicos e estratégias de prevenção do câncer colorretal.</p>
-
 ---
-
 ####  Realizando a média central da categoria "Status Socioeconômico":
 1) Média de frequência da categoria "Status Socioeconômico"
 

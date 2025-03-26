@@ -171,8 +171,7 @@ A análise inicial do dataset revelou que ele é composto por 89945 registros e 
 Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age</strong> (Idade) foi identificada como um número inteiro. As colunas categóricas <strong>Gender</strong> (Gênero), <strong>Race</strong> (Raça), <strong>Region</strong> (Região), <strong>Urban_or_Rural</strong> (Zona de Residência) e <strong>Socioeconomic_Status</strong> (Status Socioeconômico) foram convertidas para valores numéricos. Além disso, as colunas booleanas <strong>Family_History</strong> (Histórico Familiar) e <strong>Previous_Cancer_History</strong> (Histórico de Câncer Prévio), originalmente representadas por "sim" e "não", também foram transformadas em valores numéricos. Essas conversões possibilitam a aplicação de métodos estatísticos e modelos de aprendizado de máquina, facilitando a identificação de padrões e a previsão de resultados relacionados ao câncer colorretal.</p>
 
 #### Realizando análises estatísticas na categoria "Idade, Histórico Familiar de Câncer e Histórico de Câncer Prévio":
-1) Gráfico de dispersão: Análise de relação entre as variáveis Age, Family_History e Previous_Cancer_History
-
+1) 
 ```python
 # Exemplo de dados com variáveis booleanas para Family_History e Previous_Cancer_History
 data = {
@@ -195,10 +194,9 @@ plt.ylabel('Histórico Familiar (0: Não, 1: Sim)')
 plt.legend(title='Histórico Familiar', labels=['Não', 'Sim'], bbox_to_anchor=(1.05, 0.5), loc='center left')
 ```
 
-![Gráfico de dispersão Ana](https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/Grafico%20dispers%C3%A3o%2001%20-%20Ana.jpg)
 
 <p align="justify">
-A análise do gráfico de dispersão revela padrões interessantes relacionados ao Histórico Familiar de Câncer. Observamos que os pontos representados por "X", que indicam a ausência de histórico familiar de câncer ("Não"), estão concentrados na parte superior dos gráficos. Por outro lado, os pontos representados por "bolinhas", que indicam a presença de histórico familiar de câncer ("Sim"), estão posicionados na parte inferior. Esse padrão sugere que, para uma amostra comprovada, a maioria dos pacientes sem histórico familiar de câncer apresenta idades mais altas, enquanto os pacientes com histórico familiar de câncer estão, em sua maioria, em faixas etárias mais baixas.</p>
+</p>
 
 #### Realizando análises estatísticas na categoria "Gênero, Raça, Região, Zona de Residência, Status Socioeconômico, Histórico Familiar e Histórico de Câncer Prévio":
 

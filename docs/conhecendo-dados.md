@@ -170,19 +170,17 @@ A análise inicial do dataset revelou que ele é composto por 89945 registros e 
 <p align="justify">
 Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age</strong> (Idade) foi identificada como um número inteiro. As colunas categóricas <strong>Gender</strong> (Gênero), <strong>Race</strong> (Raça), <strong>Region</strong> (Região), <strong>Urban_or_Rural</strong> (Zona de Residência) e <strong>Socioeconomic_Status</strong> (Status Socioeconômico) foram convertidas para valores numéricos. Além disso, as colunas booleanas <strong>Family_History</strong> (Histórico Familiar) e <strong>Previous_Cancer_History</strong> (Histórico de Câncer Prévio), originalmente representadas por "sim" e "não", também foram transformadas em valores numéricos. Essas conversões possibilitam a aplicação de métodos estatísticos e modelos de aprendizado de máquina, facilitando a identificação de padrões e a previsão de resultados relacionados ao câncer colorretal.</p>
 
-
-### Realizando o tratamento dos dados para o Python das Informações Demográficas
-
-#### Idade
+#### Realizando o tratamento dos dados para o Python das Informações Demográficas
+##### Idade
 - **Idade média dos pacientes no momento do diagnóstico:** 54.33
 
-#### Gênero  
+##### Gênero  
 | Gênero   | Código | Quantidade |
 |----------|--------|------------|
 | Feminino | 1      | 49.369     |
 | Masculino | 2     | 40.576     |
 
-#### Raça  
+##### Raça  
 | Raça      | Código | Quantidade |
 |-----------|--------|------------|
 | Asiático  | 1      | 13.502     |
@@ -191,7 +189,7 @@ Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age<
 | Branco    | 4      | 44.887     |
 | Outros    | 5      | 4.511      |
 
-#### Região  
+##### Região  
 | Região           | Código | Quantidade |
 |-----------------|--------|------------|
 | Europa         | 1      | 27.019     |
@@ -200,20 +198,20 @@ Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age<
 | América Latina | 4      | 9.050      |
 | África        | 5      | 4.423      |
 
-#### Zona de Residência  
+##### Zona de Residência  
 | Zona   | Código | Quantidade |
 |--------|--------|------------|
 | Urbana | 1      | 62.990     |
 | Rural  | 2      | 26.955     |
 
-#### Status Socioeconômico  
+##### Status Socioeconômico  
 | Status | Código | Quantidade |
 |--------|--------|------------|
 | Baixa  | 1      | 26.868     |
 | Média  | 2      | 45.088     |
 | Alta   | 3      | 17.989     |
 
-#### Histórico Familiar  
+##### Histórico Familiar  
 | Histórico | Código | Quantidade |
 |-----------|--------|------------|
 | Não       | 0      | 67.372     |
@@ -224,8 +222,8 @@ Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age<
 |-----------|--------|------------|
 | Não       | 0      | 80.985     |
 | Sim       | 1      | 8.960      |
-
-### Realizando análises estatísticas na categoria "Idade":
+---
+#### Realizando análises estatísticas na categoria "Idade":
 
 1) Histograma de Distribuição de Idade dos Pacientes.
 
@@ -254,15 +252,14 @@ plt.show()
 - **Rótulos dos eixos:** `"Idade"` (eixo x) e `"Quantidade"` (eixo y).  
 - **Exibição do gráfico:** `plt.show()`.  
 
-#### Observações Adicionais
+##### Observações Adicionais
 
 <p align="justify">- O histograma apresenta a distribuição etária dos pacientes com câncer colorretal, organizada em intervalos de <strong>10 anos</strong>, abrangendo a faixa de <strong>30 a 90 anos</strong>.</p>    
 <p align="justify">- Observa-se um aumento na quantidade de pacientes nos grupos de <strong>40-50 anos</strong> e <strong>70-80 anos</strong>, em comparação com os demais intervalos.</p>    
 <p align="justify">- Esse padrão sugere que essas faixas etárias possuem uma <strong>maior incidência da doença</strong>.</p>    
 <p align="justify">- A identificação desses grupos é fundamental para a implementação de <strong>programas de prevenção e detecção precoce</strong>, permitindo a adoção de estratégias voltadas ao <strong>monitoramento e à conscientização</strong> sobre os riscos e sintomas do câncer colorretal.</p>
- 
-### Realizando análises estatísticas na categoria "Gênero, Raça, Região, Zona de Residência, Status Socioeconômico, Histórico Familiar e Histórico de Câncer Prévio":
-
+--- 
+#### Realizando análises estatísticas na categoria "Gênero, Raça, Região, Zona de Residência, Status Socioeconômico, Histórico Familiar e Histórico de Câncer Prévio":
 1) Moda das variáveis da categoria: Gender, Race, Urban_or_Rural, Socioeconomic_Status, Family_History, Previous_Cancer_History.
 
 ```python 
@@ -293,9 +290,9 @@ Moda do Status Socioeconômico: Middle
 Moda do Histórico Familiar: No
 Moda do Histórico de Câncer Prévio: No
 ```
-### Moda das Variáveis
+#### Moda das Variáveis
 
-<p align="justify">A <strong>moda</strong>strong> é a medida estatística que representa o valor mais frequente em um conjunto de dados. No contexto da análise dos dados dos pacientes, calculamos a moda de várias variáveis para entender os valores que mais se repetem em cada uma delas. Abaixo estão as explicações para a moda de cada variável relevante:</p>
+<p align="justify">A <strong>moda</strong> é a medida estatística que representa o valor mais frequente em um conjunto de dados. No contexto da análise dos dados dos pacientes, calculamos a moda de várias variáveis para entender os valores que mais se repetem em cada uma delas. Abaixo estão as explicações para a moda de cada variável relevante:</p>
 
 <p align="justify">
 - <strong>Gênero</strong>: A moda do <strong>Gênero</strong> foi <strong>0</strong>, que corresponde a <strong>Masculino</strong>. Isso significa que a maioria dos pacientes na amostra são do sexo masculino.</p>
@@ -309,6 +306,8 @@ Moda do Histórico de Câncer Prévio: No
 - <strong>Histórico Familiar de Câncer</strong>: A moda do <strong>Histórico Familiar</strong> foi <strong>0</strong>, ou seja, <strong>Não</strong>. A maioria dos pacientes não possui histórico familiar de câncer.</p>
 <p align="justify">
 - <strong>Histórico de Câncer Prévio</strong>: A moda do <strong>Histórico de Câncer Prévio</strong> também foi <strong>0</strong>, indicando que a maior parte dos pacientes nunca teve câncer anteriormente.</p>
+
+---
 
 #### Medidas Estatísticas da Distribuição Etária
 
@@ -327,7 +326,7 @@ print(f"Média da idade: {media_idade:.2f}")
 print(f"Mediana da idade: {mediana_idade:.2f}")
 print(f"Desvio padrão da idade: {desvio_padrao_idade:.2f}")
 ```
-#### Medidas Estatísticas da Idade
+##### Medidas Estatísticas da Idade
 
 - **Média da idade:** 54,33
 - **Mediana da idade:** 54,00
@@ -343,6 +342,7 @@ print(f"Desvio padrão da idade: {desvio_padrao_idade:.2f}")
 
 <p align="justify">Essas métricas ajudam a compreender o perfil etário dos pacientes, fornecendo informações importantes para estudos epidemiológicos e estratégias de prevenção do câncer colorretal.</p>
 
+---
 
 ####  Realizando a média central da categoria "Status Socioeconômico":
 1) Média de frequência da categoria "Status Socioeconômico"

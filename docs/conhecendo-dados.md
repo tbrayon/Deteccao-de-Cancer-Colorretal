@@ -261,7 +261,7 @@ plt.show()
 <p align="justify">- Esse padrão sugere que essas faixas etárias possuem uma <strong>maior incidência da doença</strong>.</p>    
 <p align="justify">- A identificação desses grupos é fundamental para a implementação de <strong>programas de prevenção e detecção precoce</strong>, permitindo a adoção de estratégias voltadas ao <strong>monitoramento e à conscientização</strong> sobre os riscos e sintomas do câncer colorretal.</p>
 
---- 
+<p align="center">_______________________________________________________________________________________________________________</p>
 
 #### Realizando análises estatísticas na categoria "Gênero, Raça, Região, Zona de Residência, Status Socioeconômico, Histórico Familiar e Histórico de Câncer Prévio":
 1) Moda das variáveis da categoria: Gender, Race, Urban_or_Rural, Socioeconomic_Status, Family_History, Previous_Cancer_History.
@@ -311,7 +311,7 @@ Moda do Histórico de Câncer Prévio: No
 <p align="justify">
 - <strong>Histórico de Câncer Prévio</strong>: A moda do <strong>Histórico de Câncer Prévio</strong> também foi <strong>0</strong>, indicando que a maior parte dos pacientes nunca teve câncer anteriormente.</p>
 
----
+<p align="center">_______________________________________________________________________________________________________________</p>
 
 #### Medidas Estatísticas da Distribuição Etária
 
@@ -347,7 +347,7 @@ print(f"Desvio padrão da idade: {desvio_padrao_idade:.2f}")
 
 <p align="justify">Essas métricas ajudam a compreender o perfil etário dos pacientes, fornecendo informações importantes para estudos epidemiológicos e estratégias de prevenção do câncer colorretal.</p>
 
----
+<p align="center">_______________________________________________________________________________________________________________</p>
 
 ####  Realizando a média central da categoria "Status Socioeconômico":
 1) Média de frequência da categoria "Status Socioeconômico"
@@ -368,6 +368,40 @@ print(f"A média do Status Socioeconômico dos pacientes é: {mean_socioeconomic
 Ao analisar a distribuição de frequência do Status Socioeconômico, podemos observar como os pacientes estão distribuídos entre as diferentes categorias de renda: baixa, média e alta. A média calculada, que é de aproximadamente 0.90, reflete o valor central dessa distribuição, sugerindo que a maioria dos pacientes se encontra na faixa de renda média (representada pelo valor 1).</p>
 <p align="justify">
 A visualização da distribuição de frequência também ajuda a entender melhor esse valor médio. A distribuição mostra que a proporção de pacientes com renda média é maior, o que explica o valor da média ser tão próximo de 1. Essa análise contextualiza o valor da média, fornecendo uma visão mais detalhada sobre como os pacientes estão distribuídos entre as diferentes faixas de status socioeconômico, o que é crucial para compreender o perfil socioeconômico da amostra analisada.</p>
+
+<p align="center">_______________________________________________________________________________________________________________</p>
+
+#### Análise da Média de Agressividade do Tumor por Status de Tabagismo:
+1) O gráfico de contagem apresenta a distribuição dos níveis de agressividade do tumor (**Tumor_Aggressiveness**) em relação ao status de tabagismo (**Smoking_Status**).
+
+imagem 3
+
+Para entender como o gráfico de violino está calculando a agressividade do tumor para cada status de tabagismo, analisamos a **média de agressividade do tumor** para cada grupo.  
+
+##### Média de Agressividade do Tumor por Status de Tabagismo:  
+- **Nunca fumou (*Never*)**: Média de agressividade do tumor = **1.5**  
+- **Ex-fumante (*Former*)**: Média de agressividade do tumor = **2.5**  
+- **Fumante atual (*Current*)**: Média de agressividade do tumor = **2.0**  
+
+##### Interpretação: 
+
+##### Nunca fumou (*Never*):  
+- A média de agressividade do tumor é **1.5**, indicando que a maioria dos casos está entre **baixa (*Low*) e média (*Medium*) agressividade**.  
+
+##### Ex-fumante (*Former*):  
+- A média de agressividade do tumor é **2.5**, indicando que a maioria dos casos está entre **média (*Medium*) e alta (*High*) agressividade**.  
+
+##### Fumante atual (*Current*):  
+- A média de agressividade do tumor é **2.0**, indicando que a maioria dos casos está entre **baixa (*Low*) e alta (*High*) agressividade**.  
+
+#### Conclusão:
+
+O **gráfico de violino** mostra a distribuição dessas médias:  
+- **Um violino maior** indica uma **maior concentração de casos** em torno daquela média.  
+- No caso dos **fumantes atuais**, a agressividade do tumor é **alta**, resultando em um **violino maior para alta agressividade**.  
+
+ <p align="center">_______________________________________________________________________________________________________________</p>
+
 
 ### - Triagem e Estilo de Vida
 

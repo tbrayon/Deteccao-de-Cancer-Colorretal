@@ -620,30 +620,7 @@ A tabela cruzada apresenta a distribuição de pacientes com câncer colorretal 
 
 #### Realizando análises estatísticas entre a categoria "Diagnóstico, Características do Câncer e Tratamento" X demais categorias do dataset:
 
-1) Moda das variáveis da categoria Diagnóstico, Características do Câncer e Tratamento.
-```python
-mode_values = df[["Stage_at_Diagnosis", "Tumor_Aggressiveness", "Insurance_Coverage",
-                  "Time_to_Diagnosis", "Treatment_Access", "Chemotherapy_Received", "Radiotherapy_Received"]].mode().T
-
-# Definindo nomes mais amigáveis para as colunas
-mode_values.columns = ["Modo (valor mais frequente)"]
-
-# Exibindo de maneira mais legível
-print(mode_values)
-
-                       Modo (valor mais frequente)
-Stage_at_Diagnosis                               2
-Tumor_Aggressiveness                             2
-Insurance_Coverage                               1
-Time_to_Diagnosis                                1
-Treatment_Access                                 1
-Chemotherapy_Received                            1
-Radiotherapy_Received                            0
-```
-<p align="justify">
-O resultado da análise da moda das variáveis relacionadas ao diagnóstico, características do câncer e tratamento revela os valores mais frequentes encontrados no conjunto de dados. A maioria dos pacientes foi diagnosticada no estágio 2 do câncer, com tumores de agressividade média (valor 2). A maioria possui cobertura de seguro de saúde (valor 1), teve diagnóstico em um curto intervalo de tempo (valor 1) e acesso ao tratamento (valor 1). Além disso, a maioria dos pacientes recebeu quimioterapia (valor 1), enquanto a maioria não recebeu radioterapia (valor 0). Esses resultados refletem os padrões mais comuns entre os pacientes e podem auxiliar na definição de estratégias de tratamento e acompanhamento.</p>
-
-2) Medidas de Tendência Central e Dispersão
+1) Medidas de Tendência Central e Dispersão
 ```python
 print("\nMedidas de Tendência Central e Dispersãos:")
 # 50% representa a mediana
@@ -664,7 +641,7 @@ std   20.182220            1.069657              0.748656            0.432318   
 <p align="justify">
 A análise das medidas de tendência central e dispersão revela insights importantes sobre as variáveis numéricas do conjunto de dados. A idade média dos pacientes é de aproximadamente 54 anos, com uma mediana similar, indicando uma distribuição relativamente simétrica. O estágio médio do diagnóstico é 1.4, sugerindo que a maioria dos pacientes foi diagnosticada em estágios iniciais. A agressividade tumoral média é 0.8, com uma mediana de 1, indicando uma tendência para tumores de baixa agressividade. A maioria dos pacientes possui cobertura de seguro de saúde, teve diagnóstico rápido e acesso ao tratamento. A proporção de pacientes que receberam quimioterapia e radioterapia é aproximadamente igual. O tempo médio para recorrência é de cerca de 29.5 meses, com uma mediana de 30 meses, sugerindo uma distribuição relativamente simétrica. O desvio padrão para idade e tempo de recorrência indicam uma variação considerável entre os pacientes, enquanto as outras variáveis mostram menor variação. É importante notar que algumas variáveis, como 'Insurance_Coverage', 'Time_to_Diagnosis', 'Treatment_Access', 'Chemotherapy_Received' e 'Radiotherapy_Received' parecem ser binárias ou ter uma escala limitada, o que explica a baixa variabilidade.</p>
 
-3) Resumo estatístico de algumas colunas numéricas
+2) Resumo estatístico de algumas colunas numéricas
 
 ```python
 resumo_estatistico = df.describe()
@@ -686,7 +663,7 @@ max       89.000000            4.000000              3.000000            1.00000
 <p align="justify">
 O resumo estatístico acima apresenta as principais medidas descritivas das variáveis numéricas do conjunto de dados. A contagem (count) indica o número de observações válidas em cada coluna. A média (mean) representa o valor médio de cada variável. O desvio padrão (std) mede a dispersão dos dados em relação à média. O valor mínimo (min) e o valor máximo (max) indicam os limites da variação de cada variável. Os quartis (25%, 50%, 75%) dividem os dados em quatro partes iguais, permitindo analisar a distribuição dos dados. Observa-se que a variável 'Idade' (Age) apresenta uma média de 54.33 anos, com uma variação considerável (desvio padrão de 20.18 anos). A variável 'Tempo até a Recorrência' (Time_to_Recurrence) apresenta uma média de 29.54 meses, com uma variação de até 59 meses. As demais variáveis, como 'Estágio do Diagnóstico' (Stage_at_Diagnosis), 'Agressividade do Tumor' (Tumor_Aggressiveness), 'Cobertura do Plano de Saúde' (Insurance_Coverage), 'Tempo até o Diagnóstico' (Time_to_Diagnosis), 'Acesso ao Tratamento' (Treatment_Access), 'Recebimento de Quimioterapia' (Chemotherapy_Received) e 'Recebimento de Radioterapia' (Radiotherapy_Received), são variáveis categóricas binárias (0 ou 1), com médias próximas de 0.5, indicando uma distribuição equilibrada entre as categorias. A análise do resumo estatístico pode auxiliar na compreensão da distribuição e variação das variáveis numéricas, fornecendo informações importantes para a análise exploratória dos dados e o desenvolvimento de modelos preditivos.</p>
 
-4) Medidas de Tendência Central (Média, Mediana, Moda)
+3) Medidas de Tendência Central (Média, Mediana, Moda)
 
 ```python
 media = df.mean(numeric_only=True)
@@ -757,7 +734,7 @@ Time_to_Recurrence                  53.0
 <p align="justify">
 A análise estatística apresentada oferece uma visão abrangente das características do conjunto de dados, abrangendo medidas de tendência central (média, mediana e moda) e dispersão (desvio padrão). A idade média dos pacientes é de 54 anos, com uma distribuição simétrica, enquanto o tempo médio para recorrência é de aproximadamente 29.5 meses. A maioria dos pacientes foi diagnosticada no estágio 2 do câncer, com tumores de agressividade média. A cobertura de seguro, o diagnóstico precoce e o acesso ao tratamento são comuns na amostra. A quimioterapia é mais frequente que a radioterapia. A moda revela que a maioria dos pacientes é do sexo masculino, raça branca, da América do Norte, residente em áreas urbanas, de classe média, sem histórico familiar ou prévio de câncer, com diagnóstico regular, dieta ocidental, baixo nível de atividade física, nunca fumou, baixo consumo de álcool e carne vermelha, consumo médio de fibras, cobertura de seguro, diagnóstico precoce, acesso ao tratamento, quimioterapia, cirurgia, boa adesão ao acompanhamento, sobrevida e sem recorrência. O tempo mais frequente para recorrência é de 53 meses.</p>
 
-5) Medidas de Dispersão (Desvio Padrão e Intervalo Interquartil - IQR)
+4) Medidas de Dispersão (Desvio Padrão e Intervalo Interquartil - IQR)
 
 ```python
 # Desvio padrão

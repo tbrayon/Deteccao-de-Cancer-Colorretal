@@ -972,7 +972,6 @@ Abaixo, temos as análises básicas dos atributos Time_to_Recurrence e Follow_Up
 - O desvio padrão é 0,49, o que faz sentido para uma variável binária (0 ou 1).
 - A mediana (1.0) e o terceiro quartil (1.0) indicam que a maioria dos pacientes seguiu o acompanhamento adequadamente.
 - A moda é 1, reforçando que a categoria mais comum foi "Good" (1).
-- A maioria dos pacientes teve boa adesão ao acompanhamento (60% “Good”).
 
 #### Sobrevivência e adesão ao acompanhamento
 Verificamos se pacientes com boa adesão ao acompanhamento têm maior taxa de sobrevivência, através da correlação das variáveis:

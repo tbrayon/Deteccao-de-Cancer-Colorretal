@@ -957,12 +957,13 @@ Abaixo, temos as análises básicas dos atributos Time_to_Recurrence e Follow_Up
 
 ##### Time_to_Recurrence (Tempo até a Recorrência do câncer):
 
-- A média é 29,54 meses, indicando que, em média, os pacientes têm recorrência em torno desse período.\
+- A média é 29,54 meses, indicando que, em média, os pacientes têm recorrência em torno desse período.
 - O desvio padrão é 17,27 meses, o que mostra que há variação significativa no tempo de recorrência entre os pacientes.
 - A mediana (30 meses) sugere que metade dos pacientes teve recorrência antes desse tempo, e metade depois.
 - O mínimo é 0 meses, indicando que alguns pacientes tiveram recorrência imediatamente após o tratamento.
 - O máximo é 59 meses, sugerindo que alguns pacientes tiveram recorrência bem depois do diagnóstico.
 - A moda é 53 meses, ou seja, o tempo de recorrência mais comum foi de 53 meses.
+- O tempo de recorrência varia bastante entre os pacientes (desvio padrão alto), mas a mediana e a média são próximas, indicando que os dados não estão muito enviesados.
 
 
 ##### Follow_Up_Adherence (Adesão ao Acompanhamento):
@@ -971,7 +972,6 @@ Abaixo, temos as análises básicas dos atributos Time_to_Recurrence e Follow_Up
 - O desvio padrão é 0,49, o que faz sentido para uma variável binária (0 ou 1).
 - A mediana (1.0) e o terceiro quartil (1.0) indicam que a maioria dos pacientes seguiu o acompanhamento adequadamente.
 - A moda é 1, reforçando que a categoria mais comum foi "Good" (1).
-- O tempo de recorrência varia bastante entre os pacientes (desvio padrão alto), mas a mediana e a média são próximas, indicando que os dados não estão muito enviesados.=
 - A maioria dos pacientes teve boa adesão ao acompanhamento (60% “Good”).
 
 #### Sobrevivência e adesão ao acompanhamento

@@ -178,9 +178,6 @@ Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age<
 
 imgem curva gauss
 
-<p align="justify">
-Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age</strong> (Idade) foi identificada como um número inteiro. As colunas categóricas <strong>Gender</strong> (Gênero), <strong>Race</strong> (Raça), <strong>Region</strong> (Região), <strong>Urban_or_Rural</strong> (Zona de Residência) e <strong>Socioeconomic_Status</strong> (Status Socioeconômico) foram convertidas para valores numéricos. Além disso, as colunas booleanas <strong>Family_History</strong> (Histórico Familiar) e <strong>Previous_Cancer_History</strong> (Histórico de Câncer Prévio), originalmente representadas por "sim" e "não", também foram transformadas em valores numéricos. Essas conversões possibilitam a aplicação de métodos estatísticos e modelos de aprendizado de máquina, facilitando a identificação de padrões e a previsão de resultados relacionados ao câncer colorretal.</p>
-
 ```python
 import pandas as pd
 import numpy as np
@@ -217,11 +214,14 @@ plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.show()
 ```
 
-###Compreensão da Distribuição
-<p align="justify">Para compreender a distribuição da idade dos pacientes incluídos no estudo, foi elaborada uma <strong>Curva de Gauss</strong> utilizando a coluna `"Age"` do conjunto de dados. A Curva de Gauss divide os dados em <strong>intervalos de idade (bins)</strong> e exibe a frequência (quantidade de pacientes) em cada intervalo.</p> 
-####Curva de Gauss
-####Observações Adicionais
-<p align="justify">- A Curva de Gauss apresenta a distribuição etária dos pacientes com câncer colorretal, organizada em intervalos de <strong>10 anos</strong>, abrangendo a faixa etária de <strong>30 a 90 anos</strong>.</p> <p align="justify">- Observa-se um aumento na quantidade de pacientes nos grupos de <strong>35 a 75 anos</strong>, representados na cor azul-escuro, enquanto os desvios etários entre <strong>20 a 35 anos</strong> e <strong>75 a 90 anos</strong> são identificados na cor azul-claro.</p> <p align="justify">- Esse padrão sugere que a faixa etária de <strong>35 a 75 anos</strong> apresenta uma <strong>maior incidência da doença</strong>.</p> <p align="justify">- A identificação desses grupos é fundamental para a implementação de <strong>programas de prevenção e detecção precoce</strong>, permitindo a adoção de estratégias voltadas ao <strong>monitoramento e à conscientização</strong> sobre os riscos e sintomas do câncer colorretal.</p>
+###Compreensão da Distribuição:
+<p align="justify">Para compreender a distribuição da idade dos pacientes incluídos no estudo, foi elaborada uma <strong>Curva de Gauss</strong> utilizando a coluna `"Age"` do conjunto de dados. A Curva de Gauss divide os dados em <strong>intervalos de idade (bins)</strong> e exibe a frequência (quantidade de pacientes) em cada intervalo.</p>
+
+
+####Observações:
+<p align="justify">- A Curva de Gauss apresenta a distribuição etária dos pacientes com câncer colorretal, organizada em intervalos de <strong>10 anos</strong>, abrangendo a faixa etária de <strong>30 a 90 anos</strong>.</p> <p align="justify">- Observa-se um aumento na quantidade de pacientes nos grupos de <strong>35 a 75 anos</strong>, representados na cor azul-escuro, enquanto os desvios etários entre <strong>20 a 35 anos</strong> e <strong>75 a 90 anos</strong> são identificados na cor azul-claro.</p> 
+
+<p align="justify">- Esse padrão sugere que a faixa etária de <strong>35 a 75 anos</strong> apresenta uma <strong>maior incidência da doença</strong>.</p> <p align="justify">- A identificação desses grupos é fundamental para a implementação de <strong>programas de prevenção e detecção precoce</strong>, permitindo a adoção de estratégias voltadas ao <strong>monitoramento e à conscientização</strong> sobre os riscos e sintomas do câncer colorretal.</p>
 
 <p align="center">_______________________________________________________________________________________________________________</p>
 

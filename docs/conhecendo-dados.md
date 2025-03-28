@@ -311,25 +311,74 @@ print(f"Desvio padrão da idade: {desvio_padrao_idade:.2f}")
 
 <p align="center">_______________________________________________________________________________________________________________</p>
 
-####  Realizando a média central da categoria "Status Socioeconômico":
-1) Média de frequência da categoria "Status Socioeconômico"
+####  Realizando Análise de dados dos grupos de Pacientes por Tabagismo e Consumo de Álcool:
+1) Média de frequência da categoria "Survival_Status"
 
-```python 
+```python
 import pandas as pd
-# Carregando os dados
-df = pd.read_excel('colorectal_cancer_prediction.xlsx')
-# Convertendo 'Socioeconomic_Status' para valores numéricos
-status_mapping = {'Low': 0, 'Middle': 1, 'High': 2} 
-df['Socioeconomic_Status'] = df['Socioeconomic_Status'].map(status_mapping)
-# Calculando a média do Status Socioeconômico
-mean_socioeconomic_status = df['Socioeconomic_Status'].mean()
-# Exibindo a média
-print(f"A média do Status Socioeconômico dos pacientes é: {mean_socioeconomic_status}")
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Filtrar os dados para a condição Survival_Status == 1
+filtered_df = df_xlsx[df_xlsx['Survival_Status'] == 1]
+# Número de amostras desejado para cada categoria
+n_samples = 18099
+# Criar um novo DataFrame com as primeiras 5000 amostras
+balanced_df = pd.DataFrame()
+for smoking_status in [1, 2, 3]:
+    # Selecionar as primeiras n_samples para cada Smoking_Status
+    samples = filtered_df[filtered_df['Smoking_Status'] == smoking_status].head(n_samples)
+    balanced_df = pd.concat([balanced_df, samples])
+# Obter as contagens para cada Smoking_Status no DataFrame balanceado
+counts = balanced_df['Smoking_Status'].value_counts()
+# Calcular as porcentagens
+percentages = counts / counts.sum() * 100
+
+# Obter os valores únicos de Smoking_Status
+smoking_status_values = counts.index
+# Criar um array para o eixo x (categorias de Smoking_Status)
+x = np.arange(len(smoking_status_values))
+# Plotar o gráfico de barras com as porcentagens
+bars = plt.bar(x, percentages, color=['blue', 'red', 'green'])  # Cores para cada categoria
+# Definir os rótulos do eixo x
+plt.xticks(x, smoking_status_values)
+# Configurar o gráfico
+plt.title('Distribuição de Pacientes por Tabagismo que sobreviveram ao câncer Colorretal', pad=30)
+plt.xlabel('Smoking_Status')
+plt.ylabel('Porcentagem de Pacientes')
+# Adicionar os valores de porcentagem no topo de cada barra
+for bar, percentage in zip(bars, percentages):
+    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 1,
+             f'{percentage:.2f}%', ha='center', va='bottom')
+# Ajustar o espaço superior do gráfico
+plt.subplots_adjust(top=0.9)  # Aumentar o valor para dar mais espaço no topo
+# Adicionar os nomes dentro das barras
+plt.text(x[0], percentages.values[0] / 2, 'Nunca fumou', ha='center', va='center', color='white',  fontsize=11, fontweight='bold')
+plt.text(x[1], percentages.values[1] / 2, 'Já foi fumante', ha='center', va='center', color='white',  fontsize=11, fontweight='bold')
+plt.text(x[2], percentages.values[2] / 2, 'É fumante', ha='center', va='center', color='white',  fontsize=11, fontweight='bold')
+plt.show()
 ```
-<p align="justify">
-Ao analisar a distribuição de frequência do Status Socioeconômico, podemos observar como os pacientes estão distribuídos entre as diferentes categorias de renda: baixa, média e alta. A média calculada, que é de aproximadamente 0.90, reflete o valor central dessa distribuição, sugerindo que a maioria dos pacientes se encontra na faixa de renda média (representada pelo valor 1).</p>
-<p align="justify">
-A visualização da distribuição de frequência também ajuda a entender melhor esse valor médio. A distribuição mostra que a proporção de pacientes com renda média é maior, o que explica o valor da média ser tão próximo de 1. Essa análise contextualiza o valor da média, fornecendo uma visão mais detalhada sobre como os pacientes estão distribuídos entre as diferentes faixas de status socioeconômico, o que é crucial para compreender o perfil socioeconômico da amostra analisada.</p>
+
+Imagem consumo de Alcool e Tabagismo
+
+ #### Análise dos Dados: Tabagismo, Consumo de Álcool e Sobrevivência ao Câncer Colorretal:
+
+<p align="justify">O tabagismo e o consumo de álcool podem influenciar na sobrevivência de pacientes com câncer colorretal. A análise dos dados mostra como esses fatores podem impactar a saúde e o tratamento da doença.</p>
+
+#### Tabagismo e Sobrevivência:
+
+<p align="justify">Os dados indicam que <strong>36,37%</strong> dos pacientes que <strong>nunca fumaram</strong> ou <strong>já foram fumantes</strong> sobreviveram ao câncer colorretal, enquanto <strong>27,25%</strong> dos que <strong>nunca fumaram</strong> sobreviveram. Isso sugere que, apesar de o tabagismo ser um fator de risco, parar de fumar pode ajudar a aumentar as chances de sobrevivência.</p>
+
+#### Consumo de Álcool e Sobrevivência:
+
+<p align="justify">A análise dos dados também mostra que <strong>44,53%</strong> dos pacientes com <strong>baixo consumo de álcool</strong>, <strong>33,36%</strong> com <strong>consumo médio</strong> e <strong>22,11%</strong> com <strong>alto consumo</strong> sobreviveram ao câncer colorretal. Esses números sugerem que o consumo excessivo de álcool pode diminuir as chances de sobrevivência.</p>
+
+<p align="justify">O álcool pode causar danos às células, aumentando a inflamação e prejudicando o funcionamento do organismo. Além disso, ele pode enfraquecer o sistema imunológico e dificultar a recuperação dos pacientes em tratamento.</p>
+
+#### Considerações Finais
+
+<p align="justify">Os resultados evidenciam que tanto o tabagismo quanto o consumo excessivo de álcool podem estar associados a uma menor sobrevida dos pacientes com câncer colorretal. A adoção de hábitos saudáveis, incluindo a redução ou eliminação do consumo dessas substâncias, pode contribuir para melhores desfechos clínicos e maior eficácia dos tratamentos. Esses achados reforçam a importância de políticas públicas e campanhas de conscientização voltadas para a prevenção e o controle desses fatores de risco.</p> 
 
 <p align="center">_______________________________________________________________________________________________________________</p>
 

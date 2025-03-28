@@ -176,7 +176,7 @@ Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age<
 
 1) Curva Gauss de Distribuição de Idade dos Pacientes.
 
-imgem curva gauss
+![curva gauss01]https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/CurvaGaus01.png
 
 ```python
 import pandas as pd

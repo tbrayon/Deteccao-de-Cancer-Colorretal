@@ -381,34 +381,53 @@ plt.show()
 
 <p align="center">_______________________________________________________________________________________________________________</p>
 
-#### Análise da Média de Agressividade do Tumor por Status de Tabagismo:
-1) O gráfico de violino apresenta a distribuição dos níveis de agressividade do tumor (**Tumor_Aggressiveness**) em relação ao status de tabagismo (**Smoking_Status**).
+### Comparação do Estágio no Diagnóstico e Consumo de Álcool (Dados Balanceados):
+1.	O gráfico de em barras apresenta os níveis do Estágio no Diagnóstico (Stage_at_Diagnosis) do câncer colorretal em relação ao status de consumo de alcool (Alcohol_Consumption).
 
-![Grafico Violino 01](https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/GraficoViolino%2001.jpg)
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import matplotlib.patches as mpatches # Import the module with the alias 'mpatches'
+# Number of patients to sample from each Alcohol_Consumption category
+n_samples = 400
+# Create a new DataFrame to store the balanced data
+balanced_df = pd.DataFrame()
+# Loop through each Alcohol_Consumption category
+for alcohol_level in [1, 2, 3]:
+    # Sample n_samples from the current category
+    samples = df_xlsx[df_xlsx['Alcohol_Consumption'] == alcohol_level].sample(n_samples, replace=False)
+    balanced_df = pd.concat([balanced_df, samples])
+# Group the balanced data by Alcohol_Consumption and Stage_at_Diagnosis and count occurrences
+counts = balanced_df.groupby(['Stage_at_Diagnosis', 'Alcohol_Consumption'])['Patient_ID'].count().reset_index()
+# Create a bar plot using Seaborn with custom colors
+plt.figure(figsize=(10, 6))  # Adjust figure size if needed
+ax = sns.barplot(x='Stage_at_Diagnosis', y='Patient_ID', hue='Alcohol_Consumption', data=counts, 
+            palette={1: 'blue', 2: 'yellow', 3: 'red'})  # Custom color palette
+plt.title('Comparação do Estágio no Diagnóstico e Consumo de Álcool (Dados Balanceados)')  # Translated title
+plt.xlabel('Estágio no Diagnóstico')  # Translated x-axis label
+plt.ylabel('Número de Pacientes')  # Translated y-axis label
+# Custom legend handles with colors
+legend_handles = [
+    mpatches.Patch(color='blue', label='Baixo'),
+    mpatches.Patch(color='yellow', label='Médio'),
+    mpatches.Patch(color='red', label='Alto')
+]
+# Custom legend with translated title and colored handles
+plt.legend(handles=legend_handles, title='Consumo de Álcool') 
+plt.show()
+```
+Imagem 3 Comparação do Estágio no Diagnóstico e Consumo de Álcool
 
-Para entender como o gráfico de violino está calculando a agressividade do tumor para cada status de tabagismo, analisamos a **média de agressividade do tumor** para cada grupo.  
+#### Título do Gráfico: Comparação do Estágio no Diagnóstico e Consumo de Álcool (Dados Balanceados)
 
-##### Média de Agressividade do Tumor por Status de Tabagismo:  
-- **Nunca fumou (*Never*)**: Média de agressividade do tumor = **1.5**  
-- **Ex-fumante (*Former*)**: Média de agressividade do tumor = **2.5**  
-- **Fumante atual (*Current*)**: Média de agressividade do tumor = **2.0**  
+<p align="justify"><strong>Objetivo:</strong>  Mostrar a distribuição de pacientes com câncer colorretal em diferentes estágios da doença (I, II, III e IV), considerando seus níveis de consumo de álcool (Baixo, Médio e Alto), utilizando uma amostra balanceada de 400 pacientes por categoria.</p>
 
-##### Interpretação: 
+<p align="justify">O gráfico revela que o consumo baixo de álcool tem uma porcentagem maior no estágio II do diagnóstico. No entanto, ao comparar com o estágio IV do câncer colorretal, o consumo baixo de álcool apresenta uma proporção menor em relação ao consumo médio e alto. O consumo médio foi predominante nos estágios I e IV, enquanto o consumo baixo teve uma maior incidência apenas no estágio IV.</p>
 
-##### Nunca fumou (*Never*):  
-- A média de agressividade do tumor é **1.5**, indicando que a maioria dos casos está entre **baixa (*Low*) e média (*Medium*) agressividade**.  
+### Conclusão:
 
-##### Ex-fumante (*Former*):  
-- A média de agressividade do tumor é **2.5**, indicando que a maioria dos casos está entre **média (*Medium*) e alta (*High*) agressividade**.  
-
-##### Fumante atual (*Current*):  
-- A média de agressividade do tumor é **2.0**, indicando que a maioria dos casos está entre **baixa (*Low*) e alta (*High*) agressividade**.  
-
-#### Conclusão:
-
-O **gráfico de violino** mostra a distribuição dessas médias:  
-- **Um violino maior** indica uma **maior concentração de casos** em torno daquela média.  
-- No caso dos **fumantes atuais**, a agressividade do tumor é **alta**, resultando em um **violino maior para alta agressividade**.  
+<p align="justify">O gráfico permite visualizar a relação entre o consumo de álcool e o estágio do câncer colorretal, destacando possíveis tendências. Essas informações podem ajudar na formulação de hipóteses para estudos futuros e aprofundados sobre os efeitos do consumo de álcool no desenvolvimento da doença.</p>
 
  <p align="center">_______________________________________________________________________________________________________________</p>
 

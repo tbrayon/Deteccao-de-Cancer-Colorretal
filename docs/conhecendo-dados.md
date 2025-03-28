@@ -417,7 +417,7 @@ legend_handles = [
 plt.legend(handles=legend_handles, title='Consumo de Álcool') 
 plt.show()
 ```
-Imagem 3 Comparação do Estágio no Diagnóstico e Consumo de Álcool
+[Imagem 3 Comparação do Estágio no Diagnóstico e Consumo de Álcool](https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/Imagem%203%20Compara%C3%A7%C3%A3o%20do%20Est%C3%A1gio%20no%20Diagn%C3%B3stico%20e%20Consumo%20de%20%C3%81lcool.jpg)
 
 #### Título do Gráfico: Comparação do Estágio no Diagnóstico e Consumo de Álcool (Dados Balanceados)
 

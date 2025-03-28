@@ -170,96 +170,58 @@ A análise inicial do dataset revelou que ele é composto por 89945 registros e 
 <p align="justify">
 Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age</strong> (Idade) foi identificada como um número inteiro. As colunas categóricas <strong>Gender</strong> (Gênero), <strong>Race</strong> (Raça), <strong>Region</strong> (Região), <strong>Urban_or_Rural</strong> (Zona de Residência) e <strong>Socioeconomic_Status</strong> (Status Socioeconômico) foram convertidas para valores numéricos. Além disso, as colunas booleanas <strong>Family_History</strong> (Histórico Familiar) e <strong>Previous_Cancer_History</strong> (Histórico de Câncer Prévio), originalmente representadas por "sim" e "não", também foram transformadas em valores numéricos. Essas conversões possibilitam a aplicação de métodos estatísticos e modelos de aprendizado de máquina, facilitando a identificação de padrões e a previsão de resultados relacionados ao câncer colorretal.</p>
 
-#### Realizando o tratamento dos dados para o Python das Informações Demográficas
-##### Idade
-- **Idade média dos pacientes no momento do diagnóstico:** 54.33
-
-##### Gênero  
-| Gênero   | Código | Quantidade |
-|----------|--------|------------|
-| Feminino | 1      | 49.369     |
-| Masculino | 2     | 40.576     |
-
-##### Raça  
-| Raça      | Código | Quantidade |
-|-----------|--------|------------|
-| Asiático  | 1      | 13.502     |
-| Negro     | 2      | 18.005     |
-| Hispânico | 3      | 9.040      |
-| Branco    | 4      | 44.887     |
-| Outros    | 5      | 4.511      |
-
-##### Região  
-| Região           | Código | Quantidade |
-|-----------------|--------|------------|
-| Europa         | 1      | 27.019     |
-| América do Norte | 2      | 31.537     |
-| Ásia           | 3      | 17.916     |
-| América Latina | 4      | 9.050      |
-| África        | 5      | 4.423      |
-
-##### Zona de Residência  
-| Zona   | Código | Quantidade |
-|--------|--------|------------|
-| Urbana | 1      | 62.990     |
-| Rural  | 2      | 26.955     |
-
-##### Status Socioeconômico  
-| Status | Código | Quantidade |
-|--------|--------|------------|
-| Baixa  | 1      | 26.868     |
-| Média  | 2      | 45.088     |
-| Alta   | 3      | 17.989     |
-
-##### Histórico Familiar  
-| Histórico | Código | Quantidade |
-|-----------|--------|------------|
-| Não       | 0      | 67.372     |
-| Sim       | 1      | 22.573     |
-
-#### Histórico de Câncer Prévio  
-| Histórico | Código | Quantidade |
-|-----------|--------|------------|
-| Não       | 0      | 80.985     |
-| Sim       | 1      | 8.960      |
-
 <p align="center">_______________________________________________________________________________________________________________</p>
 
-#### Realizando análises estatísticas na categoria "Idade":
+#### Realizando análises estatísticas na categoria "Idade" usando a Curva Gauss:
 
-1) Histograma de Distribuição de Idade dos Pacientes.
+1) Curva Gauss de Distribuição de Idade dos Pacientes.
 
-![Histograma 01](https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/Histograma%20Ana%2001.jpg)
+imgem curva gauss
+
+<p align="justify">
+Na categoria <strong>Informações Demográficas</strong>, a coluna <strong>Age</strong> (Idade) foi identificada como um número inteiro. As colunas categóricas <strong>Gender</strong> (Gênero), <strong>Race</strong> (Raça), <strong>Region</strong> (Região), <strong>Urban_or_Rural</strong> (Zona de Residência) e <strong>Socioeconomic_Status</strong> (Status Socioeconômico) foram convertidas para valores numéricos. Além disso, as colunas booleanas <strong>Family_History</strong> (Histórico Familiar) e <strong>Previous_Cancer_History</strong> (Histórico de Câncer Prévio), originalmente representadas por "sim" e "não", também foram transformadas em valores numéricos. Essas conversões possibilitam a aplicação de métodos estatísticos e modelos de aprendizado de máquina, facilitando a identificação de padrões e a previsão de resultados relacionados ao câncer colorretal.</p>
 
 ```python
-import seaborn as sns
+import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
-sns.histplot(df_xlsx['Age'], bins=10, kde=True, color='skyblue')
-plt.title('Distribuição de Idade dos Pacientes com Densidade')
+import seaborn as sns
+
+# Supondo que df_xlsx seja o seu DataFrame
+
+# Média e desvio padrão da idade
+media_idade = df_xlsx['Age'].mean()
+desvio_padrao_idade = df_xlsx['Age'].std()
+
+# Gerar dados para a curva de Gauss
+x = np.linspace(df_xlsx['Age'].min(), df_xlsx['Age'].max(), 100)
+y = (1 / (desvio_padrao_idade * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - media_idade) / desvio_padrao_idade)**2)
+
+# Definir intervalos
+intervalo1 = (x >= media_idade - desvio_padrao_idade) & (x <= media_idade + desvio_padrao_idade)  # Centro
+intervalo2 = (x > media_idade + desvio_padrao_idade) & (x <= media_idade + 2 * desvio_padrao_idade)  # Lateral direita
+intervalo3 = (x < media_idade - desvio_padrao_idade) & (x >= media_idade - 2 * desvio_padrao_idade)  # Lateral esquerda
+
+# Preencher a área sob a curva com cores diferentes para cada intervalo
+plt.fill_between(x[intervalo1], y[intervalo1], color='darkblue', alpha=0.7, label='média de idade sucessiva ao câncer')
+plt.fill_between(x[intervalo2], y[intervalo2], color='lightblue', alpha=0.7, label='média de idade não sucessiva ao câncer')
+plt.fill_between(x[intervalo3], y[intervalo3], color='lightblue', alpha=0.7)
+
+# Configurar o gráfico
+plt.title('Curva de Gauss da Distribuição de Idade com Intervalos Coloridos')
 plt.xlabel('Idade')
-plt.ylabel('Densidade')
+plt.ylabel('Densidade de Probabilidade')
+
+# Colocar a legenda fora do gráfico
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.show()
 ```
-##### Compreensão da Distribuição  
-<p align="justify">Para compreender a distribuição da idade dos pacientes incluídos no estudo, foi elaborado um <strong>histograma</strong> utilizando a coluna `"Age"` do conjunto de dados. O histograma divide os dados em <strong>intervalos de idade (bins)</strong> e exibe a frequência (quantidade de pacientes) em cada intervalo.</p>       
 
-##### Construção do Histograma  
-<p align="justify">O histograma foi construído utilizando a biblioteca <strong>matplotlib.pyplot</strong> em Python. A coluna `'Age'` do DataFrame `df_xlsx` foi utilizada como fonte de dados.</p>
-
-##### Parâmetros Utilizados:  
-- **Número de intervalos:** 10 (`bins=10`), permitindo uma visualização clara da distribuição.  
-- **Cor das barras:** Azul claro (`color='skyblue'`).  
-- **Bordas das barras:** Pretas (`edgecolor='black'`) para melhor contraste.  
-- **Título do gráfico:** "Distribuição de Idade dos Pacientes".  
-- **Rótulos dos eixos:** `"Idade"` (eixo x) e `"Quantidade"` (eixo y).  
-- **Exibição do gráfico:** `plt.show()`.  
-
-##### Observações Adicionais
-
-<p align="justify">- O histograma apresenta a distribuição etária dos pacientes com câncer colorretal, organizada em intervalos de <strong>10 anos</strong>, abrangendo a faixa de <strong>30 a 90 anos</strong>.</p>    
-<p align="justify">- Observa-se um aumento na quantidade de pacientes nos grupos de <strong>40-50 anos</strong> e <strong>70-80 anos</strong>, em comparação com os demais intervalos.</p>    
-<p align="justify">- Esse padrão sugere que essas faixas etárias possuem uma <strong>maior incidência da doença</strong>.</p>    
-<p align="justify">- A identificação desses grupos é fundamental para a implementação de <strong>programas de prevenção e detecção precoce</strong>, permitindo a adoção de estratégias voltadas ao <strong>monitoramento e à conscientização</strong> sobre os riscos e sintomas do câncer colorretal.</p>
+###Compreensão da Distribuição
+<p align="justify">Para compreender a distribuição da idade dos pacientes incluídos no estudo, foi elaborada uma <strong>Curva de Gauss</strong> utilizando a coluna `"Age"` do conjunto de dados. A Curva de Gauss divide os dados em <strong>intervalos de idade (bins)</strong> e exibe a frequência (quantidade de pacientes) em cada intervalo.</p> 
+####Curva de Gauss
+####Observações Adicionais
+<p align="justify">- A Curva de Gauss apresenta a distribuição etária dos pacientes com câncer colorretal, organizada em intervalos de <strong>10 anos</strong>, abrangendo a faixa etária de <strong>30 a 90 anos</strong>.</p> <p align="justify">- Observa-se um aumento na quantidade de pacientes nos grupos de <strong>35 a 75 anos</strong>, representados na cor azul-escuro, enquanto os desvios etários entre <strong>20 a 35 anos</strong> e <strong>75 a 90 anos</strong> são identificados na cor azul-claro.</p> <p align="justify">- Esse padrão sugere que a faixa etária de <strong>35 a 75 anos</strong> apresenta uma <strong>maior incidência da doença</strong>.</p> <p align="justify">- A identificação desses grupos é fundamental para a implementação de <strong>programas de prevenção e detecção precoce</strong>, permitindo a adoção de estratégias voltadas ao <strong>monitoramento e à conscientização</strong> sobre os riscos e sintomas do câncer colorretal.</p>
 
 <p align="center">_______________________________________________________________________________________________________________</p>
 

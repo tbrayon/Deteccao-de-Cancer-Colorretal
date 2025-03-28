@@ -359,8 +359,7 @@ plt.text(x[1], percentages.values[1] / 2, 'Já foi fumante', ha='center', va='ce
 plt.text(x[2], percentages.values[2] / 2, 'É fumante', ha='center', va='center', color='white',  fontsize=11, fontweight='bold')
 plt.show()
 ```
-
-Imagem consumo de Alcool e Tabagismo
+![Grafico de barra consumo de Alcool e Tabagismo](https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/GraficoBarraCancerColorretalAlcoolCigarro.jpg)
 
  #### Análise dos Dados: Tabagismo, Consumo de Álcool e Sobrevivência ao Câncer Colorretal:
 

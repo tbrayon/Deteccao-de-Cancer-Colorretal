@@ -1037,6 +1037,19 @@ Os pacientes tendem a ter cobertura de seguro, diagnóstico rápido e acesso ao 
 <p align="justify">
 A variabilidade na idade e no tempo de recorrência é notável, enquanto as variáveis categóricas binárias mostram baixa variabilidade. A análise estatística não encontrou associação significativa entre o estágio do câncer e o recebimento de quimioterapia ou a realização de colonoscopia, sugerindo que outros fatores influenciam essas decisões. Em resumo, a análise exploratória destaca a complexidade do câncer colorretal, com múltiplos fatores influenciando o diagnóstico, tratamento e recorrência da doença.</p>
 
+#### Ana e Alexandre
+
+<p align="justify">A análise descritiva e exploratória dos dados revelou importantes achados que contribuem para o entendimento da relação entre fatores como faixa etária, tabagismo, consumo de álcool e a sobrevivência ao câncer colorretal.</p>
+
+<p align="justify">Primeiramente, ao observar o gráfico da curva Gauss, ficou evidente que a faixa etária de 35 a 75 anos apresenta uma maior incidência de câncer colorretal. Esse padrão sugere que a faixa etária intermediária é a mais afetada pela doença, indicando uma possível centralidade dos dados nessa faixa etária. Esse dado é relevante para o contexto de prevenção e detecção precoce, pois pode orientar estratégias mais direcionadas a esses grupos etários.</p>
+
+<p align="justify">Em relação aos dados sobre tabagismo e consumo de álcool, a análise evidenciou que tanto o tabagismo quanto o consumo excessivo de álcool estão associados a uma menor sobrevida dos pacientes com câncer colorretal. Esses fatores de risco mostram uma correlação negativa com a sobrevivência, o que reforça a importância de hábitos saudáveis, como a redução ou eliminação do consumo dessas substâncias, para melhorar os desfechos clínicos e a eficácia dos tratamentos. Esses achados também indicam uma correlação moderada entre o consumo de álcool e a sobrevivência, sugerindo que o controle do consumo pode impactar positivamente na recuperação dos pacientes.</p>
+
+<p align="justify">Além disso, no gráfico de comparação entre o estágio no diagnóstico e o consumo de álcool, foi possível identificar que o consumo baixo de álcool tem uma porcentagem maior no estágio II do diagnóstico. No entanto, ao comparar com o estágio IV, o consumo baixo de álcool apresentou uma proporção menor em relação aos níveis de consumo médio e alto. O consumo médio de álcool foi mais predominante nos estágios I e IV, enquanto o consumo baixo teve maior incidência apenas no estágio IV. Esse dado sugere que, no estágio mais avançado da doença, os pacientes com consumo moderado a alto de álcool tendem a ser mais prevalentes, o que pode indicar um impacto maior do álcool nos estágios mais críticos da doença.</p>
+
+<p align="justify">A análise dos dados permite visualizar as relações entre os fatores de risco, como consumo de álcool, tabagismo e faixa etária, com a incidência e sobrevivência ao câncer colorretal. As correlações observadas entre esses fatores ajudam a reforçar a importância de políticas públicas focadas na prevenção e controle desses riscos, além de apoiar futuras pesquisas sobre o impacto desses hábitos na progressão da doença.</p>
+
+
 ## Ferramentas utilizadas
 <p align="justify">
 Para a análise descritiva e exploratória sobre o dataset escolhido, com o objetivo de compreender a estrutura dos dados, detectar eventuais outliers e também, avaliar/detectar as relações existentes entre as variantes verificadas, foram empregadas as seguintes ferramentas:

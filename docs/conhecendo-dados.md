@@ -960,6 +960,20 @@ A conclusão da análise foi que não existem outliers, isto é, todos os tempos
 Foi verificada a relação de sobrevivência com a idade do paciente a partir de dois métodos: teste t e Mann-Whitney U. O objetivo desta análise foi visualizar se a taxa de sobrevivência de pacientes está condicionada à idade de alguma forma, se pacientes mais novos possuem mais chances de sobrevivência, por exemplo. Os valores encontrados foram:
 </p>
 
+``` python
+survived_age = df[df["Survival_Status"] == 1]["Age"]
+deceased_age = df[df["Survival_Status"] == 0]["Age"]
+
+
+stat, p = mannwhitneyu(survived_age,deceased_age)
+print(f"Estatística U: {stat}, p-valor: {p}")
+
+
+stat, p = ttest_ind(survived_age, deceased_age, equal_var=False)
+print(f"Estatística t: {stat}, p-valor: {p}")
+```
+Output:
+
 - Estatística U: 763629194.0, p-valor: 0.4518
 - Estatística t: 0.7523573566766071, p-valor: 0.4518
 
@@ -977,6 +991,15 @@ O gráfico de histograma KDE abaixo demonstra de forma visual como os valores n�
 #### Tempo até a recorrência e adesão ao acompanhamento
 
 Abaixo, temos as análises básicas dos atributos Time_to_Recurrence e Follow_Up_Adherence:
+
+``` python
+stats = df[["Time_to_Recurrence", "Follow_Up_Adherence"]].describe().T
+stats["mode"] = df[["Time_to_Recurrence", "Follow_Up_Adherence"]].mode().iloc[0]
+
+print(stats)
+```
+
+Output:
 
 | Variable         	| Count   | Mean  	| Std Dev   | Min  | 25%  | 50%  | 75%  | Max  | Mode |
 |----------------------|---------|-----------|-----------|------|------|------|------|------|------|

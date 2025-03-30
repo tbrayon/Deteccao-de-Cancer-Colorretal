@@ -937,7 +937,7 @@ A análise da relação entre o estágio do câncer e a realização de colonosc
 pode auxiliar na compreensão dos protocolos de rastreamento adotados e no
 planejamento de estratégias de intervenção. Em resumo, esta análise estatística não responde à questão de pesquisa.</p>
 
-### Acompanhamento e Sobrevivência
+### - Acompanhamento e Sobrevivência
 
 #### Outliers
 Para a verificação de outliers, foi considerado apenas o atributo de tempo de recorrência, pois os demais valores do recorte são categóricos e não possuem valores fora do padrão. A análise de dispersão foi realizada através de um boxplot que pode ser observado abaixo:

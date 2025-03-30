@@ -1072,6 +1072,15 @@ A variabilidade na idade e no tempo de recorrência é notável, enquanto as var
 
 <p align="justify">A análise dos dados permite visualizar as relações entre os fatores de risco, como consumo de álcool, tabagismo e faixa etária, com a incidência e sobrevivência ao câncer colorretal. As correlações observadas entre esses fatores ajudam a reforçar a importância de políticas públicas focadas na prevenção e controle desses riscos, além de apoiar futuras pesquisas sobre o impacto desses hábitos na progressão da doença.</p>
 
+#### Salomão
+<p align="justify">
+Os pontos mais relevantes dos achados da análise dos dados de acompanhamento e sobrevivência foram:
+</p>
+
+- Não foram identificados outliers no tempo de recorrência.
+- A idade não influencia na sobrevivência dos pacientes.
+- Adesão ao acompanhamento não está relacionada ao tempo de recorrência nem à sobrevivência.
+- As variáveis analisadas não possuem correlação entre si, sugerindo que outros fatores podem estar mais correlacionados à taxa de sobrevivência do paciente.
 
 ## Ferramentas utilizadas
 <p align="justify">

@@ -1,11 +1,5 @@
 # Conhecendo os dados
 
-Nesta seção, deverá ser registrada uma detalhada análise descritiva e exploratória sobre a base de dados selecionada na Etapa 1 com o objetivo de compreender a estrutura dos dados, detectar eventuais _outliers_ e também, avaliar/detectar as relações existentes entre as variáveis analisadas.
-
-Para isso, sugere-se que sejam utilizados cálculos de medidas de tendência central, como média, mediana e moda, para entender a centralidade dos dados; sejam exploradas medidas de dispersão como desvio padrão e intervalos interquartil para avaliar a variabilidade dos dados; sejam utilizados gráficos descritivos como histogramas e box plots, para representar visualmente as características essenciais dos dados, pois essas visualizações podem facilitar a identificação de padrões e anomalias; sejam analisadas as relações entre as variáveis por meio de análise de correlação, gráficos de dispersões, mapas de calor, entre outras técnicas. 
-
-Inclua nesta seção, gráficos, tabelas e demais artefatos que você considere relevantes para entender os dados com os quais você irá trabalhar.  Além disso, inclua e comente os trechos de código mais relevantes desenvolvidos para realizar suas análises. Na pasta "src", inclua o código fonte completo.
-
 ## Análise Inicial do Dataset de Predição de Câncer Colorretal
 <p align="justify">
 Abaixo é apresentada uma análise inicial do dataset <a href="https://www.kaggle.com/datasets/ankushpanday1/colorectal-cancer-risk-and-survival-data">Colorectal Cancer Risk & Survival Data</a>, utilizado para predição de câncer colorretal. O objetivo desta análise é entender a estrutura dos dados, verificar a presença de valores ausentes e preparar o dataset para análises subsequentes e modelagem.
@@ -1048,8 +1042,6 @@ A conclusão é que os atributos deste grupo não possuem correlação entre si,
 </p>
 
 ## Descrição dos achados
-
-A partir da análise descrita e exploratória realizada, descreva todos os achados considerados relevantes para o contexto em que o trabalho se insere. Por exemplo: com relação à centralidade dos dados algo chamou a atenção? Foi possível identificar correlação entre os atributos? Que tipo de correlação (forte, fraca, moderada)? 
 
 #### Gina
 

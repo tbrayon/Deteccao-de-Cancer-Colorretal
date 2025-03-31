@@ -598,10 +598,10 @@ Tentando responder às questões de pesquisa relacionadas à categoria de inform
 #### 1. Pergunta: Considerando estilo de vida e informações demográficas, quais os principais fatores que estão relacionados a ter ou não ter o câncer?
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/3f270ec6-769c-4df1-8a8c-145585cba02a" alt="Mapa de calor de correlação 1">
+  <img src="https://github.com/user-attachments/assets/4ad8e439-c058-49f5-a151-dfa9dc75ba79" alt="Mapa de calor de correlação 1">
 </p>
 
-A correlação entre as variáveis foi analisada através de um mapa de calor, onde os valores variam entre -1 e 1. Valores próximos de 1 indicam uma relação forte e positiva entre duas variáveis, enquanto valores próximos de -1 indicam uma relação forte e negativa. Já valores próximos de 0 sugerem que não há uma relação significativa entre as variáveis analisadas. No gráfico, a diagonal principal apresenta valores de 1.00, indicando uma correlação perfeita consigo mesma. Fora da diagonal principal, os valores são próximos de zero, sinalizando correlação fraca ou inexistente entre as variáveis.
+
 
 Em relação à idade e agressividade do tumor, a correlação é praticamente zero (-0.00), sugerindo que a idade não influencia a agressividade do tumor. O mesmo ocorre entre o índice de massa corporal (BMI) e a agressividade do tumor, com uma correlação muito baixa (-0.01), indicando que o BMI não tem impacto significativo sobre essa característica. Além disso, a idade e o BMI também não apresentam correlação entre si (0.00). Esses resultados sugerem que nem a idade nem o índice de massa corporal têm influência relevante na agressividade do tumor. Para identificar fatores que impactem essa característica, seria necessário ampliar o conjunto de dados e incluir novas variáveis para análise.
 
@@ -609,10 +609,10 @@ Em relação à idade e agressividade do tumor, a correlação é praticamente z
 #### 2. Pergunta: Quais fatores de estilo de vida estão associados à reincidência do câncer após o tratamento?
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/5ee6790d-9f4d-4328-ba25-5e1c20ad5ab9" alt="Mapa de calor de correlação 2">
+  <img src="https://github.com/user-attachments/assets/63315ce5-d29c-494b-99f1-a15b25c84fc0" alt="Mapa de calor de correlação 2">
 </p>
 
-Neste caso, um outro mapa de calor foi utilizado para ilustrar a matriz de correlação entre diferentes características relacionadas à saúde e hábitos de vida. O gráfico mostra como as variáveis se relacionam entre si, com a escala variando de -1 a 1. Quando o valor é 1.00 (vermelho escuro), isso indica uma correlação perfeita positiva, ou seja, quando uma variável aumenta, a outra também aumenta. Valores próximos de 0.00 (azul escuro) indicam ausência de correlação significativa entre as variáveis, enquanto valores próximos de -1.00 representariam uma correlação perfeita negativa, o que não é observado nesse caso.
+
 
 A análise revela que, embora as correlações entre as variáveis sejam baixas, com valores próximos de zero, há algumas correlações fracas entre os fatores analisados. A diagonal principal do gráfico sempre exibe uma correlação de 1.00, indicando que cada variável está perfeitamente correlacionada consigo mesma. Contudo, as demais correlações são bem próximas de zero, sugerindo que os fatores de estilo de vida analisados não apresentam uma relação forte ou significativa com a reincidência do câncer após o tratamento.
 

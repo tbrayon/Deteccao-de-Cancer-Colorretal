@@ -1099,8 +1099,6 @@ Para a análise descritiva e exploratória sobre o dataset escolhido, com o obje
     * **Visualização de dados**: Com bibliotecas para criação de gráficos e visualizações (Matplotlib, Plotly e Seaborn ), identificamos padrões e insights relevantes nos dados.
 * **Base de dados**: O arquivo CSV do Dataset: Colorectal Cancer Risk & Survival Data, do site Kaggle, https://www.kaggle.com/datasets/ankushpanday1/colorectal-cancer-risk-and-survival-data.</p>
    
-Existem muitas ferramentas diferentes que podem ser utilizadas para fazer a análise dos dados. Nesta seção, descreva as ferramentas/tecnologias utilizadas e sua aplicação. Vale destacar que, preferencialmente, as análises deverão ser realizadas utilizando a linguagem de programação Python.
-
 ## Vídeo de apresentação da Etapa 02
 
 Nesta seção, um vídeo de, no máximo, 15 minutos deverá ser produzido. No vídeo, cada aluno do grupo deverá apresentar uma parte do trabalho realizado nesta etapa e dos achados/insights obtidos. Todos os alunos deverão participar do vídeo. Alunos que não participarem, serão penalizados na nota final da etapa.

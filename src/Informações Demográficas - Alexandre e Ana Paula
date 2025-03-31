@@ -1,1 +1,69 @@
+# Gráfico Alexandre
+
+import pandas as pd
+
+# Supondo que df_xlsx seja o seu DataFrame
+
+# Média
+media_idade = df_xlsx['Age'].mean()
+
+# Mediana
+mediana_idade = df_xlsx['Age'].median()
+
+# Desvio Padrão
+desvio_padrao_idade = df_xlsx['Age'].std()
+
+# Imprimir os resultados
+print(f"Média da idade: {media_idade:.2f}")
+print(f"Mediana da idade: {mediana_idade:.2f}")
+print(f"Desvio padrão da idade: {desvio_padrao_idade:.2f}")
+
+# Este trecho de código:
+# Importa a biblioteca pandas. Calcula a média, mediana e desvio padrão da coluna 'Age' (Idade) em um DataFrame chamado df_xlsx. Imprime essas estatísticas.
+
+
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Supondo que df_xlsx seja o seu DataFrame
+
+# Média e desvio padrão da idade
+media_idade = df_xlsx['Age'].mean()
+desvio_padrao_idade = df_xlsx['Age'].std()
+
+# Gerar dados para a curva de Gauss
+x = np.linspace(df_xlsx['Age'].min(), df_xlsx['Age'].max(), 100)
+y = (1 / (desvio_padrao_idade * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - media_idade) / desvio_padrao_idade)**2)
+
+# Definir intervalos
+intervalo1 = (x >= media_idade - desvio_padrao_idade) & (x <= media_idade + desvio_padrao_idade)  # Centro
+intervalo2 = (x > media_idade + desvio_padrao_idade) & (x <= media_idade + 2 * desvio_padrao_idade)  # Lateral direita
+intervalo3 = (x < media_idade - desvio_padrao_idade) & (x >= media_idade - 2 * desvio_padrao_idade)  # Lateral esquerda
+
+# Preencher a área sob a curva com cores diferentes para cada intervalo
+plt.fill_between(x[intervalo1], y[intervalo1], color='darkblue', alpha=0.7, label='média de idade sucessiva ao câncer')
+plt.fill_between(x[intervalo2], y[intervalo2], color='lightblue', alpha=0.7, label='média de idade não sucessiva ao câncer')
+plt.fill_between(x[intervalo3], y[intervalo3], color='lightblue', alpha=0.7)
+
+# Configurar o gráfico
+plt.title('Curva de Gauss da Distribuição de Idade com Intervalos Coloridos')
+plt.xlabel('Idade')
+plt.ylabel('Densidade de Probabilidade')
+
+# Colocar a legenda fora do gráfico
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.show()
+
+# Esse trecho de código:
+# Visualiza a distribuição de idade nos dados usando uma curva gaussiana e destaca intervalos específicos dentro dessa distribuição. Isso pode fornecer insights sobre as faixas etárias típicas presentes no conjunto de dados.
+
+
+# Gráfico Ana
+
+
+
+
 

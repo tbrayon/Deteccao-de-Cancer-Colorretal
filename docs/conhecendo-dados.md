@@ -1064,6 +1064,20 @@ A variabilidade na idade e no tempo de recorrência é notável, enquanto as var
 
 <p align="justify">A análise dos dados permite visualizar as relações entre os fatores de risco, como consumo de álcool, tabagismo e faixa etária, com a incidência e sobrevivência ao câncer colorretal. As correlações observadas entre esses fatores ajudam a reforçar a importância de políticas públicas focadas na prevenção e controle desses riscos, além de apoiar futuras pesquisas sobre o impacto desses hábitos na progressão da doença.</p>
 
+
+#### Brayon
+<p align="justify">
+A análise dos dados revela tendências relevantes no perfil de saúde da população estudada. O acesso à colonoscopia e a regularidade na triagem são aspectos positivos para a prevenção e detecção precoce de doenças. No entanto, o predomínio de uma dieta ocidental e o baixo nível de atividade física sugerem hábitos que podem comprometer a saúde geral.
+</p>
+
+<p align="justify">
+Embora a maioria dos indivíduos não fume e apresente um consumo moderado de álcool, o IMC médio elevado (38.1) indica uma alta prevalência de obesidade, um fator de risco significativo para doenças metabólicas. Além disso, o baixo consumo de carne vermelha e a ingestão moderada de fibras podem influenciar diretamente a saúde gastrointestinal.
+</p>
+
+<p align="justify">
+Apesar da análise da moda fornecer insights detalhados sobre os hábitos dos indivíduos, a correlação entre diferentes categorias de variáveis mostrou-se fraca ou inexistente. O heatmap revelou que idade, IMC e agressividade do tumor não apresentam uma relação significativa.
+</p>
+
 #### Salomão
 <p align="justify">
 Os pontos mais relevantes dos achados da análise dos dados de acompanhamento e sobrevivência foram:

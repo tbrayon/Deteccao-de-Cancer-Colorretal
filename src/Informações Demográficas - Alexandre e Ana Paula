@@ -69,36 +69,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Supondo que 'df_xlsx' seja o seu DataFrame
-
-# Filtrar os dados para Alcohol_Consumption = 1 e Survival_Status 1 ou 2
-filtered_df = df_xlsx[(df_xlsx['Alcohol_Consumption'] == 1) & (df_xlsx['Survival_Status'].isin([1, 2]))]
-
-# Dividir os dados em dois grupos com base em Survival_Status
-grupo1 = filtered_df[filtered_df['Survival_Status'] == 1]  # Sobreviventes
-grupo2 = filtered_df[filtered_df['Survival_Status'] == 2]  # Falecidos
-
-# Calcular média e desvio padrão de Time_to_Recurrence para cada grupo
-media_grupo1 = grupo1['Time_to_Recurrence'].mean()
-desvio_padrao_grupo1 = grupo1['Time_to_Recurrence'].std()
-media_grupo2 = grupo2['Time_to_Recurrence'].mean()
-desvio_padrao_grupo2 = grupo2['Time_to_Recurrence'].std()
-
-# Gerar dados para as curvas de Gauss usando Time_to_Recurrence
-x = np.linspace(filtered_df['Time_to_Recurrence'].min(), filtered_df['Time_to_Recurrence'].max(), 100)
-y_grupo1 = (1 / (desvio_padrao_grupo1 * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - media_grupo1) / desvio_padrao_grupo1)**2)
-y_grupo2 = (1 / (desvio_padrao_grupo2 * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - media_grupo2) / desvio_padrao_grupo2)**2)
-
-# Este trecho de código:
-# Compara a distribuição de Time_to_Recurrence para dois grupos de pacientes (sobreviventes e falecidos) que têm baixo consumo de álcool. Ele consegue isso criando e visualizando curvas gaussianas com base nas características estatísticas dos dados de cada grupo.
-
-
-
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 # Filtrar os dados para a condição Survival_Status == 1
 filtered_df = df_xlsx[df_xlsx['Survival_Status'] == 1]
 

@@ -441,7 +441,7 @@ A análise estatística preliminar permite compreender melhor o comportamento da
 
 ### Passos realizados:  
 
-<p style="text-align: center;">
+<p style="text-align: justify;">
        
 1. Aplicação do **Label Encoding** para converter variáveis categóricas em valores numéricos.  
 2. Armazenamento dos mapeamentos originais para futura referência.  
@@ -450,7 +450,7 @@ A análise estatística preliminar permite compreender melhor o comportamento da
 5. Cálculo da moda para cada coluna.  
 </p>
 
-<p style="text-align: center;">
+<p style="text-align: justify;">
        
 Na categoria **Triagem e Estilo de Vida**, todas as seguintes colunas foram convertidas para valores numéricos:  
 </p>
@@ -566,7 +566,7 @@ As estatísticas descritivas fornecem insights importantes sobre a distribuiçã
 | **BMI**                     | 38.1     |  
 
 
-<p style="text-align: center;">
+<p style="text-align: justify;">
 Os resultados obtidos mostram que:
 </p>
 
@@ -602,9 +602,9 @@ Tentando responder às questões de pesquisa relacionadas à categoria de inform
 </p>
 
 
-
+<p style="text-align: justify;">
 Em relação à idade e agressividade do tumor, a correlação é praticamente zero (-0.00), sugerindo que a idade não influencia a agressividade do tumor. O mesmo ocorre entre o índice de massa corporal (BMI) e a agressividade do tumor, com uma correlação muito baixa (-0.01), indicando que o BMI não tem impacto significativo sobre essa característica. Além disso, a idade e o BMI também não apresentam correlação entre si (0.00). Esses resultados sugerem que nem a idade nem o índice de massa corporal têm influência relevante na agressividade do tumor. Para identificar fatores que impactem essa característica, seria necessário ampliar o conjunto de dados e incluir novas variáveis para análise.
-
+</p>
 
 #### 2. Pergunta: Quais fatores de estilo de vida estão associados à reincidência do câncer após o tratamento?
 
@@ -612,10 +612,10 @@ Em relação à idade e agressividade do tumor, a correlação é praticamente z
   <img src="https://github.com/user-attachments/assets/63315ce5-d29c-494b-99f1-a15b25c84fc0" alt="Mapa de calor de correlação 2">
 </p>
 
-
+<p style="text-align: justify;">
 
 A análise revela que, embora as correlações entre as variáveis sejam baixas, com valores próximos de zero, há algumas correlações fracas entre os fatores analisados. A diagonal principal do gráfico sempre exibe uma correlação de 1.00, indicando que cada variável está perfeitamente correlacionada consigo mesma. Contudo, as demais correlações são bem próximas de zero, sugerindo que os fatores de estilo de vida analisados não apresentam uma relação forte ou significativa com a reincidência do câncer após o tratamento.
-
+</p>
 
 
 ### - Diagnóstico, Características do Câncer e Tratamento

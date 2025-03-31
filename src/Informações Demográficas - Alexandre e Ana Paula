@@ -61,9 +61,156 @@ plt.show()
 # Visualiza a distribuição de idade nos dados usando uma curva gaussiana e destaca intervalos específicos dentro dessa distribuição. Isso pode fornecer insights sobre as faixas etárias típicas presentes no conjunto de dados.
 
 
+
 # Gráfico Ana
 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Supondo que 'df_xlsx' seja o seu DataFrame
+
+# Filtrar os dados para Alcohol_Consumption = 1 e Survival_Status 1 ou 2
+filtered_df = df_xlsx[(df_xlsx['Alcohol_Consumption'] == 1) & (df_xlsx['Survival_Status'].isin([1, 2]))]
+
+# Dividir os dados em dois grupos com base em Survival_Status
+grupo1 = filtered_df[filtered_df['Survival_Status'] == 1]  # Sobreviventes
+grupo2 = filtered_df[filtered_df['Survival_Status'] == 2]  # Falecidos
+
+# Calcular média e desvio padrão de Time_to_Recurrence para cada grupo
+media_grupo1 = grupo1['Time_to_Recurrence'].mean()
+desvio_padrao_grupo1 = grupo1['Time_to_Recurrence'].std()
+media_grupo2 = grupo2['Time_to_Recurrence'].mean()
+desvio_padrao_grupo2 = grupo2['Time_to_Recurrence'].std()
+
+# Gerar dados para as curvas de Gauss usando Time_to_Recurrence
+x = np.linspace(filtered_df['Time_to_Recurrence'].min(), filtered_df['Time_to_Recurrence'].max(), 100)
+y_grupo1 = (1 / (desvio_padrao_grupo1 * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - media_grupo1) / desvio_padrao_grupo1)**2)
+y_grupo2 = (1 / (desvio_padrao_grupo2 * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - media_grupo2) / desvio_padrao_grupo2)**2)
+
+# Este trecho de código:
+# Compara a distribuição de Time_to_Recurrence para dois grupos de pacientes (sobreviventes e falecidos) que têm baixo consumo de álcool. Ele consegue isso criando e visualizando curvas gaussianas com base nas características estatísticas dos dados de cada grupo.
 
 
 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
+# Filtrar os dados para a condição Survival_Status == 1
+filtered_df = df_xlsx[df_xlsx['Survival_Status'] == 1]
+
+# Número de amostras desejado para cada categoria
+n_samples = 18099
+
+# Criar um novo DataFrame com as primeiras 5000 amostras
+balanced_df = pd.DataFrame()
+for smoking_status in [1, 2, 3]:
+    # Selecionar as primeiras n_samples para cada Smoking_Status
+    samples = filtered_df[filtered_df['Smoking_Status'] == smoking_status].head(n_samples)
+    balanced_df = pd.concat([balanced_df, samples])
+
+# Obter as contagens para cada Smoking_Status no DataFrame balanceado
+counts = balanced_df['Smoking_Status'].value_counts()
+
+# Calcular as porcentagens
+percentages = counts / counts.sum() * 100
+
+# Obter os valores únicos de Smoking_Status
+smoking_status_values = counts.index
+
+# Criar um array para o eixo x (categorias de Smoking_Status)
+x = np.arange(len(smoking_status_values))
+
+# Plotar o gráfico de barras com as porcentagens
+bars = plt.bar(x, percentages, color=['blue', 'red', 'green'])  # Cores para cada categoria
+
+# Definir os rótulos do eixo x
+plt.xticks(x, smoking_status_values)
+
+# Configurar o gráfico
+plt.title('Distribuição de Pacientes por Tabagismo que sobreviveram ao câncer Colorretal', pad=30)
+plt.xlabel('Smoking_Status')
+plt.ylabel('Porcentagem de Pacientes')
+
+# Adicionar os valores de porcentagem no topo de cada barra
+for bar, percentage in zip(bars, percentages):
+    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 1,
+             f'{percentage:.2f}%', ha='center', va='bottom')
+
+# Ajustar o espaço superior do gráfico
+plt.subplots_adjust(top=0.9)  # Aumentar o valor para dar mais espaço no topo
+
+# Adicionar os nomes dentro das barras
+plt.text(x[0], percentages.values[0] / 2, 'Nunca fumou', ha='center', va='center', color='white',  fontsize=11, fontweight='bold')
+plt.text(x[1], percentages.values[1] / 2, 'Já foi fumante', ha='center', va='center', color='white',  fontsize=11, fontweight='bold')
+plt.text(x[2], percentages.values[2] / 2, 'É fumante', ha='center', va='center', color='white',  fontsize=11, fontweight='bold')
+
+
+plt.show()
+
+# Esse trecho de código:
+#  O código foca na visualização da distribuição do status de tabagismo entre sobreviventes de câncer colorretal. Ele filtra os dados para incluir apenas sobreviventes, equilibra a representação de diferentes categorias de tabagismo e, em seguida, cria um gráfico de barras para exibir claramente as porcentagens de pacientes em cada categoria.
+
+
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Filtrar os dados para a condição Survival_Status == 1  (Changed to 1)
+filtered_df = df_xlsx[df_xlsx['Survival_Status'] == 1]
+
+# Número de amostras desejado para cada categoria
+n_samples = 26982
+
+# Criar um novo DataFrame com as primeiras n_samples amostras
+balanced_df = pd.DataFrame()
+for alcohol_consumption in [1, 2, 3]:
+    # Selecionar as primeiras n_samples para cada Alcohol_Consumption
+    samples = filtered_df[filtered_df['Alcohol_Consumption'] == alcohol_consumption].head(n_samples)
+    balanced_df = pd.concat([balanced_df, samples])
+
+# Obter as contagens para cada Alcohol_Consumption no DataFrame balanceado
+counts = balanced_df['Alcohol_Consumption'].value_counts()
+
+# Calcular as porcentagens
+percentages = counts / counts.sum() * 100
+
+# Obter os valores únicos de Alcohol_Consumption
+alcohol_consumption_values = counts.index
+
+# Criar um array para o eixo x (categorias de Alcohol_Consumption)
+x = np.arange(len(alcohol_consumption_values))
+
+# Plotar o gráfico de barras com as porcentagens
+bars = plt.bar(x, percentages, color=['blue', 'red', 'green'])  # Cores para cada categoria
+
+# Definir os rótulos do eixo x
+plt.xticks(x, alcohol_consumption_values)
+
+# Configurar o gráfico
+plt.title('Distribuição de Pacientes por Consumo de Álcool que sobreviveram ao câncer Colorretal', pad=30)
+plt.xlabel('Alcohol_Consumption')
+plt.ylabel('Porcentagem de Pacientes')
+
+# Adicionar os valores de porcentagem no topo de cada barra
+for bar, percentage in zip(bars, percentages):
+    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 1,
+             f'{percentage:.2f}%', ha='center', va='bottom')
+
+# Ajustar o espaço superior do gráfico
+plt.subplots_adjust(top=0.9)  # Aumentar o valor para dar mais espaço no topo
+
+# Adicionar os nomes dentro das barras com os novos rótulos
+plt.text(x[0], percentages.values[0] / 2, 'Consumo baixo', ha='center', va='center', color='white', fontsize=10, fontweight='bold')
+plt.text(x[1], percentages.values[1] / 2, 'Consumo médio', ha='center', va='center', color='white', fontsize=10, fontweight='bold')
+plt.text(x[2], percentages.values[2] / 2, 'Consumo alto', ha='center', va='center', color='white', fontsize=10, fontweight='bold')
+
+plt.show()
+
+# Este trecho de código:
+# Esse código analisa dados sobre pacientes com câncer colorretal, filtra para focar nos sobreviventes e cria um gráfico de barras para visualizar a distribuição dos níveis de consumo de álcool entre esse grupo.

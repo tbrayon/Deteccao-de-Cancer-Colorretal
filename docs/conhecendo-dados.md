@@ -1042,6 +1042,56 @@ A conclusão é que os atributos deste grupo não possuem correlação entre si,
 </p>
 
 ## Descrição dos achados
+
+
+#### Gina
+
+<p align="justify">
+A análise abrangente do conjunto de dados de câncer colorretal revela padrões e insights cruciais. A maioria dos pacientes é diagnosticada nos estágios I e II, com predomínio no estágio II, e o diagnóstico precoce está associado a uma maior detecção nesses estágios iniciais. Curiosamente, o tempo até o diagnóstico não parece ser um fator determinante na agressividade do tumor, que se distribui uniformemente entre diagnósticos precoces e tardios, com tumores de baixa e média agressividade sendo mais comuns.</p>
+<p align="justify">
+Os pacientes tendem a ter cobertura de seguro, diagnóstico rápido e acesso ao tratamento, com a quimioterapia sendo mais frequente que a radioterapia. A idade média dos pacientes é de 54 anos, com uma distribuição simétrica, e o tempo médio para recorrência é de 29.5 meses. A maioria dos pacientes é do sexo masculino, raça branca, residente em áreas urbanas, de classe média, sem histórico familiar ou prévio de câncer, com diagnóstico regular, dieta ocidental e baixa atividade física.</p>
+<p align="justify">
+A variabilidade na idade e no tempo de recorrência é notável, enquanto as variáveis categóricas binárias mostram baixa variabilidade. A análise estatística não encontrou associação significativa entre o estágio do câncer e o recebimento de quimioterapia ou a realização de colonoscopia, sugerindo que outros fatores influenciam essas decisões. Em resumo, a análise exploratória destaca a complexidade do câncer colorretal, com múltiplos fatores influenciando o diagnóstico, tratamento e recorrência da doença.</p>
+
+#### Ana e Alexandre
+
+<p align="justify">A análise descritiva e exploratória dos dados revelou importantes achados que contribuem para o entendimento da relação entre fatores como faixa etária, tabagismo, consumo de álcool e a sobrevivência ao câncer colorretal.</p>
+
+<p align="justify">Primeiramente, ao observar o gráfico da curva Gauss, ficou evidente que a faixa etária de 35 a 75 anos apresenta uma maior incidência de câncer colorretal. Esse padrão sugere que a faixa etária intermediária é a mais afetada pela doença, indicando uma possível centralidade dos dados nessa faixa etária. Esse dado é relevante para o contexto de prevenção e detecção precoce, pois pode orientar estratégias mais direcionadas a esses grupos etários.</p>
+
+<p align="justify">Em relação aos dados sobre tabagismo e consumo de álcool, a análise evidenciou que tanto o tabagismo quanto o consumo excessivo de álcool estão associados a uma menor sobrevida dos pacientes com câncer colorretal. Esses fatores de risco mostram uma correlação negativa com a sobrevivência, o que reforça a importância de hábitos saudáveis, como a redução ou eliminação do consumo dessas substâncias, para melhorar os desfechos clínicos e a eficácia dos tratamentos. Esses achados também indicam uma correlação moderada entre o consumo de álcool e a sobrevivência, sugerindo que o controle do consumo pode impactar positivamente na recuperação dos pacientes.</p>
+
+<p align="justify">Além disso, no gráfico de comparação entre o estágio no diagnóstico e o consumo de álcool, foi possível identificar que o consumo baixo de álcool tem uma porcentagem maior no estágio II do diagnóstico. No entanto, ao comparar com o estágio IV, o consumo baixo de álcool apresentou uma proporção menor em relação aos níveis de consumo médio e alto. O consumo médio de álcool foi mais predominante nos estágios I e IV, enquanto o consumo baixo teve maior incidência apenas no estágio IV. Esse dado sugere que, no estágio mais avançado da doença, os pacientes com consumo moderado a alto de álcool tendem a ser mais prevalentes, o que pode indicar um impacto maior do álcool nos estágios mais críticos da doença.</p>
+
+<p align="justify">A análise dos dados permite visualizar as relações entre os fatores de risco, como consumo de álcool, tabagismo e faixa etária, com a incidência e sobrevivência ao câncer colorretal. As correlações observadas entre esses fatores ajudam a reforçar a importância de políticas públicas focadas na prevenção e controle desses riscos, além de apoiar futuras pesquisas sobre o impacto desses hábitos na progressão da doença.</p>
+
+
+#### Brayon
+<p align="justify">
+A análise dos dados revela tendências relevantes no perfil de saúde da população estudada. O acesso à colonoscopia e a regularidade na triagem são aspectos positivos para a prevenção e detecção precoce de doenças. No entanto, o predomínio de uma dieta ocidental e o baixo nível de atividade física sugerem hábitos que podem comprometer a saúde geral.
+</p>
+
+<p align="justify">
+Embora a maioria dos indivíduos não fume e apresente um consumo moderado de álcool, o IMC médio elevado (38.1) indica uma alta prevalência de obesidade, um fator de risco significativo para doenças metabólicas. Além disso, o baixo consumo de carne vermelha e a ingestão moderada de fibras podem influenciar diretamente a saúde gastrointestinal.
+</p>
+
+<p align="justify">
+Apesar da análise da moda fornecer insights detalhados sobre os hábitos dos indivíduos, a correlação entre diferentes categorias de variáveis mostrou-se fraca ou inexistente. O heatmap revelou que idade, IMC e agressividade do tumor não apresentam uma relação significativa.
+</p>
+
+#### Salomão
+<p align="justify">
+Os pontos mais relevantes dos achados da análise dos dados de acompanhamento e sobrevivência foram:
+</p>
+
+- Não foram identificados outliers no tempo de recorrência.
+- A idade não influencia na sobrevivência dos pacientes.
+- Adesão ao acompanhamento não está relacionada ao tempo de recorrência nem à sobrevivência.
+- As variáveis analisadas não possuem correlação entre si, sugerindo que outros fatores podem estar mais correlacionados à taxa de sobrevivência do paciente.
+
+
+Texto compilado
+
 <p align="justify">
 A análise abrangente do conjunto de dados de câncer colorretal revelou padrões e insights cruciais. A maioria dos pacientes é diagnosticada nos estágios I e II, com predomínio no estágio II, evidenciando a importância do diagnóstico precoce. No entanto, o tempo até o diagnóstico não parece ser um fator determinante na agressividade do tumor, que se distribui uniformemente entre diagnósticos precoces e tardios, sendo os tumores de baixa e média agressividade os mais comuns.</p>
 <p align="justify">

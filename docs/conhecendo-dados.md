@@ -872,7 +872,6 @@ de estratégias de intervenção. Em resumo, esta análise estatística não res
 2) Pergunta: Considerando os atributos relacionados ao diagnóstico e tratamento, existe uma relação com o fato de o paciente ter se submetido ao exame de colonoscopia?
 
 ```python
-# Certifique-se de que há uma coluna indicando se o paciente fez colonoscopia
 if "Colonoscopy_Access" in df.columns:
     # Tabela cruzada entre colonoscopia e estágio do câncer
     colonoscopia_crosstab = pd.crosstab(df["Stage_at_Diagnosis"], df["Colonoscopy_Access"])

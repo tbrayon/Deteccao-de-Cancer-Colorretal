@@ -380,7 +380,7 @@ plt.xticks([0, 1, 2], ['Baixo', 'Médio', 'Alto'])  # Ajustar os índices confor
 # Exibir o gráfico
 plt.show()
 ```
-![Grafico de barra consumo de Alcool e Tabagismo](docs/img/imagem Cigarro e Alcool.jpg)
+![Grafico de barra consumo de Alcool e Tabagismo](https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/imagem%20Cigarro%20e%20Alcool.jpg?raw=true)
 
  #### Análise dos Dados: Tabagismo, Consumo de Álcool e Sobrevivência ao Câncer Colorretal:
 

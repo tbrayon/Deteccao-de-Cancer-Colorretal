@@ -309,48 +309,75 @@ print(f"Desvio padrão da idade: {desvio_padrao_idade:.2f}")
 1) Média de frequência da categoria "Survival_Status"
 
 ```python
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
 
-# Filtrar os dados para a condição Survival_Status == 1
-filtered_df = df_xlsx[df_xlsx['Survival_Status'] == 1]
-# Número de amostras desejado para cada categoria
-n_samples = 18099
-# Criar um novo DataFrame com as primeiras 5000 amostras
-balanced_df = pd.DataFrame()
-for smoking_status in [1, 2, 3]:
-    # Selecionar as primeiras n_samples para cada Smoking_Status
-    samples = filtered_df[filtered_df['Smoking_Status'] == smoking_status].head(n_samples)
-    balanced_df = pd.concat([balanced_df, samples])
-# Obter as contagens para cada Smoking_Status no DataFrame balanceado
-counts = balanced_df['Smoking_Status'].value_counts()
-# Calcular as porcentagens
-percentages = counts / counts.sum() * 100
+# Filtrar os dados para Survival_Status igual a 2
+filtered_df = df_xlsx[df_xlsx['Survival_Status'] == 2]
 
-# Obter os valores únicos de Smoking_Status
-smoking_status_values = counts.index
-# Criar um array para o eixo x (categorias de Smoking_Status)
-x = np.arange(len(smoking_status_values))
-# Plotar o gráfico de barras com as porcentagens
-bars = plt.bar(x, percentages, color=['blue', 'red', 'green'])  # Cores para cada categoria
-# Definir os rótulos do eixo x
-plt.xticks(x, smoking_status_values)
-# Configurar o gráfico
-plt.title('Distribuição de Pacientes por Tabagismo que sobreviveram ao câncer Colorretal', pad=30)
+# Calcular a porcentagem de cada categoria de Smoking_Status
+total_count = len(filtered_df)
+smoking_status_counts = filtered_df['Smoking_Status'].value_counts() 
+percentages = (smoking_status_counts / total_count) * 100
+
+# Criar o gráfico de barras com porcentagens, ordem decrescente e cores personalizadas
+ax = sns.countplot(x='Smoking_Status', data=filtered_df, order=smoking_status_counts.index,
+                   palette=['blue', 'yellow', 'red'])  # Definindo as cores
+
+# Adicionar rótulos de porcentagem
+for bar in ax.patches:
+    height = bar.get_height()
+    percentage = (height / total_count) * 100
+    ax.text(bar.get_x() + bar.get_width() / 2, height, f'{percentage:.1f}%', ha='center', va='bottom')
+
+# Definir o título do gráfico
+plt.title('Relação entre Tabagismo e Sobrevivente do câncer colorretal')
+
+# Definir os rótulos dos eixos
 plt.xlabel('Smoking_Status')
-plt.ylabel('Porcentagem de Pacientes')
-# Adicionar os valores de porcentagem no topo de cada barra
-for bar, percentage in zip(bars, percentages):
-    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 1,
-             f'{percentage:.2f}%', ha='center', va='bottom')
-# Ajustar o espaço superior do gráfico
-plt.subplots_adjust(top=0.9)  # Aumentar o valor para dar mais espaço no topo
-# Adicionar os nomes dentro das barras
-plt.text(x[0], percentages.values[0] / 2, 'Nunca fumou', ha='center', va='center', color='white',  fontsize=11, fontweight='bold')
-plt.text(x[1], percentages.values[1] / 2, 'Já foi fumante', ha='center', va='center', color='white',  fontsize=11, fontweight='bold')
-plt.text(x[2], percentages.values[2] / 2, 'É fumante', ha='center', va='center', color='white',  fontsize=11, fontweight='bold')
+plt.ylabel('Contagem')
+
+# Adicionar legenda
+plt.xticks([0, 1, 2], ['Nunca fumou', 'Já foi fumante', 'Fumante']) 
+
+# Exibir o gráfico
+plt.show()
+```
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Filtrar os dados para Survival_Status igual a 2
+filtered_df = df_xlsx[df_xlsx['Survival_Status'] == 2]
+
+# Calcular a porcentagem de cada categoria de Alcohol_Consumption
+total_count = len(filtered_df)
+alcohol_consumption_counts = filtered_df['Alcohol_Consumption'].value_counts()  
+percentages = (alcohol_consumption_counts / total_count) * 100
+
+# Criar o gráfico de barras com porcentagens, ordem decrescente e cores personalizadas
+ax = sns.countplot(x='Alcohol_Consumption', data=filtered_df, order=alcohol_consumption_counts.index,
+                   palette=['blue', 'yellow', 'red'])  # Definindo as cores
+
+# Adicionar rótulos de porcentagem
+for bar in ax.patches:
+    height = bar.get_height()
+    percentage = (height / total_count) * 100
+    ax.text(bar.get_x() + bar.get_width() / 2, height, f'{percentage:.1f}%', ha='center', va='bottom')
+
+# Definir o título do gráfico
+plt.title('Relação entre Consumo de Álcool e Sobrevivente do câncer colorretal')
+
+# Definir os rótulos dos eixos
+plt.xlabel('Alcohol_Consumption')
+plt.ylabel('Contagem')
+
+# Adicionar legenda (opcional, se necessário)
+plt.xticks([0, 1, 2], ['Baixo', 'Médio', 'Alto'])  # Ajustar os índices conforme necessário
+
+# Exibir o gráfico
 plt.show()
 ```
 ![Grafico de barra consumo de Alcool e Tabagismo](https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/GraficoBarraCancerColorretalAlcoolCigarro.jpg)
@@ -361,11 +388,11 @@ plt.show()
 
 #### Tabagismo e Sobrevivência:
 
-<p align="justify">Os dados indicam que <strong>36,37%</strong> dos pacientes que <strong>nunca fumaram</strong> ou <strong>já foram fumantes</strong> sobreviveram ao câncer colorretal, enquanto <strong>27,25%</strong> dos que <strong>nunca fumaram</strong> sobreviveram. Isso sugere que, apesar de o tabagismo ser um fator de risco, parar de fumar pode ajudar a aumentar as chances de sobrevivência.</p>
+<p align="justify">Os dados indicam que <strong>50,1%</strong> dos pacientes que <strong>nunca fumaram</strong> e <strong>29,8%</strong> paciente que <strong>já foi fumante</strong> sobreviveram ao câncer colorretal, enquanto <strong>20,1%</strong> dos que <strong>nunca fumaram</strong> sobreviveram. Isso sugere que, apesar de o tabagismo ser um fator de risco, parar de fumar pode ajudar a aumentar as chances de sobrevivência.</p>
 
 #### Consumo de Álcool e Sobrevivência:
 
-<p align="justify">A análise dos dados também mostra que <strong>44,53%</strong> dos pacientes com <strong>baixo consumo de álcool</strong>, <strong>33,36%</strong> com <strong>consumo médio</strong> e <strong>22,11%</strong> com <strong>alto consumo</strong> sobreviveram ao câncer colorretal. Esses números sugerem que o consumo excessivo de álcool pode diminuir as chances de sobrevivência.</p>
+<p align="justify">A análise dos dados também mostra que <strong>50,1%</strong> dos pacientes com <strong>baixo consumo de álcool</strong>, <strong>30,0%</strong> com <strong>consumo médio</strong> e <strong>19,9%</strong> com <strong>alto consumo</strong> sobreviveram ao câncer colorretal. Esses números sugerem que o consumo excessivo de álcool pode diminuir as chances de sobrevivência.</p>
 
 <p align="justify">O álcool pode causar danos às células, aumentando a inflamação e prejudicando o funcionamento do organismo. Além disso, ele pode enfraquecer o sistema imunológico e dificultar a recuperação dos pacientes em tratamento.</p>
 

@@ -17,7 +17,7 @@ O impacto desse problema na sociedade é expressivo, pois envolve custos elevado
 <p align="justify">
 As questões de pesquisa a seguir foram elaboradas para investigar os principais fatores associados ao câncer colorretal, incluindo diagnóstico, tratamento, reincidência e nível de agressividade do tumor.</p>
 <p align="justify">
-1. Considerando <strong>estilo de vida e informações demográficas</strong>, quais os principais fatores que estão relacionados a ter ou não ter o câncer?</p>
+1. Considerando <strong>estilo de vida e informações demográficas</strong>, quais os principais fatores que estão relacionados a ter o câncer?</p>
 <p align="justify">
 2. Considerando os atributos relacionados às <strong>informações demográficas e ao diagnóstico e tratamento</strong>, qual o tratamento é mais recomendável?</p>
 <p align="justify">  

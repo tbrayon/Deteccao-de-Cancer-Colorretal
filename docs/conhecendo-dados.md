@@ -388,7 +388,7 @@ plt.show()
 
 #### Tabagismo e Sobrevivência:
 
-<p align="justify">Os dados indicam que <strong>50,1%</strong> dos pacientes que <strong>nunca fumaram</strong> e <strong>29,8%</strong> paciente que <strong>já foi fumante</strong> sobreviveram ao câncer colorretal, enquanto <strong>20,1%</strong> dos que <strong>nunca fumaram</strong> sobreviveram. Isso sugere que, apesar de o tabagismo ser um fator de risco, parar de fumar pode ajudar a aumentar as chances de sobrevivência.</p>
+<p align="justify">Os dados indicam que <strong>50,1%</strong> dos pacientes que <strong>nunca fumaram</strong> e <strong>29,8%</strong> dos <strong>ex-fumantes</strong> sobreviveram ao câncer colorretal, enquanto a taxa de sobrevivência entre <strong>os fumantes</strong> foi de apenas <strong>20,1%</strong>. Isso sugere que, embora o tabagismo seja um fator de risco, cessar o hábito pode contribuir para aumentar as chances de sobrevivência.</p>
 
 #### Consumo de Álcool e Sobrevivência:
 

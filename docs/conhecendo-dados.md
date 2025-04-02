@@ -454,7 +454,7 @@ plt.show()
 
 <p align="justify"><strong>Objetivo:</strong>  Mostrar a distribuição de pacientes com câncer colorretal em diferentes estágios da doença (I, II, III e IV), considerando seus níveis de consumo de álcool (Baixo, Médio e Alto), utilizando uma amostra balanceada de 400 pacientes por categoria.</p>
 
-<p align="justify">O gráfico mostra que o consumo elevado de álcool apresenta a maior porcentagem em todos os estágios do diagnóstico do Câncer Colorretal. No entanto, o consumo baixo de álcool supera o consumo médio em todos os estágios.</p>
+<p align="justify">O gráfico mostra que o consumo elevado de álcool apresenta a maior porcentagem em todos os estágios do diagnóstico do Câncer Colorretal. No entanto, o consumo médio do álcool supera o consumo baixo em todos os estágios.</p>
 
 ### Conclusão:
 

@@ -448,7 +448,7 @@ plt.xticks([3, 2, 1, 0], ['Estágio IV', 'Estágio III', 'Estágio II', 'Estági
 # Exibir o gráfico
 plt.show()
 ```
-![Gráfico de barra consumo de Álcool e Estágio do Câncer](https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/imagem%20Est%C3%A1gio%20do%20C%C3%A2ncer.jpg?raw=true)
+![Gráfico de barra consumo de Álcool e Estágio do Câncer](https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/imagem%20Est%C3%A1gio%20do%20C%C3%A2ncer2.jpg?raw=true)
 
 #### Título do Gráfico: Comparação do Estágio no Diagnóstico e Consumo de Álcool (Dados Balanceados)
 

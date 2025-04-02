@@ -406,36 +406,46 @@ plt.show()
 1.	O gráfico de em barras apresenta os níveis do Estágio no Diagnóstico (Stage_at_Diagnosis) do câncer colorretal em relação ao status de consumo de alcool (Alcohol_Consumption).
 
 ```python
-import pandas as pd
-import matplotlib.pyplot as plt
 import seaborn as sns
-import matplotlib.patches as mpatches # Import the module with the alias 'mpatches'
-# Number of patients to sample from each Alcohol_Consumption category
-n_samples = 400
-# Create a new DataFrame to store the balanced data
-balanced_df = pd.DataFrame()
-# Loop through each Alcohol_Consumption category
-for alcohol_level in [1, 2, 3]:
-    # Sample n_samples from the current category
-    samples = df_xlsx[df_xlsx['Alcohol_Consumption'] == alcohol_level].sample(n_samples, replace=False)
-    balanced_df = pd.concat([balanced_df, samples])
-# Group the balanced data by Alcohol_Consumption and Stage_at_Diagnosis and count occurrences
-counts = balanced_df.groupby(['Stage_at_Diagnosis', 'Alcohol_Consumption'])['Patient_ID'].count().reset_index()
-# Create a bar plot using Seaborn with custom colors
-plt.figure(figsize=(10, 6))  # Adjust figure size if needed
-ax = sns.barplot(x='Stage_at_Diagnosis', y='Patient_ID', hue='Alcohol_Consumption', data=counts, 
-            palette={1: 'blue', 2: 'yellow', 3: 'red'})  # Custom color palette
-plt.title('Comparação do Estágio no Diagnóstico e Consumo de Álcool (Dados Balanceados)')  # Translated title
-plt.xlabel('Estágio no Diagnóstico')  # Translated x-axis label
-plt.ylabel('Número de Pacientes')  # Translated y-axis label
-# Custom legend handles with colors
-legend_handles = [
-    mpatches.Patch(color='blue', label='Baixo'),
-    mpatches.Patch(color='yellow', label='Médio'),
-    mpatches.Patch(color='red', label='Alto')
-]
-# Custom legend with translated title and colored handles
-plt.legend(handles=legend_handles, title='Consumo de Álcool') 
+import matplotlib.pyplot as plt
+import numpy as np
+# Mapear Alcohol_Consumption para valores numéricos
+alcohol_consumption_mapping = {
+    'low': 3,
+    'medium': 1,
+    'high': 2
+}
+df_xlsx['Alcohol_Consumption_Num'] = df_xlsx['Alcohol_Consumption'].map(alcohol_consumption_mapping)
+
+# Criar o gráfico de barras agrupadas com largura ajustada
+ax = sns.countplot(x='Stage_at_Diagnosis_Num', hue='Alcohol_Consumption_Num', data=df_xlsx,
+                   order=[1, 2, 3, 4], palette=['blue', 'yellow', 'red'],
+                   width=0.9)  # Ajuste a largura aqui (0.6 neste exemplo)
+# Adicionar rótulos de porcentagem
+group_totals = df_xlsx.groupby('Stage_at_Diagnosis_Num')['Alcohol_Consumption_Num'].count().to_dict()
+for p in ax.patches:
+    height = p.get_height()
+    # Obter o valor de Stage_at_Diagnosis_Num para a barra atual
+    stage = int(p.get_x() + 0.5) + 1 # Correção para o estágio IV=1
+    total = group_totals.get(stage, 0) # Total para o estágio atual
+    if total > 0:
+        percentage = '{:.1f}%'.format(100 * height / total)
+        x = p.get_x() + p.get_width() / 2
+        y = height + 3  # Ajuste o valor 3 para posicionar o texto
+        ax.annotate(percentage, (x, y), ha='center', va='bottom')
+    else:
+        print(f"Warning: total is zero for Stage_at_Diagnosis_Num = {stage}")  # Print warning message
+# Definir o título do gráfico
+plt.title('Relação entre Álcool e Estágio no Diagnóstico do Câncer Colorretal')
+# Definir os rótulos dos eixos
+plt.xlabel('Stage_at_Diagnosis')
+plt.ylabel('Contagem')
+# Adicionar legenda fora do gráfico
+plt.legend(title='Alcohol_Consumption', labels=['Baixo', 'Médio', 'Alto'],
+           bbox_to_anchor=(1.05, 1), loc='upper left')
+# Manter a ordem original dos rótulos dos ticks
+plt.xticks([3, 2, 1, 0], ['Estágio IV', 'Estágio III', 'Estágio II', 'Estágio I'])  # Ordem dos ticks corrigida
+# Exibir o gráfico
 plt.show()
 ```
 ![Gráfico de barra consumo de Álcool e Estágio do Câncer](https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/imagem%20Est%C3%A1gio%20do%20C%C3%A2ncer.jpg?raw=true)
@@ -444,7 +454,7 @@ plt.show()
 
 <p align="justify"><strong>Objetivo:</strong>  Mostrar a distribuição de pacientes com câncer colorretal em diferentes estágios da doença (I, II, III e IV), considerando seus níveis de consumo de álcool (Baixo, Médio e Alto), utilizando uma amostra balanceada de 400 pacientes por categoria.</p>
 
-<p align="justify">O gráfico revela que o consumo baixo de álcool tem uma porcentagem maior no estágio II do diagnóstico. No entanto, ao comparar com o estágio IV do câncer colorretal, o consumo baixo de álcool apresenta uma proporção menor em relação ao consumo médio e alto. O consumo médio foi predominante nos estágios I e IV, enquanto o consumo baixo teve uma maior incidência apenas no estágio IV.</p>
+<p align="justify">O gráfico mostra que o consumo elevado de álcool apresenta a maior porcentagem em todos os estágios do diagnóstico do Câncer Colorretal. No entanto, o consumo baixo de álcool supera o consumo médio em todos os estágios.</p>
 
 ### Conclusão:
 

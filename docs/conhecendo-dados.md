@@ -832,9 +832,11 @@ Time_to_Recurrence       29.0
 <p align="justify">
 As medidas de dispersão fornecem informações sobre a variabilidade dos dados em relação à média ou à mediana. O desvio padrão mede a dispersão dos dados em torno da média, enquanto o intervalo interquartil (IQR) mede a dispersão dos dados em torno da mediana. Neste caso, observa-se que a variável 'Idade' (Age) apresenta o maior desvio padrão (20.18 anos) e o maior IQR (35 anos), indicando uma alta variabilidade na idade dos pacientes. A variável 'Tempo até a Recorrência' (Time_to_Recurrence) também apresenta um desvio padrão considerável (17.27 meses) e um IQR de 29 meses, sugerindo uma ampla variação no tempo até a recorrência do câncer. As demais variáveis, que são categóricas binárias (0 ou 1), apresentam desvios padrão próximos de 0.5 e IQRs de 1 ou 0, indicando uma baixa variabilidade e uma distribuição equilibrada entre as categorias. A análise das medidas de dispersão pode auxiliar na identificação de variáveis com alta variabilidade, o que pode ter implicações para a análise dos dados e o desenvolvimento de modelos preditivos.</p>
 
-#### Tentando responder as questões de pesquisa relacionada à categoria Diagnóstico, Características do Câncer e Tratamento utilizando métodos de estatística:
+#### Tentando responder as questões de pesquisa relacionada à categoria Diagnóstico, Características do Câncer e Tratamento, utilizando métodos de estatística:
 
-1) Pergunta: Considerando os atributos relacionados às informações demográficas e ao diagnóstico e tratamento, qual o tratamento é mais recomendável?
+#### 1) Pergunta: Considerando os atributos relacionados às informações demográficas e ao diagnóstico e tratamento, qual o tratamento é mais recomendável?
+   
+#### Primeira tentativa:
 
 ```python
 # Criar tabela cruzada entre estágio do câncer e tratamento recebido
@@ -904,7 +906,42 @@ análise da relação entre o estágio do câncer e o tratamento recebido pode
 auxiliar na compreensão dos protocolos de tratamento adotados e no planejamento
 de estratégias de intervenção. Em resumo, esta análise estatística não responde à questão de pesquisa.</p>
 
-2) Pergunta: Considerando os atributos relacionados ao diagnóstico e tratamento, existe uma relação com o fato de o paciente ter se submetido ao exame de colonoscopia?
+#### Segunda tentativa:
+
+```python
+# Teste Qui-Quadrado para Relação entre Fatores e Tratamento só com variáveis categóricas, por isso carreguei de novo o excel
+
+# Carregar os dados (substitua pelo seu dataframe)
+df = pd.read_excel("/colorectal_cancer_prediction.xlsx")
+
+# Definir variáveis categóricas a serem testadas
+categorical_vars = ["Stage_at_Diagnosis", "Tumor_Aggressiveness", "Insurance_Coverage",
+                    "Time_to_Diagnosis", "Treatment_Access", "Chemotherapy_Received", "Radiotherapy_Received"]
+
+# Aplicar o teste qui-quadrado
+for var in categorical_vars:
+    table = pd.crosstab(df["Colonoscopy_Access"], df[var])
+    chi2, p, dof, expected = stats.chi2_contingency(table)
+    
+    print(f"\nVariável: {var}")
+    print(f"Qui-Quadrado: {chi2:.4f}, p-valor: {p:.4f}")
+    if p < 0.05:
+        print("➡ Associação significativa! 🔥")
+    else:
+        print("❌ Nenhuma associação estatística.")
+
+```
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/57e7a189-d93b-401e-a8ec-6d47dc2e0da9" alt="image">
+</p>
+
+
+<p align="justify">Com base nos resultados do teste Qui-Quadrado realizado, não foi encontrada nenhuma associação estatisticamente significativa entre as variáveis de diagnóstico e tratamento analisadas (estágio do diagnóstico, agressividade do tumor, cobertura do seguro, tempo para o diagnóstico, acesso ao tratamento, quimioterapia recebida e radioterapia recebida) e o acesso à colonoscopia. Isso significa que, dentro dos dados analisados, não há evidências de que esses fatores influenciem a realização do exame de colonoscopia. É importante ressaltar que o teste Qui-Quadrado é adequado para analisar a relação entre variáveis categóricas, e a ausência de significância estatística não descarta a possibilidade de outras influências não consideradas na análise.</p>
+
+#### 2) Pergunta: Considerando os atributos relacionados ao diagnóstico e tratamento, existe uma relação com o fato de o paciente ter se submetido ao exame de colonoscopia?
+
+#### Primeira tentativa:
 
 ```python
 if "Colonoscopy_Access" in df.columns:
@@ -970,6 +1007,54 @@ podendo ser determinada por outros fatores clínicos ou individuais do paciente.
 A análise da relação entre o estágio do câncer e a realização de colonoscopia
 pode auxiliar na compreensão dos protocolos de rastreamento adotados e no
 planejamento de estratégias de intervenção. Em resumo, esta análise estatística não responde à questão de pesquisa.</p>
+
+#### Segunda tentativa:
+
+```python
+
+# Teste Qui-Quadrado para Relação entre Fatores e Tratamento só com variáveis categóricas, por isso carreguei de novo o excel
+
+import scipy.stats as stats
+
+# Carregar os dados (substitua pelo seu dataframe)
+df = pd.read_excel("/colorectal_cancer_prediction.xlsx")
+
+# Lista de variáveis categóricas relevantes
+categorical_vars = [
+    "Gender", "Race", "Region", "Urban_or_Rural", "Socioeconomic_Status",
+    "Family_History", "Previous_Cancer_History", "Stage_at_Diagnosis",
+    "Tumor_Aggressiveness", "Insurance_Coverage", "Time_to_Diagnosis",
+    "Treatment_Access"
+]
+
+# Analisando relação das variáveis com os tratamentos recomendados
+treatments = ["Chemotherapy_Received", "Radiotherapy_Received"]
+
+for treatment in treatments:
+    print(f"\n===== Analisando {treatment} =====")
+    
+    for var in categorical_vars:
+        table = pd.crosstab(df[treatment], df[var])
+        chi2, p, dof, expected = stats.chi2_contingency(table)
+        
+        print(f"\nVariável: {var}")
+        print(f"Qui-Quadrado: {chi2:.4f}, p-valor: {p:.4f}")
+        if p < 0.05:
+            print("➡ Associação significativa! 🔥")
+        else:
+            print("❌ Nenhuma associação estatística.")
+
+```
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7e81859c-4c71-4980-98c8-e6c8a26f7868" alt="image"></p>
+
+  <p align="center">
+  <img src="https://github.com/user-attachments/assets/6c94a60f-bb2d-4d1e-b082-3680178b74df" alt="image"></p>
+
+
+<p align="justify">Os resultados do teste Qui-Quadrado indicam que, ao analisar a influência de fatores demográficos e de diagnóstico/tratamento na recomendação de quimioterapia, nenhuma das variáveis testadas mostrou associação estatisticamente significativa. No entanto, ao analisar a recomendação de radioterapia, a agressividade do tumor apresentou uma associação significativa, sugerindo que este fator pode influenciar a decisão de recomendar radioterapia. As demais variáveis não mostraram relação estatística com a radioterapia. Assim, a agressividade do tumor parece ser um fator relevante na decisão de recomendar radioterapia, enquanto as outras variáveis analisadas não demonstraram influência significativa em nenhum dos tratamentos. É importante notar que a ausência de significância estatística não descarta a possibilidade de relações complexas e que outros fatores não considerados na análise podem influenciar as decisões de tratamento.</p>
+
 
 ### - Acompanhamento e Sobrevivência
 
@@ -1140,6 +1225,8 @@ Em relação ao tabagismo e ao consumo de álcool, observou-se que ambos estão 
 Os dados também revelam tendências importantes no perfil de saúde da população estudada. O acesso à colonoscopia e a regularidade na triagem são pontos positivos para a prevenção e detecção precoce da doença. No entanto, hábitos como uma dieta ocidental e baixos níveis de atividade física podem comprometer a saúde geral. Embora a maioria dos pacientes não fume e apresente consumo moderado de álcool, o alto IMC médio (38,1) indica uma prevalência significativa de obesidade, fator de risco para doenças metabólicas.</p>
 <p align="justify">
 A análise das correlações revelou relações fracas ou inexistentes entre variáveis como idade, IMC e agressividade do tumor, indicando que outros fatores podem ter maior influência na progressão da doença. O estudo desses padrões reforça a importância de políticas públicas voltadas à prevenção e controle de fatores de risco, bem como a necessidade de mais pesquisas para compreender a complexidade do câncer colorretal e seus desdobramentos clínicos.</p>
+<p align="justify">
+Os resultados dos testes Qui-Quadrado, apresentados nos textos adicionais, complementam a análise geral ao demonstrar a ausência de associações estatisticamente significativas entre o estágio do câncer e a realização de colonoscopia, bem como entre diversos fatores demográficos/diagnósticos e a recomendação de quimioterapia. No entanto, a agressividade do tumor surge como um fator relevante na decisão de recomendar radioterapia. Esses achados reforçam a complexidade do câncer colorretal e a necessidade de considerar múltiplos fatores na análise da doença.</p>
 
 ## Ferramentas utilizadas
 <p align="justify">

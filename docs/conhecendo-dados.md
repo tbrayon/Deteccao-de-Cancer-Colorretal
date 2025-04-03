@@ -630,10 +630,10 @@ Tentando responder às questões de pesquisa relacionadas à categoria de inform
 </p>
 
 
-#### 1. Pergunta: Considerando estilo de vida e informações demográficas, quais os principais fatores que estão relacionados a ter ou não ter o câncer?
+#### 1. Pergunta: Considerando estilo de vida e informações demográficas, quais os principais fatores que estão relacionados a ter o câncer?
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/4ad8e439-c058-49f5-a151-dfa9dc75ba79" alt="Mapa de calor de correlação 1">
+  <img src="https://github.com/user-attachments/assets/59f57379-58a5-4410-8a05-5ed9b4a30a8d" alt="Mapa de calor de correlação 1">
 </p>
 
 

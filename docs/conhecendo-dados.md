@@ -1241,6 +1241,17 @@ Embora a maioria dos indivíduos não fume e apresente um consumo moderado de á
 Apesar da análise da moda fornecer insights detalhados sobre os hábitos dos indivíduos, a correlação entre diferentes categorias de variáveis mostrou-se fraca ou inexistente. O heatmap revelou que idade, IMC e agressividade do tumor não apresentam uma relação significativa.
 </p>
 
+
+##### Método 2
+<p align="justify">
+A análise revelou que as respostas não se limitam a um simples "YES" ou "NO", mas dependem do contexto. Para classificar os dados, adotou-se uma escala em que valores positivos foram atribuídos a 0, intermediários a 2 e negativos a 4, com exceção da variável "Gender", que recebeu 1. O gráfico apresentado destaca a moda das variáveis relacionadas ao prognóstico do câncer colorretal, utilizando cores para facilitar a interpretação: azul para prognóstico favorável, laranja para risco intermediário e vermelho para prognóstico desfavorável.
+</p>
+       
+<p align="justify">
+A correlação entre raça e histórico de tabagismo tem um coeficiente de 0.70, sugerindo influência sociocultural na propensão ao tabagismo. A relação entre tipo de dieta e índice de massa corporal apresenta um coeficiente de 0.60, indicando uma ligação significativa entre hábitos alimentares e peso corporal. Já a correlação entre estado de sobrevivência e tempo para recorrência da doença é fortemente negativa, com um coeficiente de -0.91, demonstrando que quanto maior o tempo sem recorrência, maiores são as chances de sobrevivência.
+</p>
+
+
 #### Salomão
 <p align="justify">
 Os pontos mais relevantes dos achados da análise dos dados de acompanhamento e sobrevivência foram:

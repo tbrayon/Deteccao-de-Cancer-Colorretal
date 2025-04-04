@@ -653,6 +653,49 @@ A análise revela que, embora as correlações entre as variáveis sejam baixas,
 </p>
 
 
+#### 3. Considerando estilo de vida, status socioeconômico e informações demográficas, quais os principais fatores que estão relacionados ao nível de agressividade do tumor? ( Método 2)
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/83bb6397-96ce-4eee-9d03-03dcaa4e743c" alt="Gráfico de Moda"
+</p>
+
+<p align="center">
+ <img src="https://github.com/user-attachments/assets/e4dcd4f5-e95c-410f-bdb0-76f71c753d66"  alt="Gráfico de Moda/Significados"
+</p>
+
+<p style="text-align: justify;">
+       
+Durante a análise, foi discutido como nem todas as respostas positivas ou negativas estão estritamente associadas a um simples "YES" ou "NO", mas sim ao contexto e à interpretação dos dados. Com base nisso, foi adotada uma abordagem estruturada para classificar o conjunto de dados (dataset) em uma escala representativa: **valores positivos foram atribuídos ao número 0**, **valores intermediários ao número 2** e **valores negativos ao número 4**. A única exceção foi a variável **"Gender"**, que recebeu o **valor 1**.
+</p>
+
+
+<p style="text-align: justify;">
+O gráfico apresentado ilustra a moda (valor mais frequente) de diversas variáveis associadas ao prognóstico do câncer colorretal, categorizadas por um esquema de cores para facilitar a interpretação dos resultados. A cor azul representa um prognóstico favorável, associado a diagnóstico precoce, hábitos saudáveis e acesso adequado aos serviços de saúde. A cor laranja indica um risco intermediário, sugerindo a presença de alguns fatores de risco. Já a cor vermelha sinaliza um prognóstico desfavorável, caracterizado por diagnóstico tardio, hábitos inadequados e barreiras no acesso ao tratamento.
+</p>
+
+#### **HeatMap:**
+
+<p align="center">
+  <img src= "https://github.com/user-attachments/assets/8333f92b-5353-4d7d-a729-0a36dcc6df16" alt= Mapa de calor de correlação 3
+</p>
+
+<p style="text-align: justify;">
+       
+A relação entre **"Race" (Raça)** e **"Smoking_History" (Histórico de Tabagismo)** apresenta um coeficiente de **0.70**, indicando uma correlação moderada a forte. Esse resultado sugere que determinados grupos raciais podem ter maior ou menor propensão ao tabagismo, o que pode refletir influências socioculturais e ambientais.
+</p>
+
+<p style="text-align: justify;">
+       
+A relação entre **"Diet_Type" (Tipo de Dieta)** e **"BMI" (Índice de Massa Corporal - IMC)** exibe um coeficiente de **0.60**, sugerindo uma ligação relevante entre os hábitos alimentares e o peso corporal. Esse achado reforça a influência da alimentação na composição corporal e pode ter implicações importantes para estratégias de nutrição e saúde pública.
+</p>
+
+<p style="text-align: justify;">
+       
+A relação entre **"Survival_Status" (Estado de Sobrevivência)** e **"Time_to_Recurrence" (Tempo para Recorrência da Doença)** apresenta um coeficiente negativo forte de **-0.91**, indicando que quanto maior o tempo até a recorrência da doença, maior a probabilidade de sobrevivência. Esse resultado sugere que a recorrência precoce pode estar associada a um pior prognóstico, enquanto períodos mais longos sem recorrência tendem a indicar melhores chances de sobrevida.
+</p>
+
+
+
 ### - Diagnóstico, Características do Câncer e Tratamento
 <p align="justify">
 O conjunto de dados em análise contém informações cruciais relacionadas ao diagnóstico, características do câncer e tratamento de pacientes. Inicialmente, as colunas <strong>Stage_at_Diagnosis, Tumor_Aggressiveness e Time_to_Diagnosis</strong> foram carregadas como texto, enquanto <strong>Insurance_Coverage, Chemotherapy_Received e Radiotherapy_Received</strong> foram identificadas como booleanas. Para facilitar a análise quantitativa e a modelagem, foi realizada a conversão dos tipos de dados para numérico, mapeando os valores textuais e booleanos para representações numéricas apropriadas. A conversão dessas colunas permite a aplicação de métodos estatísticos e modelos de aprendizado de máquina, facilitando a identificação de padrões e a previsão de resultados relacionados ao câncer colorretal.</p>

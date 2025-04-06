@@ -1238,6 +1238,9 @@ Para a análise descritiva e exploratória sobre o dataset escolhido, com o obje
    
 ## Vídeo de apresentação da Etapa 02
 
-Nesta seção, um vídeo de, no máximo, 15 minutos deverá ser produzido. No vídeo, cada aluno do grupo deverá apresentar uma parte do trabalho realizado nesta etapa e dos achados/insights obtidos. Todos os alunos deverão participar do vídeo. Alunos que não participarem, serão penalizados na nota final da etapa.
+
+https://github.com/user-attachments/assets/b893fded-1d58-4993-8471-e5a147fa9e0c
+
+
 
 

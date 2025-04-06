@@ -542,10 +542,10 @@ descriptive_stats = df[categorical_cols + ['BMI']].describe()
 mode_stats = df[categorical_cols + ['BMI']].mode()
 
 # Exibição dos resultados
-print("📊 **Valores Estatísticos:**")
+print(" **Valores Estatísticos:**")
 print(descriptive_stats.to_string(float_format='{:.2f}'.format))
 
-print("\n🔹 **Moda das Colunas:**")
+print("\n **Moda das Colunas:**")
 for column in categorical_cols + ['BMI']:
     mode_value = mode_stats[column].iloc[0]
     if column in label_mappings:
@@ -656,12 +656,13 @@ A análise revela que, embora as correlações entre as variáveis sejam baixas,
 #### 3. Considerando estilo de vida, status socioeconômico e informações demográficas, quais os principais fatores que estão relacionados ao nível de agressividade do tumor? ( Método 2)
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/83bb6397-96ce-4eee-9d03-03dcaa4e743c" alt="Gráfico de Moda"
+  <img src="https://github.com/user-attachments/assets/0ae5341b-8fb3-41ea-ae2c-fd70978bd6c9" alt="Gráfico de Moda"
 </p>
 
 <p align="center">
- <img src="https://github.com/user-attachments/assets/e4dcd4f5-e95c-410f-bdb0-76f71c753d66"  alt="Gráfico de Moda/Significados"
+ <img src="https://github.com/user-attachments/assets/6c1754e8-f7e1-4d8d-bac4-aa551e845aff"  alt="Gráfico de Moda/Significados"
 </p>
+
 
 <p style="text-align: justify;">
        

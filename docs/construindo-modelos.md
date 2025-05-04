@@ -6,7 +6,7 @@
 
 (Algumas das etapas podem estar relacionadas à:)
 
-## 1. Tratamento de Valores Ausentes (Imputação)
+## 1. Tratamento de Valores Ausentes (Imputação):
 
 <p align="justify">A presença de valores ausentes é comum em bases de dados reais e pode comprometer significativamente o desempenho dos algoritmos de machine learning, já que a maioria deles não lida diretamente com dados faltantes.</p>
 
@@ -37,7 +37,7 @@ preprocessed_features = preprocessor.fit_transform(features)
 ```
 <p align="justify"> O tratamento de valores ausentes, como parte da limpeza de dados, está acontecendo dentro dos pipelines numeric_transformer e categorical_transformer, usando o SimpleImputer com diferentes estratégias para colunas numéricas e categóricas. O ColumnTransformer aplica esses pipelines às colunas apropriadas, e o fit_transform executa a imputação durante a transformação dos dados. Esse tratamento evita a perda de dados relevantes e assegura que o conjunto final esteja completo e pronto para o treinamento dos modelos.</p>
 
-## 2. Padronização de Dados Numéricos
+## 2. Padronização de Dados Numéricos:
 
 <p align="justify"> Após a imputação, os dados numéricos são padronizados usando StandardScaler dentro do numeric_transformer. Essa etapa transforma os dados numéricos para que tenham média zero e desvio padrão um. Isso ajuda a evitar que variáveis com escalas diferentes dominem o modelo e melhora o desempenho de alguns algoritmos.</p>
 
@@ -46,7 +46,7 @@ numeric_transformer = Pipeline(steps=[
        ('imputer', SimpleImputer(strategy='median')),
        ('scaler', StandardScaler())]) # Padronização aqui
 ```
-## 3. Padronização de Dados Numéricos
+## 3. Codificação One-Hot para Dados Categóricos:
 
 <p align="justify">As variáveis categóricas são transformadas usando OneHotEncoder dentro do categorical_transformer. Essa etapa converte cada categoria em uma nova coluna binária (0/1), evitando que o modelo interprete as categorias como tendo uma ordem intrínseca.</p>
 
@@ -55,7 +55,7 @@ categorical_transformer = Pipeline(steps=[
        ('imputer', SimpleImputer(strategy='most_frequent')),
        ('onehot', OneHotEncoder(handle_unknown='ignore'))]) # Codificação One-Hot aqui
 ```
-## 3. Padronização de Dados Numéricos
+## 3. Aplicação das Transformações:
 
 <p align="justify">O ColumnTransformer combina os pipelines numeric_transformer e categorical_transformer e os aplica às colunas apropriadas (numeric_features e categorical_features, respectivamente).</p>
 
@@ -70,7 +70,7 @@ preprocessor = ColumnTransformer(
    preprocessed_features = preprocessor.fit_transform(features) # Aplicação das transformações
 ```
 
-<p align="justify">A transformação de dados no seu código envolve imputação de valores ausentes, padronização de dados numéricos, codificação one-hot para dados categóricos e a aplicação dessas transformações usando pipelines e ColumnTransformer. Essas etapas são essenciais para preparar os dados do **Datasete Câncer Colorretal**, garantindo que ele possa lidar com valores ausentes, diferentes escalas de variáveis e dados categóricos de forma eficaz.</p>
+<p align="justify">A transformação de dados no seu código envolve imputação de valores ausentes, padronização de dados numéricos, codificação one-hot para dados categóricos e a aplicação dessas transformações usando pipelines e ColumnTransformer. Essas etapas são essenciais para preparar os dados do *Datasete Câncer Colorretal*, garantindo que ele possa lidar com valores ausentes, diferentes escalas de variáveis e dados categóricos de forma eficaz.</p>
 
 
 * Limpeza de Dados: trate valores ausentes: decida como lidar com dados faltantes, seja removendo linhas, preenchendo com médias, medianas ou usando métodos mais avançados; remova _outliers_: identifique e trate valores que se desviam significativamente da maioria dos dados.

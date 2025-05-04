@@ -15,7 +15,7 @@ No código, a classe `SimpleImputer` do `scikit-learn` é utilizada com estraté
 * **Variáveis numéricas:** utiliza-se a **mediana**, uma medida robusta à presença de outliers.
 * **Variáveis categóricas:** aplica-se a **moda** (valor mais frequente), preservando a categoria mais representativa.
 
-```python
+...python
 from sklearn.impute import SimpleImputer
 
 numeric_transformer = Pipeline(steps=[
@@ -25,9 +25,9 @@ numeric_transformer = Pipeline(steps=[
 categorical_transformer = Pipeline(steps=[
 ('imputer', SimpleImputer(strategy='most_frequent')),
 ('onehot', OneHotEncoder(handle_unknown='ignore'))]) 1 
-```   
+...
+   
 <p align="justify">Esse tratamento evita a perda de dados relevantes e assegura que o conjunto final esteja completo e pronto para o treinamento dos modelos.</p>
-
 
 
 

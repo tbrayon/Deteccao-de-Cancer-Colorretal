@@ -1,9 +1,35 @@
 # Preparação dos dados
 
 <p align="justify">No contexto de projetos de análise de dados e construção de modelos preditivos, a etapa de preparação dos dados assume um papel fundamental. O código apresentado demonstra um fluxo de trabalho bem estruturado para o pré-processamento de um conjunto de dados possivelmente relacionado à previsão de câncer colorretal. Cada etapa visa garantir que os modelos subsequentes recebam dados limpos, tratados e em um formato adequado para o aprendizado eficaz.</p>
+
 (Nesta etapa, deverão ser descritas todas as técnicas utilizadas para pré-processamento/tratamento dos dados.)
 
-Algumas das etapas podem estar relacionadas à:
+(Algumas das etapas podem estar relacionadas à:)
+
+## 1. Tratamento de Valores Ausentes (Imputação)
+
+<p align="justify">A presença de valores ausentes é comum em bases de dados reais e pode comprometer significativamente o desempenho dos algoritmos de machine learning, já que a maioria deles não lida diretamente com dados faltantes.</p>
+
+No código, a classe `SimpleImputer` do `scikit-learn` é utilizada com estratégias diferentes para variáveis numéricas e categóricas:
+
+* **Variáveis numéricas:** utiliza-se a **mediana**, uma medida robusta à presença de outliers.
+* **Variáveis categóricas:** aplica-se a **moda** (valor mais frequente), preservando a categoria mais representativa.
+
+```python
+from sklearn.impute import SimpleImputer
+
+numeric_transformer = Pipeline(steps=[
+('imputer', SimpleImputer(strategy='median')),
+('scaler', StandardScaler())])
+
+categorical_transformer = Pipeline(steps=[
+('imputer', SimpleImputer(strategy='most_frequent')),
+('onehot', OneHotEncoder(handle_unknown='ignore'))]) 1 
+```   
+<p align="justify">Esse tratamento evita a perda de dados relevantes e assegura que o conjunto final esteja completo e pronto para o treinamento dos modelos.</p>
+
+
+
 
 * Limpeza de Dados: trate valores ausentes: decida como lidar com dados faltantes, seja removendo linhas, preenchendo com médias, medianas ou usando métodos mais avançados; remova _outliers_: identifique e trate valores que se desviam significativamente da maioria dos dados.
 

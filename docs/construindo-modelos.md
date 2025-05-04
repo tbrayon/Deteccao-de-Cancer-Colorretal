@@ -16,17 +16,61 @@ No código, a classe `SimpleImputer` do `scikit-learn` é utilizada com estraté
 * **Variáveis categóricas:** aplica-se a **moda** (valor mais frequente), preservando a categoria mais representativa.
 
 ```python
-from sklearn.impute import SimpleImputer
-
+# Criar pipelines de pré-processamento
 numeric_transformer = Pipeline(steps=[
-('imputer', SimpleImputer(strategy='median')),
-('scaler', StandardScaler())])
+    ('imputer', SimpleImputer(strategy='median')), # Trata valores ausentes em colunas numéricas
+    ('scaler', StandardScaler())])
 
 categorical_transformer = Pipeline(steps=[
-('imputer', SimpleImputer(strategy='most_frequent')),
-('onehot', OneHotEncoder(handle_unknown='ignore'))]) 1 
+    ('imputer', SimpleImputer(strategy='most_frequent')), # Trata valores ausentes em colunas categóricas
+    ('onehot', OneHotEncoder(handle_unknown='ignore'))])
+
+# Criar o preprocessor usando ColumnTransformer
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('num', numeric_transformer, numeric_features),
+        ('cat', categorical_transformer, categorical_features)])
+
+# Ajustar e transformar os dados
+preprocessed_features = preprocessor.fit_transform(features)
+
 ```
-<p align="justify">Esse tratamento evita a perda de dados relevantes e assegura que o conjunto final esteja completo e pronto para o treinamento dos modelos.</p>
+<p align="justify"> O tratamento de valores ausentes, como parte da limpeza de dados, está acontecendo dentro dos pipelines numeric_transformer e categorical_transformer, usando o SimpleImputer com diferentes estratégias para colunas numéricas e categóricas. O ColumnTransformer aplica esses pipelines às colunas apropriadas, e o fit_transform executa a imputação durante a transformação dos dados. Esse tratamento evita a perda de dados relevantes e assegura que o conjunto final esteja completo e pronto para o treinamento dos modelos.</p>
+
+## 2. Padronização de Dados Numéricos
+
+<p align="justify"> Após a imputação, os dados numéricos são padronizados usando StandardScaler dentro do numeric_transformer. Essa etapa transforma os dados numéricos para que tenham média zero e desvio padrão um. Isso ajuda a evitar que variáveis com escalas diferentes dominem o modelo e melhora o desempenho de alguns algoritmos.</p>
+
+```python
+numeric_transformer = Pipeline(steps=[
+       ('imputer', SimpleImputer(strategy='median')),
+       ('scaler', StandardScaler())]) # Padronização aqui
+```
+## 3. Padronização de Dados Numéricos
+
+<p align="justify">As variáveis categóricas são transformadas usando OneHotEncoder dentro do categorical_transformer. Essa etapa converte cada categoria em uma nova coluna binária (0/1), evitando que o modelo interprete as categorias como tendo uma ordem intrínseca.</p>
+
+```python
+categorical_transformer = Pipeline(steps=[
+       ('imputer', SimpleImputer(strategy='most_frequent')),
+       ('onehot', OneHotEncoder(handle_unknown='ignore'))]) # Codificação One-Hot aqui
+```
+## 3. Padronização de Dados Numéricos
+
+<p align="justify">O ColumnTransformer combina os pipelines numeric_transformer e categorical_transformer e os aplica às colunas apropriadas (numeric_features e categorical_features, respectivamente).</p>
+
+<p align="justify">A função fit_transform ajusta os pipelines aos dados de entrada (features) e, em seguida, transforma os dados aplicando todas as etapas de transformação definidas nos pipelines.</p>
+
+```python
+preprocessor = ColumnTransformer(
+       transformers=[
+           ('num', numeric_transformer, numeric_features),
+           ('cat', categorical_transformer, categorical_features)])
+
+   preprocessed_features = preprocessor.fit_transform(features) # Aplicação das transformações
+```
+
+<p align="justify">A transformação de dados no seu código envolve imputação de valores ausentes, padronização de dados numéricos, codificação one-hot para dados categóricos e a aplicação dessas transformações usando pipelines e ColumnTransformer. Essas etapas são essenciais para preparar os dados do __Datasete Câncer Colorretal__, garantindo que ele possa lidar com valores ausentes, diferentes escalas de variáveis e dados categóricos de forma eficaz.</p>
 
 
 * Limpeza de Dados: trate valores ausentes: decida como lidar com dados faltantes, seja removendo linhas, preenchendo com médias, medianas ou usando métodos mais avançados; remova _outliers_: identifique e trate valores que se desviam significativamente da maioria dos dados.

@@ -97,15 +97,18 @@ Avalie quais etapas são importantes para o contexto dos dados que você está t
 
 # Descrição dos modelos
 
-# xgboost:
+## xgboost:
 
+```python
 import xgboost as xgb
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report, roc_auc_score
 import pandas as pd
-
+```
 ### 1 Variável Alvo:
+```python
 target = preprocessed_df['Survival_Status_Numeric']
+```
 
 #### 2 Variáveis Independentes:
 
@@ -122,7 +125,9 @@ y_multi_xgb = target[X_multi_xgb.index]
 ```
 
 ### 3 Dividir os Dados:
+```python
 X_train_multi_xgb, X_test_multi_xgb, y_train_multi_xgb, y_test_multi_xgb = train_test_split(X_multi_xgb, y_multi_xgb, test_size=0.3, random_state=42)
+```
 
 ### 4 Treinar o Modelo XGBoost:
 model_multi_xgb = xgb.XGBClassifier(objective='binary:logistic', eval_metric='logloss', use_label_encoder=False, random_state=42)

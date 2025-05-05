@@ -105,7 +105,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report, roc_auc_score
 import pandas as pd
 ```
-### 1 Variável Alvo:
+#### 1 Variável Alvo:
 ```python
 target = preprocessed_df['Survival_Status_Numeric']
 ```
@@ -124,33 +124,38 @@ X_multi_xgb = preprocessed_df[independent_vars_multi_xgb].dropna()
 y_multi_xgb = target[X_multi_xgb.index]
 ```
 
-### 3 Dividir os Dados:
+#### 3 Dividir os Dados:
 ```python
 X_train_multi_xgb, X_test_multi_xgb, y_train_multi_xgb, y_test_multi_xgb = train_test_split(X_multi_xgb, y_multi_xgb, test_size=0.3, random_state=42)
 ```
 
-### 4 Treinar o Modelo XGBoost:
+#### 4 Treinar o Modelo XGBoost:
+```python
 model_multi_xgb = xgb.XGBClassifier(objective='binary:logistic', eval_metric='logloss', use_label_encoder=False, random_state=42)
 model_multi_xgb.fit(X_train_multi_xgb, y_train_multi_xgb)
+```
 
-### 5 Avaliar o Modelo:
+#### 5 Avaliar o Modelo:
+```python
 y_pred_multi_xgb = model_multi_xgb.predict(X_test_multi_xgb)
 y_pred_multi_xgb_prob = model_multi_xgb.predict_proba(X_test_multi_xgb)[:, 1]
 
 print("\nAcurácia do XGBoost (Multivariada):", accuracy_score(y_test_multi_xgb, y_pred_multi_xgb))
 print("\nRelatório de Classificação do XGBoost (Multivariada):\n", classification_report(y_test_multi_xgb, y_pred_multi_xgb))
 print("\nAUC-ROC do XGBoost (Multivariada):", roc_auc_score(y_test_multi_xgb, y_pred_multi_xgb_prob))
+```
 
 ### Explicação Detalhada:
 
 <p align="justify">Este código implementa um modelo de aprendizado de máquina usando o algoritmo XGBoost para resolver um problema de classificação binária. O objetivo é prever o status de sobrevivência (ou algo similar) com base em um conjunto de variáveis independentes. Vou explicar cada seção do código em detalhes:</p>
 
-### 1. Importação de Bibliotecas:
-
+#### 1. Importação de Bibliotecas:
+```python
 import xgboost as xgb
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report, roc_auc_score
 import pandas as pd
+```
 
 <p align="justify">- import xgboost as xgb: Importa a biblioteca XGBoost, que fornece uma implementação eficiente do algoritmo de gradient boosting. O XGBoost é conhecido por seu desempenho e velocidade em tarefas de aprendizado de máquina.</p>
 
@@ -166,13 +171,13 @@ import pandas as pd
 
 - import pandas as pd: Importa a biblioteca pandas, usada para manipular e analisar dados tabulares (DataFrames).
  
-### 2. Variável Alvo:
-
+#### 2. Variável Alvo:
+```python
 - target = preprocessed_df['Survival_Status_Numeric']
-
+```
 - target = preprocessed_df['Survival_Status_Numeric']: Define a variável alvo, que é a variável que o modelo tentará prever. Nesse caso, a variável alvo é 'Survival_Status_Numeric', que representa o status de sobrevivência. Supõe-se que preprocessed_df é um DataFrame do pandas que contém os dados.
 
-### 3. Variáveis Independentes:
+#### 3. Variáveis Independentes:
 
 ```python
 independent_vars_multi_xgb = [
@@ -191,10 +196,10 @@ y_multi_xgb = target[X_multi_xgb.index]
 
 - y_multi_xgb = target[X_multi_xgb.index]: Cria uma nova série y_multi_xgb que contém os valores da variável alvo (target) correspondentes aos índices das linhas em X_multi_xgb. Isso garante que as variáveis independentes e a variável alvo estejam alinhadas após a remoção de valores ausentes.
 
-### 4. Divisão dos Dados:
-
-- X_train_multi_xgb, X_test_multi_xgb, y_train_multi_xgb, y_test_multi_xgb = train_test_split(X_multi_xgb, y_multi_xgb, test_size=0.3, random_state=42)
-
+#### 4. Divisão dos Dados:
+```python
+X_train_multi_xgb, X_test_multi_xgb, y_train_multi_xgb, y_test_multi_xgb = train_test_split(X_multi_xgb, y_multi_xgb, test_size=0.3, random_state=42)
+```
 - train_test_split: Divide o conjunto de dados em conjuntos de treinamento e teste.
 
 - X_train_multi_xgb, y_train_multi_xgb: Conjuntos de dados usados para treinar o modelo.
@@ -205,11 +210,11 @@ y_multi_xgb = target[X_multi_xgb.index]
 
 - random_state=42: Define uma semente para o gerador de números aleatórios, garantindo que a divisão dos dados seja reproduzível.
 
-### 5. Treinamento do Modelo XGBoost:
-
+#### 5. Treinamento do Modelo XGBoost:
+```python
 - model_multi_xgb = xgb.XGBClassifier(objective='binary:logistic', eval_metric='logloss', use_label_encoder=False, random_state=42)
 model_multi_xgb.fit(X_train_multi_xgb, y_train_multi_xgb)
-
+```
 - model_multi_xgb = xgb.XGBClassifier(...): Cria uma instância do classificador XGBoost.
 
 - objective='binary:logistic': Especifica que o problema é de classificação binária e usa a função logística como função objetivo.
@@ -222,34 +227,33 @@ model_multi_xgb.fit(X_train_multi_xgb, y_train_multi_xgb)
 
 - model_multi_xgb.fit(X_train_multi_xgb, y_train_multi_xgb): Treina o modelo XGBoost usando os dados de treinamento.
 
-### 6. Avaliar o Modelo:
+#### 6. Avaliar o Modelo:
+```python
+y_pred_multi_xgb = model_multi_xgb.predict(X_test_multi_xgb)
+y_pred_multi_xgb_prob = model_multi_xgb.predict_proba(X_test_multi_xgb)[:, 1]
 
-- y_pred_multi_xgb = model_multi_xgb.predict(X_test_multi_xgb)
-- y_pred_multi_xgb_prob = model_multi_xgb.predict_proba(X_test_multi_xgb)[:, 1]
-
-- print("\nAcurácia do XGBoost (Multivariada):", accuracy_score(y_test_multi_xgb, y_pred_multi_xgb))
-- print("\nRelatório de Classificação do XGBoost (Multivariada):\n", classification_report(y_test_multi_xgb, y_pred_multi_xgb))
-- print("\nAUC-ROC do XGBoost (Multivariada):", roc_auc_score(y_test_multi_xgb, y_pred_multi_xgb_prob))
-
+print("\nAcurácia do XGBoost (Multivariada):", accuracy_score(y_test_multi_xgb, y_pred_multi_xgb))
+print("\nRelatório de Classificação do XGBoost (Multivariada):\n", classification_report(y_test_multi_xgb, y_pred_multi_xgb))
+print("\nAUC-ROC do XGBoost (Multivariada):", roc_auc_score(y_test_multi_xgb, y_pred_multi_xgb_prob))
+```
 - y_pred_multi_xgb = model_multi_xgb.predict(X_test_multi_xgb): Faz previsões de classe para o conjunto de teste.
 
 - y_pred_multi_xgb_prob = model_multi_xgb.predict_proba(X_test_multi_xgb)[:, 1]: Obtém as probabilidades previstas da classe positiva para o conjunto de teste.
 
-### 7. As instruções print exibem as métricas de avaliação:
+#### 7. As instruções print exibem as métricas de avaliação:
 
 - Acurácia: A proporção de previsões corretas.
 
 - Relatório de Classificação: Inclui precisão, recall, F1-score e suporte para cada classe.
 
 - AUC-ROC: A Área Sob a Curva Característica de Operação do Receptor, que mede a capacidade do modelo de distinguir entre as classes.
-
-<p align="justify">Nesta seção, conhecendo os dados e de posse dos dados preparados, é hora de descrever os algoritmos de aprendizado de máquina selecionados para a construção dos modelos propostos. Inclua informações abrangentes sobre cada algoritmo implementado, aborde conceitos fundamentais, princípios de funcionamento, vantagens/limitações e justifique a escolha de cada um dos algoritmos.</p>
-
-<p align="justify">Explore aspectos específicos, como o ajuste dos parâmetros livres de cada algoritmo. Lembre-se de experimentar parâmetros diferentes e principalmente, de justificar as escolhas realizadas.</p>
-
-<p align="justify">Como parte da comprovação de construção dos modelos, um vídeo de demonstração com todas as etapas de pré-processamento e de execução dos modelos deverá ser entregue. Este vídeo poderá ser do tipo _screencast_ e é imprescindível a narração contemplando a demonstração de todas as etapas realizadas.</p>
-
 __________
+
+Nesta seção, conhecendo os dados e de posse dos dados preparados, é hora de descrever os algoritmos de aprendizado de máquina selecionados para a construção dos modelos propostos. Inclua informações abrangentes sobre cada algoritmo implementado, aborde conceitos fundamentais, princípios de funcionamento, vantagens/limitações e justifique a escolha de cada um dos algoritmos.
+
+Explore aspectos específicos, como o ajuste dos parâmetros livres de cada algoritmo. Lembre-se de experimentar parâmetros diferentes e principalmente, de justificar as escolhas realizadas.
+
+Como parte da comprovação de construção dos modelos, um vídeo de demonstração com todas as etapas de pré-processamento e de execução dos modelos deverá ser entregue. Este vídeo poderá ser do tipo _screencast_ e é imprescindível a narração contemplando a demonstração de todas as etapas realizadas.
 
 # Avaliação dos modelos criados
 

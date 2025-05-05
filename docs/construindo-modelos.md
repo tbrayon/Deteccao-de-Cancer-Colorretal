@@ -6,9 +6,27 @@
 
 (Algumas das etapas podem estar relacionadas à:)
 
-## 1. Tratamento de Valores Ausentes (Imputação):
+## 1. Separação de features e targets:
 
-<p align="justify">A presença de valores ausentes é comum em bases de dados reais e pode comprometer significativamente o desempenho dos algoritmos de machine learning, já que a maioria deles não lida diretamente com dados faltantes.</p>
+<p align="justify">Nesta etapa incial é feito a separação das colunas features (colunas gerais do dataset) e das colunas targets (colunas alvo a qual tratá as respostas. </p>
+
+```python
+targets = ['Survival_Status', 'Chemotherapy_Received', 'Radiotherapy_Received', 'Surgery_Received']
+# O restante dos dados em features (excluindo as colunas de targets) são as variáveis explicativas ou inputs usadas como base para
+# realizar as previsões.
+features = df.drop(columns=targets)
+```
+
+## 2. Conversão e tratamento de valores numéricos e categóricos (Imputação):
+
+<p align="justify"> Identificação de tipos de dados os quais foram separados em dois grupos, numéricos e categóricos. </p>
+
+```python
+# colunas com valores numéricos (ex.: idade, IMC).
+numeric_features = features.select_dtypes(include=np.number).columns.tolist()
+# colunas com valores categóricos/texto (ex.: gênero, raça, região).
+categorical_features = features.select_dtypes(exclude=np.number).columns.tolist()
+```
 
 No código, a classe `SimpleImputer` do `scikit-learn` é utilizada com estratégias diferentes para variáveis numéricas e categóricas:
 
@@ -17,59 +35,61 @@ No código, a classe `SimpleImputer` do `scikit-learn` é utilizada com estraté
 
 ```python
 # Criar pipelines de pré-processamento
+# Dados Numéricos
 numeric_transformer = Pipeline(steps=[
+     # Substitui valores faltantes pela mediana dos dados
     ('imputer', SimpleImputer(strategy='median')), # Trata valores ausentes em colunas numéricas
+     # Converte os valores numéricos para uma escala comum (média 0 e desvio padrão 1) com o StandardScaler. Isso é importante para
+     # garantir que todas as variáveis numéricas sejam tratadas igualmente pelos modelos.
     ('scaler', StandardScaler())])
 
+# Dados Categóricos
 categorical_transformer = Pipeline(steps=[
+    # Substitui valores faltantes com o valor mais frequente em cada categoria
     ('imputer', SimpleImputer(strategy='most_frequent')), # Trata valores ausentes em colunas categóricas
+    # Converte valores de texto (categorias) em variáveis numéricas binárias (0 ou 1) usando o OneHotEncoder. Isso permite que os
+    # modelos entendam as informações categóricas. Em situações como codificação "One-Hot" (quando convertemos categorias em
+    # variáveis binárias), frequentemente temos matrizes esparsas,pois cada categoria corresponde a um único 1 em um vetor cheio de 0s.
     ('onehot', OneHotEncoder(handle_unknown='ignore'))])
 
-# Criar o preprocessor usando ColumnTransformer
+# Criar o preprocessor usando ColumnTransformer. Combinação dos Preprocessamentos. Isso organiza o preprocessamento de todas as colunas
+# de forma eficiente. O ColumnTransformer aplica:
 preprocessor = ColumnTransformer(
     transformers=[
+        # O pipeline de dados numéricos (numeric_transformer) nas colunas definidas como numeric_features.
         ('num', numeric_transformer, numeric_features),
+        # O pipeline de dados categóricos (categorical_transformer) nas colunas definidas como categorical_features.
         ('cat', categorical_transformer, categorical_features)])
 
-# Ajustar e transformar os dados
-preprocessed_features = preprocessor.fit_transform(features)
+# Ajustar e transformar os dados. Transformação e Criação de DataFrame. Aplica os pipelines (numéricos e categóricos) em todo
+# o conjunto de dados features (colunas exceto as targets), retornando uma matriz contendo os dados pré-processados.
+preprocessed_data = preprocessor.fit_transform(features)
+
+# Extração dos Nomes das Variáveis.
+# numeric_names: Mantém os nomes originais das colunas numéricas.
+numeric_names = numeric_features
+# categorical_names: Extrai os nomes das variáveis criadas pelo OneHotEncoder (ex.: Gender_Male, Gender_Female).
+categorical_names = preprocessor.named_transformers_['cat'].named_steps['onehot']\
+                   .get_feature_names_out(categorical_features)
+# all_feature_names: Junta os nomes das colunas numéricas e categóricas em um único array.
+all_feature_names = np.concatenate([numeric_names, categorical_names])
+
+# Conversão para DataFrame para análise (se sparse matrix). Os dados preprocessados são convertidos em um DataFrame do pandas para
+# facilitar a análise. Se a matriz resultante for esparsa (é uma estrutura na qual a maioria dos valores são zeros. Ela é utilizada
+# para economizar memória e tornar os cálculos mais eficientes.), ela será convertida em um array denso (toarray() - armazena todos
+# os valores explicitamente, incluindo os zeros. Este tipo de array não otimiza memória)
+if hasattr(preprocessed_data, "toarray"):
+    preprocessed_df = pd.DataFrame.sparse.from_spmatrix(preprocessed_data, columns=all_feature_names)
+else:
+    preprocessed_df = pd.DataFrame(preprocessed_data, columns=all_feature_names)
 
 ```
 <p align="justify"> O tratamento de valores ausentes, como parte da limpeza de dados, está acontecendo dentro dos pipelines numeric_transformer e categorical_transformer, usando o SimpleImputer com diferentes estratégias para colunas numéricas e categóricas. O ColumnTransformer aplica esses pipelines às colunas apropriadas, e o fit_transform executa a imputação durante a transformação dos dados. Esse tratamento evita a perda de dados relevantes e assegura que o conjunto final esteja completo e pronto para o treinamento dos modelos.</p>
-
-## 2. Padronização de Dados Numéricos:
-
+<p align="justify">A presença de valores ausentes é comum em bases de dados reais e pode comprometer significativamente o desempenho dos algoritmos de machine learning, já que a maioria deles não lida diretamente com dados faltantes.</p>
 <p align="justify"> Após a imputação, os dados numéricos são padronizados usando StandardScaler dentro do numeric_transformer. Essa etapa transforma os dados numéricos para que tenham média zero e desvio padrão um. Isso ajuda a evitar que variáveis com escalas diferentes dominem o modelo e melhora o desempenho de alguns algoritmos.</p>
-
-```python
-numeric_transformer = Pipeline(steps=[
-       ('imputer', SimpleImputer(strategy='median')),
-       ('scaler', StandardScaler())]) # Padronização aqui
-```
-## 3. Codificação One-Hot para Dados Categóricos:
-
 <p align="justify">As variáveis categóricas são transformadas usando OneHotEncoder dentro do categorical_transformer. Essa etapa converte cada categoria em uma nova coluna binária (0/1), evitando que o modelo interprete as categorias como tendo uma ordem intrínseca.</p>
-
-```python
-categorical_transformer = Pipeline(steps=[
-       ('imputer', SimpleImputer(strategy='most_frequent')),
-       ('onehot', OneHotEncoder(handle_unknown='ignore'))]) # Codificação One-Hot aqui
-```
-## 4. Aplicação das Transformações:
-
 <p align="justify">O ColumnTransformer combina os pipelines numeric_transformer e categorical_transformer e os aplica às colunas apropriadas (numeric_features e categorical_features, respectivamente).</p>
-
 <p align="justify">A função fit_transform ajusta os pipelines aos dados de entrada (features) e, em seguida, transforma os dados aplicando todas as etapas de transformação definidas nos pipelines.</p>
-
-```python
-preprocessor = ColumnTransformer(
-       transformers=[
-           ('num', numeric_transformer, numeric_features),
-           ('cat', categorical_transformer, categorical_features)])
-
-   preprocessed_features = preprocessor.fit_transform(features) # Aplicação das transformações
-```
-
 <p align="justify">A transformação de dados envolve imputação de valores ausentes, padronização de dados numéricos, codificação one-hot para dados categóricos e a aplicação dessas transformações usando pipelines e ColumnTransformer. Essas etapas são essenciais para preparar os dados do Datasete Câncer Colorretal, garantindo que ele possa lidar com valores ausentes, diferentes escalas de variáveis e dados categóricos de forma eficaz.</p>
 
 ------

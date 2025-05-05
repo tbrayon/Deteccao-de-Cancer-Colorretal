@@ -99,6 +99,8 @@ Avalie quais etapas são importantes para o contexto dos dados que você está t
 
 ## xgboost:
 
+<p align="justify">XGBoost é um algoritmo de aprendizado de máquina de ensemble que utiliza o princípio de gradient boosting. Boosting é uma técnica onde múltiplos modelos fracos (normalmente árvores de decisão) são combinados para formar um modelo forte. No gradient boosting, os modelos são adicionados sequencialmente, com cada novo modelo tentando corrigir os erros dos modelos anteriores.</p>
+
 ```python
 import xgboost as xgb
 from sklearn.model_selection import train_test_split

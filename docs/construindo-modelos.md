@@ -117,6 +117,184 @@ Avalie quais etapas são importantes para o contexto dos dados que você está t
 
 # Descrição dos modelos
 
+## Randon Forest:
+
+<p align="justify">O Randon Forest é um algoritmo de ensemble baseado em árvores de decisão. Quando se combina várias árvores, temos uma floresta. Ele cria várias árvores de decisão usando conjuntos de dados aleatórios e, em seguida, combina as previsões de cada árvore para produzir uma previsão final. O Random Forest é um conjunto de várias árvores de decisão que trabalham juntas para fazer previsões mais precisas. Ao invés de depender de uma única árvore, ele cria múltiplas árvores e combina suas respostas. Isso o torna mais robusto e menos propenso a erros causados por variações nos dados. Ele usa a votação entre árvores para prever categorias e a média das previsões para problemas de regressão.</p>
+<p align="justify">Como funciona?</p>
+<p align="justify"><strong>Criação de várias árvores de decisão →</strong> O algoritmo constrói várias árvores, cada uma com um conjunto ligeiramente diferente de dados.</p>
+<p align="justify"><strong>Cada árvore faz uma previsão →</strong> Quando recebe um novo dado, cada árvore dá um "palpite" sobre a classe correta.</p>
+<p align="justify"><strong>Votação das árvores (Classificação) →</strong> No caso de classificação, cada árvore vota e a resposta mais escolhida entre todas é a decisão final.</p>
+<p align="justify"><strong>Média das previsões (Regressão) →</strong> Para problemas de regressão, o resultado final é uma média das previsões feitas pelas árvores.</p>
+
+<p align="justify">Descrição do código:</p>
+
+```python
+# Separação entre features (X) e target (y)
+# Separação de Dados: Os dados são divididos entre X (features) e y (target, no caso a sobrevivência).
+# Dados tratados
+# Define X como os dados que foram pré-processados no código acima apresentado na área de tratamento de dados.
+X = preprocessed_df
+# Conversão da Target: Transformamos "Survived" em 1 e "Deceased" em 0.
+# Converte a variável alvo ("Survived" → 1 e "Deceased" → 0) para valores numéricos.
+y = df['Survival_Status'].replace({'Survived': 1, 'Deceased': 0}).infer_objects(copy=False)
+
+```
+
+```python
+# Divisão do Dataset: O dataset é dividido em treinamento (80%) e teste (20%) para avaliar o desempenho dos modelos. (Obs. Testamos também com outras porcentagens que serão descritas abaixo.)
+# Treinamento dos Modelos: Cada modelo recebe os dados de treinamento (X_train, y_train) e aprende padrões para fazer previsões.
+# Divide os dados em: 80% treino → usados para ensinar os modelos. 20% teste → usados para validar os modelos.
+# Garante que a divisão seja reprodutível (os mesmos conjuntos sempre que o código for executado).
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Print para informação de quantidade de linhas e colunas sendo usadas em X_train e X_test.
+print(f"Número de linhas em X_train: {X_train.shape[0]}")
+print(f"Número de colunas em X_train: {X_train.shape[1]}")
+
+print(f"Número de linhas em X_test: {X_test.shape[0]}")
+print(f"Número de colunas em X_test: {X_test.shape[1]}")
+
+```
+
+```python
+# 1️⃣ Modelo Random Forest
+# Cria um modelo Random Forest com 100 árvores. (Obs. Testamos também com outras quantidades de árvores que serão descritas abaixo.)
+
+# O Random Forest é um algoritmo baseado em múltiplas árvores de decisão. Cada árvore aprende um pequeno aspecto dos dados e, no final, todas as árvores juntas fazem uma votação para dar uma previsão mais robusta.
+# 🔹 Mais árvores = mais estabilidade. Quando o modelo tem poucas árvores, ele pode ter mais variações e ser sensível a mudanças nos dados. Com mais árvores, ele generaliza melhor, reduzindo o risco de tomar decisões erradas devido a dados específicos do treino.
+
+# 🔹 Aprimora a precisão Geralmente, aumentar o número de árvores melhora a precisão, pois cada árvore traz uma perspectiva diferente sobre os dados.
+
+# 🔹 Compromisso entre desempenho e tempo de execução Testes práticos mostram que 100 árvores é um bom número para equilibrar qualidade e velocidade.
+
+# Se tivermos milhares de árvores, o treinamento pode ficar muito lento sem ganhos significativos na precisão.
+# O Bagging ocorre quando está sendo instanciado um modelo RandomForestClassifier com n_estimators=100, ou seja, 100 árvores de decisão serão treinadas usando subconjuntos aleatórios do seu dataset.
+rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+
+# Treina o modelo nos dados de treino.
+# O Random Forest também aplica Feature Selection automaticamente ao treinar o modelo (rf_model.fit(X_train, y_train)).
+# Ele seleciona aleatoriamente um subconjunto de atributos para cada árvore, reduzindo a dependência de atributos irrelevantes
+rf_model.fit(X_train, y_train)
+
+# Obter importância das features (Feature Selection)
+feature_importances = rf_model.feature_importances_
+
+# Ordenar e visualizar
+indices = np.argsort(feature_importances)[::-1]  # Ordena do maior para o menor
+plt.figure(figsize=(30, 20))
+plt.title("Importância das Features no Random Forest")
+plt.bar(range(X_train.shape[1]), feature_importances[indices])
+plt.xticks(range(X_train.shape[1]), np.array(all_feature_names)[indices], rotation=90)
+plt.show()
+
+# Faz previsões no conjunto de teste.
+rf_pred = rf_model.predict(X_test)
+
+```
+
+```python
+
+# Matriz de Confusão para Random Forest
+# Ela compara os valores reais (y_test) com os valores preditos (rf_pred) pelo modelo Random Forest.
+cm_rf = confusion_matrix(y_test, rf_pred)
+# Cria uma nova área de figura do matplotlib, definindo o tamanho dela: 8 de largura por 6 de altura.
+plt.figure(figsize=(8, 6))
+# sns.heatmap é a função do Seaborn que desenha uma mapa de calor (heatmap).
+sns.heatmap(cm_rf, annot=True, fmt='d', cmap='Greens',
+            xticklabels=['Deceased', 'Survived'], yticklabels=['Deceased', 'Survived'])
+# Define o título do eixo X como "Valores Previstos".
+plt.xlabel('Valores Previstos')
+# Define o título do eixo Y como "Valores Reais".
+plt.ylabel('Valores Reais')
+# Define o título do gráfico.
+plt.title('Matriz de Confusão: Random Forest')
+# Exibe o gráfico na tela.
+plt.show()
+
+```
+
+<p align="justify">Comparando com outros modelos XGBoost e Naive Bayes</p>
+
+```python
+
+# 2️⃣ Modelo XGBoost
+# Cria um modelo XGBoost.
+xgb_model = XGBClassifier(use_label_encoder=False, eval_metric='logloss')
+# Treina o modelo com os dados de treino.
+xgb_model.fit(X_train, y_train)
+# Faz previsões no conjunto de teste.
+xgb_pred = xgb_model.predict(X_test)
+
+# Matriz de Confusão para XGBoost
+cm_xgb = confusion_matrix(y_test, xgb_pred)
+plt.figure(figsize=(8, 6))
+sns.heatmap(cm_xgb, annot=True, fmt='d', cmap='Blues',
+            xticklabels=['Deceased', 'Survived'], yticklabels=['Deceased', 'Survived'])
+plt.xlabel('Valores Previstos')
+plt.ylabel('Valores Reais')
+plt.title('Matriz de Confusão: XGBoost')
+plt.show()
+
+```
+
+```python
+
+# 3️⃣ Modelo Naive Bayes
+# Cria um modelo Naive Bayes baseado na distribuição normal.
+nb_model = GaussianNB()
+# Treina o modelo com os dados de treino.
+nb_model.fit(X_train, y_train)
+# Faz previsões no conjunto de teste.
+nb_pred = nb_model.predict(X_test)
+
+# Matriz de Confusão para Naive Bayes
+cm_nb = confusion_matrix(y_test, nb_pred)
+plt.figure(figsize=(8, 6))
+sns.heatmap(cm_nb, annot=True, fmt='d', cmap='Oranges',
+            xticklabels=['Deceased', 'Survived'], yticklabels=['Deceased', 'Survived'])
+plt.xlabel('Valores Previstos')
+plt.ylabel('Valores Reais')
+plt.title('Matriz de Confusão: Naive Bayes')
+plt.show()
+
+```
+
+<p align="justify">Calculando, exibindo as métricas e avaliando os três modelos.</p>
+
+```python
+
+# Função para calcular e exibir as métricas
+# Avaliação dos Modelos: O código mede o desempenho dos três modelos usando as métricas: 🔹 Acurácia (quantidade de previsões corretas) 🔹 Precisão (quão correto é quando prevê sobrevivência)
+# 🔹 Recall (quantos casos de sobrevivência foram corretamente identificados) 🔹 F1-score (média harmônica entre precisão e recall)
+# Define uma função evaluate_model(name, y_test, y_pred), que recebe: name → Nome do modelo. // y_test → Verdadeiro status de sobrevivência. // y_pred → Previsões do modelo.
+# Calcula e exibe as métricas de desempenho: Acurácia → Percentagem de previsões corretas. // Precisão → Quão correto é quando prevê sobrevivência. // Recall → Quantos casos de sobrevivência foram identificados corretamente.
+# F1-score → Combinação entre precisão e recall.
+def evaluate_model(name, y_test, y_pred):
+    print(f"\nResultados para {name}:")
+    print(f"Acurácia: {accuracy_score(y_test, y_pred):.4f}")
+    print(f"Precisão: {precision_score(y_test, y_pred):.4f}")
+    print(f"Recall: {recall_score(y_test, y_pred):.4f}")
+    print(f"F1-Score: {f1_score(y_test, y_pred):.4f}")
+
+# Avaliação dos modelos
+# Chama a função evaluate_model para cada modelo, imprimindo os resultados das métricas.
+evaluate_model("Random Forest", y_test, rf_pred)
+evaluate_model("XGBoost", y_test, xgb_pred)
+evaluate_model("Naive Bayes", y_test, nb_pred)
+
+```
+
+<p align="justify">Resultados:</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4a5d2aad-c333-4cf8-a102-3ad7e0d93ef2" alt="image">
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3e135ecc-49fd-4f97-b103-1f64f1183209" alt="image">
+</p>
+
+
 ## xgboost:
 
 <p align="justify">XGBoost é um algoritmo de aprendizado de máquina de ensemble que utiliza o princípio de gradient boosting. Boosting é uma técnica onde múltiplos modelos fracos (normalmente árvores de decisão) são combinados para formar um modelo forte. No gradient boosting, os modelos são adicionados sequencialmente, com cada novo modelo tentando corrigir os erros dos modelos anteriores.</p>

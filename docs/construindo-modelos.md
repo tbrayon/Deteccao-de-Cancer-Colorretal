@@ -303,7 +303,16 @@ evaluate_model("Naive Bayes", y_test, nb_pred)
 
 ## XGBoost:
 
-<p align="justify">XGBoost é um algoritmo de aprendizado de máquina de ensemble que utiliza o princípio de gradient boosting. Boosting é uma técnica onde múltiplos modelos fracos (normalmente árvores de decisão) são combinados para formar um modelo forte. No gradient boosting, os modelos são adicionados sequencialmente, com cada novo modelo tentando corrigir os erros dos modelos anteriores.</p>
+<p align="justify">O XGBoost é um algoritmo de aprendizado de máquina de ensemble baseado na técnica de gradient boosting. Ele constrói um modelo preditivo forte combinando sequencialmente múltiplos modelos fracos (tipicamente árvores de decisão), onde cada novo modelo tenta corrigir os erros dos modelos anteriores.</p>
+
+O XGBoost se destaca por suas otimizações que o tornam altamente eficiente e preciso, incluindo:
+
+# Regularização para evitar overfitting.
+# Tratamento nativo de valores ausentes.
+# Processamento paralelo para treinamento mais rápido.
+# Otimizações na construção das árvores.
+# Flexibilidade com funções de perda personalizadas.
+# Taxa de aprendizado ("shrinkage") para maior robustez.
 
 ```python
 import xgboost as xgb

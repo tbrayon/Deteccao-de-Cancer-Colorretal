@@ -566,7 +566,7 @@ cm.show() # Ou plt.show()
 # 'cm.show()' é um método específico do Yellowbrick para mostrar a figura.
 # Alternativamente, 'plt.show()' do matplotlib também pode ser usado para exibir a figura.
 ```
-![Matriz de confusão](docs/img/Matriz de confusao.png).
+![Matriz de confusão](https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal/blob/main/docs/img/Matriz%20de%20confusao.png)
 
 ##### Viés do Modelo na Previsão de Sobrevivência: Análise da Matriz de Confusão e o Impacto dos Falsos Positivos
 

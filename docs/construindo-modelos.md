@@ -307,22 +307,40 @@ evaluate_model("Naive Bayes", y_test, nb_pred)
 
 O XGBoost se destaca por suas otimizações que o tornam altamente eficiente e preciso, incluindo:
 
-# Regularização para evitar overfitting.
-# Tratamento nativo de valores ausentes.
-# Processamento paralelo para treinamento mais rápido.
-# Otimizações na construção das árvores.
-# Flexibilidade com funções de perda personalizadas.
-# Taxa de aprendizado ("shrinkage") para maior robustez.
+* Regularização para evitar overfitting.
+* Tratamento nativo de valores ausentes.
+* Processamento paralelo para treinamento mais rápido.
+* Otimizações na construção das árvores.
+* Flexibilidade com funções de perda personalizadas.
+* Taxa de aprendizado ("shrinkage") para maior robustez.
 
+#### 1 Descrição do Código:
 ```python
-import xgboost as xgb
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, classification_report, roc_auc_score
-import pandas as pd
-```
-#### 1 Variável Alvo:
-```python
-target = preprocessed_df['Survival_Status_Numeric']
+# Crie a matriz de features (X)
+  X = df_processed[feature_columns]
+  # Cria um novo DataFrame chamado 'X' contendo apenas as colunas listadas em 'feature_columns' do DataFrame 'df_processed'.
+  # 'X' representa a matriz de features que será utilizada para treinar os modelos de machine learning.
+
+  # Crie as variáveis dependentes (y) para cada alvo
+  y_survival = df_processed['Survival_Status_Survived'] # Assumindo que 'Survived' é o positivo
+  # Cria uma Series chamada 'y_survival' contendo os valores da coluna 'Survival_Status_Survived' do DataFrame 'df_processed'.
+  # Esta Series representa a variável dependente (o alvo) para a tarefa de prever a sobrevivência.
+  # Assume-se que o valor 1.0 nesta coluna indica que o paciente sobreviveu (o rótulo positivo).
+
+  y_chemo = df_processed['Chemotherapy_Received_Yes'] # Assumindo que 'Yes' é o positivo
+  # Cria uma Series chamada 'y_chemo' contendo os valores da coluna 'Chemotherapy_Received_Yes' do DataFrame 'df_processed'.
+  # Esta Series representa a variável dependente para a tarefa de prever se o paciente recebeu quimioterapia.
+  # Assume-se que o valor 1.0 nesta coluna indica que o paciente recebeu quimioterapia (o rótulo positivo).
+
+  y_radio = df_processed['Radiotherapy_Received_Yes'] # Assumindo que 'Yes' é o positivo
+  # Cria uma Series chamada 'y_radio' contendo os valores da coluna 'Radiotherapy_Received_Yes' do DataFrame 'df_processed'.
+  # Esta Series representa a variável dependente para a tarefa de prever se o paciente recebeu radioterapia.
+  # Assume-se que o valor 1.0 nesta coluna indica que o paciente recebeu radioterapia (o rótulo positivo).
+
+  y_surgery = df_processed['Surgery_Received_Yes'] # Assumindo que 'Yes' é o positivo
+  # Cria uma Series chamada 'y_surgery' contendo os valores da coluna 'Surgery_Received_Yes' do DataFrame 'df_processed'.
+  # Esta Series representa a variável dependente para a tarefa de prever se o paciente passou por cirurgia.
+  # Assume-se que o valor 1.0 nesta coluna indica que o paciente passou por cirurgia (o rótulo positivo).
 ```
 
 #### 2 Variáveis Independentes:

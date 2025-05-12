@@ -371,13 +371,6 @@ X_train_survival, X_test_survival, y_train_survival, y_test_survival = train_tes
 # - 'X_test_survival': As features para o conjunto de teste do modelo de sobrevivência.
 # - 'y_train_survival': A variável alvo (sobrevivência) para o conjunto de treinamento.
 # - 'y_test_survival': A variável alvo (sobrevivência) para o conjunto de teste.
-
-# Repita este processo para os outros alvos (y_chemo, y_radio, y_surgery)
-# Comentário instruindo o usuário a aplicar a mesma lógica de divisão de dados
-# para as outras variáveis alvo ('y_chemo' para quimioterapia, 'y_radio' para radioterapia,
-# e 'y_surgery' para cirurgia), caso se deseje treinar modelos preditivos para cada uma delas separadamente.
-# Para cada alvo, você substituiria 'y_survival' pela variável alvo correspondente
-# e armazenaria os conjuntos de treinamento e teste em novas variáveis (e.g., X_train_chemo, X_test_chemo, y_train_chemo, y_test_chemo).
 ```
 
 #### 3 Importação do Classificador XGBoost para Modelagem Preditiva:

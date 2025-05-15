@@ -4,7 +4,7 @@
 
 ## 1. Separação de features e targets:
 
-<p align="justify">Nesta etapa incial é feito a separação das colunas features (colunas gerais do dataset) e das colunas targets (colunas alvo a qual tratá as respostas. </p>
+<p align="justify">Nesta etapa incial é feito a separação das colunas features (colunas gerais do dataset) e da coluna targets (coluna alvo a qual tratá as respostas. </p>
 
 ```python
 targets = ['Survival_Status']

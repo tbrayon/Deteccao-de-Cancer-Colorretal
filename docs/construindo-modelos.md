@@ -2,16 +2,12 @@
 
 <p align="justify">No contexto de projetos de análise de dados e construção de modelos preditivos, a etapa de preparação dos dados assume um papel fundamental. O código apresentado demonstra um fluxo de trabalho bem estruturado para o pré-processamento de um conjunto de dados possivelmente relacionado à previsão de câncer colorretal. Cada etapa visa garantir que os modelos subsequentes recebam dados limpos, tratados e em um formato adequado para o aprendizado eficaz.</p>
 
-(Nesta etapa, deverão ser descritas todas as técnicas utilizadas para pré-processamento/tratamento dos dados.)
-
-(Algumas das etapas podem estar relacionadas à:)
-
 ## 1. Separação de features e targets:
 
 <p align="justify">Nesta etapa incial é feito a separação das colunas features (colunas gerais do dataset) e das colunas targets (colunas alvo a qual tratá as respostas. </p>
 
 ```python
-targets = ['Survival_Status', 'Chemotherapy_Received', 'Radiotherapy_Received', 'Surgery_Received']
+targets = ['Survival_Status']
 # O restante dos dados em features (excluindo as colunas de targets) são as variáveis explicativas ou inputs usadas como base para
 # realizar as previsões.
 features = df.drop(columns=targets)
@@ -91,29 +87,6 @@ else:
 <p align="justify">O ColumnTransformer combina os pipelines numeric_transformer e categorical_transformer e os aplica às colunas apropriadas (numeric_features e categorical_features, respectivamente).</p>
 <p align="justify">A função fit_transform ajusta os pipelines aos dados de entrada (features) e, em seguida, transforma os dados aplicando todas as etapas de transformação definidas nos pipelines.</p>
 <p align="justify">A transformação de dados envolve imputação de valores ausentes, padronização de dados numéricos, codificação one-hot para dados categóricos e a aplicação dessas transformações usando pipelines e ColumnTransformer. Essas etapas são essenciais para preparar os dados do Datasete Câncer Colorretal, garantindo que ele possa lidar com valores ausentes, diferentes escalas de variáveis e dados categóricos de forma eficaz.</p>
-
-------
-* Limpeza de Dados: trate valores ausentes: decida como lidar com dados faltantes, seja removendo linhas, preenchendo com médias, medianas ou usando métodos mais avançados; remova _outliers_: identifique e trate valores que se desviam significativamente da maioria dos dados.
-
-* Transformação de Dados: normalize/padronize: torne os dados comparáveis, normalizando ou padronizando os valores para uma escala específica; codifique variáveis categóricas: converta variáveis categóricas em uma forma numérica, usando técnicas como _one-hot encoding_.
-
-* _Feature Engineering_: crie novos atributos que possam ser mais informativos para o modelo; selecione características relevantes e descarte as menos importantes.
-
-* Tratamento de dados desbalanceados: se as classes de interesse forem desbalanceadas, considere técnicas como _oversampling_, _undersampling_ ou o uso de algoritmos que lidam naturalmente com desbalanceamento.
-
-* Separação de dados: divida os dados em conjuntos de treinamento, validação e teste para avaliar o desempenho do modelo de maneira adequada.
-  
-* Manuseio de Dados Temporais: se lidar com dados temporais, considere a ordenação adequada e técnicas específicas para esse tipo de dado.
-  
-* Redução de Dimensionalidade: aplique técnicas como PCA (Análise de Componentes Principais) se a dimensionalidade dos dados for muito alta.
-
-* Validação Cruzada: utilize validação cruzada para avaliar o desempenho do modelo de forma mais robusta.
-
-* Monitoramento Contínuo: atualize e adapte o pré-processamento conforme necessário ao longo do tempo, especialmente se os dados ou as condições do problema mudarem.
-
-* Entre outras....
-
-Avalie quais etapas são importantes para o contexto dos dados que você está trabalhando, pois a qualidade dos dados e a eficácia do pré-processamento desempenham um papel fundamental no sucesso de modelo(s) de aprendizado de máquina. É importante entender o contexto do problema e ajustar as etapas de preparação de dados de acordo com as necessidades específicas de cada projeto.
 
 # Descrição dos modelos
 

@@ -1220,8 +1220,3 @@ Em pesquisa e experimentação em sistemas de informação, um pipeline de pesqu
 
 # Vídeo de apresentação da Etapa 03
 
-Nesta seção, deverá ser entregue um vídeo onde deverão ser descritas todas as etapas realizadas. O vídeo, que não tem limite de tempo, deverá ser apresentado por **todos os integrantes da equipe**, de forma que, cada integrante tenha oportunidade de apresentar o que desenvolveu e as percepções obtidas. Alunos que não participarem, serão penalizados na nota final da etapa.
-
-## Observações importantes
-
-Todas as tarefas realizadas nesta etapa deverão ser registradas em formato de texto junto com suas explicações de forma a apresentar os códigos desenvolvidos e também, o código deverá ser incluído, na íntegra, na pasta "src".

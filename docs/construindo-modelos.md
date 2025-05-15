@@ -720,6 +720,474 @@ Explore aspectos específicos, como o ajuste dos parâmetros livres de cada algo
 
 Como parte da comprovação de construção dos modelos, um vídeo de demonstração com todas as etapas de pré-processamento e de execução dos modelos deverá ser entregue. Este vídeo poderá ser do tipo _screencast_ e é imprescindível a narração contemplando a demonstração de todas as etapas realizadas.
 
+__________
+
+Brayon: 
+
+## Naive Bayes
+
+<p align="justify">O Naive Bayes é um algoritmo de classificação baseado no Teorema de Bayes com uma suposição "ingênua" de independência entre as variáveis preditoras. Ele calcula a probabilidade de uma instância pertencer a uma determinada classe com base nas características observadas, assumindo que essas características são estatisticamente independentes entre si.</p>
+
+<p align="justify">O Naive Bayes é amplamente utilizado por sua simplicidade, eficiência e bom desempenho em várias aplicações, especialmente em classificação de texto. Ele se destaca pelas seguintes características:</p>
+
+* **Baixo custo computacional**, com treinamento e previsão extremamente rápidos.  
+* **Desempenho eficiente** mesmo em bases de dados com alta dimensionalidade.  
+* **Funciona bem** com pequenos conjuntos de dados rotulados.  
+* **Simples de implementar** e interpretar os resultados.  
+* **Robustez** em problemas com ruído e irrelevância em algumas features.  
+* **Aplicação natural** em modelos probabilísticos e análise bayesiana.  
+* **Suporte a diferentes variações**, como Bernoulli, Multinomial e Gaussiano, adaptando-se ao tipo de dado.  
+
+## Estratégias de Modelagem com Naive Bayes
+
+<p align="justify">Foram implementadas e comparadas três abordagens distintas utilizando o classificador <strong>Naive Bayes</strong>:</p>
+
+1. **Modelo Base (Sem Balanceamento)**  
+   <p align="justify">Aplicação direta do Naive Bayes no conjunto de dados original, sem qualquer técnica de balanceamento das classes.</p>
+
+2. **Naive Bayes com Oversampling (SMOTE)**  
+   <p align="justify">Utilização da técnica de oversampling com <strong>SMOTE (Synthetic Minority Over-sampling Technique)</strong> para balancear as classes antes do treinamento do modelo.</p>
+
+3. **Naive Bayes com Undersampling**  
+   <p align="justify">Aplicação da técnica de <strong>undersampling</strong> utilizando o <strong>RandomUnderSampler</strong>, reduzindo a quantidade de amostras da classe majoritária para equilibrar o conjunto de dados.</p>
+
+<p align="justify">Cada uma dessas abordagens foi avaliada com base em métricas de desempenho como <strong>acurácia</strong>, <strong>precisão</strong>, <strong>recall</strong>, <strong>F1-score</strong>, <strong>acurácia balanceada</strong> e <strong>G-mean</strong>, com o objetivo de entender os impactos das técnicas de balanceamento na performance do modelo.</p>
+
+
+## 1 - Descrição do Código (Naive Bayes)
+
+#### 1.1 Preparação da Variável Alvo (target)
+
+
+```python
+target_var = 'Survival_Status'
+y = df[target_var].copy()
+if y.dtype == 'O':
+    y = y.astype(str)
+    y = y.map({label: idx for idx, label in enumerate(sorted(y.unique()))})
+Define a variável alvo do modelo: Survival_Status.
+```
+
+<p align="justify"> Define a variável alvo do modelo: <code>Survival_Status</code>. Se a variável for categórica (<code>dtype == 'O'</code>), ela é convertida para string e depois mapeada para números (ex.: 'Sim' → 1, 'Não' → 0). Isso é necessário porque modelos do scikit-learn trabalham com números. </p>
+
+#### 1.2 Separação em treino e teste
+```python
+X_train, X_test, y_train, y_test = train_test_split(
+    preprocessed_df, y, test_size=0.2, random_state=42, stratify=y
+)
+```
+
+<p align="justify"> Divide os dados em treino (80%) e teste (20%), estratificando com base em <code>y</code>, para garantir que a proporção de classes seja mantida nas duas amostras. <code>preprocessed_df</code> é o conjunto de variáveis independentes (features), já pré-processado. </p>
+
+preprocessed_df é o conjunto de variáveis independentes (features), já pré-processado.
+
+ #### 1.3 Treinamento do modelo Naive Bayes
+```python
+Copy
+Edit
+modelo = GaussianNB()
+modelo.fit(X_train, y_train)
+<p align="justify"> Cria um modelo <code>GaussianNB</code> (Naive Bayes Gaussiano, assume que os dados seguem uma distribuição normal para cada atributo). Treina o modelo com os dados de treino. </p>
+
+Treina o modelo com os dados de treino.
+
+#### 1.4 Predições
+```python
+y_pred = modelo.predict(X_test)
+y_prob = modelo.predict_proba(X_test)[:, 1] if len(modelo.classes_) == 2 else None
+```
+<p align="justify"> <code>y_pred</code>: Previsões de classe (0 ou 1). <code>y_prob</code>: Probabilidades da classe positiva (usado para ROC), somente se for um problema binário. </p>
+
+#### 1.5 Relatório de Métricas
+```python
+
+print("\n=== Relatório de Classificação ===")
+print(classification_report(y_test, y_pred))
+```
+<p align="justify"> Imprime precisão, recall, f1-score e suporte (nº de instâncias por classe), para cada classe. </p>
+
+#### 1.6 Cálculo e impressão de métricas personalizadas
+```python
+acc = accuracy_score(y_test, y_pred)
+prec = precision_score(y_test, y_pred, average='binary')
+rec = recall_score(y_test, y_pred, average='binary')
+f1 = f1_score(y_test, y_pred, average='binary')
+bal_acc = balanced_accuracy_score(y_test, y_pred)
+gmean_score = gmean([prec, rec]) if prec > 0 and rec > 0 else 0
+```
+
+<p align="justify"> Calcula diversas métricas:<br> <strong>accuracy</strong>: Proporção total de acertos.<br> <strong>precision</strong>: Quantos dos positivos previstos são realmente positivos.<br> <strong>recall</strong>: Quantos dos positivos reais foram encontrados.<br> <strong>f1-score</strong>: Média harmônica entre precisão e recall.<br> <strong>balanced_accuracy</strong>: Média entre a acurácia da classe positiva e negativa (evita viés em classes desbalanceadas).<br> <strong>gmean</strong>: Média geométrica entre precisão e recall (mede o equilíbrio entre eles). </p>
+
+#### 1.7 Impressão das métricas
+```python
+print(f"Accuracy: {acc:.4f}")
+print(f"Precision: {prec:.4f}")
+print(f"Recall: {rec:.4f}")
+print(f"F1-score: {f1:.4f}")
+print(f"Balanced Accuracy: {bal_acc:.4f}")
+print(f"Geometric Mean Accuracy: {gmean_score:.4f}")
+```
+<p align="justify"> Exibe todas as métricas de forma formatada. </p>
+
+ #### 1.8 Matriz de Confusão
+```python
+cm = confusion_matrix(y_test, y_pred)
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=modelo.classes_, yticklabels=modelo.classes_)
+```
+
+<p align="justify"> Gera uma matriz de confusão mostrando:<br> <strong>Verdadeiros Positivos (VP)</strong><br> <strong>Falsos Positivos (FP)</strong><br> <strong>Verdadeiros Negativos (VN)</strong><br> <strong>Falsos Negativos (FN)</strong><br><br> Essa matriz mostra como o modelo está errando e acertando. </p>
+
+
+#### 1.9 Curva ROC (caso binário)
+```python
+if y_prob is not None:
+    fpr, tpr, thresholds = roc_curve(y_test, y_prob)
+    auc_score = roc_auc_score(y_test, y_prob)
+```
+
+<p align="justify"> Calcula a curva ROC (True Positive Rate vs False Positive Rate) e área sob a curva (AUC).<br> A AUC indica o poder discriminativo do modelo (quanto mais próximo de 1.0, melhor). </p>
+
+#### 1.10 Salvamento dos gráficos
+```python
+plt.savefig("graphs/confusion_matrix_naive_bayes.png")
+...
+plt.savefig("graphs/roc_curve_naive_bayes.png")
+```
+
+<p align="justify"> Os gráficos gerados são salvos no diretório especificado para posterior análise ou apresentação. </p>
+
+### Resultados
+
+#### Relatório de Classificação
+
+| Classe | Precisão (Precision) | Revocação (Recall) | F1-Score | Suporte (Support) |
+|--------|----------------------|--------------------|----------|-------------------|
+| 0      | 0.00                 | 0.00               | 0.00     | 4521              |
+| 1      | 0.75                 | 1.00               | 0.86     | 13468             |
+
+**Acurácia Total**: 0.75  
+**Média Macro**:
+- Precisão: 0.37
+- Revocação: 0.50
+- F1-Score: 0.43
+
+**Média Ponderada**:
+- Precisão: 0.56
+- Revocação: 0.75
+- F1-Score: 0.64
+
+#### Métricas Adicionais
+
+- **Accuracy**: 0.7487  
+- **Precision**: 0.7487  
+- **Recall**: 1.0000  
+- **F1-score**: 0.8563  
+- **Balanced Accuracy**: 0.5000  
+- **Geometric Mean Accuracy**: 0.8653  
+
+
+<div align="center"> 
+   <img src="https://github.com/user-attachments/assets/bdebaa8f-0d4b-4819-816c-7ffa7de50546" alt="Matriz de Confusão - Naive Bayes" width="500">
+</div>
+
+<div align="center"> 
+   <img src="https://github.com/user-attachments/assets/5b3615f3-e559-48d7-a56b-0df88219e72b" alt="Curva ROC -  Naive Bayes" width="500"> 
+</div>
+
+
+<br>
+<br>
+
+---
+
+## 2 Descrição do Código (Naive Bayes Oversampling) 
+
+#### 2.1 Importação do SMOTE
+
+```python
+from imblearn.over_sampling import SMOTE
+```
+
+<p>O <strong>SMOTE (Synthetic Minority Over-sampling Technique)</strong> é uma técnica de oversampling que gera exemplos sintéticos para a classe minoritária com base nos seus vizinhos mais próximos. Essa abordagem é útil para mitigar o problema de desbalanceamento de classes em conjuntos de dados.</p>
+
+
+#### 2.2 Preparação das variáveis
+
+```python
+target_var = 'Survival_Status'
+y = df[target_var].copy()
+if y.dtype == 'O':
+    y = y.astype(str)
+    y = y.map({label: idx for idx, label in enumerate(sorted(y.unique()))})
+```
+
+<p>Seleciona a variável alvo <code>Survival_Status</code> e, se necessário, realiza a conversão de valores categóricos para numéricos, facilitando o treinamento do modelo.</p>
+
+
+#### 2.3 Divisão em treino e teste
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(
+    preprocessed_df, y, test_size=0.2, random_state=42, stratify=y
+)
+```
+
+<p>Os dados são divididos em treino e teste utilizando <code>train_test_split</code> com estratificação, o que garante a mesma proporção de classes em ambos os conjuntos.</p>
+
+
+#### 2.4 Aplicação do SMOTE (Oversampling)
+
+```python
+smote = SMOTE(random_state=42)
+X_train_resampled, y_train_resampled = smote.fit_resample(X_train, y_train)
+```
+
+<p>O SMOTE é aplicado exclusivamente ao conjunto de treino para gerar amostras sintéticas da classe minoritária, <strong>evitando vazamento de dados</strong> para o conjunto de teste.</p>
+
+#### 2.5 Treinamento com Naive Bayes
+
+```python
+modelo = GaussianNB()
+modelo.fit(X_train_resampled, y_train_resampled)
+y_pred = modelo.predict(X_test)
+y_prob = modelo.predict_proba(X_test)[:, 1] if len(modelo.classes_) == 2 else None
+```
+
+<p>O classificador <strong>Naive Bayes Gaussiano</strong> é treinado com os dados balanceados e realiza a predição sobre o conjunto de teste. Quando o problema é binário, também é calculada a probabilidade associada à classe positiva.</p>
+
+
+#### 2.6 Avaliação do Modelo
+
+```python
+print(classification_report(y_test, y_pred))
+```
+
+Métricas principais:
+
+- **Accuracy**: Proporção de acertos.
+- **Precision**: Precisão para a classe positiva.
+- **Recall**: Sensibilidade (quantos positivos reais foram identificados).
+- **F1-score**: Média harmônica entre precisão e recall.
+- **Balanced Accuracy**: Média entre sensitividade e especificidade.
+- **Geometric Mean (gmean)**: Média geométrica entre precisão e recall.
+
+
+#### 2.7 Matriz de Confusão
+
+```python
+sns.heatmap(confusion_matrix(y_test, y_pred), annot=True, fmt='d', cmap='Blues')
+```
+
+<p>A <strong>matriz de confusão</strong> permite avaliar visualmente os acertos e erros do modelo, separando verdadeiros e falsos positivos/negativos.</p> <p align="center"> <img src="https://github.com/user-attachments/assets/cca27b0e-1a0f-49b4-ba46-4f23afd98469" width="500"> </p>
+
+#### 2.8 Curva ROC e AUC
+
+```python
+fpr, tpr, thresholds = roc_curve(y_test, y_prob)
+auc_score = roc_auc_score(y_test, y_prob)
+```
+
+<p>A <strong>curva ROC</strong> relaciona a taxa de verdadeiros positivos (TPR) com a taxa de falsos positivos (FPR), e a <strong>AUC</strong> representa a capacidade do modelo em distinguir entre as classes.</p> <p align="center"> <img src="https://github.com/user-attachments/assets/44f124c2-0320-4de4-a484-548f4ee7b660" width="500"> </p>
+
+### Resultados: Relatório de Classificação
+
+#### Métricas por Classe
+
+| Classe | Precisão (`precision`) | Revocação (`recall`) | F1-score | Suporte |
+|--------|------------------------|-----------------------|----------|---------|
+| 0      | 0.25                   | 0.52                  | 0.34     | 4,521   |
+| 1      | 0.75                   | 0.48                  | 0.58     | 13,468  |
+
+#### Médias Globais
+
+| Tipo de Média   | Precisão | Revocação | F1-score | Suporte |
+|-----------------|----------|-----------|----------|---------|
+| Macro média     | 0.50     | 0.50      | 0.46     | 17,989  |
+| Média ponderada | 0.62     | 0.49      | 0.52     | 17,989  |
+
+#### Métricas Agregadas
+
+| Métrica                  | Valor   |
+|--------------------------|---------|
+| Acurácia (`accuracy`)    | 0.4889  |
+| Precisão (classe 1)      | 0.7490  |
+| Revocação (classe 1)     | 0.4774  |
+| F1-score (classe 1)      | 0.5831  |
+| Acurácia Balanceada      | 0.5003  |
+| Geometric Mean Accuracy  | 0.5979  |
+
+<br>
+<br> 
+
+## 3 Descrição do Código (Naive Bayes Undersampling) 
+
+<p align="center"> Este experimento visa desenvolver um modelo de classificação para a variável <code>Survival_Status</code> utilizando a técnica de balanceamento por Undersampling. Para isso, foi empregada a biblioteca <code>imblearn</code> e o classificador probabilístico <code>GaussianNB</code>, considerando um conjunto de dados originalmente desbalanceado. </p>
+
+
+#### 3.1  Conversão da Variável Alvo
+
+```python
+target_var = 'Survival_Status'
+y = df[target_var].copy()
+if y.dtype == 'O':
+    y = y.astype(str)
+    y = y.map({label: idx for idx, label in enumerate(sorted(y.unique()))})
+```
+<p align="center"> A variável-alvo <code>Survival_Status</code> é copiada do DataFrame principal. Caso seus valores sejam do tipo <code>object</code> (strings), realiza-se a codificação de rótulos (label encoding), atribuindo valores numéricos distintos para cada categoria. Essa transformação é fundamental, pois os algoritmos de machine learning não operam diretamente com dados categóricos. </p>
+
+#### 3.2 Divisão dos Dados com Estratificação
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(
+    preprocessed_df, y, test_size=0.2, random_state=42, stratify=y
+)
+```
+
+#### 3.3 Aplicação de Undersampling
+
+```python
+under = RandomUnderSampler(random_state=42)
+X_train_resampled, y_train_resampled = under.fit_resample(X_train, y_train)
+```
+<p align="center"> O <code>RandomUnderSampler</code> é aplicado apenas ao conjunto de treino. Ele reduz aleatoriamente o número de amostras da classe majoritária até que haja equilíbrio entre as classes. Essa técnica combate o viés que o modelo poderia desenvolver ao priorizar a classe mais frequente. </p>
+
+
+#### 3.4 Treinamento do Modelo com Naive Bayes
+
+```python
+modelo = GaussianNB()
+modelo.fit(X_train_resampled, y_train_resampled)
+```
+
+#### 3.5 Predição e Cálculo das Probabilidades
+
+```python
+y_pred = modelo.predict(X_test)
+y_prob = modelo.predict_proba(X_test)[:, 1] if len(modelo.classes_) == 2 else None
+```
+
+#### 3.6 Avaliação do Modelo
+
+```python
+print(classification_report(y_test, y_pred))
+```
+<p align="center"> A avaliação inclui a geração do relatório de classificação com métricas como precisão, recall e f1-score. Adicionalmente, métricas agregadas são calculadas manualmente, fornecendo uma análise mais abrangente. </p>
+
+```python
+acc = accuracy_score(y_test, y_pred)
+prec = precision_score(y_test, y_pred, average='binary')
+rec = recall_score(y_test, y_pred, average='binary')
+f1 = f1_score(y_test, y_pred, average='binary')
+bal_acc = balanced_accuracy_score(y_test, y_pred)
+gmean_score = gmean([prec, rec]) if prec > 0 and rec > 0 else 0
+```
+
+#### 3.7 Matriz de Confusão
+
+```python
+sns.heatmap(confusion_matrix(y_test, y_pred), annot=True, fmt='d', cmap='Oranges')
+```
+<p align="center"> A matriz de confusão mostra a distribuição dos acertos e erros do modelo. Essa visualização é crucial para entender o comportamento do classificador em contextos desbalanceados. </p> <p align="center"> <img src="https://github.com/user-attachments/assets/eed9f502-e0b4-47a1-9960-797ddd367f3f" alt="Matriz de Confusão" width="500"> </p>
+
+
+#### 3.8 Matriz de Confusão
+
+```python
+fpr, tpr, thresholds = roc_curve(y_test, y_prob)
+auc_score = roc_auc_score(y_test, y_prob)
+```
+
+<p align="center"> A curva ROC demonstra a capacidade do modelo em distinguir entre classes positivas e negativas. A AUC (área sob a curva) é um indicador da qualidade geral do classificador — quanto mais próxima de 1, melhor. </p> <p align="center"> <img src="https://github.com/user-attachments/assets/5588379b-10a8-43e0-aee2-bd61a5126475" alt="Curva ROC" width="500"> </p>
+
+
+## Resultados:
+
+### Relatório de Classificação
+| Classe         | Precision | Recall | F1-score | Support |
+|----------------|-----------|--------|----------|---------|
+| 0              | 0.26      | 0.61   | 0.36     | 4521    |
+| 1              | 0.76      | 0.41   | 0.53     | 13468   |
+| **Accuracy**   |           |        | 0.46     | 17989   |
+| Macro avg      | 0.51      | 0.51   | 0.44     | 17989   |
+| Weighted avg   | 0.63      | 0.46   | 0.49     | 17989   |
+
+| Métrica                  | Valor   |
+|--------------------------|---------|
+| Accuracy                 | 0.4572  |
+| Precision (Classe 1)     | 0.7568  |
+| Recall (Classe 1)        | 0.4051  |
+| F1-score (Classe 1)      | 0.5277  |
+| Balanced Accuracy        | 0.5087  |
+| Geometric Mean Accuracy  | 0.5537  |
+
+
+<br>
+<br> 
+
+---
+
+
+#  Resumo das Três Abordagens com Naive Bayes
+
+| Estratégia         | Accuracy | Precision | Recall  | F1-score | Balanced Accuracy | Geometric Mean |
+|--------------------|----------|-----------|---------|----------|--------------------|----------------|
+| 🔵 Sem Balanceamento | 0.7487   | 0.7487    | 1.0000  | 0.8563   | 0.5000             | 0.8653         |
+| 🟢 Oversampling      | 0.4889   | 0.7490    | 0.4774  | 0.5831   | 0.5003             | 0.5979         |
+| 🔴 Undersampling     | 0.4572   | 0.7568    | 0.4051  | 0.5277   | 0.5087             | 0.5537         |
+
+---
+
+##  Interpretação das Métricas
+
+### 🔵 Sem Balanceamento (Naive Bayes Puro)
+
+- **Precision = 0.7487** → O modelo acerta bem quando prevê sobrevivência (classe 1).
+- **Recall = 1.0000** → Identificou *todos* os pacientes sobreviventes.
+- **F1-score = 0.8563** → Excelente equilíbrio entre precisão e recall.
+- **Balanced Accuracy = 0.5000** → Mostra que a classe 0 (não sobreviveu) está sendo ignorada.
+-  **Confusão**: o modelo classificou todos os casos como classe 1.
+
+ **Conclusão**:  
+O modelo adota uma estratégia conservadora, classificando todos os casos como sobreviventes. Embora essa abordagem possa parecer eficaz para triagens iniciais, **ela falha completamente na identificação dos indivíduos que não sobrevivem**, o que pode representar um **risco significativo em contextos médicos**.
+
+---
+
+### 🟢 Com Oversampling (SMOTE)
+
+- **Precision = 0.7490**
+- **Recall = 0.4774**
+- **F1-score = 0.5831**
+- **G-Mean = 0.5979**
+- **Balanced Accuracy = 0.5003**
+
+ **Conclusão**:  
+A técnica SMOTE contribuiu para que o modelo **reconhecesse ambas as classes**, preservando todas as amostras originais e atenuando o desbalanceamento dos dados. Embora ainda existam erros, o modelo demonstra maior equidade na previsão das classes.
+
+---
+
+### 🔴 Com Undersampling
+
+- **Recall = 0.4051**
+- **Precision = 0.7568**
+- **F1-score = 0.5277**
+- **G-Mean = 0.5537**
+
+**Conclusão**:  
+A remoção de dados da classe majoritária resultou em desempenho inferior. **Reduzir a quantidade de dados implica perda de informação**, o que dificulta o processo de aprendizado do modelo.
+
+---
+
+##  Qual foi o melhor resultado?
+
+| Objetivo Prioritário                               | Melhor Estratégia                         |
+|----------------------------------------------------|--------------------------------------------|
+| Máxima detecção de sobreviventes (Recall)          | ✅ Sem balanceamento (Recall = 1.00)        |
+| Equilíbrio entre as classes                        | 🟢 Oversampling (melhor G-Mean e Balance)  |
+| Preservar todos os dados                           | 🟢 Oversampling (mantém todas as instâncias)|
+
+---
+
+
 # Avaliação dos modelos criados
 
 ## Métricas utilizadas

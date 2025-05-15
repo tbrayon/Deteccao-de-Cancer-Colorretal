@@ -742,14 +742,6 @@ Interpretação: Uma acurácia média de 0.7441 (ou 74.41%) indica que, em médi
 
 __________
 
-Nesta seção, conhecendo os dados e de posse dos dados preparados, é hora de descrever os algoritmos de aprendizado de máquina selecionados para a construção dos modelos propostos. Inclua informações abrangentes sobre cada algoritmo implementado, aborde conceitos fundamentais, princípios de funcionamento, vantagens/limitações e justifique a escolha de cada um dos algoritmos.
-
-Explore aspectos específicos, como o ajuste dos parâmetros livres de cada algoritmo. Lembre-se de experimentar parâmetros diferentes e principalmente, de justificar as escolhas realizadas.
-
-Como parte da comprovação de construção dos modelos, um vídeo de demonstração com todas as etapas de pré-processamento e de execução dos modelos deverá ser entregue. Este vídeo poderá ser do tipo _screencast_ e é imprescindível a narração contemplando a demonstração de todas as etapas realizadas.
-
-__________
-
 Brayon: 
 
 ## Naive Bayes
@@ -782,7 +774,7 @@ Brayon:
 <p align="justify">Cada uma dessas abordagens foi avaliada com base em métricas de desempenho como <strong>acurácia</strong>, <strong>precisão</strong>, <strong>recall</strong>, <strong>F1-score</strong>, <strong>acurácia balanceada</strong> e <strong>G-mean</strong>, com o objetivo de entender os impactos das técnicas de balanceamento na performance do modelo.</p>
 
 
-## 1 - Descrição do Código (Naive Bayes)
+## 1 - Naive Bayes
 
 #### 1.1 Preparação da Variável Alvo (target)
 

@@ -740,10 +740,6 @@ Acurácia = (Verdadeiros Positivos (TP) + Verdadeiros Negativos (TN)) / (Total d
 <p align="justify">FVerdadeiros Negativos (TN): Pacientes que realmente não sobreviveram e foram corretamente previstos como não sobreviventes.
 Interpretação: Uma acurácia média de 0.7441 (ou 74.41%) indica que, em média, o modelo classificou corretamente cerca de 74.41% de todos os pacientes no conjunto de dados nos diferentes folds da validação cruzada.</p>
 
-__________
-
-Brayon: 
-
 ## Naive Bayes
 
 <p align="justify">O Naive Bayes é um algoritmo de classificação baseado no Teorema de Bayes com uma suposição "ingênua" de independência entre as variáveis preditoras. Ele calcula a probabilidade de uma instância pertencer a uma determinada classe com base nas características observadas, assumindo que essas características são estatisticamente independentes entre si.</p>
@@ -758,7 +754,7 @@ Brayon:
 * **Aplicação natural** em modelos probabilísticos e análise bayesiana.  
 * **Suporte a diferentes variações**, como Bernoulli, Multinomial e Gaussiano, adaptando-se ao tipo de dado.  
 
-## Estratégias de Modelagem com Naive Bayes
+### Estratégias de Modelagem com Naive Bayes
 
 <p align="justify">Foram implementadas e comparadas três abordagens distintas utilizando o classificador <strong>Naive Bayes</strong>:</p>
 
@@ -774,7 +770,7 @@ Brayon:
 <p align="justify">Cada uma dessas abordagens foi avaliada com base em métricas de desempenho como <strong>acurácia</strong>, <strong>precisão</strong>, <strong>recall</strong>, <strong>F1-score</strong>, <strong>acurácia balanceada</strong> e <strong>G-mean</strong>, com o objetivo de entender os impactos das técnicas de balanceamento na performance do modelo.</p>
 
 
-## 1 - Naive Bayes
+### 1 - Naive Bayes sem balanceamento
 
 #### 1.1 Preparação da Variável Alvo (target)
 
@@ -920,7 +916,7 @@ plt.savefig("graphs/roc_curve_naive_bayes.png")
 
 ---
 
-## 2 Descrição do Código (Naive Bayes Oversampling) 
+### 2 - Descrição do Código (Naive Bayes Oversampling) 
 
 #### 2.1 Importação do SMOTE
 
@@ -1039,9 +1035,9 @@ auc_score = roc_auc_score(y_test, y_prob)
 <br>
 <br> 
 
-## 3 Descrição do Código (Naive Bayes Undersampling) 
+### 3 - Descrição do Código (Naive Bayes Undersampling) 
 
-<p align="center"> Este experimento visa desenvolver um modelo de classificação para a variável <code>Survival_Status</code> utilizando a técnica de balanceamento por Undersampling. Para isso, foi empregada a biblioteca <code>imblearn</code> e o classificador probabilístico <code>GaussianNB</code>, considerando um conjunto de dados originalmente desbalanceado. </p>
+<p align="center"> Este experimento visa desenvolver um modelo de classificação para a variável <code>Survival_Status</code> utilizando a técnica de balanceamento por Undersampling. Para isso, foi empregada a biblioteca <code>imblearn</code> e o classificador probabilístico <code>GaussianNB</code>, considerando um conjunto de dados originalmente desbalanceado.</p>
 
 
 #### 3.1  Conversão da Variável Alvo
@@ -1120,9 +1116,9 @@ auc_score = roc_auc_score(y_test, y_prob)
 <p align="center"> A curva ROC demonstra a capacidade do modelo em distinguir entre classes positivas e negativas. A AUC (área sob a curva) é um indicador da qualidade geral do classificador — quanto mais próxima de 1, melhor. </p> <p align="center"> <img src="https://github.com/user-attachments/assets/5588379b-10a8-43e0-aee2-bd61a5126475" alt="Curva ROC" width="500"> </p>
 
 
-## Resultados:
+### Resultados:
 
-### Relatório de Classificação
+#### Relatório de Classificação
 | Classe         | Precision | Recall | F1-score | Support |
 |----------------|-----------|--------|----------|---------|
 | 0              | 0.26      | 0.61   | 0.36     | 4521    |
@@ -1147,7 +1143,7 @@ auc_score = roc_auc_score(y_test, y_prob)
 ---
 
 
-#  Resumo das Três Abordagens com Naive Bayes
+###  Resumo das Três Abordagens com Naive Bayes
 
 | Estratégia         | Accuracy | Precision | Recall  | F1-score | Balanced Accuracy | Geometric Mean |
 |--------------------|----------|-----------|---------|----------|--------------------|----------------|
@@ -1157,7 +1153,7 @@ auc_score = roc_auc_score(y_test, y_prob)
 
 ---
 
-##  Interpretação das Métricas
+####  Interpretação das Métricas
 
 ### 🔵 Sem Balanceamento (Naive Bayes Puro)
 
@@ -1197,7 +1193,7 @@ A remoção de dados da classe majoritária resultou em desempenho inferior. **R
 
 ---
 
-##  Qual foi o melhor resultado?
+###  Qual foi o melhor resultado?
 
 | Objetivo Prioritário                               | Melhor Estratégia                         |
 |----------------------------------------------------|--------------------------------------------|
@@ -1212,11 +1208,11 @@ A remoção de dados da classe majoritária resultou em desempenho inferior. **R
 
 ## Métricas utilizadas
 
-Nesta seção, as métricas utilizadas para avaliar os modelos desenvolvidos deverão ser apresentadas (p. ex.: acurácia, precisão, recall, F1-Score, MSE etc.). A escolha de cada métrica deverá ser justificada, pois esta escolha é essencial para avaliar de forma mais assertiva a qualidade do modelo construído. 
+<p align="justify">As métricas calculadas foram Acurácia (percentual de previsões corretas no total), Precisão (quão correto o modelo foi ao prever a sobrevivência), Recall (quantidade de casos de sobrevivência corretamente identificados) e F1-Score (harmonização entre Precisão e Recall). De modo geral, os valores de Acurácia e F1-Score mantiveram-se bastante elevados para todos os modelos, com destaque para o Naive Bayes, que apresentou recall de 100% em todas as divisões dos dados, enquanto Random Forest e XGBoost tiveram uma leve queda de desempenho conforme a proporção de teste aumentava.</p>
 
 ## Discussão dos resultados obtidos
 
-Nesta seção, discuta os resultados obtidos por cada um dos modelos construídos, no contexto prático em que os dados se inserem, promovendo uma compreensão abrangente e aprofundada da qualidade de cada um deles. Lembre-se de relacionar os resultados obtidos ao problema identificado, a questão de pesquisa levantada e estabelecer relação com os objetivos previamente propostos. Não deixe de comparar os resultados obtidos por cada modelo com os demais.
+<p align="justify">Analisando os resultados gerais, os três modelos obtiveram desempenhos muito bons, com pequenas variações entre eles conforme o volume de dados de teste aumentava. O Random Forest e o XGBoost apresentaram uma pequena perda de desempenho em termos de precisão e F1-Score à medida que a porcentagem de teste aumentava. Já o Naive Bayes se destacou pela consistência: manteve precisão, recall e F1-Score elevados (próximos de 1.0) em todas as divisões de treino/teste, sem apresentar erros (falsos positivos ou falsos negativos) nos dados de validação. Com base nos resultados apresentados, o Naive Bayes foi o método que apresentou o melhor desempenho geral, demonstrando tanto alta capacidade de identificação dos sobreviventes quanto estabilidade nas diferentes proporções de divisão dos dados.</p>
 
 # Pipeline de pesquisa e análise de dados
 

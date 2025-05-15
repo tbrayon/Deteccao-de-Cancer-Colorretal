@@ -34,7 +34,7 @@ No código, a classe `SimpleImputer` do `scikit-learn` é utilizada com estraté
 * **Variáveis categóricas:** aplica-se a **moda** (valor mais frequente), preservando a categoria mais representativa.
 
 ```python
-# Criar pipelines de pré-processamento
+# Criar pipelines de pré-processamentof
 # Dados Numéricos
 numeric_transformer = Pipeline(steps=[
      # Substitui valores faltantes pela mediana dos dados
@@ -183,8 +183,11 @@ feature_importances = rf_model.feature_importances_
 indices = np.argsort(feature_importances)[::-1]  # Ordena do maior para o menor
 plt.figure(figsize=(30, 20))
 plt.title("Importância das Features no Random Forest")
-plt.bar(range(X_train.shape[1]), feature_importances[indices])
-plt.xticks(range(X_train.shape[1]), np.array(all_feature_names)[indices], rotation=90)
+plt.barh(range(X_train.shape[1]), feature_importances[indices])
+plt.yticks(range(X_train.shape[1]), np.array(all_feature_names)[indices])
+plt.gca().invert_yaxis()  # Opcional: coloca a feature mais importante no topo
+plt.xlabel("Importância")
+plt.ylabel("Features")
 plt.show()
 
 # Faz previsões no conjunto de teste.
@@ -222,6 +225,17 @@ plt.show()
 xgb_model = XGBClassifier(use_label_encoder=False, eval_metric='logloss')
 # Treina o modelo com os dados de treino.
 xgb_model.fit(X_train, y_train)
+xgb_importances = xgb_model.feature_importances_
+indices = np.argsort(xgb_importances)[::-1]
+
+plt.figure(figsize=(30, 20))
+plt.title("Importância das Features no XGBoost")
+plt.barh(range(X_train.shape[1]), xgb_importances[indices])
+plt.yticks(range(X_train.shape[1]), np.array(all_feature_names)[indices])
+plt.gca().invert_yaxis()
+plt.xlabel("Importância")
+plt.ylabel("Features")
+plt.show()
 # Faz previsões no conjunto de teste.
 xgb_pred = xgb_model.predict(X_test)
 
@@ -244,6 +258,25 @@ plt.show()
 nb_model = GaussianNB()
 # Treina o modelo com os dados de treino.
 nb_model.fit(X_train, y_train)
+# Obtemos as médias das features para cada classe
+means = nb_model.theta_  # shape: (n_classes, n_features)
+
+# Calculamos a diferença absoluta entre as médias das classes
+# Para problemas binários, podemos fazer isso assim:
+mean_diff = np.abs(means[1] - means[0])
+
+# Ordena as features pela diferença
+indices = np.argsort(mean_diff)[::-1]
+
+# Plota as diferenças como "importâncias"
+plt.figure(figsize=(30, 20))
+plt.title("Diferença entre médias das classes (interpretação de importância) - Naive Bayes")
+plt.barh(range(X_train.shape[1]), mean_diff[indices])
+plt.yticks(range(X_train.shape[1]), np.array(all_feature_names)[indices])
+plt.gca().invert_yaxis()
+plt.xlabel("Diferença entre médias")
+plt.ylabel("Features")
+plt.show()
 # Faz previsões no conjunto de teste.
 nb_pred = nb_model.predict(X_test)
 
@@ -284,19 +317,41 @@ evaluate_model("Naive Bayes", y_test, nb_pred)
 
 ```
 
-<p align="justify">Resultados:</p>
+<p align="justify">Apuração:</p>
+
+<p align="justify">O print abaixo apresenta a avaliação de desempenho dos três modelos de classificação — Random Forest, XGBoost e Naive Bayes — utilizando três divisões distintas dos dados: 90% treino e 10% teste, 80% treino e 20% teste, e 70% treino e 30% teste. Para cada configuração, foram testados diferentes números de árvores (100, 200, 300 e 400 árvores) nos modelos Random Forest e XGBoost. As métricas calculadas foram Acurácia (percentual de previsões corretas no total), Precisão (quão correto o modelo foi ao prever a sobrevivência), Recall (quantidade de casos de sobrevivência corretamente identificados) e F1-Score (harmonização entre Precisão e Recall). De modo geral, os valores de Acurácia e F1-Score mantiveram-se bastante elevados para todos os modelos, com destaque para o Naive Bayes, que apresentou recall de 100% em todas as divisões dos dados, enquanto Random Forest e XGBoost tiveram uma leve queda de desempenho conforme a proporção de teste aumentava.</p>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4a5d2aad-c333-4cf8-a102-3ad7e0d93ef2" alt="image">
 </p>
 
-<p align="justify">As primeiras tabelas apresentam a avaliação de desempenho dos três modelos de classificação — Random Forest, XGBoost e Naive Bayes — utilizando três divisões distintas dos dados: 90% treino e 10% teste, 80% treino e 20% teste, e 70% treino e 30% teste. Para cada configuração, foram testados diferentes números de árvores (100, 200, 300 e 400 árvores) nos modelos Random Forest e XGBoost. As métricas calculadas foram Acurácia (percentual de previsões corretas no total), Precisão (quão correto o modelo foi ao prever a sobrevivência), Recall (quantidade de casos de sobrevivência corretamente identificados) e F1-Score (harmonização entre Precisão e Recall). De modo geral, os valores de Acurácia e F1-Score mantiveram-se bastante elevados para todos os modelos, com destaque para o Naive Bayes, que apresentou recall de 100% em todas as divisões dos dados, enquanto Random Forest e XGBoost tiveram uma leve queda de desempenho conforme a proporção de teste aumentava.</p>
+<p align="justify">Já o print abaixo apresenta a análise detalhada dos resultados em termos absolutos: quantidade de Verdadeiros Negativos (casos corretamente classificados como não sobreviventes), Falsos Positivos (casos incorretamente classificados como sobreviventes), Falsos Negativos (casos incorretamente classificados como não sobreviventes) e Verdadeiros Positivos (casos corretamente classificados como sobreviventes). Em todas as divisões e para todos os modelos, o número de Falsos Negativos é extremamente baixo ou mesmo zero, indicando alta capacidade dos modelos em identificar corretamente os casos de sobrevivência. O Naive Bayes apresentou resultados perfeitos (zero falsos negativos e falsos positivos) em todas as situações testadas, reforçando sua alta sensibilidade (recall) e especificidade. Em comparação, os modelos Random Forest e XGBoost, apesar de também apresentarem excelentes resultados, tiveram uma pequena quantidade de erros, sobretudo no aumento da proporção de teste.</p>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/3e135ecc-49fd-4f97-b103-1f64f1183209" alt="image">
 </p>
 
-<p align="justify">As tabelas inferiores apresentam a análise detalhada dos resultados em termos absolutos: quantidade de Verdadeiros Negativos (casos corretamente classificados como não sobreviventes), Falsos Positivos (casos incorretamente classificados como sobreviventes), Falsos Negativos (casos incorretamente classificados como não sobreviventes) e Verdadeiros Positivos (casos corretamente classificados como sobreviventes). Em todas as divisões e para todos os modelos, o número de Falsos Negativos é extremamente baixo ou mesmo zero, indicando alta capacidade dos modelos em identificar corretamente os casos de sobrevivência. O Naive Bayes apresentou resultados perfeitos (zero falsos negativos e falsos positivos) em todas as situações testadas, reforçando sua alta sensibilidade (recall) e especificidade. Em comparação, os modelos Random Forest e XGBoost, apesar de também apresentarem excelentes resultados, tiveram uma pequena quantidade de erros, sobretudo no aumento da proporção de teste.</p>
+<p align="justify">Resultado:</p>
+
+<p align="justify">Após apuração, chegamos ao veredito em que o cenário que apresentou o melhor desempenho foi com treinamento de 80% e teste de 20% com 100 árvores de decisão. Com isso, apresentamos abaixo os prints das matrizes de confusão deste cenário em específico:</p>
+
+<p align="justify">Matriz de confusão Randon Forest:</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d313818c-0eda-474f-b97b-2d5e64b28c92" alt="image">
+</p>
+
+<p align="justify">Matriz de confusão XGBoost:</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/64b49233-4fbd-4d19-8cb8-a1e78ef0feff" alt="image">
+</p>
+
+<p align="justify">Matriz de confusão Naive Bayes:</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/632ebad6-7b43-4d27-ac01-5379bd8dee95" alt="image">
+</p>
 
 <p align="justify">Analisando os resultados gerais, os três modelos obtiveram desempenhos muito bons, com pequenas variações entre eles conforme o volume de dados de teste aumentava. O Random Forest e o XGBoost apresentaram uma pequena perda de desempenho em termos de precisão e F1-Score à medida que a porcentagem de teste aumentava. Já o Naive Bayes se destacou pela consistência: manteve precisão, recall e F1-Score elevados (próximos de 1.0) em todas as divisões de treino/teste, sem apresentar erros (falsos positivos ou falsos negativos) nos dados de validação. Com base nos resultados apresentados, o Naive Bayes foi o método que apresentou o melhor desempenho geral, demonstrando tanto alta capacidade de identificação dos sobreviventes quanto estabilidade nas diferentes proporções de divisão dos dados.</p>
 

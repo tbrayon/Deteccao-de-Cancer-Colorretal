@@ -994,7 +994,7 @@ Métricas principais:
 sns.heatmap(confusion_matrix(y_test, y_pred), annot=True, fmt='d', cmap='Blues')
 ```
 
-<p>A <strong>matriz de confusão</strong> permite avaliar visualmente os acertos e erros do modelo, separando verdadeiros e falsos positivos/negativos.</p> <p align="center"> <img src="https://github.com/user-attachments/assets/cca27b0e-1a0f-49b4-ba46-4f23afd98469" width="500"> </p>
+<p>A <strong>matriz de confusão</strong> permite avaliar visualmente os acertos e erros do modelo, separando verdadeiros e falsos positivos/negativos.</p> <p align="center"> <img src="https://github.com/user-attachments/assets/cca27b0e-1a0f-49b4-ba46-4f23afd98469"> </p>
 
 #### 2.8 Curva ROC e AUC
 
@@ -1003,7 +1003,7 @@ fpr, tpr, thresholds = roc_curve(y_test, y_prob)
 auc_score = roc_auc_score(y_test, y_prob)
 ```
 
-<p>A <strong>curva ROC</strong> relaciona a taxa de verdadeiros positivos (TPR) com a taxa de falsos positivos (FPR), e a <strong>AUC</strong> representa a capacidade do modelo em distinguir entre as classes.</p> <p align="center"> <img src="https://github.com/user-attachments/assets/44f124c2-0320-4de4-a484-548f4ee7b660" width="500"> </p>
+<p>A <strong>curva ROC</strong> relaciona a taxa de verdadeiros positivos (TPR) com a taxa de falsos positivos (FPR), e a <strong>AUC</strong> representa a capacidade do modelo em distinguir entre as classes.</p> <p align="center"> <img src="https://github.com/user-attachments/assets/44f124c2-0320-4de4-a484-548f4ee7b660"> </p>
 
 ### Resultados: Relatório de Classificação
 
@@ -1113,7 +1113,7 @@ fpr, tpr, thresholds = roc_curve(y_test, y_prob)
 auc_score = roc_auc_score(y_test, y_prob)
 ```
 
-<p align="center"> A curva ROC demonstra a capacidade do modelo em distinguir entre classes positivas e negativas. A AUC (área sob a curva) é um indicador da qualidade geral do classificador — quanto mais próxima de 1, melhor. </p> <p align="center"> <img src="https://github.com/user-attachments/assets/5588379b-10a8-43e0-aee2-bd61a5126475" alt="Curva ROC" width="500"> </p>
+<p align="center"> A curva ROC demonstra a capacidade do modelo em distinguir entre classes positivas e negativas. A AUC (área sob a curva) é um indicador da qualidade geral do classificador — quanto mais próxima de 1, melhor. </p> <p align="center"> <img src="https://github.com/user-attachments/assets/5588379b-10a8-43e0-aee2-bd61a5126475" alt="Curva ROC" > </p>
 
 
 ### Resultados:

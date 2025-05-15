@@ -903,11 +903,11 @@ plt.savefig("graphs/roc_curve_naive_bayes.png")
 
 
 <div align="center"> 
-   <img src="https://github.com/user-attachments/assets/bdebaa8f-0d4b-4819-816c-7ffa7de50546" alt="Matriz de Confusão - Naive Bayes" width="500">
+   <img src="https://github.com/user-attachments/assets/bdebaa8f-0d4b-4819-816c-7ffa7de50546" alt="Matriz de Confusão - Naive Bayes" >
 </div>
 
 <div align="center"> 
-   <img src="https://github.com/user-attachments/assets/5b3615f3-e559-48d7-a56b-0df88219e72b" alt="Curva ROC -  Naive Bayes" width="500"> 
+   <img src="https://github.com/user-attachments/assets/5b3615f3-e559-48d7-a56b-0df88219e72b" alt="Curva ROC -  Naive Bayes" > 
 </div>
 
 
@@ -1103,7 +1103,7 @@ gmean_score = gmean([prec, rec]) if prec > 0 and rec > 0 else 0
 ```python
 sns.heatmap(confusion_matrix(y_test, y_pred), annot=True, fmt='d', cmap='Oranges')
 ```
-<p align="center"> A matriz de confusão mostra a distribuição dos acertos e erros do modelo. Essa visualização é crucial para entender o comportamento do classificador em contextos desbalanceados. </p> <p align="center"> <img src="https://github.com/user-attachments/assets/eed9f502-e0b4-47a1-9960-797ddd367f3f" alt="Matriz de Confusão" width="500"> </p>
+<p align="center"> A matriz de confusão mostra a distribuição dos acertos e erros do modelo. Essa visualização é crucial para entender o comportamento do classificador em contextos desbalanceados. </p> <p align="center"> <img src="https://github.com/user-attachments/assets/eed9f502-e0b4-47a1-9960-797ddd367f3f" alt="Matriz de Confusão"> </p>
 
 
 #### 3.8 Matriz de Confusão

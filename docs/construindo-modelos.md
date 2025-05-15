@@ -1218,5 +1218,9 @@ A remoção de dados da classe majoritária resultou em desempenho inferior. **R
 
 Em pesquisa e experimentação em sistemas de informação, um pipeline de pesquisa e análise de dados refere-se a um conjunto organizado de processos e etapas que um profissional segue para realizar a coleta, preparação, análise e interpretação de dados durante a fase de pesquisa e desenvolvimento de modelos. Esse pipeline é essencial para extrair _insights_ significativos, entender a natureza dos dados e, construir modelos de aprendizado de máquina eficazes. 
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9f0a20a2-3b34-4878-b722-dd89f29283bf" alt="image">
+</p>
+
 # Vídeo de apresentação da Etapa 03
 

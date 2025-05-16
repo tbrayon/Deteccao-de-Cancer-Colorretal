@@ -308,19 +308,26 @@ evaluate_model("Naive Bayes", y_test, nb_pred)
 
 <p align="justify">Após apuração, chegamos ao veredito em que o cenário que apresentou o melhor desempenho foi com treinamento de 80% e teste de 20% com 100 árvores de decisão. Com isso, apresentamos abaixo os prints das matrizes de confusão deste cenário em específico:</p>
 
-<p align="justify">Matriz de confusão Randon Forest:</p>
+<p align="justify"><strong>Matriz de confusão Randon Forest:</strong></p>
+
+<p align="justify">O modelo está altamente enviesado para prever que todos vão sobreviver, o que resulta em uma falsa sensação de acurácia (75%), mas com
+péssimo desempenho na detecção de mortes. Mesmo realizando o balanceamento dos dados, não houve diferença nos resultado.</p>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d313818c-0eda-474f-b97b-2d5e64b28c92" alt="image">
 </p>
 
-<p align="justify">Matriz de confusão XGBoost:</p>
+<p align="justify"><strong>Matriz de confusão XGBoost:</strong></p>
+
+<p align="justify">O modelo XGBoost superou o Random Forest na identificação de casos de óbito, mas ainda apresenta desempenho insatisfatório na detecção de pacientes que faleceram, com mais de 99% das mortes não detectadas (falsos negativos), mesmo sendo feito o balanceamento dos dados.</p>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/64b49233-4fbd-4d19-8cb8-a1e78ef0feff" alt="image">
 </p>
 
-<p align="justify">Matriz de confusão Naive Bayes:</p>
+<p align="justify"><strong>Matriz de confusão Naive Bayes:</strong></p>
+
+<p align="justify">A matriz de confusão do modelo Naive Bayes revela um desempenho insatisfatório na classificação dos dados, uma vez que o algoritmo classificou todos os exemplos como pertencentes à classe "Survived", ignorando completamente a classe "Deceased". Isso indica um forte viés para a classe majoritária porém, mesmo realizando o balanceamento dos dados, o resultado não apresentou melhora.</p>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/632ebad6-7b43-4d27-ac01-5379bd8dee95" alt="image">

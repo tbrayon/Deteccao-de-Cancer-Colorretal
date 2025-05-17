@@ -1044,7 +1044,9 @@ auc_score = roc_auc_score(y_test, y_prob)
 
 ### 3 - Descrição do Código (Naive Bayes Undersampling) 
 
-<p align="center"> Este experimento visa desenvolver um modelo de classificação para a variável <code>Survival_Status</code> utilizando a técnica de balanceamento por Undersampling. Para isso, foi empregada a biblioteca <code>imblearn</code> e o classificador probabilístico <code>GaussianNB</code>, considerando um conjunto de dados originalmente desbalanceado.</p>
+<p style="text-align: justify; margin: 0 auto; max-width: 800px;">
+  Este experimento visa desenvolver um modelo de classificação para a variável <code>Survival_Status</code> utilizando a técnica de balanceamento por Undersampling. Para isso, foi empregada a biblioteca <code>imblearn</code> e o classificador probabilístico <code>GaussianNB</code>, considerando um conjunto de dados originalmente desbalanceado.
+</p>
 
 
 #### 3.1  Conversão da Variável Alvo
@@ -1056,7 +1058,10 @@ if y.dtype == 'O':
     y = y.astype(str)
     y = y.map({label: idx for idx, label in enumerate(sorted(y.unique()))})
 ```
-<p align="center"> A variável-alvo <code>Survival_Status</code> é copiada do DataFrame principal. Caso seus valores sejam do tipo <code>object</code> (strings), realiza-se a codificação de rótulos (label encoding), atribuindo valores numéricos distintos para cada categoria. Essa transformação é fundamental, pois os algoritmos de machine learning não operam diretamente com dados categóricos. </p>
+<p style="text-align: justify; margin: 0 auto; max-width: 800px;">
+  A variável-alvo <code>Survival_Status</code> é copiada do DataFrame principal. Caso seus valores sejam do tipo <code>object</code> (strings), realiza-se a codificação de rótulos (label encoding), atribuindo valores numéricos distintos para cada categoria. Essa transformação é fundamental, pois os algoritmos de machine learning não operam diretamente com dados categóricos.
+</p>
+
 
 #### 3.2 Divisão dos Dados com Estratificação
 
@@ -1072,7 +1077,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 under = RandomUnderSampler(random_state=42)
 X_train_resampled, y_train_resampled = under.fit_resample(X_train, y_train)
 ```
-<p align="center"> O <code>RandomUnderSampler</code> é aplicado apenas ao conjunto de treino. Ele reduz aleatoriamente o número de amostras da classe majoritária até que haja equilíbrio entre as classes. Essa técnica combate o viés que o modelo poderia desenvolver ao priorizar a classe mais frequente. </p>
+<p style="text-align: justify; margin: 0 auto; max-width: 800px;">
+  O <code>RandomUnderSampler</code> é aplicado apenas ao conjunto de treino. Ele reduz aleatoriamente o número de amostras da classe majoritária até que haja equilíbrio entre as classes. Essa técnica combate o viés que o modelo poderia desenvolver ao priorizar a classe mais frequente.
+</p>
 
 
 #### 3.4 Treinamento do Modelo com Naive Bayes

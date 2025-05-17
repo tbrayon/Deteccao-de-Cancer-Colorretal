@@ -349,7 +349,7 @@ O XGBoost se destaca por suas otimizações que o tornam altamente eficiente e p
 * Flexibilidade com funções de perda personalizadas.
 * Taxa de aprendizado ("shrinkage") para maior robustez.
 
-#### 1 Descrição do Código:
+#### 1. Descrição do Código:
 ```python
 # Crie a matriz de features (X)
   X = df_processed[feature_columns]
@@ -378,7 +378,7 @@ O XGBoost se destaca por suas otimizações que o tornam altamente eficiente e p
   # Assume-se que o valor 1.0 nesta coluna indica que o paciente passou por cirurgia (o rótulo positivo).
 ```
 
-#### 2 Divisão de Dados em Treinamento e Teste para Modelagem de Sobrevivência ao Câncer de Colorretal:
+#### 2. Divisão de Dados em Treinamento e Teste para Modelagem de Sobrevivência ao Câncer de Colorretal:
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -408,7 +408,7 @@ X_train_survival, X_test_survival, y_train_survival, y_test_survival = train_tes
 # - 'y_test_survival': A variável alvo (sobrevivência) para o conjunto de teste.
 ```
 
-#### 3 Importação do Classificador XGBoost para Modelagem Preditiva:
+#### 3. Importação do Classificador XGBoost para Modelagem Preditiva:
 ```python
 rom xgboost import XGBClassifier
 # Importa a classe 'XGBClassifier' da biblioteca 'xgboost'.
@@ -420,7 +420,7 @@ rom xgboost import XGBClassifier
 # modelos de classificação em nossos dados.
 ```
 
-#### 4 Inicialização de Modelos XGBoost com Parâmetros Padrão e Ajustados:
+#### 4. Inicialização de Modelos XGBoost com Parâmetros Padrão e Ajustados:
 ```python
 # Usando parâmetros padrão
 model = XGBClassifier()
@@ -446,7 +446,7 @@ model_tuned = XGBClassifier(objective='binary:logistic', # Especifica o objetivo
 # A instância do modelo com hiperparâmetros ajustados é armazenada na variável 'model_tuned'.
 ```
 
-#### 5 Treinamento do Modelo XGBoost Ajustado com Dados de Sobrevivência:
+#### 5. Treinamento do Modelo XGBoost Ajustado com Dados de Sobrevivência:
 ```python
 # Use os dados de treinamento para ajustar o modelo com hiperparâmetros
 model_tuned.fit(X_train_survival, y_train_survival)
@@ -463,7 +463,7 @@ model_tuned.fit(X_train_survival, y_train_survival)
 # para fazer previsões em novos dados (como o conjunto de teste).
 ```
 
-#### 6 Realização de Previsões de Sobrevivência com o Modelo XGBoost Treinado:
+#### 6. Realização de Previsões de Sobrevivência com o Modelo XGBoost Treinado:
 
 ```python
 y_pred_survival = model.predict(X_test_survival)

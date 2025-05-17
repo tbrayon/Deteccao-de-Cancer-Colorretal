@@ -749,11 +749,141 @@ Interpretação: Uma acurácia média de 0.7441 (ou 74.41%) indica que, em médi
 
 5. Conclusão:
 
-&lt;p align="justify">Em suma, a análise das métricas de validação cruzada para o modelo XGBoost de previsão de sobrevivência revela um panorama misto de desempenho. Observa-se uma alta capacidade do modelo em identificar corretamente os pacientes que sobreviveram, conforme indicado pelo elevado recall médio de 0.9909. Isso sugere que o modelo é eficaz em minimizar os falsos negativos, ou seja, em não classificar erroneamente um paciente sobrevivente como não sobrevivente. No entanto, a precisão média de 0.7487 aponta para uma taxa considerável de falsos positivos, indicando que aproximadamente 25% das previsões de sobrevivência realizadas pelo modelo foram incorretas. Essa discrepância entre o alto recall e a precisão moderada se reflete no F1-Score médio de 0.8529, que representa um bom, mas não ótimo, equilíbrio entre essas duas métricas.</p>
+<p align="justify">Em suma, a análise das métricas de validação cruzada para o modelo XGBoost de previsão de sobrevivência revela um panorama misto de desempenho. Observa-se uma alta capacidade do modelo em identificar corretamente os pacientes que sobreviveram, conforme indicado pelo elevado recall médio de 0.9909. Isso sugere que o modelo é eficaz em minimizar os falsos negativos, ou seja, em não classificar erroneamente um paciente sobrevivente como não sobrevivente. No entanto, a precisão média de 0.7487 aponta para uma taxa considerável de falsos positivos, indicando que aproximadamente 25% das previsões de sobrevivência realizadas pelo modelo foram incorretas. Essa discrepância entre o alto recall e a precisão moderada se reflete no F1-Score médio de 0.8529, que representa um bom, mas não ótimo, equilíbrio entre essas duas métricas.</p>
 
-&lt;p align="justify">A acurácia média de 0.7441 fornece uma visão geral do desempenho do modelo, indicando que ele classificou corretamente cerca de 74.41% das amostras. Embora essa seja uma taxa razoável, o contexto específico da previsão de sobrevivência exige uma análise mais aprofundada das implicações dos falsos positivos e falsos negativos. No presente caso, o alto recall sugere que o modelo é conservador ao prever a não sobrevivência, o que pode ser preferível em certos cenários clínicos onde perder a identificação de um paciente com alta probabilidade de sobrevivência teria consequências mais graves. Contudo, a precisão relativamente mais baixa indica que o modelo pode gerar um número significativo de alarmes falsos de sobrevivência, o que também pode ter implicações práticas.</p>
+<p align="justify">A acurácia média de 0.7441 fornece uma visão geral do desempenho do modelo, indicando que ele classificou corretamente cerca de 74.41% das amostras. Embora essa seja uma taxa razoável, o contexto específico da previsão de sobrevivência exige uma análise mais aprofundada das implicações dos falsos positivos e falsos negativos. No presente caso, o alto recall sugere que o modelo é conservador ao prever a não sobrevivência, o que pode ser preferível em certos cenários clínicos onde perder a identificação de um paciente com alta probabilidade de sobrevivência teria consequências mais graves. Contudo, a precisão relativamente mais baixa indica que o modelo pode gerar um número significativo de alarmes falsos de sobrevivência, o que também pode ter implicações práticas.</p>
 
-&lt;p align="justify">Portanto, ao considerar a aplicação deste modelo, é crucial ponderar a importância relativa da precisão e do recall, alinhando-as com os objetivos específicos do sistema de previsão. Futuras otimizações poderiam se concentrar em ajustar os limiares de decisão do modelo ou explorar técnicas de balanceamento de classes para mitigar o impacto dos falsos positivos, buscando um melhor compromisso entre a identificação de sobreviventes e a minimização de previsões incorretas de sobrevivência.</p>
+<p align="justify">Portanto, ao considerar a aplicação deste modelo, é crucial ponderar a importância relativa da precisão e do recall, alinhando-as com os objetivos específicos do sistema de previsão. Futuras otimizações poderiam se concentrar em ajustar os limiares de decisão do modelo ou explorar técnicas de balanceamento de classes para mitigar o impacto dos falsos positivos, buscando um melhor compromisso entre a identificação de sobreviventes e a minimização de previsões incorretas de sobrevivência.</p>
+
+#### 12. Oversampling  com RandomOverSampler para Mitigação de Desbalanceamento de Classes em Modelos XGBoost:
+
+```python
+from imblearn.over_sampling import RandomOverSampler
+ros = RandomOverSampler(random_state=42)
+X_train_ros, y_train_ros = ros.fit_resample(preprocessed_X_train, y_train)
+
+# Treinar o modelo com X_train_ros e y_train_ros
+model_ros = xgb.XGBClassifier(objective='binary:logistic', random_state=42)
+model_ros.fit(X_train_ros, y_train_ros)
+
+# Avaliar model_ros no conjunto de teste
+y_pred_ros = model_ros.predict(preprocessed_X_test)
+print("Acurácia no conjunto de teste (ROS):", accuracy_score(y_test, y_pred_ros))
+print("Relatório de Classificação (ROS):\n", classification_report(y_test, y_pred_ros))
+
+Acurácia no conjunto de teste (ROS): 0.5670131747178832
+Relatório de Classificação (ROS):
+               precision    recall  f1-score   support
+
+           0       0.25      0.38      0.30      4471
+           1       0.75      0.63      0.69     13518
+
+    accuracy                           0.57     17989
+   macro avg       0.50      0.50      0.49     17989
+weighted avg       0.63      0.57      0.59     17989
+```
+
+<p align="justify">Este trecho de código demonstra a aplicação da técnica de Random Oversampling (ROS) para lidar com o possível desbalanceamento entre as classes no conjunto de treinamento. Ao replicar aleatoriamente as amostras da classe minoritária, o ROS busca equilibrar a representatividade das classes antes do treinamento do modelo XGBoost. A avaliação subsequente do modelo treinado com os dados balanceados ( model_ros ) no conjunto de teste permite verificar o impacto dessa técnica nas métricas de desempenho, como acurácia e outras presentes no relatório de classificação.</p>
+
+#####Avaliação do Desempenho do Modelo XGBoost com Oversampling no Conjunto de Teste:
+
+```python
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
+
+# Supondo que você já treinou seu modelo (model_ros)
+# e fez as previsões no conjunto de teste pré-processado (preprocessed_X_test)
+# y_test contém os rótulos reais do conjunto de teste
+
+# Fazer previsões no conjunto de teste usando o modelo treinado com ROS
+y_pred_ros = model_ros.predict(preprocessed_X_test)
+
+# Calcular as métricas
+acuracia_ros = accuracy_score(y_test, y_pred_ros)
+
+# Para precisão, recall e F1-score, podemos calcular as médias macro e ponderada
+# average='macro': calcula métricas para cada rótulo e encontra sua média não ponderada.
+# average='weighted': calcula métricas para cada rótulo e encontra a média ponderada pelo número de amostras verdadeiras para cada rótulo.
+
+precisao_macro_ros = precision_score(y_test, y_pred_ros, average='macro')
+recall_macro_ros = recall_score(y_test, y_pred_ros, average='macro')
+f1_macro_ros = f1_score(y_test, y_pred_ros, average='macro')
+
+precisao_weighted_ros = precision_score(y_test, y_pred_ros, average='weighted')
+recall_weighted_ros = recall_score(y_test, y_pred_ros, average='weighted')
+f1_weighted_ros = f1_score(y_test, y_pred_ros, average='weighted')
+
+# Imprimir os resultados
+print(f"Acurácia no conjunto de teste (ROS): {acuracia_ros:.4f}")
+
+print("\nMétricas Médias (ROS - Macro Avg):")
+print(f"  Precisão média (Macro): {precisao_macro_ros:.4f}")
+print(f"  Recall médio (Macro):   {recall_macro_ros:.4f}")
+print(f"  F1-Score médio (Macro): {f1_macro_ros:.4f}")
+
+print("\nMétricas Médias (ROS - Weighted Avg):")
+print(f"  Precisão média (Ponderada): {precisao_weighted_ros:.4f}")
+print(f"  Recall médio (Ponderada):   {recall_weighted_ros:.4f}")
+print(f"  F1-Score médio (Ponderada): {f1_weighted_ros:.4f}")
+
+# Você também pode imprimir o relatório de classificação completo novamente para comparação
+print("\nRelatório de Classificação (ROS):")
+print(classification_report(y_test, y_pred_ros))
+
+curácia no conjunto de teste (ROS): 0.5670
+
+Métricas Médias (ROS - Macro Avg):
+  Precisão média (Macro): 0.5032
+  Recall médio (Macro):   0.5040
+  F1-Score médio (Macro): 0.4945
+
+Métricas Médias (ROS - Weighted Avg):
+  Precisão média (Ponderada): 0.6292
+  Recall médio (Ponderada):   0.5670
+  F1-Score médio (Ponderada): 0.5908
+```
+
+<p align="justify">Este trecho de código realiza a avaliação do modelo XGBoost (model_ros), previamente treinado com dados de treinamento submetidos à técnica de Random Oversampling (ROS), utilizando o conjunto de teste. São calculadas diversas métricas de classificação, incluindo acurácia, precisão, recall e F1-score. Para as métricas de precisão, recall e F1-score, são apresentadas tanto as médias macro (não ponderada por classe) quanto as médias ponderadas (pelo número de amostras em cada classe), fornecendo uma análise abrangente do desempenho do modelo na previsão das diferentes classes no conjunto de teste. Adicionalmente, o relatório de classificação completo é exibido para detalhar o desempenho por classe.</p>
+
+Explicação dos Resultados da Avaliação com Oversampling (ROS):
+<p align="justify">Os resultados da avaliação do modelo XGBoost no conjunto de teste, após o balanceamento dos dados de treinamento com Random Oversampling (ROS), indicam o seguinte:</p>
+
+Acurácia no conjunto de teste (ROS): 0.5670
+
+<p align="justify">Isso significa que o modelo conseguiu classificar corretamente aproximadamente 56.70% das amostras no conjunto de teste. Em outras palavras, de todas as previsões feitas, cerca de 56.70% estavam corretas. Este valor, por si só, sugere um desempenho modesto do modelo na classificação geral.</p>
+
+Métricas Médias (ROS - Macro Avg):
+
+Precisão média (Macro): 0.5032
+<p align="justify">A precisão macro calcula a precisão para cada classe individualmente e, em seguida, encontra a média dessas precisões. Um valor de 0.5032 (ou 50.32%) indica que, em média, quando o modelo previu uma determinada classe, ele estava correto em cerca de 50.32% das vezes, sem levar em consideração o número de amostras em cada classe. Este valor baixo sugere que o modelo está tendo dificuldade em fazer previsões positivas corretas para ambas as classes de forma equilibrada.</p>
+
+Recall médio (Macro): 0.5040
+<p align="justify">O recall macro calcula o recall para cada classe individualmente e, em seguida, encontra a média desses recalls. Um valor de 0.5040 (ou 50.40%) indica que, em média, o modelo conseguiu identificar corretamente cerca de 50.40% de todas as amostras reais de cada classe, sem levar em consideração o número de amostras em cada classe. Este valor também baixo sugere que o modelo não está capturando bem todas as instâncias positivas de cada classe de forma equilibrada.</p>
+
+F1-Score médio (Macro): 0.4945
+<p align="justify">O F1-Score macro é a média harmônica da precisão macro e do recall macro. Um valor de 0.4945 representa um equilíbrio entre a precisão e o recall, sem considerar o desbalanceamento de classes. Este valor relativamente baixo reforça a ideia de que o modelo não está performando bem em ambas as métricas de forma equilibrada entre as classes.</p>
+
+Métricas Médias (ROS - Weighted Avg):
+
+Precisão média (Ponderada): 0.6292
+<p align="justify">A precisão ponderada calcula a precisão para cada classe e, em seguida, calcula a média ponderada dessas precisões pelo número de amostras verdadeiras em cada classe. Um valor de 0.6292 (ou 62.92%) sugere que, levando em consideração o número de amostras em cada classe, quando o modelo previu uma determinada classe, ele estava correto em cerca de 62.92% das vezes. A melhora em relação à precisão macro indica que o modelo pode estar performando melhor na classe majoritária (aquela com mais amostras).</p>
+     
+Recall médio (Ponderado): 0.5670
+<p align="justify">O recall ponderado calcula o recall para cada classe e, em seguida, calcula a média ponderada desses recalls pelo número de amostras verdadeiras em cada classe. O valor de 0.5670 é igual à acurácia, o que é esperado, pois o recall ponderado essencialmente calcula a taxa de verdadeiros positivos ponderada pelo suporte de cada classe, que é equivalente à acurácia em classificações multi-classe.</p>
+
+F1-Score médio (Ponderado): 0.5908
+<p align="justify">O F1-Score ponderado é a média harmônica da precisão ponderada e do recall ponderado. Um valor de 0.5908 representa um equilíbrio entre a precisão e o recall, levando em consideração o desbalanceamento de classes. Este valor está um pouco melhor que o F1-Score macro, sugerindo que o modelo pode estar tendo um desempenho melhor na classe majoritária.</p>
+
+
+<p align="justify">Os resultados sugerem que, após aplicar o Random Oversampling, a acurácia geral do modelo no conjunto de teste é de cerca de 56.7%. As métricas macro indicam um desempenho relativamente baixo e equilibrado entre as classes em termos de precisão e recall. Já as métricas ponderadas mostram uma melhora na precisão, sugerindo que o modelo pode estar se beneficiando da maior representatividade da classe minoritária após o oversampling, mas ainda com um desempenho geral que pode ser considerado baixo ou moderado. A diferença entre as médias macro e ponderadas aponta para um possível desbalanceamento remanescente ou dificuldades inerentes do modelo em classificar ambas as classes com alta performance. É importante analisar o relatório de classificação completo para entender o desempenho específico do modelo em cada classe individualmente.</p>
+
+Matriz de Confusão com Oversampling (ROS):
+
+Previsto Não Sobreviveu   Previsto Sobreviveu
+Real Não Sobreviveu        1693                    2778
+Real Sobreviveu           5011                    8507
+
+
+<p align="justify">A matriz de confusão revela que, apesar do oversampling, o modelo ainda apresenta dificuldades significativas na classificação correta de ambas as classes. Ele tende a gerar muitos alarmes falsos de sobrevivência (Falsos Positivos) e, principalmente, falha em identificar um número considerável de pacientes que realmente sobreviveram (Falsos Negativos). Isso pode ter implicações importantes dependendo do contexto da aplicação, sendo crucial avaliar qual tipo de erro é mais custoso. O oversampling, neste caso, não parece ter levado a uma melhoria substancial no desempenho geral do modelo, e pode até ter exacerbado a tendência a prever a classe majoritária original (assumindo que 'Não Sobreviveu' era a classe minoritária antes do oversampling).</p>
 
 ## Naive Bayes
 

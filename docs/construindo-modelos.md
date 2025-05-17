@@ -708,7 +708,7 @@ F1-Score médio: 0.8529
 ```
 ##### Explicação das Métricas de Avaliação do Modelo de Sobrevivência (Validação Cruzada):
 
-<p align="justify">As métricas que você obteve através da validação cruzada fornecem diferentes perspectivas sobre o desempenho do seu modelo XGBoost na tarefa de prever a sobrevivência (assumindo que a classe positiva seja "Sobreviveu"). Vamos detalhar cada uma delas:</p>
+<p align="justify">As métricas obtidas por meio da validação cruzada oferecem distintas perspectivas sobre o desempenho do modelo XGBoost aplicado à tarefa de previsão de sobrevivência (considerando a classe positiva como "Sobreviveu"):</p>
 
 1. Precisão Média (Validação Cruzada): 0.7487
 
@@ -746,6 +746,14 @@ Interpretação: Um F1-Score médio de 0.8529 (ou 85.29%) representa um bom equi
 Acurácia = (Verdadeiros Positivos (TP) + Verdadeiros Negativos (TN)) / (Total de Amostras)</p>
 <p align="justify">FVerdadeiros Negativos (TN): Pacientes que realmente não sobreviveram e foram corretamente previstos como não sobreviventes.
 Interpretação: Uma acurácia média de 0.7441 (ou 74.41%) indica que, em média, o modelo classificou corretamente cerca de 74.41% de todos os pacientes no conjunto de dados nos diferentes folds da validação cruzada.</p>
+
+5. Conclusão:
+
+&lt;p align="justify">Em suma, a análise das métricas de validação cruzada para o modelo XGBoost de previsão de sobrevivência revela um panorama misto de desempenho. Observa-se uma alta capacidade do modelo em identificar corretamente os pacientes que sobreviveram, conforme indicado pelo elevado recall médio de 0.9909. Isso sugere que o modelo é eficaz em minimizar os falsos negativos, ou seja, em não classificar erroneamente um paciente sobrevivente como não sobrevivente. No entanto, a precisão média de 0.7487 aponta para uma taxa considerável de falsos positivos, indicando que aproximadamente 25% das previsões de sobrevivência realizadas pelo modelo foram incorretas. Essa discrepância entre o alto recall e a precisão moderada se reflete no F1-Score médio de 0.8529, que representa um bom, mas não ótimo, equilíbrio entre essas duas métricas.</p>
+
+&lt;p align="justify">A acurácia média de 0.7441 fornece uma visão geral do desempenho do modelo, indicando que ele classificou corretamente cerca de 74.41% das amostras. Embora essa seja uma taxa razoável, o contexto específico da previsão de sobrevivência exige uma análise mais aprofundada das implicações dos falsos positivos e falsos negativos. No presente caso, o alto recall sugere que o modelo é conservador ao prever a não sobrevivência, o que pode ser preferível em certos cenários clínicos onde perder a identificação de um paciente com alta probabilidade de sobrevivência teria consequências mais graves. Contudo, a precisão relativamente mais baixa indica que o modelo pode gerar um número significativo de alarmes falsos de sobrevivência, o que também pode ter implicações práticas.</p>
+
+&lt;p align="justify">Portanto, ao considerar a aplicação deste modelo, é crucial ponderar a importância relativa da precisão e do recall, alinhando-as com os objetivos específicos do sistema de previsão. Futuras otimizações poderiam se concentrar em ajustar os limiares de decisão do modelo ou explorar técnicas de balanceamento de classes para mitigar o impacto dos falsos positivos, buscando um melhor compromisso entre a identificação de sobreviventes e a minimização de previsões incorretas de sobrevivência.</p>
 
 ## Naive Bayes
 

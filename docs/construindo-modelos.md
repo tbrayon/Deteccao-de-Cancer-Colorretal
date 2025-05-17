@@ -785,7 +785,7 @@ weighted avg       0.63      0.57      0.59     17989
 
 <p align="justify">Este trecho de código demonstra a aplicação da técnica de Random Oversampling (ROS) para lidar com o possível desbalanceamento entre as classes no conjunto de treinamento. Ao replicar aleatoriamente as amostras da classe minoritária, o ROS busca equilibrar a representatividade das classes antes do treinamento do modelo XGBoost. A avaliação subsequente do modelo treinado com os dados balanceados ( model_ros ) no conjunto de teste permite verificar o impacto dessa técnica nas métricas de desempenho, como acurácia e outras presentes no relatório de classificação.</p>
 
-#####Avaliação do Desempenho do Modelo XGBoost com Oversampling no Conjunto de Teste:
+##### Avaliação do Desempenho do Modelo XGBoost com Oversampling no Conjunto de Teste:
 
 ```python
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
@@ -872,7 +872,6 @@ Recall médio (Ponderado): 0.5670
 
 F1-Score médio (Ponderado): 0.5908
 <p align="justify">O F1-Score ponderado é a média harmônica da precisão ponderada e do recall ponderado. Um valor de 0.5908 representa um equilíbrio entre a precisão e o recall, levando em consideração o desbalanceamento de classes. Este valor está um pouco melhor que o F1-Score macro, sugerindo que o modelo pode estar tendo um desempenho melhor na classe majoritária.</p>
-
 
 <p align="justify">Os resultados sugerem que, após aplicar o Random Oversampling, a acurácia geral do modelo no conjunto de teste é de cerca de 56.7%. As métricas macro indicam um desempenho relativamente baixo e equilibrado entre as classes em termos de precisão e recall. Já as métricas ponderadas mostram uma melhora na precisão, sugerindo que o modelo pode estar se beneficiando da maior representatividade da classe minoritária após o oversampling, mas ainda com um desempenho geral que pode ser considerado baixo ou moderado. A diferença entre as médias macro e ponderadas aponta para um possível desbalanceamento remanescente ou dificuldades inerentes do modelo em classificar ambas as classes com alta performance. É importante analisar o relatório de classificação completo para entender o desempenho específico do modelo em cada classe individualmente.</p>
 

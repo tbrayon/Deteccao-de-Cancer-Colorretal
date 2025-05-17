@@ -910,11 +910,11 @@ plt.savefig("graphs/roc_curve_naive_bayes.png")
 
 
 <div align="center"> 
-   <img src="https://github.com/user-attachments/assets/bdebaa8f-0d4b-4819-816c-7ffa7de50546" alt="Matriz de Confusão - Naive Bayes" >
+   <img src="https://github.com/user-attachments/assets/d4a46dcb-b71e-412f-9b04-3c3340d93b61" alt="Matriz de Confusão - Naive Bayes" >
 </div>
 
 <div align="center"> 
-   <img src="https://github.com/user-attachments/assets/5b3615f3-e559-48d7-a56b-0df88219e72b" alt="Curva ROC -  Naive Bayes" > 
+   <img src="https://github.com/user-attachments/assets/61db2c2e-5f27-4a62-b845-7093554301a2" alt="Curva ROC -  Naive Bayes" > 
 </div>
 
 

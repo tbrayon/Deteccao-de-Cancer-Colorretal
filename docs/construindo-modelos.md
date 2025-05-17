@@ -910,7 +910,7 @@ plt.savefig("graphs/roc_curve_naive_bayes.png")
 
 
 <div align="center"> 
-   <img src="docs/img/Naive Bayes-1.png" alt="Matriz de Confusão - Naive Bayes" >
+   <img src="img/Naive Bayes-1.png" alt="Matriz de Confusão - Naive Bayes" >
 </div>
 
 <div align="center"> 

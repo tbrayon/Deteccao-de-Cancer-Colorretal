@@ -910,11 +910,11 @@ plt.savefig("graphs/roc_curve_naive_bayes.png")
 
 
 <div align="center"> 
-   <img src="https://github.com/user-attachments/assets/d4a46dcb-b71e-412f-9b04-3c3340d93b61" alt="Matriz de Confusão - Naive Bayes" >
+   <img src="docs/img/Naive Bayes-1.png" alt="Matriz de Confusão - Naive Bayes" >
 </div>
 
 <div align="center"> 
-   <img src="https://github.com/user-attachments/assets/61db2c2e-5f27-4a62-b845-7093554301a2" alt="Curva ROC -  Naive Bayes" > 
+   <img src="docs/img/Naive Bayes-2.png" alt="Curva ROC -  Naive Bayes" > 
 </div>
 
 
@@ -1001,7 +1001,7 @@ Métricas principais:
 sns.heatmap(confusion_matrix(y_test, y_pred), annot=True, fmt='d', cmap='Blues')
 ```
 
-<p>A <strong>matriz de confusão</strong> permite avaliar visualmente os acertos e erros do modelo, separando verdadeiros e falsos positivos/negativos.</p> <p align="center"> <img src="https://github.com/user-attachments/assets/cca27b0e-1a0f-49b4-ba46-4f23afd98469"> </p>
+<p>A <strong>matriz de confusão</strong> permite avaliar visualmente os acertos e erros do modelo, separando verdadeiros e falsos positivos/negativos.</p> <p align="center"> <img src="docs/img/Naive Bayes-3.png"> </p>
 
 #### 2.8 Curva ROC e AUC
 
@@ -1010,7 +1010,7 @@ fpr, tpr, thresholds = roc_curve(y_test, y_prob)
 auc_score = roc_auc_score(y_test, y_prob)
 ```
 
-<p>A <strong>curva ROC</strong> relaciona a taxa de verdadeiros positivos (TPR) com a taxa de falsos positivos (FPR), e a <strong>AUC</strong> representa a capacidade do modelo em distinguir entre as classes.</p> <p align="center"> <img src="https://github.com/user-attachments/assets/44f124c2-0320-4de4-a484-548f4ee7b660"> </p>
+<p>A <strong>curva ROC</strong> relaciona a taxa de verdadeiros positivos (TPR) com a taxa de falsos positivos (FPR), e a <strong>AUC</strong> representa a capacidade do modelo em distinguir entre as classes.</p> <p align="center"> <img src="docs/img/Naive Bayes-4.png"> </p>
 
 ### Resultados: Relatório de Classificação
 
@@ -1110,7 +1110,7 @@ gmean_score = gmean([prec, rec]) if prec > 0 and rec > 0 else 0
 ```python
 sns.heatmap(confusion_matrix(y_test, y_pred), annot=True, fmt='d', cmap='Oranges')
 ```
-<p align="center"> A matriz de confusão mostra a distribuição dos acertos e erros do modelo. Essa visualização é crucial para entender o comportamento do classificador em contextos desbalanceados. </p> <p align="center"> <img src="https://github.com/user-attachments/assets/eed9f502-e0b4-47a1-9960-797ddd367f3f" alt="Matriz de Confusão"> </p>
+<p align="center"> A matriz de confusão mostra a distribuição dos acertos e erros do modelo. Essa visualização é crucial para entender o comportamento do classificador em contextos desbalanceados. </p> <p align="center"> <img src="docs/img/Naive Bayes-5.png" alt="Matriz de Confusão"> </p>
 
 
 #### 3.8 Matriz de Confusão
@@ -1120,7 +1120,7 @@ fpr, tpr, thresholds = roc_curve(y_test, y_prob)
 auc_score = roc_auc_score(y_test, y_prob)
 ```
 
-<p align="center"> A curva ROC demonstra a capacidade do modelo em distinguir entre classes positivas e negativas. A AUC (área sob a curva) é um indicador da qualidade geral do classificador — quanto mais próxima de 1, melhor. </p> <p align="center"> <img src="https://github.com/user-attachments/assets/5588379b-10a8-43e0-aee2-bd61a5126475" alt="Curva ROC" > </p>
+<p align="center"> A curva ROC demonstra a capacidade do modelo em distinguir entre classes positivas e negativas. A AUC (área sob a curva) é um indicador da qualidade geral do classificador — quanto mais próxima de 1, melhor. </p> <p align="center"> <img src="docs/img/Naive Bayes-6.png" alt="Curva ROC" > </p>
 
 
 ### Resultados:

@@ -90,9 +90,9 @@ else:
 
 # Descrição dos modelos
 
-## Randon Forest:
+## Random Forest:
 
-<p align="justify">O Randon Forest é um algoritmo de ensemble baseado em árvores de decisão. Quando se combina várias árvores, temos uma floresta. Ele cria várias árvores de decisão usando conjuntos de dados aleatórios e, em seguida, combina as previsões de cada árvore para produzir uma previsão final. O Random Forest é um conjunto de várias árvores de decisão que trabalham juntas para fazer previsões mais precisas. Ao invés de depender de uma única árvore, ele cria múltiplas árvores e combina suas respostas. Isso o torna mais robusto e menos propenso a erros causados por variações nos dados. Ele usa a votação entre árvores para prever categorias e a média das previsões para problemas de regressão.</p>
+<p align="justify">O Random Forest é um algoritmo de ensemble baseado em árvores de decisão. Quando se combina várias árvores, temos uma floresta. Ele cria várias árvores de decisão usando conjuntos de dados aleatórios e, em seguida, combina as previsões de cada árvore para produzir uma previsão final. O Random Forest é um conjunto de várias árvores de decisão que trabalham juntas para fazer previsões mais precisas. Ao invés de depender de uma única árvore, ele cria múltiplas árvores e combina suas respostas. Isso o torna mais robusto e menos propenso a erros causados por variações nos dados. Ele usa a votação entre árvores para prever categorias e a média das previsões para problemas de regressão.</p>
 <p align="justify">Como funciona?</p>
 <p align="justify"><strong>Criação de várias árvores de decisão →</strong> O algoritmo constrói várias árvores, cada uma com um conjunto ligeiramente diferente de dados.</p>
 <p align="justify"><strong>Cada árvore faz uma previsão →</strong> Quando recebe um novo dado, cada árvore dá um "palpite" sobre a classe correta.</p>
@@ -308,7 +308,7 @@ evaluate_model("Naive Bayes", y_test, nb_pred)
 
 <p align="justify">Após apuração, chegamos ao veredito em que o cenário que apresentou o melhor desempenho foi com treinamento de 80% e teste de 20% com 100 árvores de decisão. Com isso, apresentamos abaixo os prints das matrizes de confusão deste cenário em específico:</p>
 
-<p align="justify"><strong>Matriz de confusão Randon Forest:</strong></p>
+<p align="justify"><strong>Matriz de confusão Random Forest:</strong></p>
 
 <p align="justify">O modelo está altamente enviesado para prever que todos vão sobreviver, o que resulta em uma falsa sensação de acurácia (75%), mas com
 péssimo desempenho na detecção de mortes. Mesmo realizando o balanceamento dos dados, não houve diferença nos resultado.</p>

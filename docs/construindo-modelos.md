@@ -1387,19 +1387,6 @@ A remoção de dados da classe majoritária resultou em desempenho inferior. **R
 
 <p align="justify">Durante o treinamento, os modelos também permitiram a análise da importância das variáveis (<em>feature importance</em>), com visualizações que auxiliaram na interpretação dos fatores preditivos mais relevantes.</p>
 
-### 4. Análise dos Resultados
-
-<p align="justify">A avaliação do desempenho dos modelos foi conduzida por meio das métricas: acurácia, precisão, <em>recall</em> e F1-score, além da análise das matrizes de confusão. Os resultados demonstraram que todos os modelos alcançaram bom desempenho preditivo, com destaque para o <strong>Naive Bayes</strong>, que apresentou <em>recall</em> de 100% em todas as proporções de divisão dos dados, não cometendo falsos negativos, o que é essencial em contextos clínicos onde a falha em identificar sobreviventes pode ser crítica.</p>
-
-<p align="justify">A análise também evidenciou limitações dos modelos <strong>Random Forest</strong> e <strong>XGBoost</strong>, os quais, mesmo com desempenho geral satisfatório, demonstraram dificuldades na identificação da classe minoritária (óbitos), apresentando viés para a classe majoritária (sobrevivência). A performance desses modelos decaiu ligeiramente à medida que a proporção da base de teste aumentou.</p>
-
-<p align="justify">A visualização das matrizes de confusão permitiu uma interpretação clara dos erros cometidos por cada modelo, reforçando a superioridade do <strong>Naive Bayes</strong> neste cenário. A pipeline conclui que, sob as condições analisadas, o <strong>Naive Bayes</strong> é o modelo mais apropriado para o problema de predição da sobrevivência de pacientes com câncer colorretal.</p>
-
-### Considerações Finais
-
-<p align="justify">A construção desta pipeline demonstrou um fluxo robusto e replicável para análise de dados clínicos com foco em aprendizado de máquina. Desde a inspeção inicial até a avaliação final dos modelos, cada etapa foi estruturada com base em boas práticas de ciência de dados. Os resultados reforçam o potencial das técnicas de <em>machine learning</em> na área da saúde, sobretudo quando aplicadas com rigor metodológico e suporte interpretativo. O uso de modelos preditivos pode, portanto, contribuir de maneira significativa para estratégias de diagnóstico precoce, alocação de recursos e personalização do tratamento no enfrentamento do câncer colorretal.</p>
-
-
 <p align="justify">Abaixo, apresentamos o fluxograma da pipeline utilizada nesta etapa do projeto para realização da análise das métricas dos modelos utilizados.</p>
 
 <p align="center">

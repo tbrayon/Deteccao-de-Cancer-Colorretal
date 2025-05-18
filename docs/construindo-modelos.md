@@ -1361,21 +1361,22 @@ A remoção de dados da classe majoritária resultou em desempenho inferior. **R
 
 <p align="justify">As métricas calculadas foram Acurácia (percentual de previsões corretas no total), Precisão (quão correto o modelo foi ao prever a sobrevivência), Recall (quantidade de casos de sobrevivência corretamente identificados) e F1-Score (harmonização entre Precisão e Recall). De modo geral, os valores de Acurácia e F1-Score mantiveram-se bastante elevados para todos os modelos, com destaque para o Naive Bayes, que apresentou recall de 100% em todas as divisões dos dados, enquanto Random Forest e XGBoost tiveram uma leve queda de desempenho conforme a proporção de teste aumentava.</p>
 
-## Discussão dos resultados obtidos
+## Discussão dos Resultados Obtidos
 
-<p align="justify">Analisando os resultados gerais, os três modelos obtiveram desempenhos muito bons, com pequenas variações entre eles conforme o volume de dados de teste aumentava. O Random Forest e o XGBoost apresentaram uma pequena perda de desempenho em termos de precisão e F1-Score à medida que a porcentagem de teste aumentava. Já o Naive Bayes se destacou pela consistência: manteve precisão, recall e F1-Score elevados (próximos de 1.0) em todas as divisões de treino/teste, sem apresentar erros (falsos positivos ou falsos negativos) nos dados de validação. Com base nos resultados apresentados, o Naive Bayes foi o método que apresentou o melhor desempenho geral, demonstrando tanto alta capacidade de identificação dos sobreviventes quanto estabilidade nas diferentes proporções de divisão dos dados.</p>
+<p align="justify">Os três modelos testados apresentaram desempenho satisfatório na tarefa de predição da sobrevivência de pacientes com câncer colorretal, com variações modestas conforme a proporção entre os conjuntos de treino e teste. Enquanto os algoritmos Random Forest e XGBoost mostraram ligeira queda na precisão e no F1-Score à medida que o volume de dados de teste aumentava, o modelo Naive Bayes destacou-se pela estabilidade dos seus resultados.</p>
 
-#### Análise dos Resultados
+<p align="justify">A avaliação foi realizada por meio das métricas de acurácia, precisão, <em>recall</em> e F1-Score, além da análise das matrizes de confusão. Dentre os modelos analisados, o Naive Bayes apresentou <em>recall</em> de 100% em todas as divisões de dados, sem ocorrência de falsos negativos. Esse desempenho consistente é particularmente relevante em contextos clínicos, nos quais a falha na detecção de pacientes sobreviventes pode comprometer a eficácia das estratégias de tratamento.</p>
 
-<p align="justify">A avaliação do desempenho dos modelos foi conduzida por meio das métricas: acurácia, precisão, <em>recall</em> e F1-score, além da análise das matrizes de confusão. Os resultados demonstraram que todos os modelos alcançaram bom desempenho preditivo, com destaque para o <strong>Naive Bayes</strong>, que apresentou <em>recall</em> de 100% em todas as proporções de divisão dos dados, não cometendo falsos negativos, o que é essencial em contextos clínicos onde a falha em identificar sobreviventes pode ser crítica.</p>
+<p align="justify">Em contrapartida, os modelos Random Forest e XGBoost demonstraram limitações na identificação da classe minoritária (óbitos), revelando um viés em favor da classe majoritária (sobreviventes). Essa tendência se acentuou com o aumento da proporção de dados destinados à validação, o que impactou negativamente o <em>recall</em> e a sensibilidade desses modelos.</p>
 
-<p align="justify">A análise também evidenciou limitações dos modelos <strong>Random Forest</strong> e <strong>XGBoost</strong>, os quais, mesmo com desempenho geral satisfatório, demonstraram dificuldades na identificação da classe minoritária (óbitos), apresentando viés para a classe majoritária (sobrevivência). A performance desses modelos decaiu ligeiramente à medida que a proporção da base de teste aumentou.</p>
-
-<p align="justify">A visualização das matrizes de confusão permitiu uma interpretação clara dos erros cometidos por cada modelo, reforçando a superioridade do <strong>Naive Bayes</strong> neste cenário. A pipeline conclui que, sob as condições analisadas, o <strong>Naive Bayes</strong> é o modelo mais apropriado para o problema de predição da sobrevivência de pacientes com câncer colorretal.</p>
+<p align="justify">A visualização das matrizes de confusão possibilitou uma análise clara dos erros cometidos por cada modelo, reforçando o bom desempenho do Naive Bayes neste cenário. Considerando os critérios adotados e os resultados obtidos, conclui-se que esse algoritmo foi o mais eficaz na tarefa proposta.</p>
 
 #### Considerações Finais
 
-<p align="justify">A construção desta pipeline demonstrou um fluxo robusto e replicável para análise de dados clínicos com foco em aprendizado de máquina. Desde a inspeção inicial até a avaliação final dos modelos, cada etapa foi estruturada com base em boas práticas de ciência de dados. Os resultados reforçam o potencial das técnicas de <em>machine learning</em> na área da saúde, sobretudo quando aplicadas com rigor metodológico e suporte interpretativo. O uso de modelos preditivos pode, portanto, contribuir de maneira significativa para estratégias de diagnóstico precoce, alocação de recursos e personalização do tratamento no enfrentamento do câncer colorretal.</p>
+<p align="justify">A construção desta pipeline evidenciou um fluxo metodológico sólido e reproduzível para análise de dados clínicos com foco em aprendizado de máquina. Da inspeção e limpeza dos dados ao treinamento e avaliação dos modelos, cada etapa foi conduzida com base em boas práticas da ciência de dados.</p>
+
+<p align="justify">Os resultados obtidos reforçam o potencial das abordagens de <em>machine learning</em> para apoiar decisões na área da saúde, especialmente em processos de diagnóstico e prognóstico. A utilização de modelos preditivos, como o Naive Bayes, pode contribuir significativamente para o diagnóstico precoce, otimização de recursos e personalização do tratamento de pacientes com câncer colorretal.</p>
+
 
 # Pipeline de pesquisa e análise de dados
 

@@ -1367,8 +1367,6 @@ A remoção de dados da classe majoritária resultou em desempenho inferior. **R
 
 # Pipeline de pesquisa e análise de dados
 
-<p align="justify">Durante o treinamento, os modelos também permitiram a análise da importância das variáveis (<em>feature importance</em>), com visualizações que auxiliaram na interpretação dos fatores preditivos mais relevantes.</p>
-
 <p align="justify">Abaixo, apresentamos o fluxograma da pipeline utilizada nesta etapa do projeto para realização da análise das métricas dos modelos utilizados.</p>
 
 <p align="center">

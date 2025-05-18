@@ -1238,7 +1238,7 @@ y_prob = modelo.predict_proba(X_test)[:, 1] if len(modelo.classes_) == 2 else No
 ```python
 print(classification_report(y_test, y_pred))
 ```
-<p align="center"> A avaliação inclui a geração do relatório de classificação com métricas como precisão, recall e f1-score. Adicionalmente, métricas agregadas são calculadas manualmente, fornecendo uma análise mais abrangente. </p>
+<p style="text-align: justify; margin: 0 auto; max-width: 800px;"> A avaliação inclui a geração do relatório de classificação com métricas como precisão, recall e f1-score. Adicionalmente, métricas agregadas são calculadas manualmente, fornecendo uma análise mais abrangente. </p>
 
 ```python
 acc = accuracy_score(y_test, y_pred)
@@ -1254,7 +1254,7 @@ gmean_score = gmean([prec, rec]) if prec > 0 and rec > 0 else 0
 ```python
 sns.heatmap(confusion_matrix(y_test, y_pred), annot=True, fmt='d', cmap='Oranges')
 ```
-<p align="center"> A matriz de confusão mostra a distribuição dos acertos e erros do modelo. Essa visualização é crucial para entender o comportamento do classificador em contextos desbalanceados. </p> <p align="center"> <img src="img/Naive Bayes-5.png" alt="Matriz de Confusão"> </p>
+<p style="text-align: justify; margin: 0 auto; max-width: 800px;"> A matriz de confusão mostra a distribuição dos acertos e erros do modelo. Essa visualização é crucial para entender o comportamento do classificador em contextos desbalanceados. </p> <p align="center"> <img src="img/Naive Bayes-5.png" alt="Matriz de Confusão"> </p>
 
 
 #### 3.8 Matriz de Confusão
@@ -1264,7 +1264,7 @@ fpr, tpr, thresholds = roc_curve(y_test, y_prob)
 auc_score = roc_auc_score(y_test, y_prob)
 ```
 
-<p align="center"> A curva ROC demonstra a capacidade do modelo em distinguir entre classes positivas e negativas. A AUC (área sob a curva) é um indicador da qualidade geral do classificador — quanto mais próxima de 1, melhor. </p> <p align="center"> <img src="img/Naive Bayes-6.png" alt="Curva ROC" > </p>
+<p style="text-align: justify; margin: 0 auto; max-width: 800px;">> A curva ROC demonstra a capacidade do modelo em distinguir entre classes positivas e negativas. A AUC (área sob a curva) é um indicador da qualidade geral do classificador — quanto mais próxima de 1, melhor. </p> <p align="center"> <img src="img/Naive Bayes-6.png" alt="Curva ROC" > </p>
 
 
 ### Resultados:

@@ -1410,3 +1410,6 @@ A remoção de dados da classe majoritária resultou em desempenho inferior. **R
 
 # Vídeo de apresentação da Etapa 03
 
+
+https://github.com/user-attachments/assets/6714c855-a91a-48ec-a7f8-343d67cbda6a
+

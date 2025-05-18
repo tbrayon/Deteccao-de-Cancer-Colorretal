@@ -1367,24 +1367,6 @@ A remoção de dados da classe majoritária resultou em desempenho inferior. **R
 
 # Pipeline de pesquisa e análise de dados
 
-### 1. Carregamento e Exploração do Dataset
-
-<p align="justify">A etapa inicial da pipeline consistiu no carregamento e reconhecimento da estrutura do dataset <em>Colorectal Cancer Risk & Survival Data</em>, proveniente da plataforma Kaggle. Os dados foram importados com a biblioteca <code>pandas</code> e inspecionados quanto ao número de registros (89.945 linhas) e variáveis (30 colunas). Foi realizada a limpeza preliminar, com remoção de espaços em branco nos nomes das colunas e redefinição dos índices. Notavelmente, o conjunto de dados não apresentou valores ausentes ou linhas completamente vazias, facilitando a continuidade das análises.</p>
-
-<p align="justify">A exploração inicial também identificou os tipos de dados e categorizou variáveis em numéricas (como idade e IMC) e categóricas (como gênero, raça, região e hábitos de vida). Estatísticas descritivas, como média, mediana e desvio padrão, foram calculadas para variáveis-chave como idade, enquanto a distribuição foi analisada por meio de gráficos como a curva de Gauss. Adicionalmente, foram calculadas medidas como a moda para variáveis categóricas, evidenciando padrões predominantes, como a maior incidência de pacientes do sexo masculino, brancos e residentes em áreas urbanas.</p>
-
-### 2. Pré-processamento dos Dados
-
-<p align="justify">O pré-processamento dos dados constituiu uma etapa crítica para garantir a qualidade e a compatibilidade do dataset com os algoritmos de aprendizado de máquina. Primeiramente, as variáveis foram divididas em <em>features</em> (variáveis explicativas) e <em>target</em> (variável resposta, <code>Survival_Status</code>). As colunas numéricas foram tratadas com imputação da mediana para valores ausentes e posteriormente padronizadas com <code>StandardScaler</code>, enquanto as colunas categóricas foram transformadas via <code>OneHotEncoder</code>, após imputação com a moda.</p>
-
-<p align="justify">As transformações foram organizadas em pipelines utilizando <code>Pipeline</code> e <code>ColumnTransformer</code>, assegurando um processo reprodutível e eficiente. O resultado final foi um conjunto de dados normalizado e codificado, representado como um <em>DataFrame</em> pronto para alimentar os modelos preditivos.</p>
-
-### 3. Treinamento dos Modelos
-
-<p align="justify">Na etapa de modelagem, três algoritmos de classificação supervisionada foram treinados e comparados: <strong>Random Forest</strong>, <strong>XGBoost</strong> e <strong>Naive Bayes</strong>. A separação entre os conjuntos de treino e teste foi realizada com <code>train_test_split</code>, utilizando diferentes proporções (70/30, 80/20 e 90/10) para avaliação da robustez dos modelos.</p>
-
-<p align="justify">O <strong>Random Forest</strong> foi implementado com 100 árvores de decisão, explorando a capacidade do <em>ensemble</em> de reduzir o <em>overfitting</em> por meio de votação entre árvores. O <strong>XGBoost</strong>, por sua vez, utilizou técnicas de <em>gradient boosting</em> com regularização, otimizando a capacidade de generalização e correção de erros sequenciais. Já o <strong>Naive Bayes</strong>, baseado na distribuição normal, foi empregado pela sua simplicidade e eficiência em bases de dados de alta dimensionalidade.</p>
-
 <p align="justify">Durante o treinamento, os modelos também permitiram a análise da importância das variáveis (<em>feature importance</em>), com visualizações que auxiliaram na interpretação dos fatores preditivos mais relevantes.</p>
 
 <p align="justify">Abaixo, apresentamos o fluxograma da pipeline utilizada nesta etapa do projeto para realização da análise das métricas dos modelos utilizados.</p>

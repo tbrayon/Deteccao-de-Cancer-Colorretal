@@ -1,4 +1,4 @@
-# TÍTULO DO PROJETO
+# Predição de cancer colorretal
 
 `CURSO: Sistemas de Informação`
 

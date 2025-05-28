@@ -1,26 +1,143 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Importar CORS
+from flask_cors import CORS
 import pandas as pd
-import numpy as np
 import joblib
 
+from random_patient import generate_random_patient
+
 app = Flask(__name__)
-CORS(app)  # Habilita CORS para permitir requisições do frontend
+CORS(app)
 
 # Carregar modelos treinados e pré-processador
-rf_model = joblib.load("modelo_colorectal_rf.pkl")
-nb_model = joblib.load("modelo_colorectal_nb.pkl")
-xgb_model = joblib.load("modelo_colorectal_xgb.pkl")
+rf_model = joblib.load("models/rf_model.pkl")
+nb_model = joblib.load("models/nb_model.pkl")
+xgb_model = joblib.load("models/xgb_model.pkl")
+
+rf_model_sm = joblib.load("models/rf_model_sm.pkl")
+nb_model_sm = joblib.load("models/nb_model_sm.pkl")
+xgb_model_sm = joblib.load("models/xgb_model_sm.pkl")
+
+rf_model_w = joblib.load("models/rf_model_w.pkl")
+nb_model_w = joblib.load("models/nb_model_w.pkl")
+xgb_model_w = joblib.load("models/xgb_model_w.pkl")
+
 preprocessor = joblib.load("preprocessor.pkl")
 
-@app.route('/predict', methods=['POST'])
+models = {
+    "RandomForest": rf_model,
+    "NaiveBayes": nb_model,
+    "XGBoost": xgb_model,
+}
+
+models_smote = {
+    "RandomForest_SMOTE": rf_model_sm,
+    "NaiveBayes_SMOTE": nb_model_sm,
+    "XGBoost_SMOTE": xgb_model_sm,
+}
+
+models_weighted = {
+    "RandomForest_Weighted": rf_model_w,
+    "NaiveBayes_Weighted": nb_model_w,
+    "XGBoost_Weighted": xgb_model_w,
+}
+
+def recommend_treatment(
+    patient_features, model, preprocessor, base_features
+):
+    combos = [
+        {
+            "Chemotherapy_Received": "Yes",
+            "Radiotherapy_Received": "Yes",
+            "Surgery_Received": "Yes",
+        },
+        {
+            "Chemotherapy_Received": "Yes",
+            "Radiotherapy_Received": "Yes",
+            "Surgery_Received": "No",
+        },
+        {
+            "Chemotherapy_Received": "Yes",
+            "Radiotherapy_Received": "No",
+            "Surgery_Received": "Yes",
+        },
+        {
+            "Chemotherapy_Received": "Yes",
+            "Radiotherapy_Received": "No",
+            "Surgery_Received": "No",
+        },
+        {
+            "Chemotherapy_Received": "No",
+            "Radiotherapy_Received": "Yes",
+            "Surgery_Received": "Yes",
+        },
+        {
+            "Chemotherapy_Received": "No",
+            "Radiotherapy_Received": "Yes",
+            "Surgery_Received": "No",
+        },
+        {
+            "Chemotherapy_Received": "No",
+            "Radiotherapy_Received": "No",
+            "Surgery_Received": "Yes",
+        },
+    ]
+
+    best_prob, best_combo = -1, None
+
+    feature_names = preprocessor.get_feature_names_out()
+
+    for combo in combos:
+        patient = patient_features.copy()
+        for k, v in combo.items():
+            patient[k] = v
+
+        # Alinha as colunas antes da transformação
+        patient = patient[base_features]
+
+        # Transforma os dados corretamente
+        processed = preprocessor.transform(patient)
+        processed_df = pd.DataFrame(processed, columns=feature_names)
+
+        # Garante que `predict_proba` funciona corretamente
+        prob = model.predict_proba(processed_df)[0][1]
+
+        if prob > best_prob:
+            best_prob, best_combo = prob, combo
+
+    return best_combo, best_prob
+
+
+def test_recommendation(patient=generate_random_patient()):
+    results = []
+
+    for strategy, model_set in [
+        ("Not balanced", models),
+        ("SMOTE", models_smote),
+        ("Weighted", models_weighted),
+    ]:
+        for name, model in model_set.items():
+            combination, prob = recommend_treatment(
+                patient, model, preprocessor, patient.columns
+            )
+
+            results.append({
+                "Strategy": f"{strategy}",
+                "Model": name,
+                "Combination": combination,
+                # "Probability": f"{prob:.4f}",
+                "Probability": f"{prob:.2%}"
+            })
+
+    return results
+
+
 @app.route('/predict', methods=['POST'])
 def predict():
     """Recebe os dados do frontend, processa e retorna previsões de múltiplos modelos."""
     data = request.json
     # Converter entrada para DataFrame
-    df = pd.DataFrame([data])  
-    
+    df = pd.DataFrame([data])
+
     # Garantir que todas as colunas esperadas estejam presentes
     expected_columns = [
         'Age', 'Gender', 'Socioeconomic_Status', 'Red_Meat_Consumption', 'Screening_Regularity',
@@ -42,19 +159,11 @@ def predict():
 
     print("Colunas corrigidas no DataFrame:", df.dtypes)  # Debug no terminal
 
-    # Aplicar pré-processamento antes da predição
-    processed = preprocessor.transform(df)
-    processed_df = pd.DataFrame(processed, columns=preprocessor.get_feature_names_out())
-
-    # Gerar previsões de diferentes modelos
-    predictions = {
-        "RandomForest": f"{rf_model.predict_proba(processed_df)[0][1]:.4f}",
-        "XGBoost": f"{xgb_model.predict_proba(processed_df)[0][1]:.4f}",  
-        "NaiveBayes": f"{nb_model.predict_proba(processed_df)[0][1]:.4f}"  
-    }
+    # Mudar o paciente para um paciente recebido via requisição
+    predictions = test_recommendation()
 
     # Depuração
-    print("JSON enviado ao frontend:", predictions)  
+    print("JSON enviado ao frontend:", predictions)
 
     return jsonify(predictions)
 

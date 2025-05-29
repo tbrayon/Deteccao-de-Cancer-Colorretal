@@ -107,13 +107,13 @@ def recommend_treatment(
     return best_combo, best_prob
 
 
-def test_recommendation(patient=generate_random_patient()):
+def test_recommendation(patient):
     results = []
 
     for strategy, model_set in [
         ("Not balanced", models),
-        ("SMOTE", models_smote),
-        ("Weighted", models_weighted),
+        # ("SMOTE", models_smote),
+        # ("Weighted", models_weighted),
     ]:
         for name, model in model_set.items():
             combination, prob = recommend_treatment(
@@ -121,7 +121,7 @@ def test_recommendation(patient=generate_random_patient()):
             )
 
             results.append({
-                "Strategy": f"{strategy}",
+                # "Strategy": f"{strategy}",
                 "Model": name,
                 "Combination": combination,
                 # "Probability": f"{prob:.4f}",
@@ -160,7 +160,7 @@ def predict():
     print("Colunas corrigidas no DataFrame:", df.dtypes)  # Debug no terminal
 
     # Mudar o paciente para um paciente recebido via requisição
-    predictions = test_recommendation()
+    predictions = test_recommendation(generate_random_patient())
 
     # Depuração
     print("JSON enviado ao frontend:", predictions)

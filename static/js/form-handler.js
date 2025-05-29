@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Esta parte é executada na página /resultados
-    const resultsContainer = document.getElementById('resultsContainer'); // Usado no seu Code 4 como resultContent
+    const resultsContainer = document.getElementById('resultsContainer'); 
     const summaryMessage = document.getElementById('summaryMessage');
 
     if (resultsContainer && summaryMessage) { // Garante que ambos elementos existam

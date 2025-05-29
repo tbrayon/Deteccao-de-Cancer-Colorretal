@@ -5,7 +5,7 @@
 function fillFormWithRandomData() {
     try {
         // Cria os novos dados aleatórios do paciente diretamente em JavaScript
-        // Baseado na estrutura Python que você forneceu.
+        // Baseado na estrutura Python do backend, mas adaptado para JavaScript.
         const data = {
             // Demografia
             "Age": Math.floor(Math.random() * (89 - 20)) + 20, // Simula np.random.randint(20, 89)

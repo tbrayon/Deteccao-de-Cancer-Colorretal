@@ -1,43 +1,66 @@
+// /static/js/progress.js
+
 let current = 1;
-const total = 7; // CORRIGIDO: Seu HTML tem 7 passos/indicadores
+const total = 7; // Total de 7 seções
+
+/**
+ * Valida todos os campos 'required' dentro de uma seção específica.
+ * @param {number} sectionNumber - O número da seção a ser validada.
+ * @returns {boolean} - True se a seção for válida, false caso contrário.
+ */
+function validateSection(sectionNumber) {
+    const section = document.getElementById(`section-${sectionNumber}`);
+    if (!section) {
+        console.error(`Seção ${sectionNumber} não encontrada para validação.`);
+        return false; // Não pode validar uma seção que não existe
+    }
+
+    const fields = section.querySelectorAll('[required]');
+
+    for (const field of fields) {
+        if (!field.value || field.value.trim() === "") {
+            const label = document.querySelector(`label[for="${field.id}"]`);
+            const fieldName = label ? label.textContent : field.name;
+
+            // Usa o modal para exibir a mensagem de erro
+            showModal('Campo Obrigatório', `Por favor, preencha ou selecione uma opção para o campo: "${fieldName}".`, true);
+            
+            // Tenta focar no campo, mas apenas se ele estiver visível
+            // (Em teoria, nesta abordagem, o campo sempre estará visível na seção atual)
+            if (field.offsetParent !== null) { // Verifica se o elemento ou seus pais não estão com display:none
+                field.focus();
+            }
+            return false; // Retorna 'false' se a validação falhar
+        }
+    }
+    return true; // Retorna 'true' se todos os campos da seção estiverem válidos
+}
 
 function updateProgressBar() {
     for (let i = 1; i <= total; i++) {
         const indicator = document.getElementById(`step-indicator-${i}`);
         if (!indicator) {
-            console.warn(`Indicador de progresso 'step-indicator-${i}' não encontrado. Pulando.`);
+            console.warn(`Indicador de progresso 'step-indicator-${i}' não encontrado.`);
             continue;
         }
 
-        // Redefine classes e conteúdo
-        indicator.classList.remove(
-            'border-violet-600', // Borda de concluído/atual
-            'text-violet-600',   // Marca de seleção de concluído / Texto atual (se houver)
-            'bg-violet-600',     // REMOVIDO do fundo do passo concluído
-            'text-white',        // Para marca de seleção se o fundo for violeta
-            'border-gray-300',   // Borda do passo futuro
-            'text-gray-500',     // Texto do passo futuro
-            'cursor-pointer',    // Para passos clicáveis
-            'cursor-default'     // Para passos não clicáveis
-        );
-        indicator.innerHTML = i; // O conteúdo padrão é o número
-        indicator.onclick = null;  // Remove qualquer manipulador de clique existente
+        indicator.classList.remove('border-violet-600', 'text-violet-600', 'bg-violet-600', 'text-white', 'border-gray-300', 'text-gray-500', 'cursor-pointer', 'cursor-default');
+        indicator.innerHTML = i;
+        indicator.onclick = null;
 
         if (i < current) {
-            // PASSOS CONCLUÍDOS: Borda violeta, marca de seleção violeta, clicável
             indicator.classList.add('border-violet-600', 'text-violet-600', 'cursor-pointer');
-            indicator.innerHTML = '&#10003;'; // Marca de seleção Unicode '✓'
+            indicator.innerHTML = '&#10003;'; // Checkmark
             indicator.onclick = function() {
-                current = i; // Define 'current' para o passo clicado
+                // Permite voltar apenas para seções já validadas (ou qualquer seção anterior)
+                // A validação ao avançar garante que as seções anteriores foram validadas.
+                current = i;
                 showSection(i);
             };
         } else if (i === current) {
-            // PASSO ATUAL: Borda violeta, ponto violeta interno
             indicator.classList.add('border-violet-600', 'cursor-default');
-            // O HTML interno cria o ponto diretamente com Tailwind
-            indicator.innerHTML = `<div class="w-2 h-2 bg-violet-600 rounded-full mx-auto"></div>`;
+            indicator.innerHTML = `<div class="w-2 h-2 bg-violet-600 rounded-full mx-auto"></div>`; // Ponto atual
         } else {
-            // PRÓXIMOS PASSOS: Borda cinza, número cinza
             indicator.classList.add('border-gray-300', 'text-gray-500', 'cursor-default');
         }
     }
@@ -45,26 +68,27 @@ function updateProgressBar() {
 
 function showSection(n) {
     document.querySelectorAll('.section').forEach(div => {
+        div.style.display = 'none'; // Garante que o display:none seja aplicado
         div.classList.remove('active');
-        div.style.display = 'none';
     });
 
     const targetSection = document.getElementById(`section-${n}`);
     if (targetSection) {
+        targetSection.style.display = 'block'; // Garante que o display:block seja aplicado
         targetSection.classList.add('active');
-        targetSection.style.display = 'block';
     } else {
         console.error(`Seção 'section-${n}' não encontrada.`);
     }
-    updateProgressBar(); // Atualiza os visuais da barra de progresso sempre que uma seção é mostrada
+    updateProgressBar();
 }
 
 function nextSection() {
-    const currentSectionElement = document.getElementById(`section-${current}`);
-    if (currentSectionElement && currentSectionElement.style.display !== 'block') {
-        console.warn(`Tentativa de avançar a partir da seção oculta-${current}.`);
-        return;
+    // 1. Valida a seção atual ANTES de tentar avançar
+    if (!validateSection(current)) {
+        return; // Se a validação falhar (modal já foi mostrado), não faz nada
     }
+
+    // 2. Se a validação passar, avança para a próxima seção
     if (current < total) {
         current++;
         showSection(current);
@@ -78,49 +102,10 @@ function prevSection() {
     }
 }
 
+// Inicializa o formulário na primeira seção quando a página carregar
 document.addEventListener('DOMContentLoaded', () => {
-    showSection(current); // Mostra a primeira seção no carregamento inicial da página
-
-    const predictForm = document.getElementById('predictForm');
-    if (predictForm) {
-        predictForm.addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const formData = new FormData(predictForm);
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
-
-            // Garante que todos os campos esperados estejam presentes com valores padrão se não forem definidos explicitamente
-            data.Chemotherapy_Received = data.Chemotherapy_Received || "No";
-            data.Radiotherapy_Received = data.Radiotherapy_Received || "No";
-            data.Surgery_Received = data.Surgery_Received || "No";
-            data.Follow_Up_Adherence = data.Follow_Up_Adherence || "Good";
-            data.Recurrence = data.Recurrence || "No";
-            // Para Time_to_Recurrence, seu formulário envia "Early" ou "Late"
-            // Se puder estar faltando no formulário de alguma forma (ex: não é o último passo), garanta um padrão válido:
-            data.Time_to_Recurrence = data.Time_to_Recurrence || "Early"; 
-            data.Stage_at_Diagnosis = data.Stage_at_Diagnosis || "I";
-
-            try {
-                const response = await fetch('/predict', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    throw new Error(`Erro na requisição: ${response.status} - ${errorText}`);
-                }
-
-                const resultados = await response.json();
-                sessionStorage.setItem('predictionResults', JSON.stringify(resultados));
-                window.location.href = '/resultados';
-            } catch (error) {
-                console.error('Erro de envio:', error);
-                alert(`Ocorreu um erro ao processar a previsão: ${error.message}. Tente novamente.`);
-            }
-        });
+    // Verifica se estamos na página do formulário antes de tentar mostrar a seção
+    if (document.getElementById('predictForm')) {
+        showSection(current);
     }
 });

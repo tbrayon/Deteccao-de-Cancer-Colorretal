@@ -70,8 +70,26 @@
         </div>
     </footer>
 
- <script src="/static/js/automatic.js"></script>
-  <script src="/static/js/results.js"></script>
+<div id="messageModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 overflow-y-auto h-full w-full flex justify-center items-center hidden z-50 transition-opacity duration-300 ease-in-out">
+    <div class="bg-white p-6 rounded-lg shadow-xl w-11/12 md:max-w-md mx-auto transform transition-all duration-300 ease-in-out scale-95 opacity-0" id="modalDialog">
+        <div class="flex justify-between items-center pb-3 border-b border-gray-200">
+            <h3 id="modalTitle" class="text-xl font-semibold text-gray-800">Mensagem</h3>
+            <button id="closeModalBtn" class="text-gray-400 hover:text-gray-600 text-2xl leading-none focus:outline-none">&times;</button>
+        </div>
+        <div class="mt-4 mb-6">
+            <p id="modalMessage" class="text-sm text-gray-700 leading-relaxed"></p>
+        </div>
+        <div class="flex justify-end pt-3 border-t border-gray-200">
+            <button id="okModalBtn" class="px-6 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-colors">
+                OK
+            </button>
+        </div>
+    </div>
+</div>
+
+    <script src="/static/js/automatic.js"></script>
+    <script src="/static/js/results.js"></script>
+    <script src="/static/js/modal.js"></script>
 
 </body>
 </html>

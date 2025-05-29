@@ -13,7 +13,7 @@ from sklearn.model_selection import train_test_split
 import os
 import joblib
 
-read_path = r"C:\Users\mbray\Documents\College\Projetos\salo\app-previsao-cancer-colorretal\data\colorectal_cancer_prediction.csv"
+read_path = r"C:\Users\mbray\Documents\College\Projetos\salo-repo\app-previsao-cancer-colorretal\data\colorectal_cancer_prediction.csv"
 os.makedirs("models", exist_ok=True)
 
 # ----------------------

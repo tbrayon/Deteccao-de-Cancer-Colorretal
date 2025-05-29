@@ -41,7 +41,7 @@ def generate_random_patient():
         # Follow-up (not needed for prediction)
         "Follow_Up_Adherence": np.random.choice(["Good", "Poor"]),
         "Recurrence": np.random.choice(["Yes", "No"]),
-        "Time_to_Recurrence": np.random.randint(0, 59),
+        "Time_to_Recurrence": np.random.choice(["Early", "Late"]),
     }
 
     return pd.DataFrame([patient])

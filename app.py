@@ -125,6 +125,13 @@ def resultados_page():
     """Renders the results page."""
     return render_template('resultados.html')
 
+@app.route('/random-patient', methods=['GET'])
+def random_patient_endpoint():
+    """Generates and returns a single random patient's data as JSON."""
+    patient_df = generate_random_patient()
+    # Convert the first row of the DataFrame to a dictionary
+    patient_dict = patient_df.iloc[0].to_dict()
+    return jsonify(patient_dict)
 
 @app.route('/predict', methods=['POST'])
 def predict():

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Resultado da Previsão</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+    <div class="w-full max-w-4xl bg-white shadow-lg rounded-lg p-8">
+        <h1 class="text-3xl font-bold text-center text-indigo-600 mb-6">Resultado da Previsão</h1>
+        <div id="resultContent" class="space-y-4 text-gray-700 text-lg">
+            </div>
+
+        <div class="text-center mt-8 space-x-4">
+            <button onclick="window.print()" 
+                class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                Imprimir Resultados
+            </button>
+        </div>
+
+        <div class="text-center mt-8">
+            <a href="/" class="text-indigo-600 hover:underline">Voltar ao Formulário</a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const resultContent = document.getElementById('resultContent');
+            const storedResults = sessionStorage.getItem('predictionResults');
+
+            if (storedResults) {
+                const results = JSON.parse(storedResults);
+                let htmlContent = '';
+
+                if (results.length > 0) {
+                    htmlContent += '<table class="min-w-full divide-y divide-gray-200">';
+                    htmlContent += '<thead class="bg-gray-50">';
+                    htmlContent += '<tr>';
+                    htmlContent += '<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estratégia</th>';
+                    htmlContent += '<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Modelo</th>';
+                    htmlContent += '<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Combinação de Tratamento</th>';
+                    htmlContent += '<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Probabilidade de Sobrevivência</th>';
+                    htmlContent += '</tr>';
+                    htmlContent += '</thead>';
+                    htmlContent += '<tbody class="bg-white divide-y divide-gray-200">';
+
+                    results.forEach(item => {
+                        const combinationStr = `Quimio: ${item.Combination.Chemotherapy_Received}, Rádio: ${item.Combination.Radiotherapy_Received}, Cirurgia: ${item.Combination.Surgery_Received}`;
+                        htmlContent += `
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">${item.Strategy}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">${item.Model}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">${combinationStr}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">${item.Probability}</td>
+                            </tr>
+                        `;
+                    });
+                    htmlContent += '</tbody></table>';
+                } else {
+                    htmlContent = '<p class="text-red-500">Nenhum dado de previsão encontrado.</p>';
+                }
+                resultContent.innerHTML = htmlContent;
+            } else {
+                resultContent.innerHTML = '<p class="text-red-500">Nenhum dado de previsão encontrado. Por favor, volte e envie o formulário.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

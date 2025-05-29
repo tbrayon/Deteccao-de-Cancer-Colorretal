@@ -1,27 +1,33 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template # ADDED render_template
 from flask_cors import CORS
 import pandas as pd
 import joblib
+import numpy as np
 
 from random_patient import generate_random_patient
 
 app = Flask(__name__)
 CORS(app)
 
-# Carregar modelos treinados e pré-processador
-rf_model = joblib.load("models/rf_model.pkl")
-nb_model = joblib.load("models/nb_model.pkl")
-xgb_model = joblib.load("models/xgb_model.pkl")
+# Load trained models and preprocessor
+try:
+    rf_model = joblib.load("models/rf_model.pkl")
+    nb_model = joblib.load("models/nb_model.pkl")
+    xgb_model = joblib.load("models/xgb_model.pkl")
 
-rf_model_sm = joblib.load("models/rf_model_sm.pkl")
-nb_model_sm = joblib.load("models/nb_model_sm.pkl")
-xgb_model_sm = joblib.load("models/xgb_model_sm.pkl")
+    rf_model_sm = joblib.load("models/rf_model_sm.pkl")
+    nb_model_sm = joblib.load("models/nb_model_sm.pkl")
+    xgb_model_sm = joblib.load("models/xgb_model_sm.pkl")
 
-rf_model_w = joblib.load("models/rf_model_w.pkl")
-nb_model_w = joblib.load("models/nb_model_w.pkl")
-xgb_model_w = joblib.load("models/xgb_model_w.pkl")
+    rf_model_w = joblib.load("models/rf_model_w.pkl")
+    nb_model_w = joblib.load("models/nb_model_w.pkl")
+    xgb_model_w = joblib.load("models/xgb_model_w.pkl")
 
-preprocessor = joblib.load("preprocessor.pkl")
+    preprocessor = joblib.load("preprocessor.pkl")
+    print("Models and preprocessor loaded successfully.")
+except FileNotFoundError as e:
+    print(f"Error loading models or preprocessor: {e}. Make sure you run train_models.py first.")
+    exit() # Exit the application if models cannot be loaded
 
 models = {
     "RandomForest": rf_model,
@@ -44,6 +50,10 @@ models_weighted = {
 def recommend_treatment(
     patient_features, model, preprocessor, base_features
 ):
+    """
+    Recommends the best treatment combination for a given patient
+    based on the highest predicted survival probability.
+    """
     combos = [
         {
             "Chemotherapy_Received": "Yes",
@@ -91,14 +101,11 @@ def recommend_treatment(
         for k, v in combo.items():
             patient[k] = v
 
-        # Alinha as colunas antes da transformação
-        patient = patient[base_features]
+        patient_aligned = patient[base_features]
 
-        # Transforma os dados corretamente
-        processed = preprocessor.transform(patient)
+        processed = preprocessor.transform(patient_aligned)
         processed_df = pd.DataFrame(processed, columns=feature_names)
 
-        # Garante que `predict_proba` funciona corretamente
         prob = model.predict_proba(processed_df)[0][1]
 
         if prob > best_prob:
@@ -107,65 +114,81 @@ def recommend_treatment(
     return best_combo, best_prob
 
 
-def test_recommendation(patient):
-    results = []
+@app.route('/')
+def index():
+    """Renders the main prediction form page."""
+    return render_template('index.html')
 
-    for strategy, model_set in [
-        ("Not balanced", models),
-        # ("SMOTE", models_smote),
-        # ("Weighted", models_weighted),
-    ]:
-        for name, model in model_set.items():
-            combination, prob = recommend_treatment(
-                patient, model, preprocessor, patient.columns
-            )
 
-            results.append({
-                # "Strategy": f"{strategy}",
-                "Model": name,
-                "Combination": combination,
-                # "Probability": f"{prob:.4f}",
-                "Probability": f"{prob:.2%}"
-            })
-
-    return results
+@app.route('/resultados')
+def resultados_page():
+    """Renders the results page."""
+    return render_template('resultados.html')
 
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    """Recebe os dados do frontend, processa e retorna previsões de múltiplos modelos."""
+    """Receives patient data from frontend, processes it, and returns predictions from multiple models."""
     data = request.json
-    # Converter entrada para DataFrame
+    
     df = pd.DataFrame([data])
 
-    # Garantir que todas as colunas esperadas estejam presentes
-    expected_columns = [
-        'Age', 'Gender', 'Socioeconomic_Status', 'Red_Meat_Consumption', 'Screening_Regularity',
-        'Alcohol_Consumption', 'BMI', 'Tumor_Aggressiveness', 'Colonoscopy_Access', 'Region',
-        'Chemotherapy_Received', 'Urban_or_Rural', 'Follow_Up_Adherence', 'Surgery_Received',
-        'Physical_Activity_Level', 'Insurance_Coverage', 'Race', 'Fiber_Consumption',
-        'Time_to_Recurrence', 'Diet_Type', 'Radiotherapy_Received', 'Previous_Cancer_History',
-        'Family_History', 'Treatment_Access', 'Smoking_Status', 'Recurrence', 'Time_to_Diagnosis'
+    expected_columns_order = [
+        'Age', 'Gender', 'Race', 'Region', 'Urban_or_Rural', 'Socioeconomic_Status',
+        'Family_History', 'Previous_Cancer_History', 'Stage_at_Diagnosis',
+        'Tumor_Aggressiveness', 'Colonoscopy_Access', 'Screening_Regularity',
+        'Diet_Type', 'BMI', 'Physical_Activity_Level', 'Smoking_Status',
+        'Alcohol_Consumption', 'Red_Meat_Consumption', 'Fiber_Consumption',
+        'Insurance_Coverage', 'Time_to_Diagnosis', 'Treatment_Access',
+        'Chemotherapy_Received', 'Radiotherapy_Received', 'Surgery_Received',
+        'Follow_Up_Adherence', 'Recurrence', 'Time_to_Recurrence'
     ]
 
-    for col in expected_columns:
+    for col in expected_columns_order:
         if col not in df.columns:
-            df[col] = "No"  # Valor padrão; ajuste conforme necessário
+            if col in ['Age', 'BMI', 'Time_to_Recurrence']:
+                df[col] = 0.0
+            else:
+                df[col] = "No"
 
-    # Convertendo colunas numéricas para float
+    df = df[expected_columns_order]
+
     numeric_cols = ['Age', 'BMI', 'Time_to_Recurrence']
     for col in numeric_cols:
         df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
 
-    print("Colunas corrigidas no DataFrame:", df.dtypes)  # Debug no terminal
+    print("Patient DataFrame after processing (head and dtypes):")
+    print(df.head())
+    print(df.dtypes)
 
-    # Mudar o paciente para um paciente recebido via requisição
-    predictions = test_recommendation(generate_random_patient())
+    results = []
 
-    # Depuração
-    print("JSON enviado ao frontend:", predictions)
+    initial_patient_features = df.iloc[0].drop(
+        ['Chemotherapy_Received', 'Radiotherapy_Received', 'Surgery_Received'], errors='ignore'
+    ).to_frame().T
 
-    return jsonify(predictions)
+    base_patient_columns = initial_patient_features.columns.tolist()
+
+
+    for strategy, model_set in [
+        ("Not balanced", models),
+        ("SMOTE", models_smote),
+        ("Weighted", models_weighted),
+    ]:
+        for name, model in model_set.items():
+            combination, prob = recommend_treatment(
+                initial_patient_features.copy(), model, preprocessor, base_patient_columns + ['Chemotherapy_Received', 'Radiotherapy_Received', 'Surgery_Received']
+            )
+
+            results.append({
+                "Strategy": f"{strategy}",
+                "Model": name,
+                "Combination": combination,
+                "Probability": f"{prob:.2%}"
+            })
+
+    print("JSON sent to frontend:", results)
+    return jsonify(results)
 
 
 if __name__ == '__main__':

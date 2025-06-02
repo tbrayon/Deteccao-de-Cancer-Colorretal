@@ -2,7 +2,7 @@
 
 ## Implantação da Solução em Nuvem (AWS)
 
-<p align="justify">A implantação da solução em nuvem garante **escalabilidade, alta disponibilidade e segurança** para os modelos preditivos. A arquitetura proposta utiliza os seguintes serviços da AWS:</p>
+<p align="justify">A implantação da solução em nuvem garante __escalabilidade, alta disponibilidade e segurança__ para os modelos preditivos. A arquitetura proposta utiliza os seguintes serviços da AWS:</p>
 
 ### Armazenamento de Dados
 

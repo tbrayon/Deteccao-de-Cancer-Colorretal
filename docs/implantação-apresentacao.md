@@ -21,6 +21,37 @@
 
 <p align="justify">A AWS disponibiliza em seu site a <strong>AWS Pricing Calculator</strong>, uma ferramenta gratuita que possibilita estimar o custo dos serviços da AWS com base nos recursos que você pretende usar. O serviço pode ser acessado pelo link: [https://calculator.aws.amazon.com/](https://calculator.aws.amazon.com/).</p>    
 
+## Testes da Aplicação
+
+Para garantir a qualidade, confiabilidade e robustez da aplicação, a fase de testes é crucial. Abaixo, apresentamos as principais etapas e tipos de testes implementados:
+
+### 1. Testes de Unidade
+
+**Objetivo:** Verificar se as menores unidades de código (funções, métodos, classes) funcionam conforme o esperado de forma isolada.
+**Ferramentas:** `pytest` (para Python).
+
+* **Conexão com o S3:** Verificar se a função de conexão ao S3 tenta se conectar corretamente.
+
+### 2. Testes de Integração
+
+**Objetivo:** Verificar a interação entre diferentes módulos ou serviços da aplicação.
+
+* **Integração do modelo com dados de entrada:** Simular o envio de novos dados para o modelo e verificar se ele retorna previsões válidas.
+* **Conectividade entre serviços AWS:** Assegurar que o S3 e outros serviços estão se comunicando perfeitamente.
+
+### 3. Testes de Funcionalidade (End-to-End - E2E)
+
+**Objetivo:** Validar o fluxo completo da aplicação do ponto de vista do usuário final ou do processo de negócio.
+
+### 4. Testes de Performance e Carga
+
+**Objetivo:** Avaliar a capacidade da aplicação de lidar com grandes volumes de dados ou alta concorrência, bem como seu desempenho sob diferentes condições.
+
+### 5. Testes de Segurança
+
+**Objetivo:** Identificar vulnerabilidades e garantir que a aplicação esteja protegida contra acessos não autorizados e outras ameaças.
+
+
 Nesta seção, a implantação da solução proposta em nuvem deverá ser realizada e detalhadamente descrita. Além disso, deverá ser descrito também, o planejamento da capacidade operacional através da modelagem matemática e da simulação do sistema computacional.
 
 Após a implantação, realize testes que mostrem o correto funcionamento da aplicação.

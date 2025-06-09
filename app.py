@@ -1,8 +1,8 @@
+from collections import defaultdict, Counter
 from flask import Flask, request, jsonify, render_template # ADDED render_template
 from flask_cors import CORS
 import pandas as pd
 import joblib
-import numpy as np
 
 from random_patient import generate_random_patient
 
@@ -15,36 +15,16 @@ try:
     nb_model = joblib.load("models/nb_model.pkl")
     xgb_model = joblib.load("models/xgb_model.pkl")
 
-    rf_model_sm = joblib.load("models/rf_model_sm.pkl")
-    nb_model_sm = joblib.load("models/nb_model_sm.pkl")
-    xgb_model_sm = joblib.load("models/xgb_model_sm.pkl")
-
-    rf_model_w = joblib.load("models/rf_model_w.pkl")
-    nb_model_w = joblib.load("models/nb_model_w.pkl")
-    xgb_model_w = joblib.load("models/xgb_model_w.pkl")
-
     preprocessor = joblib.load("preprocessor.pkl")
     print("Models and preprocessor loaded successfully.")
 except FileNotFoundError as e:
-    print(f"Error loading models or preprocessor: {e}. Make sure you run train_models.py first.")
+    print(f"Error loading models or preprocessor: {e}. Make sure you run models.py first.")
     exit() # Exit the application if models cannot be loaded
 
 models = {
     "RandomForest": rf_model,
     "NaiveBayes": nb_model,
     "XGBoost": xgb_model,
-}
-
-models_smote = {
-    "RandomForest_SMOTE": rf_model_sm,
-    "NaiveBayes_SMOTE": nb_model_sm,
-    "XGBoost_SMOTE": xgb_model_sm,
-}
-
-models_weighted = {
-    "RandomForest_Weighted": rf_model_w,
-    "NaiveBayes_Weighted": nb_model_w,
-    "XGBoost_Weighted": xgb_model_w,
 }
 
 def recommend_treatment(
@@ -113,6 +93,76 @@ def recommend_treatment(
 
     return best_combo, best_prob
 
+def join_treatments(treatments, lang="en"):
+    # Translations
+    translations = {
+        "Chemotherapy": {"pt": "quimioterapia"},
+        "Radiotherapy": {"pt": "radioterapia"},
+        "Surgery": {"pt": "cirurgia"},
+    }
+
+    # Choose display values
+    if lang == "pt":
+        treatments = [translations[t]["pt"] for t in treatments]
+    else:
+        treatments = [t.lower() for t in treatments]
+
+    if not treatments:
+        return "no treatment" if lang == "en" else "nenhum tratamento"
+    elif len(treatments) == 1:
+        return treatments[0]
+    else:
+        return ", ".join(treatments[:-1]) + " and " + treatments[-1] if lang == "en" else ", ".join(treatments[:-1]) + " e " + treatments[-1]
+
+def summarize_recommendation(results, lang="en"):
+    cleaned_results = []
+    for r in results:
+        combo_tuple = tuple(sorted(r["Combination"].items()))
+        prob_float = float(r["Probability"].strip('%')) / 100
+        cleaned_results.append((combo_tuple, prob_float))
+
+    combo_counter = Counter()
+    combo_probs = defaultdict(list)
+
+    for combo, prob in cleaned_results:
+        combo_counter[combo] += 1
+        combo_probs[combo].append(prob)
+
+    most_common = combo_counter.most_common()
+    top_combo, count = most_common[0]
+    avg_prob = sum(combo_probs[top_combo]) / len(combo_probs[top_combo])
+
+    def get_treatments(combo):
+        return [
+            treatment.replace("_Received", "").replace("_", " ").title()
+            for treatment, value in combo if value == "Yes"
+        ]
+
+    # Determine wording
+    if count == 3:
+        msg_en = f"All three models recommend {join_treatments(get_treatments(top_combo), lang)} with an estimated success rate of {avg_prob:.2%}."
+        msg_pt = f"Todos os três modelos recomendam {join_treatments(get_treatments(top_combo), lang)} com uma taxa estimada de sucesso de {avg_prob:.2%}."
+        return msg_pt if lang == "pt" else msg_en
+
+    elif count == 2:
+        msg_en = f"Two models recommend {join_treatments(get_treatments(top_combo), lang)} with an estimated success rate of {avg_prob:.2%}. Consider this recommendation but validate with a specialist."
+        msg_pt = f"Dois modelos recomendam {join_treatments(get_treatments(top_combo), lang)} com uma taxa estimada de sucesso de {avg_prob:.2%}. Considere esta recomendação, mas valide com um especialista."
+        return msg_pt if lang == "pt" else msg_en
+
+    else:
+        best_combo, best_prob = max(cleaned_results, key=lambda x: x[1])
+        best_treatments = get_treatments(best_combo)
+        msg_en = (
+            f"The models gave different recommendations. "
+            f"The most promising is {join_treatments(best_treatments, lang)} with an estimated success rate of {best_prob:.2%}. "
+            "A healthcare professional should assess this case."
+        )
+        msg_pt = (
+            f"Os modelos deram recomendações diferentes. "
+            f"A mais promissora é {join_treatments(best_treatments, lang)} com uma taxa estimada de sucesso de {best_prob:.2%}. "
+            f"Um profissional de saúde deve avaliar este caso."
+        )
+        return msg_pt if lang == "pt" else msg_en
 
 @app.route('/')
 def index():
@@ -121,7 +171,7 @@ def index():
 
 
 @app.route('/resultados')
-def resultados_page():
+def results_page():
     """Renders the results page."""
     return render_template('resultados.html')
 
@@ -138,7 +188,9 @@ def predict():
     """Receives patient data from frontend, processes it, and returns predictions from multiple models."""
     data = request.json
     
-    df = pd.DataFrame([data])
+    # df = pd.DataFrame([data])
+    
+    df = generate_random_patient()
 
     expected_columns_order = [
         'Age', 'Gender', 'Race', 'Region', 'Urban_or_Rural', 'Socioeconomic_Status',
@@ -168,7 +220,7 @@ def predict():
     print(df.head())
     print(df.dtypes)
 
-    results = []
+    predictions = []
 
     initial_patient_features = df.iloc[0].drop(
         ['Chemotherapy_Received', 'Radiotherapy_Received', 'Surgery_Received'], errors='ignore'
@@ -178,24 +230,26 @@ def predict():
 
 
     for strategy, model_set in [
-        ("Not balanced", models),
-        ("SMOTE", models_smote),
-        ("Weighted", models_weighted),
+        ("Not balanced", models)
     ]:
         for name, model in model_set.items():
             combination, prob = recommend_treatment(
                 initial_patient_features.copy(), model, preprocessor, base_patient_columns + ['Chemotherapy_Received', 'Radiotherapy_Received', 'Surgery_Received']
             )
 
-            results.append({
-                "Strategy": f"{strategy}",
+            predictions.append({
                 "Model": name,
                 "Combination": combination,
                 "Probability": f"{prob:.2%}"
             })
 
-    print("JSON sent to frontend:", results)
-    return jsonify(results)
+    response = {
+        "predictions": predictions,
+        "result": summarize_recommendation(predictions, lang="pt")
+    }
+
+    print("JSON sent to frontend:", response)
+    return jsonify(response)
 
 
 if __name__ == '__main__':

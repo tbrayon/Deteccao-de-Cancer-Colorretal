@@ -141,12 +141,12 @@ def summarize_recommendation(results, lang="en"):
     # Determine wording
     if count == 3:
         msg_en = f"All three models recommend {join_treatments(get_treatments(top_combo), lang)} with an estimated success rate of {avg_prob:.2%}."
-        msg_pt = f"Todos os três modelos recomendam {join_treatments(get_treatments(top_combo), lang)} com uma taxa estimada de sucesso de {avg_prob:.2%}."
+        msg_pt = f"Todos os três modelos recomendam {join_treatments(get_treatments(top_combo), lang)} com uma confiabilidade de {avg_prob:.2%}."
         return msg_pt if lang == "pt" else msg_en
 
     elif count == 2:
         msg_en = f"Two models recommend {join_treatments(get_treatments(top_combo), lang)} with an estimated success rate of {avg_prob:.2%}. Consider this recommendation but validate with a specialist."
-        msg_pt = f"Dois modelos recomendam {join_treatments(get_treatments(top_combo), lang)} com uma taxa estimada de sucesso de {avg_prob:.2%}. Considere esta recomendação, mas valide com um especialista."
+        msg_pt = f"Dois modelos recomendam {join_treatments(get_treatments(top_combo), lang)} com uma confiabilidade de {avg_prob:.2%}. Considere esta recomendação, mas a validação de um especialista é necessária."
         return msg_pt if lang == "pt" else msg_en
 
     else:
@@ -159,8 +159,8 @@ def summarize_recommendation(results, lang="en"):
         )
         msg_pt = (
             f"Os modelos deram recomendações diferentes. "
-            f"A mais promissora é {join_treatments(best_treatments, lang)} com uma taxa estimada de sucesso de {best_prob:.2%}. "
-            f"Um profissional de saúde deve avaliar este caso."
+            f"A mais promissora é {join_treatments(best_treatments, lang)} com uma confiabilidade de {best_prob:.2%}. "
+            f"O especialista deve avaliar este caso."
         )
         return msg_pt if lang == "pt" else msg_en
 

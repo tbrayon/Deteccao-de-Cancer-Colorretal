@@ -1,5 +1,5 @@
 from collections import defaultdict, Counter
-from flask import Flask, request, jsonify, render_template # ADDED render_template
+from flask import Flask, request, jsonify, render_template, send_from_directory
 from flask_cors import CORS
 import pandas as pd
 import joblib
@@ -168,6 +168,10 @@ def summarize_recommendation(results, lang="en"):
 def index():
     """Renders the main prediction form page."""
     return render_template('index.html')
+
+@app.route('/modal.html')
+def serve_modal():
+    return send_from_directory('templates', 'modal.html')
 
 
 @app.route('/resultados')

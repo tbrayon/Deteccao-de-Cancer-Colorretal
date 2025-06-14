@@ -1,0 +1,137 @@
+/* /static/style/style.css */
+
+/* --- Controle de visibilidade das seções do formulário --- */
+.section {
+    display: none;
+}
+.active {
+    display: block;
+}
+
+/* --- Estilo da Barra de Progresso: Etapa Atual --- */
+.progress-step-current {
+    border-color: #4f46e5; /* Cor indigo/azul */
+}
+
+/* --- Estilo da Barra de Progresso: Etapa Concluída --- */
+.progress-step-completed {
+    background-color: #4f46e5; /* Cor indigo/azul */
+    border-color: #4f46e5;  
+    color: white; /* Cor do ícone (checkmark) */
+}
+.progress-step-completed .step-number {
+    display: none;
+}
+.progress-step-completed .step-checkmark {
+    display: block;
+}
+
+/* --- Estilo principal da página (Body) --- */
+body {
+    position: relative;
+    background-color: #9ca3af; /* COR DE FUNDO MAIS ESCURA PARA MAIOR CONTRASTE */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/static/img/desenho-cancer-1.png"),
+                      url("/static/img/desenho-cancer-2.png");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: left top, right bottom;
+    background-size: 110px, 180px;
+    opacity: 0.07;
+    z-index: -1;
+}
+
+/* --- Estilos para elementos de formulário --- */
+::placeholder { 
+    color: #9ca3af;
+    opacity: 1; 
+}
+select:invalid { 
+    color: #9ca3af;
+}
+option { 
+    color: #111827;
+}
+
+/* --- Estilos para Impressão --- */
+@media print {
+    body::before {
+        display: none;
+    }
+    body { 
+        background-color: white !important; 
+    }
+    .no-print { 
+        display: none !important; 
+    }
+    .print-content { 
+        box-shadow: none !important; 
+        border: none !important; 
+        padding: 0 !important; 
+    }
+}
+
+/* --- Estilo do Contêiner do Formulário --- */
+.print-content {
+    /* SOMBRA MAIS ACENTUADA PARA MAIOR PROFUNDIDADE */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    
+    /* Borda sutil para definir melhor as arestas */
+    border: 1px solid #e5e7eb;
+}
+
+
+/* --- Estilos de Responsividade para a Tabela de Resultados --- */
+@media (max-width: 767px) {
+    #resultContent thead {
+        display: none;
+    }
+
+    #resultContent tr {
+        display: block;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+        background-color: #ffffff;
+    }
+
+    #resultContent tr.bg-green-50 {
+        border-color: #d1fae5;
+    }
+
+    #resultContent td {
+        display: block;
+        border: none;
+        border-bottom: 1px solid #f3f4f6;
+        padding: 1rem;
+        text-align: center;
+        position: relative;
+    }
+
+    #resultContent td:last-child {
+        border-bottom: 0;
+    }
+
+    #resultContent td::before {
+        content: attr(data-label);
+        display: block;
+        font-weight: 600;
+        font-size: 0.75rem;
+        color: #6b7280;
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+    }
+}

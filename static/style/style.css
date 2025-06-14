@@ -10,13 +10,13 @@
 
 /* --- Estilo da Barra de Progresso: Etapa Atual --- */
 .progress-step-current {
-    border-color: #4f46e5; /* Cor indigo/azul */
+    border-color: #2ecc71; /* Cor verde da imagem */
 }
 
 /* --- Estilo da Barra de Progresso: Etapa Concluída --- */
 .progress-step-completed {
-    background-color: #4f46e5; /* Cor indigo/azul */
-    border-color: #4f46e5;  
+    background-color: #2ecc71; /* Cor verde da imagem */
+    border-color: #2ecc71;  /* Cor verde da imagem */
     color: white; /* Cor do ícone (checkmark) */
 }
 .progress-step-completed .step-number {
@@ -43,7 +43,7 @@ body::before {
     width: 100%;
     height: 100%;
     background-image: url("/static/img/desenho-cancer-1.png"),
-                      url("/static/img/desenho-cancer-2.png");
+                        url("/static/img/desenho-cancer-2.png");
     background-repeat: repeat;
     background-attachment: fixed;
     background-position: left top, right bottom;
@@ -53,14 +53,14 @@ body::before {
 }
 
 /* --- Estilos para elementos de formulário --- */
-::placeholder { 
+::placeholder {
     color: #9ca3af;
-    opacity: 1; 
+    opacity: 1;
 }
-select:invalid { 
+select:invalid {
     color: #9ca3af;
 }
-option { 
+option {
     color: #111827;
 }
 
@@ -69,16 +69,16 @@ option {
     body::before {
         display: none;
     }
-    body { 
-        background-color: white !important; 
+    body {
+        background-color: white !important;
     }
-    .no-print { 
-        display: none !important; 
+    .no-print {
+        display: none !important;
     }
-    .print-content { 
-        box-shadow: none !important; 
-        border: none !important; 
-        padding: 0 !important; 
+    .print-content {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
     }
 }
 
@@ -108,9 +108,11 @@ option {
         background-color: #ffffff;
     }
 
+    /* Mantenho a borda correspondente ao roxo, se houver um elemento com essa classe ainda */
     #resultContent tr.bg-green-50 {
-        border-color: #d1fae5;
+        border-color: #e0e7ff; 
     }
+
 
     #resultContent td {
         display: block;

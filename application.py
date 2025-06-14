@@ -6,8 +6,8 @@ import joblib
 
 from random_patient import generate_random_patient
 
-app = Flask(__name__)
-CORS(app)
+application = Flask(__name__)
+CORS(application)
 
 # Load trained models and preprocessor
 try:
@@ -164,22 +164,22 @@ def summarize_recommendation(results, lang="en"):
         )
         return msg_pt if lang == "pt" else msg_en
 
-@app.route('/')
+@application.route('/')
 def index():
     """Renders the main prediction form page."""
     return render_template('index.html')
 
-@app.route('/modal.html')
+@application.route('/modal.html')
 def serve_modal():
     return send_from_directory('templates', 'modal.html')
 
 
-@app.route('/resultados')
+@application.route('/resultados')
 def results_page():
     """Renders the results page."""
     return render_template('resultados.html')
 
-@app.route('/random-patient', methods=['GET'])
+@application.route('/random-patient', methods=['GET'])
 def random_patient_endpoint():
     """Generates and returns a single random patient's data as JSON."""
     patient_df = generate_random_patient()
@@ -187,7 +187,7 @@ def random_patient_endpoint():
     patient_dict = patient_df.iloc[0].to_dict()
     return jsonify(patient_dict)
 
-@app.route('/predict', methods=['POST'])
+@application.route('/predict', methods=['POST'])
 def predict():
     """Receives patient data from frontend, processes it, and returns predictions from multiple models."""
     data = request.json
@@ -257,4 +257,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run(debug=True)

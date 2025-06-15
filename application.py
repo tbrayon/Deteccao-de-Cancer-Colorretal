@@ -130,7 +130,7 @@ def summarize_recommendation(results, lang="en"):
 
     most_common = combo_counter.most_common()
     top_combo, count = most_common[0]
-    avg_prob = sum(combo_probs[top_combo]) / len(combo_probs[top_combo])
+    avg_prob = sum(combo_probs[top_combo]) / 3 # len(combo_probs[top_combo])
 
     def get_treatments(combo):
         return [
@@ -138,7 +138,7 @@ def summarize_recommendation(results, lang="en"):
             for treatment, value in combo if value == "Yes"
         ]
 
-    # Determine wording
+    # Dividir os resultados por 3 no caso de 2 resultados iguais ou 1 resultado (considerando o maior percentual).
     if count == 3:
         msg_en = f"All three models recommend {join_treatments(get_treatments(top_combo), lang)} with an estimated success rate of {avg_prob:.2%}."
         msg_pt = f"Todos os três modelos recomendam {join_treatments(get_treatments(top_combo), lang)} com uma confiabilidade de {avg_prob:.2%}."
@@ -146,11 +146,11 @@ def summarize_recommendation(results, lang="en"):
 
     elif count == 2:
         msg_en = f"Two models recommend {join_treatments(get_treatments(top_combo), lang)} with an estimated success rate of {avg_prob:.2%}. Consider this recommendation but validate with a specialist."
-        msg_pt = f"Dois modelos recomendam {join_treatments(get_treatments(top_combo), lang)} com uma confiabilidade de {avg_prob:.2%}. Considere esta recomendação, mas a validação de um especialista é necessária."
+        msg_pt = f"Dois modelos recomendam {join_treatments(get_treatments(top_combo), lang)} com uma confiabilidade de {avg_prob:.2%}. Considere esta recomendação, mas é indicada uma análise mais ampla considerando todo o histórico do paciente."
         return msg_pt if lang == "pt" else msg_en
 
     else:
-        best_combo, best_prob = max(cleaned_results, key=lambda x: x[1])
+        best_combo, best_prob = max(cleaned_results, key=lambda x: x[1]) / 3
         best_treatments = get_treatments(best_combo)
         msg_en = (
             f"The models gave different recommendations. "
@@ -160,7 +160,7 @@ def summarize_recommendation(results, lang="en"):
         msg_pt = (
             f"Os modelos deram recomendações diferentes. "
             f"A mais promissora é {join_treatments(best_treatments, lang)} com uma confiabilidade de {best_prob:.2%}. "
-            f"O especialista deve avaliar este caso."
+            f"É indicada uma análise mais ampla considerando todo o histórico do paciente."
         )
         return msg_pt if lang == "pt" else msg_en
 
@@ -192,9 +192,9 @@ def predict():
     """Receives patient data from frontend, processes it, and returns predictions from multiple models."""
     data = request.json
     
-    # df = pd.DataFrame([data])
+    df = pd.DataFrame([data])
     
-    df = generate_random_patient()
+    # df = generate_random_patient()
 
     expected_columns_order = [
         'Age', 'Gender', 'Race', 'Region', 'Urban_or_Rural', 'Socioeconomic_Status',

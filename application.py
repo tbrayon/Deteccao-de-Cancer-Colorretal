@@ -150,16 +150,17 @@ def summarize_recommendation(results, lang="en"):
         return msg_pt if lang == "pt" else msg_en
 
     else:
-        best_combo, best_prob = max(cleaned_results, key=lambda x: x[1]) / 3
+        best_combo, best_prob = max(cleaned_results, key=lambda x: x[1])
+        max_prob = best_prob/3
         best_treatments = get_treatments(best_combo)
         msg_en = (
             f"The models gave different recommendations. "
-            f"The most promising is {join_treatments(best_treatments, lang)} with an estimated success rate of {best_prob:.2%}. "
+            f"The most promising is {join_treatments(best_treatments, lang)} with an estimated success rate of {max_prob:.2%}. "
             "A healthcare professional should assess this case."
         )
         msg_pt = (
             f"Os modelos deram recomendações diferentes. "
-            f"A mais promissora é {join_treatments(best_treatments, lang)} com uma confiabilidade de {best_prob:.2%}. "
+            f"A mais promissora é {join_treatments(best_treatments, lang)} com uma confiabilidade de {max_prob:.2%}. "
             f"É indicada uma análise mais ampla considerando todo o histórico do paciente."
         )
         return msg_pt if lang == "pt" else msg_en

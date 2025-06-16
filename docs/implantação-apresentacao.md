@@ -27,13 +27,9 @@ A implantação da aplicação no AWS Elastic Beanstalk envolve várias etapas, 
 
 # Deploy na AWS
 
----
-
 # Deploy da Aplicação Flask na AWS com Elastic Beanstalk
 
 Para fazer o deploy da aplicação **`previsao-cancer-colorretal-app`** na AWS, vamos focar no **Elastic Beanstalk (EB)**. Apesar de existirem outras opções como EC2 puro, Fargate, ECS, ou até mesmo API Gateway com Lambda (adaptando o Flask), o Elastic Beanstalk é a escolha mais prática para projetos de pequeno a médio porte, já que ele **automatiza a infraestrutura e o escalonamento**.
-
----
 
 ## Preparando Sua Aplicação Flask
 
@@ -53,8 +49,6 @@ web: gunicorn -w 4 -b 0.0.0.0:5000 application:application
 
 **Observação:** O comando acima assume que seu objeto Flask se chama `application` e está definido no arquivo `application.py`. Se o nome do seu arquivo principal for diferente, ajuste `application:application` para, por exemplo, `nome_do_seu_arquivo:application`.
 
----
-
 ## Instalando Servidores WSGI
 
 Para garantir que sua aplicação possa rodar em diferentes ambientes (Linux na AWS e localmente pra testes), instale os seguintes servidores WSGI:
@@ -71,8 +65,6 @@ Para garantir que sua aplicação possa rodar em diferentes ambientes (Linux na 
     pip install waitress
     ```
 
----
-
 ## Executando e Testando Localmente
 
 Para rodar a aplicação localmente e testar antes do deploy, use o Waitress (no Windows):
@@ -85,8 +77,6 @@ Depois de iniciar, você pode acessar a aplicação nos seguintes endereços:
 
 * `http://127.0.0.1:5000/`
 * `http://localhost:5000/`
-
----
 
 ## Detalhes do Deploy na AWS
 

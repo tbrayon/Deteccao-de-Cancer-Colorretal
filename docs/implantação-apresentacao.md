@@ -9,6 +9,10 @@
 * **Amazon S3 (Simple Storage Service):**
 <p align="justify">É utilizado para armazenar os conjuntos de dados brutos e pré-processados, modelos treinados e logs da aplicação. O S3 oferece alta durabilidade, disponibilidade e segurança. No nosso caso, um bucket será criado no S3 e será feito o upload do arquivo `colorectal_cancer_prediction.csv`. O bucket do projeto atualmente indica um uso de <strong>14.47 MB e 0,00 objetos armazenados</strong>.</p>
 
+### Implantação no AWS Elastic Beanstalk
+
+A implantação da aplicação no AWS Elastic Beanstalk envolve várias etapas, desde a preparação da sua aplicação até a configuração do ambiente e a implantação propriamente dita. O Elastic Beanstalk simplifica o processo de implantação e dimensionamento de aplicações e serviços web.
+
 ### Monitoramento e Gerenciamento
 
 <p align="justify">A etapa de observação e monitoria tem como finalidade garantir a <strong>rastreabilidade, consistência e desempenho</strong> do pipeline de dados implementado. Para isso, a ferramenta escolhida foi o <strong>Amazon CloudWatch</strong>, serviço nativo da AWS voltado para o monitoramento e análise de métricas e logs.</p>    
@@ -21,35 +25,73 @@
 
 <p align="justify">A AWS disponibiliza em seu site a <strong>AWS Pricing Calculator</strong>, uma ferramenta gratuita que possibilita estimar o custo dos serviços da AWS com base nos recursos que você pretende usar. O serviço pode ser acessado pelo link: [https://calculator.aws.amazon.com/](https://calculator.aws.amazon.com/).</p>    
 
-## Testes da Aplicação
+# Deploy na AWS
 
-Para garantir a qualidade, confiabilidade e robustez da aplicação, a fase de testes é crucial. Abaixo, apresentamos as principais etapas e tipos de testes implementados:
+## Deploy da Aplicação Flask na AWS com Elastic Beanstalk
 
-### 1. Testes de Unidade
+Para implantar a aplicação **`previsao-cancer-colorretal-app`** na AWS, focaremos no **Elastic Beanstalk (EB)**. Embora existam outras opções como EC2 puro, Fargate, ECS, ou até mesmo API Gateway com Lambda (adaptando o Flask), o Elastic Beanstalk é a escolha mais prática para projetos de pequeno a médio porte. Isso porque ele **automatiza a infraestrutura e o dimensionamento** para você.
 
-**Objetivo:** Verificar se as menores unidades de código (funções, métodos, classes) funcionam conforme o esperado de forma isolada.
-**Ferramentas:** `pytest` (para Python).
+## Preparando sua Aplicação Flask
 
-* **Conexão com o S3:** Verificar se a função de conexão ao S3 tenta se conectar corretamente.
+Primeiro, é essencial que a variável principal do Flask no seu projeto seja nomeada **`application`**. Se você estiver usando `app`, renomeie-a para `application`.
 
-### 2. Testes de Integração
+Depois, você precisa criar o arquivo **`requirements.txt`** com todas as dependências do seu projeto. Para isso, execute o seguinte comando no terminal:
 
-**Objetivo:** Verificar a interação entre diferentes módulos ou serviços da aplicação.
+```bash
+pip freeze > requirements.txt
+```
 
-* **Integração do modelo com dados de entrada:** Simular o envio de novos dados para o modelo e verificar se ele retorna previsões válidas.
-* **Conectividade entre serviços AWS:** Assegurar que o S3 e outros serviços estão se comunicando perfeitamente.
+Em seguida, crie um arquivo chamado **`Procfile`** na raiz do seu projeto. Esse arquivo é crucial para o Elastic Beanstalk saber como iniciar sua aplicação usando o Gunicorn (um servidor WSGI para sistemas Unix):
 
-### 3. Testes de Funcionalidade (End-to-End - E2E)
+```plaintext
+web: gunicorn -w 4 -b 0.0.0.0:5000 application:application
+```
 
-**Objetivo:** Validar o fluxo completo da aplicação do ponto de vista do usuário final ou do processo de negócio.
+**Observação:** O comando acima assume que seu objeto Flask se chama `application` e está definido no arquivo `application.py`. Se o nome do seu arquivo principal for diferente, ajuste `application:application` para, por exemplo, `seu_modulo_principal:application`.
 
-### 4. Testes de Performance e Carga
+## Instalação de Servidores WSGI
 
-**Objetivo:** Avaliar a capacidade da aplicação de lidar com grandes volumes de dados ou alta concorrência, bem como seu desempenho sob diferentes condições.
+Para garantir que sua aplicação possa ser executada em diferentes ambientes (Linux na AWS e localmente para testes), instale os seguintes servidores WSGI:
 
-### 5. Testes de Segurança
+* **Gunicorn** (para Linux, usado no Elastic Beanstalk):
 
-**Objetivo:** Identificar vulnerabilidades e garantir que a aplicação esteja protegida contra acessos não autorizados e outras ameaças.
+    ```bash
+    pip install gunicorn
+    ```
+
+* **Waitress** (para Windows, útil para testes locais):
+
+    ```bash
+    pip install waitress
+    ```
+
+## Executando e Testando Localmente
+
+Para rodar a aplicação localmente e testar antes do deploy, use o Waitress (no Windows):
+
+```bash
+C:\Users\gina_\AppData\Roaming\Python\Python312\Scripts\waitress-serve --host=0.0.0.0 --port=5000 application:application
+```
+
+Após iniciar, você pode acessar a aplicação nos seguintes endereços:
+
+* `http://127.0.0.1:5000/`
+* `http://localhost:5000/`
+
+---
+
+## Detalhes do Deploy na AWS
+
+Ao configurar seu ambiente no Elastic Beanstalk, algumas configurações comuns são:
+
+* **Tipo de Instância:** **`T3.medium`** (bom para começar, mas pode ser ajustado conforme a demanda).
+* **Zona de Disponibilidade:** **`us-east-1a`** (exemplo de zona na região N. Virginia).
+
+Após o deploy bem-sucedido, sua aplicação estará acessível através de uma URL gerada pelo Elastic Beanstalk, similar a:
+
+* `http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com/`
+
+Com esses passos, você estará pronto para ter sua aplicação Flask rodando na nuvem da AWS, aproveitando a simplicidade e robustez do Elastic Beanstalk.
 
 
 Nesta seção, a implantação da solução proposta em nuvem deverá ser realizada e detalhadamente descrita. Além disso, deverá ser descrito também, o planejamento da capacidade operacional através da modelagem matemática e da simulação do sistema computacional.

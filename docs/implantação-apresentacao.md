@@ -25,75 +25,169 @@ A implantação da aplicação no AWS Elastic Beanstalk envolve várias etapas, 
 
 <p align="justify">A AWS disponibiliza em seu site a <strong>AWS Pricing Calculator</strong>, uma ferramenta gratuita que possibilita estimar o custo dos serviços da AWS com base nos recursos que você pretende usar. O serviço pode ser acessado pelo link: [https://calculator.aws.amazon.com/](https://calculator.aws.amazon.com/).</p>    
 
-# Deploy na AWS
-
 # Deploy da Aplicação Flask na AWS com Elastic Beanstalk
 
-Para fazer o deploy da aplicação **`previsao-cancer-colorretal-app`** na AWS, vamos focar no **Elastic Beanstalk (EB)**. Apesar de existirem outras opções como EC2 puro, Fargate, ECS, ou até mesmo API Gateway com Lambda (adaptando o Flask), o Elastic Beanstalk é a escolha mais prática para projetos de pequeno a médio porte, já que ele **automatiza a infraestrutura e o escalonamento**.
+## Desenvolvimento e Deploy de um Modelo de Previsão de Câncer Colorretal com Flask e AWS Elastic Beanstalk
 
-## Preparando Sua Aplicação Flask
+Este projeto focou na **criação e implantação de uma aplicação web** para prever o câncer colorretal. Utilizamos um modelo de machine learning pré-treinado, que emprega métricas de **Random Forest, XGBoost e Naive Bayes** para as predições. A aplicação foi desenvolvida em **Python com Flask** e implantada na nuvem usando o **AWS Elastic Beanstalk**. Optamos pelo Elastic Beanstalk por ser a forma mais prática e eficiente para o deploy, após pesquisas prévias.
 
-Primeiro, é essencial que a variável principal do Flask no seu projeto seja nomeada **`application`**. Se você estiver usando `app`, renomeie-a para `application`.
+## Etapas do Projeto
 
-Depois, você precisa criar o arquivo **`requirements.txt`** com todas as dependências do seu projeto. Pra fazer isso, execute o comando abaixo no terminal:
+### 1. Preparação do Código para Deploy no AWS Elastic Beanstalk
 
-```bash
-pip freeze > requirements.txt
-```
+Para garantir a compatibilidade com o Elastic Beanstalk, estruturamos o projeto com os diretórios padrão do Flask, como `/templates`, `/static` e `/models`. O arquivo principal, **`application.py`**, foi o responsável por orquestrar a aplicação.
 
-Em seguida, crie um arquivo chamado **`Procfile`** na raiz do seu projeto. Esse arquivo é crucial para o Elastic Beanstalk saber como iniciar sua aplicação usando o Gunicorn (um servidor WSGI para sistemas Unix):
+As rotas foram implementadas com o framework Flask, integrando um **modelo de machine learning no formato `.pkl`**. Este modelo é carregado dinamicamente para realizar previsões a partir dos dados recebidos.
 
-```plaintext
-web: gunicorn -w 4 -b 0.0.0.0:5000 application:application
-```
+Para o funcionamento em produção, dois arquivos essenciais foram configurados:
 
-**Observação:** O comando acima assume que seu objeto Flask se chama `application` e está definido no arquivo `application.py`. Se o nome do seu arquivo principal for diferente, ajuste `application:application` para, por exemplo, `nome_do_seu_arquivo:application`.
+* O **`Procfile`**: define o ponto de entrada da aplicação, utilizando o servidor WSGI `waitress`.
+* O **`requirements.txt`**: lista todas as dependências necessárias, incluindo as bibliotecas `Flask`, `pandas`, `joblib` e `waitress==3.0.2`.
 
-## Instalando Servidores WSGI
+### 2. Empacotamento para o Deploy
 
-Para garantir que sua aplicação possa rodar em diferentes ambientes (Linux na AWS e localmente pra testes), instale os seguintes servidores WSGI:
+Criamos um **arquivo `.zip` da aplicação** a partir do conteúdo interno da pasta, evitando caminhos do Windows que poderiam causar problemas. Também removemos arquivos e diretórios irrelevantes do `.zip`, como `.git/`, `.ipynb_checkpoints` e arquivos `.ipynb`.
 
-* **Gunicorn** (para Linux, usado no Elastic Beanstalk):
+### 3. Etapas do Deploy no Elastic Beanstalk
 
-    ```bash
-    pip install gunicorn
+O arquivo `.zip` da aplicação foi enviado pelo painel da AWS EB, selecionando o ambiente Python.
+
+Foi necessário resolver um erro de **"Bad Gateway (502)"** ajustando:
+
+* A variável de ambiente `PORT=5000`.
+* O comando correto no `Procfile`: `web: waitress-serve --host=0.0.0.0 --port=5000 application:application`.
+
+Durante o provisionamento do ambiente na AWS, escolhemos a **instância `t3.medium`**. Instâncias menores (como `t2.micro` ou `t3.micro`) apresentaram limitações de memória e capacidade de processamento, não sendo suficientes para suportar a aplicação, especialmente durante a inicialização e o deploy.
+
+Ao executar a aplicação com suas dependências (Flask, waitress e bibliotecas de análise), observamos travamentos frequentes e falhas de saúde do ambiente, indicando insuficiência de recursos computacionais, principalmente de memória RAM.
+
+A `t3.medium` oferece **2 vCPUs e 4 GB de RAM**, garantindo maior estabilidade, inicialização rápida das instâncias e suporte ao volume de requisições durante os testes de carga. Essa escolha equilibra custo-benefício, pois a instância faz parte da geração T3 (econômica com *burst performance*) e permite escalabilidade via Auto Scaling, se necessário.
+
+A integridade da aplicação foi validada pelos logs da AWS (nginx, `web.stdout.log`) e pela resposta HTTP 200 à URL pública do ambiente.
+
+**URL pública:** `http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com/`
+
+### 4. Testes e Acesso Externo
+
+Após o deploy, corrigimos um problema de acesso causado pelo uso de `https://` (o ambiente respondia apenas em `http://`). Ao tentar acessar o link da aplicação por dispositivos móveis, a URL era automaticamente convertida para HTTPS. Orientamos o uso explícito da URL com HTTP.
+
+Confirmamos que o acesso externo estava disponível após limpar caches e forçar o protocolo correto no navegador.
+
+## Configurações Extras
+
+### Monitoramento e Alertas com AWS CloudWatch
+
+Configuramos um alarme de integridade do ambiente (**“Environment Health”**) com os seguintes parâmetros no AWS CloudWatch:
+
+* **Namespace:** `AWS/ElasticBeanstalk`
+* **Métrica:** `EnvironmentHealth`
+* **Ambiente monitorado:** `Previsao-cancer-colorretal-app-env`
+* **Estatística:** Média (`Average`)
+* **Período:** 1 minuto
+* **Limite de alarme:** Aciona se 3 pontos de dados consecutivos estiverem fora da faixa.
+
+Isso significa que se o ambiente estiver em estado ruim por 3 minutos seguidos, o alarme será disparado (e poderá enviar um alerta, caso um tópico SNS esteja configurado).
+
+
+## Guia Rápido: Deploy de Aplicações Flask no AWS Elastic Beanstalk
+
+Este guia vai te mostrar, passo a passo, como colocar sua aplicação Flask no ar usando o AWS Elastic Beanstalk. É uma forma simples e eficiente de ter seu projeto rodando na nuvem.
+
+-----
+
+## 1️⃣ Criar um Ambiente no AWS Elastic Beanstalk
+
+Para começar, você precisa criar um ambiente para sua aplicação:
+
+  * Acesse o **Console da AWS** e procure por **Elastic Beanstalk**:
+    👉 [https://console.aws.amazon.com/elasticbeanstalk](https://console.aws.amazon.com/elasticbeanstalk)
+  * Clique em **"Create Application"** (Criar Aplicação).
+  * Escolha um nome para sua aplicação (por exemplo: `flask-app`).
+  * Em **"Platform"** (Plataforma), selecione **`Python`**.
+  * Por fim, clique em **"Create application"** (Criar aplicação) para gerar o ambiente.
+
+-----
+
+## 2️⃣ Criar um Pacote ZIP com Sua Aplicação
+
+Antes de fazer o upload, sua aplicação precisa estar em um arquivo `.zip` bem estruturado. Ele deve conter:
+
+  * Seu código-fonte (`app.py` ou `application.py`).
+
+  * Pastas de `templates` e `arquivos estáticos`.
+
+  * O arquivo `requirements.txt` (com todas as suas dependências).
+
+  * O arquivo `Procfile` (para rodar o Gunicorn no Elastic Beanstalk), no formato abaixo:
+
+    ```plaintext
+    web: gunicorn -w 4 -b 0.0.0.0:5000 application:application
     ```
 
-* **Waitress** (para Windows, útil pra testes locais):
-
-    ```bash
-    pip install waitress
-    ```
-
-## Executando e Testando Localmente
-
-Para rodar a aplicação localmente e testar antes do deploy, use o Waitress (no Windows):
+**Importante:** Ao compactar, certifique-se de que o ZIP contenha os arquivos diretamente, **sem uma pasta raiz extra**. Você pode fazer isso assim (dentro do diretório do seu projeto):
 
 ```bash
-C:\Users\gina_\AppData\Roaming\Python\Python312\Scripts\waitress-serve --host=0.0.0.0 --port=5000 application:application
+zip -r minha-app.zip .
 ```
 
-Depois de iniciar, você pode acessar a aplicação nos seguintes endereços:
+-----
 
-* `http://127.0.0.1:5000/`
-* `http://localhost:5000/`
+## 3️⃣ Fazer o Upload no Elastic Beanstalk
 
-## Detalhes do Deploy na AWS
+Com o pacote ZIP pronto, é hora de enviar para a AWS:
 
-Ao configurar seu ambiente no Elastic Beanstalk, algumas configurações comuns são:
+  * No Console do Elastic Beanstalk, vá para a sua aplicação.
+  * Clique em **"Upload and Deploy"** (Carregar e Implantar).
+  * Selecione o arquivo ZIP da sua aplicação e clique em **"Deploy"** (Implantar).
+  * Aguarde alguns minutos enquanto o deploy é concluído.
 
-* **Tipo de Instância:** **`T3.medium`** (é um bom começo, mas você pode ajustar conforme a demanda).
-* **Zona de Disponibilidade:** **`us-east-1a`** (um exemplo de zona na região N. Virginia).
+-----
 
-Após o deploy ser bem-sucedido, sua aplicação estará acessível por uma URL gerada pelo Elastic Beanstalk, parecida com esta:
+## 4️⃣ Testar Sua Aplicação
 
-* `http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com/`
+Depois do deploy, a AWS vai te dar uma URL pública. Para acessar sua aplicação:
 
-Com esses passos, você estará pronto pra ter sua aplicação Flask rodando na nuvem da AWS, aproveitando a simplicidade e robustez do Elastic Beanstalk.
+  * Vá para o painel do Elastic Beanstalk.
+  * Na seção **"Environments"** (Ambientes), clique no nome da sua aplicação.
+  * Copie o **"Endpoint"** (por exemplo: `http://meuapp.us-east-1.elasticbeanstalk.com`).
+  * Abra no navegador e veja sua aplicação rodando\!
 
-Nesta seção, a implantação da solução proposta em nuvem deverá ser realizada e detalhadamente descrita. Além disso, deverá ser descrito também, o planejamento da capacidade operacional através da modelagem matemática e da simulação do sistema computacional.
+-----
 
-Após a implantação, realize testes que mostrem o correto funcionamento da aplicação.
+## 5️⃣ Configurar Variáveis de Ambiente (Opcional)
+
+Se sua aplicação precisar de chaves de API, credenciais ou outras configurações:
+
+  * Vá para o Elastic Beanstalk \> **"Configuration"** (Configuração).
+  * Clique em **"Software" \> "Edit"** (Editar).
+  * Adicione as variáveis na seção **"Environment Variables"** (Variáveis de Ambiente).
+  * **Salve** e **Reinicie** o ambiente.
+
+-----
+
+## 6️⃣ Configurar Banco de Dados (Opcional)
+
+Se você precisa de um banco de dados, use o **AWS RDS**:
+
+  * Acesse o **AWS RDS**.
+  * Crie uma instância (MySQL/PostgreSQL, por exemplo).
+  * Copie o endpoint do banco e configure a conexão na sua aplicação.
+
+-----
+
+## 7️⃣ Configurar HTTPS (Opcional)
+
+Para ativar SSL e usar HTTPS:
+
+  * Vá para **"Load Balancer"** (Balanceador de Carga) no Elastic Beanstalk.
+  * Adicione um **Certificado SSL** via AWS Certificate Manager.
+  * Configure para **redirecionar o tráfego para HTTPS**.
+
+-----
+
+**Pronto\!**  Sua aplicação Flask está online via AWS Elastic Beanstalk, sem precisar de configurações complexas. Se precisar de mais ajustes, é só me chamar\!
+
+
 
 # Apresentação da solução
 

@@ -185,12 +185,7 @@ Para ativar SSL e usar HTTPS:
 
 -----
 
-**Pronto\!**  Sua aplicação Flask está online via AWS Elastic Beanstalk, sem precisar de configurações complexas. Se precisar de mais ajustes, é só me chamar\!
+**Pronto\!**  Sua aplicação Flask está online via AWS Elastic Beanstalk, sem precisar de configurações complexas.
 
-
-
-# Apresentação da solução
-
-Nesta seção, um vídeo de, no máximo, 10 minutos onde deverá ser descrito o escopo todo do projeto, um resumo do trabalho desenvolvido, incluindo a comprovação de que o _deploy_ foi realizado e, as conclusões alcançadas.
 
 

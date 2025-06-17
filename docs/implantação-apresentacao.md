@@ -221,9 +221,11 @@ artillery run teste-carga.yml
 ## Conclusão
 <p style="text-align: justify;">Com isso, a partir dos testes, definimos que o <strong>ponto ideal de operação sustentada</strong> da aplicação está em <strong>até 51 requisições por segundo</strong>, garantindo disponibilidade e performance. O teste com 52 req/s serviu como referência para análise de capacidade e dimensionamento futuro. </p>
 
-
+## Testes realizados
 
 **Resultado do Teste 1:**
+
+Este teste vai simular 10 usuários por segundo durante 1 minuto acessando a página inicial da aplicação.
 
 ```
 

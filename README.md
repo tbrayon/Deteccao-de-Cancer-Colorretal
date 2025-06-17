@@ -1,4 +1,4 @@
-# Predição de cancer colorretal
+# Predição de Câncer Colorretal
 
 `CURSO: Sistemas de Informação`
 

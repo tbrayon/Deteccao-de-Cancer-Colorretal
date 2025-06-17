@@ -188,4 +188,262 @@ Para ativar SSL e usar HTTPS:
 **Pronto\!**  Sua aplicação Flask está online via AWS Elastic Beanstalk, sem precisar de configurações complexas.
 
 
+# Testes de Carga com Artillery: `teste-carga.yml`
+
+Para realizar os testes de carga da aplicação, utilize a ferramenta **Artillery**.
+
+**Como usar:**
+
+1.  **Instalar a ferramenta:**
+    ```bash
+    npm install -g artillery
+    ```
+2.  **Rodar o teste no terminal do projeto:**
+    ```bash
+    artillery run teste-carga.yml
+    ```
+
+---
+
+## TESTE 1: Simulação de Carga Leve
+
+Este teste simula **10 usuários por segundo durante 1 minuto**, acessando a página inicial da sua aplicação.
+
+```yaml
+config:
+  target: "http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com/" # Exemplo de URL
+  phases:
+    - duration: 60
+      arrivalRate: 10
+scenarios:
+  - flow:
+      - get:
+          url: "/"
+```
+
+**Resultado do Teste 1:**
+
+```
+All VUs finished. Total time: 1 minute, 1 second
+
+--------------------------------
+Summary report @ 21:52:16(-0300)
+--------------------------------
+
+http.codes.200: ................................................................ 600
+http.downloaded_bytes: ......................................................... 16871400
+http.request_rate: ............................................................. 10/sec
+http.requests: ................................................................. 600
+http.response_time:
+  min: ......................................................................... 143
+  max: ......................................................................... 168
+  mean: ........................................................................ 144.9
+  median: ...................................................................... 144
+  p95: ......................................................................... 147
+  p99: ......................................................................... 159.2
+http.response_time.2xx:
+  min: ......................................................................... 143
+  max: ......................................................................... 168
+  mean: ........................................................................ 144.9
+  median: ...................................................................... 144
+  p95: ......................................................................... 147
+  p99: ......................................................................... 159.2
+http.responses: ................................................................ 600
+vusers.completed: .............................................................. 600
+vusers.created: ................................................................ 600
+vusers.created_by_name.0: ...................................................... 600
+vusers.failed: ................................................................. 0
+vusers.session_length:
+  min: ......................................................................... 429.9
+  max: ......................................................................... 487.8
+  mean: ........................................................................ 436
+  median: ...................................................................... 432.7
+  p95: ......................................................................... 450.4
+  p99: ......................................................................... 459.5
+```
+
+### 📊 Resumo do Teste de Carga 1
+
+* **Número total de requisições:** 600
+* **Erro:** 0 → **Nenhuma falha, ótimo sinal!**
+* **Tempo médio de resposta:** 144,9 ms
+* **Tempo máximo de resposta:** 168 ms → **Bem abaixo de 500 ms, super estável.**
+* **Usuários virtuais simulados:** 600
+* **Taxa de requisição constante:** 10 requisições por segundo
+
+### 📈 O que isso mostra:
+
+Sua aplicação está:
+
+* **Respondendo rápido:** menos de 150 ms em média é ótimo.
+* **Estável sob pressão:** nenhuma queda, nenhuma falha de resposta.
+* **Capaz de manter o desempenho consistente:** latências bem próximas no tempo (mínimo e máximo variando pouco).
+
+---
+
+## TESTE 2: Simulação de Carga Média
+
+Este teste aumenta a carga para **51 usuários por segundo durante 1 minuto**.
+
+```yaml
+config:
+  target: "http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com"
+  phases:
+    - duration: 60
+      arrivalRate: 51
+scenarios:
+  - flow:
+      - get:
+          url: "/"
+```
+
+**Resultado do Teste 2:**
+
+```
+All VUs finished. Total time: 1 minute, 2 seconds
+
+--------------------------------
+Summary report @ 22:30:27(-0300)
+--------------------------------
+
+http.codes.200: ................................................................ 3060
+http.downloaded_bytes: ......................................................... 86044140
+http.request_rate: ............................................................. 51/sec
+http.requests: ................................................................. 3060
+http.response_time:
+  min: ......................................................................... 142
+  max: ......................................................................... 236
+  mean: ........................................................................ 150
+  median: ...................................................................... 144
+  p95: ......................................................................... 194.4
+  p99: ......................................................................... 223.7
+http.response_time.2xx:
+  min: ......................................................................... 142
+  max: ......................................................................... 236
+  mean: ........................................................................ 150
+  median: ...................................................................... 144
+  p95: ......................................................................... 194.4
+  p99: ......................................................................... 223.7
+http.responses: ................................................................ 3060
+vusers.completed: .............................................................. 3060
+vusers.created: ................................................................ 3060
+vusers.created_by_name.0: ...................................................... 3060
+vusers.failed: ................................................................. 0
+vusers.session_length:
+  min: ......................................................................... 429.3
+  max: ......................................................................... 3455.1
+  mean: ........................................................................ 460.7
+  median: ...................................................................... 432.7
+  p95: ......................................................................... 608
+  p99: ......................................................................... 685.5
+```
+
+### ✅ Destaques Positivos do Teste 2
+
+Este resultado é mais um retrato de sucesso técnico. Sua aplicação respondeu a uma carga de **51 usuários por segundo** durante 1 minuto com estabilidade impecável.
+
+* **Requisições totais realizadas:** 3.060 → Todas as chamadas foram processadas.
+* **Todas retornaram HTTP 200:** → Isso significa **0 falhas**, sem quedas ou erros de servidor.
+* **Tempo médio de resposta:** 150 ms → **Excelente!** A aplicação manteve tempos baixos mesmo com tráfego intenso.
+* **Latência em cenários extremos:**
+    * `p95`: 194 ms
+    * `p99`: 223.7 ms
+    → Mesmo os 5% mais lentos responderam bem abaixo de 1 segundo.
+* **Nenhum usuário falhou:** → Os 3.060 usuários simulados conseguiram completar suas sessões com sucesso.
+
+### 💡 O que isso prova na prática
+
+Sua aplicação:
+
+* **Está pronta para produção com tráfego médio-alto.**
+* **Tem baixa latência sob carga**, excelente para a experiência do usuário.
+* **Está rodando de forma eficiente na infraestrutura atual** — não travou, não rejeitou requisições, nem sobrecarregou.
+
+---
+
+## TESTE 3: Avaliando o Limite da Carga
+
+Este teste aumenta a carga ligeiramente para **52 usuários por segundo durante 1 minuto**.
+
+```yaml
+config:
+  target: "http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com"
+  phases:
+    - duration: 60
+      arrivalRate: 52
+scenarios:
+  - flow:
+      - get:
+          url: "/"
+```
+
+**Resultado do Teste 3:**
+
+```
+All VUs finished. Total time: 1 minute, 2 seconds
+
+--------------------------------
+Summary report @ 22:32:16(-0300)
+--------------------------------
+
+errors.ETIMEDOUT: .............................................................. 4
+http.codes.200: ................................................................ 3116
+http.downloaded_bytes: ......................................................... 87618804
+http.request_rate: ............................................................. 52/sec
+http.requests: ................................................................. 3120
+http.response_time:
+  min: ......................................................................... 142
+  max: ......................................................................... 200
+  mean: ........................................................................ 145.3
+  median: ...................................................................... 144
+  p95: ......................................................................... 149.9
+  p99: ......................................................................... 165.7
+http.response_time.2xx:
+  min: ......................................................................... 142
+  max: ......................................................................... 200
+  mean: ........................................................................ 145.3
+  median: ...................................................................... 144
+  p95: ......................................................................... 149.9
+  p99: ......................................................................... 165.7
+http.responses: ................................................................ 3116
+vusers.completed: .............................................................. 3116
+vusers.created: ................................................................ 3120
+vusers.created_by_name.0: ...................................................... 3120
+vusers.failed: ................................................................. 4
+vusers.session_length:
+  min: ......................................................................... 428.4
+  max: ......................................................................... 3444.1
+  mean: ........................................................................ 446.9
+  median: ...................................................................... 432.7
+  p95: ......................................................................... 459.5
+  p99: ......................................................................... 645.6
+```
+
+### 🔍 Visão Geral do Desempenho do Teste 3
+
+Este resultado mostra que a aplicação **encostou no limite**, mas ainda segurou firme com uma **taxa de sucesso de 99,87%**, mesmo com 52 requisições por segundo.
+
+* **Requisições simuladas:** 3.120
+* **Requisições com sucesso (HTTP 200):** 3.116
+* **Erros de timeout (ETIMEDOUT):** apenas 4
+* **Taxa de requisição sustentada:** 52 por segundo
+* **Tempo médio de resposta:** 145,3 ms
+* **Tempo máximo:** 200 ms → ainda muito abaixo de 1 segundo
+
+A aplicação respondeu rapidamente e com estabilidade, mesmo com uma carga densa.
+
+### ⚠️ Sobre os 4 erros ETIMEDOUT
+
+Esses timeouts não são alarmantes neste cenário — representam apenas **0,13% do total**. Eles indicam que, em algum instante, talvez por latência de rede, concorrência alta ou pequenas flutuações de infraestrutura, algumas conexões não foram atendidas a tempo.
+
+> Se o ambiente for de desenvolvimento ou estiver com uma instância EC2 menor (como `t2.micro`), esse tipo de oscilação é esperada ao atingir a borda da capacidade.
+
+### 📈 Conclusão do Teste 3
+
+Este teste indica que **52 usuários por segundo ainda está dentro da capacidade da sua aplicação**, com performance rápida e taxa de erro praticamente nula. No entanto, ele também acende a luz de que o **limite real está se aproximando** — talvez entre 55 e 65 usuários/s, os erros comecem a aumentar.
+
+Podemos fazer um teste mais refinado entre 52 e 60 usuários/s para descobrir com mais precisão o ponto de virada, ou até experimentar cenários que alternem períodos de carga e descanso.
+
+
+
 

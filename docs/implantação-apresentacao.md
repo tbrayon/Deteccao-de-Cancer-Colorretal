@@ -188,42 +188,45 @@ Para ativar SSL e usar HTTPS:
 **Pronto\!**  Sua aplicação Flask está online via AWS Elastic Beanstalk, sem precisar de configurações complexas.
 
 
-# Testes de Carga com Artillery: `teste-carga.yml`
+# Testes de Carga: Identificação do Limite da Aplicação
 
-Para realizar os testes de carga da aplicação, utilize a ferramenta **Artillery**.
+<p style="text-align: justify;">Como parte da validação de desempenho da aplicação, realizamos testes de carga progressivos com o objetivo de identificar a taxa máxima de requisições por segundo que o sistema suporta com estabilidade, antes de apresentar degradação ou falhas.</p>
 
-**Como usar:**
+## Ferramenta utilizada
+<p style="text-align: justify;">Utilizamos a ferramenta **Artillery**, instalada localmente com Node.js, para simular acessos simultâneos à aplicação hospedada no **AWS Elastic Beanstalk**. O Artillery permite definir cenários de teste em arquivos `.yml`, com fases de carga configuráveis e geração de relatórios detalhados.</p>
 
-1.  **Instalar a ferramenta:**
-    ```bash
-    npm install -g artillery
-    ```
-2.  **Rodar o teste no terminal do projeto:**
-    ```bash
-    artillery run teste-carga.yml
-    ```
-
----
-
-## TESTE 1: Simulação de Carga Leve
-
-Este teste simula **10 usuários por segundo durante 1 minuto**, acessando a página inicial da sua aplicação.
-
+## Teste com 51 requisições/segundo
+**Arquivo `test-carga.yml` criado com o seguinte cenário:**
 ```yaml
 config:
-  target: "http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com/" # Exemplo de URL
+  target: "http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com"
   phases:
     - duration: 60
-      arrivalRate: 10
+      arrivalRate: 51
 scenarios:
   - flow:
       - get:
           url: "/"
 ```
 
+<p style="text-align: justify;"><strong>Execução:</strong></p>
+
+artillery run teste-carga.yml
+
+<p style="text-align: justify;"><strong>Resultado:</strong></p><p style="text-align: justify;"> - Total de requisições: 3.060<br> - Sucesso HTTP 200: 3.060<br> - Erros: 0<br> - Latência média: ~150 ms<br><br> A aplicação respondeu com <strong>estabilidade total</strong>, sem apresentar erros ou lentidão, mesmo com tráfego sustentado por 1 minuto. </p>
+
+## Teste com 52 requisições/segundo
+<p style="text-align: justify;"><strong>Arquivo atualizado com <code>arrivalRate: 52</code></strong></p><p style="text-align: justify;"><strong>Resultado:</strong></p><p style="text-align: justify;"> - Total de requisições: 3.120<br> - Sucesso HTTP 200: 3.116<br> - Erros de timeout (ETIMEDOUT): 4<br> - Latência média: ~145 ms<br> - p95: 149.9 ms<br> - p99: 165.7 ms<br><br> Neste cenário, a aplicação ainda manteve respostas rápidas, mas foi possível observar os <strong>primeiros sinais de saturação</strong>, com 4 falhas (0,13%) por timeout. Isso indica que a carga de 52 requisições por segundo se aproxima do <strong>limite operacional</strong> do backend ou da infraestrutura base (EC2, Elastic Beanstalk). </p>
+
+## Conclusão
+<p style="text-align: justify;">Com isso, a partir dos testes, definimos que o <strong>ponto ideal de operação sustentada</strong> da aplicação está em <strong>até 51 requisições por segundo</strong>, garantindo disponibilidade e performance. O teste com 52 req/s serviu como referência para análise de capacidade e dimensionamento futuro.</p>
+
+
+
 **Resultado do Teste 1:**
 
 ```
+
 All VUs finished. Total time: 1 minute, 1 second
 
 --------------------------------

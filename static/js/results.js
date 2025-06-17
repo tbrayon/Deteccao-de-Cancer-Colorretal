@@ -27,46 +27,37 @@ document.addEventListener('DOMContentLoaded', function () {
         if (activeTreatments.length === 0) return "Nenhum Tratamento";
         if (activeTreatments.length === 1) return activeTreatments[0];
         // Junta os tratamentos com "e" no final de forma elegante
-        const last = activeTreatments.pop();
-        return activeTreatments.join(', ') + ' e ' + last;
+        return activeTreatments.slice(0, -1).join(', ') + ' e ' + activeTreatments.slice(-1);
     }
 
     /**
      * Busca os dados do backend e atualiza a interface do usuário.
      */
     function renderPredictionResults() {
-        // 1. Processa os dados
+        // 1. Processa e estiliza a mensagem de resumo
         const storedResults = sessionStorage.getItem('predictionResults');
         const data = JSON.parse(storedResults);
         console.log(data);
+        const summaryTextFromServer = data.result;
 
-        // --- LÓGICA PARA A PARTE DE CIMA (COM DESTAQUE) ---
+        const regex = /(?:recomendam|é)\s(.*?)\scom uma (?:confiabilidade|probabilidade) de\s(.*?%)/;
+        const match = summaryTextFromServer.match(regex);
 
-        // Encontra a predição com maior probabilidade APENAS para usar no resumo
-        const bestPrediction = data.predictions.reduce((max, current) =>
-            parseFloat(current.Probability) > parseFloat(max.Probability) ? current : max
-        );
-
-        const bestTreatmentText = getFormattedTreatments(bestPrediction.Combination);
-        const bestProbabilityText = bestPrediction.Probability;
-
-        // Cria a mensagem de resumo com o estilo de destaque
-        const styledSummaryHTML = `
-            <p class="text-lg text-gray-800 font-semibold">
-                Os modelos deram recomendações diferentes. A mais promissora é <strong class="text-green-600">${bestTreatmentText}</strong> com uma confiabilidade de <strong class="text-green-600">${bestProbabilityText}</strong>. É indicada uma análise mais ampla considerando todo o histórico do paciente.
-            </p>
-        `;
+        let styledSummaryHTML = `<p class="text-lg text-gray-800 font-semibold">${summaryTextFromServer}</p>`;
+        if (match) {
+            const styledText = summaryTextFromServer
+                .replace(match[1], `<strong class="text-green-600">${match[1]}</strong>`)
+                .replace(match[2], `<strong class="text-green-600">${match[2]}</strong>`);
+            styledSummaryHTML = `<p class="text-lg text-gray-800 font-semibold">${styledText}</p>`;
+        }
 
         summaryMessageDiv.innerHTML = styledSummaryHTML;
         summaryMessageDiv.className = 'text-center p-4 rounded-lg mb-8 border border-indigo-100 bg-indigo-50 shadow';
 
-        // --- LÓGICA PARA A TABELA (SEM DESTAQUE) ---
-
-        // Gera as linhas da tabela, com todas tendo o mesmo estilo
+        // 2. Processa e renderiza a tabela de previsões (sem cores de destaque)
         const tableRows = data.predictions.map(pred => {
-            // As classes são fixas, sem nenhuma condição para destacar a melhor linha
-            const rowClass = 'hover:bg-gray-50 transition-colors duration-200';
-            const textClass = 'text-gray-700';
+            const rowClass = 'hover:bg-gray-50 transition-colors duration-200'; // Classe padrão para todas as linhas
+            const textClass = 'text-gray-700'; // Classe de texto padrão
             const combinationText = getFormattedTreatments(pred.Combination);
 
             return `
@@ -75,10 +66,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 <td class="p-4 text-center ${textClass}">${combinationText}</td>
                 <td class="p-4 text-center ${textClass}">${pred.Probability}</td>
             </tr>
-            `;
+        `;
         }).join('');
-        
-        // Insere a tabela de volta no HTML
+
         resultContentDiv.innerHTML = `
         <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Recomendações Detalhadas por Modelo</h2>
         <div class="overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
@@ -93,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <tbody class="divide-y divide-gray-200">${tableRows}</tbody>
             </table>
         </div>
-        `;
+    `;
     }
 
 

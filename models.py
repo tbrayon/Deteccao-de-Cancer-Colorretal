@@ -14,6 +14,7 @@ import os
 import joblib
 
 read_path = "./data/colorectal_cancer_prediction.csv"
+
 os.makedirs("models", exist_ok=True)
 
 # ----------------------

@@ -25,19 +25,20 @@
 
 <p align="justify">A AWS disponibiliza em seu site a <strong>AWS Pricing Calculator</strong>, uma ferramenta gratuita que possibilita estimar o custo dos serviços da AWS com base nos recursos que você pretende usar. O serviço pode ser acessado pelo link: http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com/.</p>    
 
+
 # Deploy da Aplicação Flask na AWS com Elastic Beanstalk
 
 ## Desenvolvimento e Deploy de um Modelo de Previsão de Câncer Colorretal com Flask e AWS Elastic Beanstalk
 
-<p align="justify">Este projeto focou na **criação e implantação de uma aplicação web** para prever o câncer colorretal. Utilizamos um modelo de machine learning pré-treinado, que emprega métricas de **Random Forest, XGBoost e Naive Bayes** para as predições. A aplicação foi desenvolvida em **Python com Flask** e implantada na nuvem usando o **AWS Elastic Beanstalk**. Optamos pelo Elastic Beanstalk por ser a forma mais prática e eficiente para o deploy, após pesquisas prévias.</p>
+<p align="justify">Este projeto focou na <strong>criação e implantação de uma aplicação web</strong> para prever o câncer colorretal. Utilizamos um modelo de machine learning pré-treinado, que emprega métricas de <strong>Random Forest, XGBoost e Naive Bayes</strong> para as predições. A aplicação foi desenvolvida em <strong>Python com Flask</strong> e implantada na nuvem usando o <strong>AWS Elastic Beanstalk</strong>. Optamos pelo Elastic Beanstalk por ser a forma mais prática e eficiente para o deploy, após pesquisas prévias.</p>
 
 ## Etapas do Projeto
 
 ### 1. Preparação do Código para Deploy no AWS Elastic Beanstalk
 
-<p align="justify">Para garantir a compatibilidade com o Elastic Beanstalk, estruturamos o projeto com os diretórios padrão do Flask, como `/templates`, `/static` e `/models`. O arquivo principal, **`application.py`**, foi o responsável por orquestrar a aplicação.</p>
+<p align="justify">Para garantir a compatibilidade com o Elastic Beanstalk, estruturamos o projeto com os diretórios padrão do Flask, como `/templates`, `/static` e `/models`. O arquivo principal, <strong>`application.py`</strong>, foi o responsável por orquestrar a aplicação.</p>
 
-<p align="justify">As rotas foram implementadas com o framework Flask, integrando um **modelo de machine learning no formato `.pkl`**. Este modelo é carregado dinamicamente para realizar previsões a partir dos dados recebidos.</p>
+<p align="justify">As rotas foram implementadas com o framework Flask, integrando um <strong>modelo de machine learning no formato `.pkl`</strong>. Este modelo é carregado dinamicamente para realizar previsões a partir dos dados recebidos.</p>
 
 Para o funcionamento em produção, dois arquivos essenciais foram configurados:
 
@@ -46,7 +47,7 @@ Para o funcionamento em produção, dois arquivos essenciais foram configurados:
 
 ### 2. Empacotamento para o Deploy
 
-<p align="justify">Criamos um **arquivo `.zip` da aplicação** a partir do conteúdo interno da pasta, evitando caminhos do Windows que poderiam causar problemas. Também removemos arquivos e diretórios irrelevantes do `.zip`, como `.git/`, `.ipynb_checkpoints` e arquivos `.ipynb`.</p>
+<p align="justify">Criamos um <strong>arquivo `.zip` da aplicação</strong> a partir do conteúdo interno da pasta, evitando caminhos do Windows que poderiam causar problemas. Também removemos arquivos e diretórios irrelevantes do `.zip`, como `.git/`, `.ipynb_checkpoints` e arquivos `.ipynb`.</p>
 
 ### 3. Etapas do Deploy no Elastic Beanstalk
 
@@ -57,11 +58,11 @@ Foi necessário resolver um erro de **"Bad Gateway (502)"** ajustando:
 * A variável de ambiente `PORT=5000`.
 * O comando correto no `Procfile`: `web: waitress-serve --host=0.0.0.0 --port=5000 application:application`.
 
-<p align="justify">Durante o provisionamento do ambiente na AWS, escolhemos a **instância `t3.medium`**. Instâncias menores (como `t2.micro` ou `t3.micro`) apresentaram limitações de memória e capacidade de processamento, não sendo suficientes para suportar a aplicação, especialmente durante a inicialização e o deploy.</p>
+<p align="justify">Durante o provisionamento do ambiente na AWS, escolhemos a <strong>instância `t3.medium`</strong>. Instâncias menores (como `t2.micro` ou `t3.micro`) apresentaram limitações de memória e capacidade de processamento, não sendo suficientes para suportar a aplicação, especialmente durante a inicialização e o deploy.</p>
 
 <p align="justify">Ao executar a aplicação com suas dependências (Flask, waitress e bibliotecas de análise), observamos travamentos frequentes e falhas de saúde do ambiente, indicando insuficiência de recursos computacionais, principalmente de memória RAM.</p>
 
-<p align="justify">A `t3.medium` oferece **2 vCPUs e 4 GB de RAM**, garantindo maior estabilidade, inicialização rápida das instâncias e suporte ao volume de requisições durante os testes de carga. Essa escolha equilibra custo-benefício, pois a instância faz parte da geração T3 (econômica com *burst performance*) e permite escalabilidade via Auto Scaling, se necessário.</p>
+<p align="justify">A `t3.medium` oferece <strong>2 vCPUs e 4 GB de RAM</strong>, garantindo maior estabilidade, inicialização rápida das instâncias e suporte ao volume de requisições durante os testes de carga. Essa escolha equilibra custo-benefício, pois a instância faz parte da geração T3 (econômica com *burst performance*) e permite escalabilidade via Auto Scaling, se necessário.</p>
 
 A integridade da aplicação foi validada pelos logs da AWS (nginx, `web.stdout.log`) e pela resposta HTTP 200 à URL pública do ambiente.
 
@@ -92,100 +93,6 @@ Configuramos um alarme de integridade do ambiente (**“Environment Health”**)
 ## Guia Rápido: Deploy de Aplicações Flask no AWS Elastic Beanstalk
 
 Este guia vai te mostrar, passo a passo, como colocar sua aplicação Flask no ar usando o AWS Elastic Beanstalk. É uma forma simples e eficiente de ter seu projeto rodando na nuvem.
-
------
-
-## 1️⃣ Criar um Ambiente no AWS Elastic Beanstalk
-
-Para começar, você precisa criar um ambiente para sua aplicação:
-
-  * Acesse o **Console da AWS** e procure por **Elastic Beanstalk**:
-    👉 [https://console.aws.amazon.com/elasticbeanstalk](https://console.aws.amazon.com/elasticbeanstalk)
-  * Clique em **"Create Application"** (Criar Aplicação).
-  * Escolha um nome para sua aplicação (por exemplo: `flask-app`).
-  * Em **"Platform"** (Plataforma), selecione **`Python`**.
-  * Por fim, clique em **"Create application"** (Criar aplicação) para gerar o ambiente.
-
------
-
-## 2️⃣ Criar um Pacote ZIP com Sua Aplicação
-
-Antes de fazer o upload, sua aplicação precisa estar em um arquivo `.zip` bem estruturado. Ele deve conter:
-
-  * Seu código-fonte (`app.py` ou `application.py`).
-
-  * Pastas de `templates` e `arquivos estáticos`.
-
-  * O arquivo `requirements.txt` (com todas as suas dependências).
-
-  * O arquivo `Procfile` (para rodar o Gunicorn no Elastic Beanstalk), no formato abaixo:
-
-    ```plaintext
-    web: gunicorn -w 4 -b 0.0.0.0:5000 application:application
-    ```
-
-**Importante:** Ao compactar, certifique-se de que o ZIP contenha os arquivos diretamente, **sem uma pasta raiz extra**. Você pode fazer isso assim (dentro do diretório do seu projeto):
-
-```bash
-zip -r minha-app.zip .
-```
-
------
-
-## 3️⃣ Fazer o Upload no Elastic Beanstalk
-
-Com o pacote ZIP pronto, é hora de enviar para a AWS:
-
-  * No Console do Elastic Beanstalk, vá para a sua aplicação.
-  * Clique em **"Upload and Deploy"** (Carregar e Implantar).
-  * Selecione o arquivo ZIP da sua aplicação e clique em **"Deploy"** (Implantar).
-  * Aguarde alguns minutos enquanto o deploy é concluído.
-
------
-
-## 4️⃣ Testar Sua Aplicação
-
-Depois do deploy, a AWS vai te dar uma URL pública. Para acessar sua aplicação:
-
-  * Vá para o painel do Elastic Beanstalk.
-  * Na seção **"Environments"** (Ambientes), clique no nome da sua aplicação.
-  * Copie o **"Endpoint"** (por exemplo: `http://meuapp.us-east-1.elasticbeanstalk.com`).
-  * Abra no navegador e veja sua aplicação rodando\!
-
------
-
-## 5️⃣ Configurar Variáveis de Ambiente (Opcional)
-
-Se sua aplicação precisar de chaves de API, credenciais ou outras configurações:
-
-  * Vá para o Elastic Beanstalk \> **"Configuration"** (Configuração).
-  * Clique em **"Software" \> "Edit"** (Editar).
-  * Adicione as variáveis na seção **"Environment Variables"** (Variáveis de Ambiente).
-  * **Salve** e **Reinicie** o ambiente.
-
------
-
-## 6️⃣ Configurar Banco de Dados (Opcional)
-
-Se você precisa de um banco de dados, use o **AWS RDS**:
-
-  * Acesse o **AWS RDS**.
-  * Crie uma instância (MySQL/PostgreSQL, por exemplo).
-  * Copie o endpoint do banco e configure a conexão na sua aplicação.
-
------
-
-## 7️⃣ Configurar HTTPS (Opcional)
-
-Para ativar SSL e usar HTTPS:
-
-  * Vá para **"Load Balancer"** (Balanceador de Carga) no Elastic Beanstalk.
-  * Adicione um **Certificado SSL** via AWS Certificate Manager.
-  * Configure para **redirecionar o tráfego para HTTPS**.
-
------
-
-**Pronto\!**  Sua aplicação Flask está online via AWS Elastic Beanstalk, sem precisar de configurações complexas.
 
 
 # Testes de Carga: Identificação do Limite da Aplicação
@@ -219,236 +126,6 @@ artillery run teste-carga.yml
 <p style="text-align: justify;"><strong>Arquivo atualizado com <code>arrivalRate: 52</code></strong></p><p style="text-align: justify;"><strong>Resultado:</strong></p><p style="text-align: justify;"> - Total de requisições: 3.120<br> - Sucesso HTTP 200: 3.116<br> - Erros de timeout (ETIMEDOUT): 4<br> - Latência média: ~145 ms<br> - p95: 149.9 ms<br> - p99: 165.7 ms<br><br> Neste cenário, a aplicação ainda manteve respostas rápidas, mas foi possível observar os <strong>primeiros sinais de saturação</strong>, com 4 falhas (0,13%) por timeout. Isso indica que a carga de 52 requisições por segundo se aproxima do <strong>limite operacional</strong> do backend ou da infraestrutura base (EC2, Elastic Beanstalk). </p>
 
 ## Conclusão
-<p style="text-align: justify;">Com isso, a partir dos testes, definimos que o <strong>ponto ideal de operação sustentada</strong> da aplicação está em <strong>até 51 requisições por segundo</strong>, garantindo disponibilidade e performance. O teste com 52 req/s serviu como referência para análise de capacidade e dimensionamento futuro. </p>
-
-## Testes realizados
-
-**Resultado do Teste 1:**
-
-Este teste vai simular 10 usuários por segundo durante 1 minuto acessando a página inicial da aplicação.
-
-```
-
-All VUs finished. Total time: 1 minute, 1 second
-
---------------------------------
-Summary report @ 21:52:16(-0300)
---------------------------------
-
-http.codes.200: ................................................................ 600
-http.downloaded_bytes: ......................................................... 16871400
-http.request_rate: ............................................................. 10/sec
-http.requests: ................................................................. 600
-http.response_time:
-  min: ......................................................................... 143
-  max: ......................................................................... 168
-  mean: ........................................................................ 144.9
-  median: ...................................................................... 144
-  p95: ......................................................................... 147
-  p99: ......................................................................... 159.2
-http.response_time.2xx:
-  min: ......................................................................... 143
-  max: ......................................................................... 168
-  mean: ........................................................................ 144.9
-  median: ...................................................................... 144
-  p95: ......................................................................... 147
-  p99: ......................................................................... 159.2
-http.responses: ................................................................ 600
-vusers.completed: .............................................................. 600
-vusers.created: ................................................................ 600
-vusers.created_by_name.0: ...................................................... 600
-vusers.failed: ................................................................. 0
-vusers.session_length:
-  min: ......................................................................... 429.9
-  max: ......................................................................... 487.8
-  mean: ........................................................................ 436
-  median: ...................................................................... 432.7
-  p95: ......................................................................... 450.4
-  p99: ......................................................................... 459.5
-```
-
-### 📊 Resumo do Teste de Carga 1
-
-* **Número total de requisições:** 600
-* **Erro:** 0 → **Nenhuma falha, ótimo sinal!**
-* **Tempo médio de resposta:** 144,9 ms
-* **Tempo máximo de resposta:** 168 ms → **Bem abaixo de 500 ms, super estável.**
-* **Usuários virtuais simulados:** 600
-* **Taxa de requisição constante:** 10 requisições por segundo
-
-### 📈 O que isso mostra:
-
-Sua aplicação está:
-
-* **Respondendo rápido:** menos de 150 ms em média é ótimo.
-* **Estável sob pressão:** nenhuma queda, nenhuma falha de resposta.
-* **Capaz de manter o desempenho consistente:** latências bem próximas no tempo (mínimo e máximo variando pouco).
-
----
-
-## TESTE 2: Simulação de Carga Média
-
-Este teste aumenta a carga para **51 usuários por segundo durante 1 minuto**.
-
-```yaml
-config:
-  target: "http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com"
-  phases:
-    - duration: 60
-      arrivalRate: 51
-scenarios:
-  - flow:
-      - get:
-          url: "/"
-```
-
-**Resultado do Teste 2:**
-
-```
-All VUs finished. Total time: 1 minute, 2 seconds
-
---------------------------------
-Summary report @ 22:30:27(-0300)
---------------------------------
-
-http.codes.200: ................................................................ 3060
-http.downloaded_bytes: ......................................................... 86044140
-http.request_rate: ............................................................. 51/sec
-http.requests: ................................................................. 3060
-http.response_time:
-  min: ......................................................................... 142
-  max: ......................................................................... 236
-  mean: ........................................................................ 150
-  median: ...................................................................... 144
-  p95: ......................................................................... 194.4
-  p99: ......................................................................... 223.7
-http.response_time.2xx:
-  min: ......................................................................... 142
-  max: ......................................................................... 236
-  mean: ........................................................................ 150
-  median: ...................................................................... 144
-  p95: ......................................................................... 194.4
-  p99: ......................................................................... 223.7
-http.responses: ................................................................ 3060
-vusers.completed: .............................................................. 3060
-vusers.created: ................................................................ 3060
-vusers.created_by_name.0: ...................................................... 3060
-vusers.failed: ................................................................. 0
-vusers.session_length:
-  min: ......................................................................... 429.3
-  max: ......................................................................... 3455.1
-  mean: ........................................................................ 460.7
-  median: ...................................................................... 432.7
-  p95: ......................................................................... 608
-  p99: ......................................................................... 685.5
-```
-
-### ✅ Destaques Positivos do Teste 2
-
-Este resultado é mais um retrato de sucesso técnico. Sua aplicação respondeu a uma carga de **51 usuários por segundo** durante 1 minuto com estabilidade impecável.
-
-* **Requisições totais realizadas:** 3.060 → Todas as chamadas foram processadas.
-* **Todas retornaram HTTP 200:** → Isso significa **0 falhas**, sem quedas ou erros de servidor.
-* **Tempo médio de resposta:** 150 ms → **Excelente!** A aplicação manteve tempos baixos mesmo com tráfego intenso.
-* **Latência em cenários extremos:**
-    * `p95`: 194 ms
-    * `p99`: 223.7 ms
-    → Mesmo os 5% mais lentos responderam bem abaixo de 1 segundo.
-* **Nenhum usuário falhou:** → Os 3.060 usuários simulados conseguiram completar suas sessões com sucesso.
-
-### 💡 O que isso prova na prática
-
-Sua aplicação:
-
-* **Está pronta para produção com tráfego médio-alto.**
-* **Tem baixa latência sob carga**, excelente para a experiência do usuário.
-* **Está rodando de forma eficiente na infraestrutura atual** — não travou, não rejeitou requisições, nem sobrecarregou.
-
----
-
-## TESTE 3: Avaliando o Limite da Carga
-
-Este teste aumenta a carga ligeiramente para **52 usuários por segundo durante 1 minuto**.
-
-```yaml
-config:
-  target: "http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com"
-  phases:
-    - duration: 60
-      arrivalRate: 52
-scenarios:
-  - flow:
-      - get:
-          url: "/"
-```
-
-**Resultado do Teste 3:**
-
-```
-All VUs finished. Total time: 1 minute, 2 seconds
-
---------------------------------
-Summary report @ 22:32:16(-0300)
---------------------------------
-
-errors.ETIMEDOUT: .............................................................. 4
-http.codes.200: ................................................................ 3116
-http.downloaded_bytes: ......................................................... 87618804
-http.request_rate: ............................................................. 52/sec
-http.requests: ................................................................. 3120
-http.response_time:
-  min: ......................................................................... 142
-  max: ......................................................................... 200
-  mean: ........................................................................ 145.3
-  median: ...................................................................... 144
-  p95: ......................................................................... 149.9
-  p99: ......................................................................... 165.7
-http.response_time.2xx:
-  min: ......................................................................... 142
-  max: ......................................................................... 200
-  mean: ........................................................................ 145.3
-  median: ...................................................................... 144
-  p95: ......................................................................... 149.9
-  p99: ......................................................................... 165.7
-http.responses: ................................................................ 3116
-vusers.completed: .............................................................. 3116
-vusers.created: ................................................................ 3120
-vusers.created_by_name.0: ...................................................... 3120
-vusers.failed: ................................................................. 4
-vusers.session_length:
-  min: ......................................................................... 428.4
-  max: ......................................................................... 3444.1
-  mean: ........................................................................ 446.9
-  median: ...................................................................... 432.7
-  p95: ......................................................................... 459.5
-  p99: ......................................................................... 645.6
-```
-
-### 🔍 Visão Geral do Desempenho do Teste 3
-
-Este resultado mostra que a aplicação **encostou no limite**, mas ainda segurou firme com uma **taxa de sucesso de 99,87%**, mesmo com 52 requisições por segundo.
-
-* **Requisições simuladas:** 3.120
-* **Requisições com sucesso (HTTP 200):** 3.116
-* **Erros de timeout (ETIMEDOUT):** apenas 4
-* **Taxa de requisição sustentada:** 52 por segundo
-* **Tempo médio de resposta:** 145,3 ms
-* **Tempo máximo:** 200 ms → ainda muito abaixo de 1 segundo
-
-A aplicação respondeu rapidamente e com estabilidade, mesmo com uma carga densa.
-
-### ⚠️ Sobre os 4 erros ETIMEDOUT
-
-Esses timeouts não são alarmantes neste cenário — representam apenas **0,13% do total**. Eles indicam que, em algum instante, talvez por latência de rede, concorrência alta ou pequenas flutuações de infraestrutura, algumas conexões não foram atendidas a tempo.
-
-> Se o ambiente for de desenvolvimento ou estiver com uma instância EC2 menor (como `t2.micro`), esse tipo de oscilação é esperada ao atingir a borda da capacidade.
-
-### 📈 Conclusão do Teste 3
-
-Este teste indica que **52 usuários por segundo ainda está dentro da capacidade da sua aplicação**, com performance rápida e taxa de erro praticamente nula. No entanto, ele também acende a luz de que o **limite real está se aproximando** — talvez entre 55 e 65 usuários/s, os erros comecem a aumentar.
-
-Podemos fazer um teste mais refinado entre 52 e 60 usuários/s para descobrir com mais precisão o ponto de virada, ou até experimentar cenários que alternem períodos de carga e descanso.
-
-
+<p style="text-align: justify;">Com isso, a partir dos testes, definimos que o <strong>ponto ideal de operação sustentada</strong> da aplicação está em <strong>até 51 requisições por segundo</strong>, garantindo disponibilidade e performance. O teste com 52 req/s serviu como referência para análise de capacidade e dimensionamento futuro.</p>
 
 

@@ -11,7 +11,7 @@
 
 ### Implantação no AWS Elastic Beanstalk
 
-A implantação da aplicação no AWS Elastic Beanstalk envolve várias etapas, desde a preparação da sua aplicação até a configuração do ambiente e a implantação propriamente dita. O Elastic Beanstalk simplifica o processo de implantação e dimensionamento de aplicações e serviços web.
+<p align="justify">A implantação da aplicação no AWS Elastic Beanstalk envolve várias etapas, desde a preparação da sua aplicação até a configuração do ambiente e a implantação propriamente dita. O Elastic Beanstalk simplifica o processo de implantação e dimensionamento de aplicações e serviços web.</p>
 
 ### Monitoramento e Gerenciamento
 
@@ -29,7 +29,7 @@ A implantação da aplicação no AWS Elastic Beanstalk envolve várias etapas, 
 
 ## Desenvolvimento e Deploy de um Modelo de Previsão de Câncer Colorretal com Flask e AWS Elastic Beanstalk
 
-Este projeto focou na **criação e implantação de uma aplicação web** para prever o câncer colorretal. Utilizamos um modelo de machine learning pré-treinado, que emprega métricas de **Random Forest, XGBoost e Naive Bayes** para as predições. A aplicação foi desenvolvida em **Python com Flask** e implantada na nuvem usando o **AWS Elastic Beanstalk**. Optamos pelo Elastic Beanstalk por ser a forma mais prática e eficiente para o deploy, após pesquisas prévias.
+<p align="justify">Este projeto focou na **criação e implantação de uma aplicação web** para prever o câncer colorretal. Utilizamos um modelo de machine learning pré-treinado, que emprega métricas de **Random Forest, XGBoost e Naive Bayes** para as predições. A aplicação foi desenvolvida em **Python com Flask** e implantada na nuvem usando o **AWS Elastic Beanstalk**. Optamos pelo Elastic Beanstalk por ser a forma mais prática e eficiente para o deploy, após pesquisas prévias.</p>
 
 ## Etapas do Projeto
 

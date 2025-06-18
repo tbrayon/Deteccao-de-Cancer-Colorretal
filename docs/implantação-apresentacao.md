@@ -95,7 +95,7 @@ Configuramos um alarme de integridade do ambiente (**“Environment Health”**)
 <p style="text-align: justify;">Como parte da validação de desempenho da aplicação, realizamos testes de carga progressivos com o objetivo de identificar a taxa máxima de requisições por segundo que o sistema suporta com estabilidade, antes de apresentar degradação ou falhas.</p>
 
 ## Ferramenta utilizada
-<p style="text-align: justify;">Utilizamos a ferramenta **Artillery**, instalada localmente com Node.js, para simular acessos simultâneos à aplicação hospedada no **AWS Elastic Beanstalk**. O Artillery permite definir cenários de teste em arquivos `.yml`, com fases de carga configuráveis e geração de relatórios detalhados.</p>
+<p style="text-align: justify;">Utilizamos a ferramenta <strong>Artillery</strong>, instalada localmente com Node.js, para simular acessos simultâneos à aplicação hospedada no <strong>AWS Elastic Beanstalk</strong>. O Artillery permite definir cenários de teste em arquivos `.yml`, com fases de carga configuráveis e geração de relatórios detalhados.</p>
 
 ## Teste com 51 requisições/segundo
 **Arquivo `test-carga.yml` criado com o seguinte cenário:**

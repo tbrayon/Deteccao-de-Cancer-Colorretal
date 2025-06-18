@@ -28,7 +28,7 @@
 
 # Deploy da Aplicação Flask na AWS com Elastic Beanstalk
 
-## Desenvolvimento e Deploy de um Modelo de Previsão de Câncer Colorretal com Flask e AWS Elastic Beanstalk
+## Desenvolvimento e Deploy de um Modelo de Previsão de Câncer Colorretal
 
 <p align="justify">Este projeto focou na <strong>criação e implantação de uma aplicação web</strong> para prever o câncer colorretal. Utilizamos um modelo de machine learning pré-treinado, que emprega métricas de <strong>Random Forest, XGBoost e Naive Bayes</strong> para as predições. A aplicação foi desenvolvida em <strong>Python com Flask</strong> e implantada na nuvem usando o <strong>AWS Elastic Beanstalk</strong>. Optamos pelo Elastic Beanstalk por ser a forma mais prática e eficiente para o deploy, após pesquisas prévias.</p>
 
@@ -88,11 +88,6 @@ Configuramos um alarme de integridade do ambiente (**“Environment Health”**)
 * **Limite de alarme:** Aciona se 3 pontos de dados consecutivos estiverem fora da faixa.
 
 <p align="justify">Isso significa que se o ambiente estiver em estado ruim por 3 minutos seguidos, o alarme será disparado (e poderá enviar um alerta, caso um tópico SNS esteja configurado).</p>
-
-
-## Guia Rápido: Deploy de Aplicações Flask no AWS Elastic Beanstalk
-
-Este guia vai te mostrar, passo a passo, como colocar sua aplicação Flask no ar usando o AWS Elastic Beanstalk. É uma forma simples e eficiente de ter seu projeto rodando na nuvem.
 
 
 # Testes de Carga: Identificação do Limite da Aplicação

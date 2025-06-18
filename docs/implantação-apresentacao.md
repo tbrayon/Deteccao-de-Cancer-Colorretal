@@ -35,9 +35,9 @@
 
 ### 1. Preparação do Código para Deploy no AWS Elastic Beanstalk
 
-<p align="justify">Para garantir a compatibilidade com o Elastic Beanstalk, estruturamos o projeto com os diretórios padrão do Flask, como `/templates`, `/static` e `/models`. O arquivo principal, **`application.py`**, foi o responsável por orquestrar a aplicação.
+<p align="justify">Para garantir a compatibilidade com o Elastic Beanstalk, estruturamos o projeto com os diretórios padrão do Flask, como `/templates`, `/static` e `/models`. O arquivo principal, **`application.py`**, foi o responsável por orquestrar a aplicação.</p>
 
-As rotas foram implementadas com o framework Flask, integrando um **modelo de machine learning no formato `.pkl`**. Este modelo é carregado dinamicamente para realizar previsões a partir dos dados recebidos.</p>
+<p align="justify">As rotas foram implementadas com o framework Flask, integrando um **modelo de machine learning no formato `.pkl`**. Este modelo é carregado dinamicamente para realizar previsões a partir dos dados recebidos.</p>
 
 Para o funcionamento em produção, dois arquivos essenciais foram configurados:
 
@@ -57,13 +57,13 @@ Foi necessário resolver um erro de **"Bad Gateway (502)"** ajustando:
 * A variável de ambiente `PORT=5000`.
 * O comando correto no `Procfile`: `web: waitress-serve --host=0.0.0.0 --port=5000 application:application`.
 
-<p align="justify">Durante o provisionamento do ambiente na AWS, escolhemos a **instância `t3.medium`**. Instâncias menores (como `t2.micro` ou `t3.micro`) apresentaram limitações de memória e capacidade de processamento, não sendo suficientes para suportar a aplicação, especialmente durante a inicialização e o deploy.
+<p align="justify">Durante o provisionamento do ambiente na AWS, escolhemos a **instância `t3.medium`**. Instâncias menores (como `t2.micro` ou `t3.micro`) apresentaram limitações de memória e capacidade de processamento, não sendo suficientes para suportar a aplicação, especialmente durante a inicialização e o deploy.</p>
 
-Ao executar a aplicação com suas dependências (Flask, waitress e bibliotecas de análise), observamos travamentos frequentes e falhas de saúde do ambiente, indicando insuficiência de recursos computacionais, principalmente de memória RAM.
+<p align="justify">Ao executar a aplicação com suas dependências (Flask, waitress e bibliotecas de análise), observamos travamentos frequentes e falhas de saúde do ambiente, indicando insuficiência de recursos computacionais, principalmente de memória RAM.</p>
 
-A `t3.medium` oferece **2 vCPUs e 4 GB de RAM**, garantindo maior estabilidade, inicialização rápida das instâncias e suporte ao volume de requisições durante os testes de carga. Essa escolha equilibra custo-benefício, pois a instância faz parte da geração T3 (econômica com *burst performance*) e permite escalabilidade via Auto Scaling, se necessário.
+<p align="justify">A `t3.medium` oferece **2 vCPUs e 4 GB de RAM**, garantindo maior estabilidade, inicialização rápida das instâncias e suporte ao volume de requisições durante os testes de carga. Essa escolha equilibra custo-benefício, pois a instância faz parte da geração T3 (econômica com *burst performance*) e permite escalabilidade via Auto Scaling, se necessário.</p>
 
-A integridade da aplicação foi validada pelos logs da AWS (nginx, `web.stdout.log`) e pela resposta HTTP 200 à URL pública do ambiente.</p>
+A integridade da aplicação foi validada pelos logs da AWS (nginx, `web.stdout.log`) e pela resposta HTTP 200 à URL pública do ambiente.
 
 **URL pública:** `http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com/`
 
@@ -86,7 +86,7 @@ Configuramos um alarme de integridade do ambiente (**“Environment Health”**)
 * **Período:** 1 minuto
 * **Limite de alarme:** Aciona se 3 pontos de dados consecutivos estiverem fora da faixa.
 
-Isso significa que se o ambiente estiver em estado ruim por 3 minutos seguidos, o alarme será disparado (e poderá enviar um alerta, caso um tópico SNS esteja configurado).
+<p align="justify">Isso significa que se o ambiente estiver em estado ruim por 3 minutos seguidos, o alarme será disparado (e poderá enviar um alerta, caso um tópico SNS esteja configurado).</p>
 
 
 ## Guia Rápido: Deploy de Aplicações Flask no AWS Elastic Beanstalk

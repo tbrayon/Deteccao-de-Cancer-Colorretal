@@ -25,7 +25,7 @@
 
 <p align="justify">A utilização de serviços em nuvem oferece uma série de vantagens, como <strong>flexibilidade, escalabilidade e o uso de recursos sob demanda</strong>. No entanto, é crucial manter um controle rigoroso dos custos por meio de um planejamento financeiro adequado, a fim de evitar gastos desnecessários que possam comprometer a continuidade do projeto.</p>    
 
-<p align="justify">A AWS disponibiliza em seu site a <strong>AWS Pricing Calculator</strong>, uma ferramenta gratuita que possibilita estimar o custo dos serviços da AWS com base nos recursos que você pretende usar. O serviço pode ser acessado pelo link: http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com/.</p>    
+<p align="justify">A AWS disponibiliza em seu site a <strong>AWS Pricing Calculator</strong>, uma ferramenta gratuita que possibilita estimar o custo dos serviços da AWS com base nos recursos que você pretende usar.</p>    
 
 
 # Deploy da Aplicação Flask na AWS com Elastic Beanstalk
@@ -128,6 +128,8 @@ artillery run teste-carga.yml
 # Apresentação da solução
 
 Nesta seção, um vídeo de, no máximo, 5 minutos descreve o escopo todo do projeto, um resumo do trabalho desenvolvido, incluindo a comprovação de que a implantação foi realizada e, as conclusões alcançadas.
+
+O serviço pode ser acessado pelo link: http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com/.
 
 https://github.com/user-attachments/assets/3d0881fb-2dfc-475a-a8e0-85c405b3dfee
 

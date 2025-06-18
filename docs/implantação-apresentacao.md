@@ -125,7 +125,7 @@ artillery run teste-carga.yml
 
 # Apresentação da solução
 
-Nesta seção, um vídeo de, no máximo, 5 minutos onde deverá ser descrito o escopo todo do projeto, um resumo do trabalho desenvolvido, incluindo a comprovação de que a implantação foi realizada e, as conclusões alcançadas.
+Nesta seção, um vídeo de, no máximo, 5 minutos descreve o escopo todo do projeto, um resumo do trabalho desenvolvido, incluindo a comprovação de que a implantação foi realizada e, as conclusões alcançadas.
 
 https://github.com/user-attachments/assets/3d0881fb-2dfc-475a-a8e0-85c405b3dfee
 

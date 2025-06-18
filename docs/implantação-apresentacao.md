@@ -127,7 +127,7 @@ artillery run teste-carga.yml
 
 # Apresentação da solução
 
-Nesta seção, um vídeo de, no máximo, 5 minutos descreve o escopo todo do projeto, um resumo do trabalho desenvolvido, incluindo a comprovação de que a implantação foi realizada e, as conclusões alcançadas.
+<p style="text-align: justify;">Nesta seção, um vídeo de, no máximo, 5 minutos descreve o escopo todo do projeto, um resumo do trabalho desenvolvido, incluindo a comprovação de que a implantação foi realizada e, as conclusões alcançadas.</p>
 
 O serviço pode ser acessado pelo link: http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com/.
 

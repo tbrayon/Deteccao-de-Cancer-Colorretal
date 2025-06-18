@@ -117,13 +117,13 @@ scenarios:
 
 artillery run teste-carga.yml
 
-<p style="text-align: justify;"><strong>Resultado:</strong></p><p style="text-align: justify;"> - Total de requisições: 3.060<br> - Sucesso HTTP 200: 3.060<br> - Erros: 0<br> - Latência média: ~150 ms<br><br> A aplicação respondeu com <strong>estabilidade total</strong>, sem apresentar erros ou lentidão, mesmo com tráfego sustentado por 1 minuto. </p>
+<p align="justify"> style="text-align: justify;"><strong>Resultado:</strong></p><p style="text-align: justify;"> - Total de requisições: 3.060<br> - Sucesso HTTP 200: 3.060<br> - Erros: 0<br> - Latência média: ~150 ms<br><br> A aplicação respondeu com <strong>estabilidade total</strong>, sem apresentar erros ou lentidão, mesmo com tráfego sustentado por 1 minuto. </p>
 
 ## Teste com 52 requisições/segundo
 <p style="text-align: justify;"><strong>Arquivo atualizado com <code>arrivalRate: 52</code></strong></p><p style="text-align: justify;"><strong>Resultado:</strong></p><p style="text-align: justify;"> - Total de requisições: 3.120<br> - Sucesso HTTP 200: 3.116<br> - Erros de timeout (ETIMEDOUT): 4<br> - Latência média: ~145 ms<br> - p95: 149.9 ms<br> - p99: 165.7 ms<br><br> Neste cenário, a aplicação ainda manteve respostas rápidas, mas foi possível observar os <strong>primeiros sinais de saturação</strong>, com 4 falhas (0,13%) por timeout. Isso indica que a carga de 52 requisições por segundo se aproxima do <strong>limite operacional</strong> do backend ou da infraestrutura base (EC2, Elastic Beanstalk). </p>
 
 ## Conclusão
-<p style="text-align: justify;">Com isso, a partir dos testes, definimos que o ponto ideal de operação sustentada da aplicação está em até 51 requisições por segundo, garantindo disponibilidade e performance. O teste com 52 req/s serviu como referência para análise de capacidade e dimensionamento futuro.</p>
+<p align="justify"> Com isso, a partir dos testes, definimos que o ponto ideal de operação sustentada da aplicação está em até 51 requisições por segundo, garantindo disponibilidade e performance. O teste com 52 req/s serviu como referência para análise de capacidade e dimensionamento futuro.</p>
 
 # Apresentação da solução
 

@@ -117,7 +117,7 @@ scenarios:
 
 artillery run teste-carga.yml
 
-<p align="justify"> style="text-align: justify;"><strong>Resultado:</strong></p><p style="text-align: justify;"> - Total de requisições: 3.060<br> - Sucesso HTTP 200: 3.060<br> - Erros: 0<br> - Latência média: ~150 ms<br><br> A aplicação respondeu com <strong>estabilidade total</strong>, sem apresentar erros ou lentidão, mesmo com tráfego sustentado por 1 minuto. </p>
+<p align="justify"> <strong>Resultado:</strong></p> - Total de requisições: 3.060<br> - Sucesso HTTP 200: 3.060<br> - Erros: 0<br> - Latência média: ~150 ms<br><br> A aplicação respondeu com <strong>estabilidade total</strong>, sem apresentar erros ou lentidão, mesmo com tráfego sustentado por 1 minuto. </p>
 
 ## Teste com 52 requisições/segundo
 <p align="justify"><strong>Arquivo atualizado com <code>arrivalRate: 52</code></strong></p><p style="text-align: justify;"><strong>Resultado:</strong></p>

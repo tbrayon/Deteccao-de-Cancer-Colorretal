@@ -35,9 +35,9 @@
 
 ### 1. Preparação do Código para Deploy no AWS Elastic Beanstalk
 
-Para garantir a compatibilidade com o Elastic Beanstalk, estruturamos o projeto com os diretórios padrão do Flask, como `/templates`, `/static` e `/models`. O arquivo principal, **`application.py`**, foi o responsável por orquestrar a aplicação.
+<p align="justify">Para garantir a compatibilidade com o Elastic Beanstalk, estruturamos o projeto com os diretórios padrão do Flask, como `/templates`, `/static` e `/models`. O arquivo principal, **`application.py`**, foi o responsável por orquestrar a aplicação.
 
-As rotas foram implementadas com o framework Flask, integrando um **modelo de machine learning no formato `.pkl`**. Este modelo é carregado dinamicamente para realizar previsões a partir dos dados recebidos.
+As rotas foram implementadas com o framework Flask, integrando um **modelo de machine learning no formato `.pkl`**. Este modelo é carregado dinamicamente para realizar previsões a partir dos dados recebidos.</p>
 
 Para o funcionamento em produção, dois arquivos essenciais foram configurados:
 
@@ -46,7 +46,7 @@ Para o funcionamento em produção, dois arquivos essenciais foram configurados:
 
 ### 2. Empacotamento para o Deploy
 
-Criamos um **arquivo `.zip` da aplicação** a partir do conteúdo interno da pasta, evitando caminhos do Windows que poderiam causar problemas. Também removemos arquivos e diretórios irrelevantes do `.zip`, como `.git/`, `.ipynb_checkpoints` e arquivos `.ipynb`.
+<p align="justify">Criamos um **arquivo `.zip` da aplicação** a partir do conteúdo interno da pasta, evitando caminhos do Windows que poderiam causar problemas. Também removemos arquivos e diretórios irrelevantes do `.zip`, como `.git/`, `.ipynb_checkpoints` e arquivos `.ipynb`.</p>
 
 ### 3. Etapas do Deploy no Elastic Beanstalk
 
@@ -57,19 +57,19 @@ Foi necessário resolver um erro de **"Bad Gateway (502)"** ajustando:
 * A variável de ambiente `PORT=5000`.
 * O comando correto no `Procfile`: `web: waitress-serve --host=0.0.0.0 --port=5000 application:application`.
 
-Durante o provisionamento do ambiente na AWS, escolhemos a **instância `t3.medium`**. Instâncias menores (como `t2.micro` ou `t3.micro`) apresentaram limitações de memória e capacidade de processamento, não sendo suficientes para suportar a aplicação, especialmente durante a inicialização e o deploy.
+<p align="justify">Durante o provisionamento do ambiente na AWS, escolhemos a **instância `t3.medium`**. Instâncias menores (como `t2.micro` ou `t3.micro`) apresentaram limitações de memória e capacidade de processamento, não sendo suficientes para suportar a aplicação, especialmente durante a inicialização e o deploy.
 
 Ao executar a aplicação com suas dependências (Flask, waitress e bibliotecas de análise), observamos travamentos frequentes e falhas de saúde do ambiente, indicando insuficiência de recursos computacionais, principalmente de memória RAM.
 
 A `t3.medium` oferece **2 vCPUs e 4 GB de RAM**, garantindo maior estabilidade, inicialização rápida das instâncias e suporte ao volume de requisições durante os testes de carga. Essa escolha equilibra custo-benefício, pois a instância faz parte da geração T3 (econômica com *burst performance*) e permite escalabilidade via Auto Scaling, se necessário.
 
-A integridade da aplicação foi validada pelos logs da AWS (nginx, `web.stdout.log`) e pela resposta HTTP 200 à URL pública do ambiente.
+A integridade da aplicação foi validada pelos logs da AWS (nginx, `web.stdout.log`) e pela resposta HTTP 200 à URL pública do ambiente.</p>
 
 **URL pública:** `http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com/`
 
 ### 4. Testes e Acesso Externo
 
-Após o deploy, corrigimos um problema de acesso causado pelo uso de `https://` (o ambiente respondia apenas em `http://`). Ao tentar acessar o link da aplicação por dispositivos móveis, a URL era automaticamente convertida para HTTPS. Orientamos o uso explícito da URL com HTTP.
+<p align="justify">Após o deploy, corrigimos um problema de acesso causado pelo uso de `https://` (o ambiente respondia apenas em `http://`). Ao tentar acessar o link da aplicação por dispositivos móveis, a URL era automaticamente convertida para HTTPS. Orientamos o uso explícito da URL com HTTP.</p>
 
 Confirmamos que o acesso externo estava disponível após limpar caches e forçar o protocolo correto no navegador.
 

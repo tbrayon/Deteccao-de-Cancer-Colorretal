@@ -1,29 +1,29 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title:
+title: Predição de Câncer Colorretal
 authors:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - name-suffix: Professor XXXX
-    affiliation: PUC Minas
-    family-names:
-    given-names:
+  - family-names: Guzmán Siácara 
+    given-names: Alexandre
+  - family-names: Paula Sena
+    given-names: Ana
+  - family-names: Matheus da Silva Duarte
+    given-names: Brayon 
+  - family-names: Rocha Dutra
+    given-names: Gina
+  - family-names: André Gomes Lobato
+    given-names: Salomão 
+  - family-names: De Nardin
+    given-names: Luciana
+  - name-suffix: Professora
+    affiliation: Pontifícia Universidade Católica de Minas Gerais - PUC Minas.
 keywords:
-  -
-  -
-repository-code:
+  - Cancêr Colorretal
+  - Tratamento
+  - Saúde
+  - Predição
+  - Análise
+
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-SI/PMV-SI-2025-1-PE7-T1-Cancer-Colorretal
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2023-06-30
+date-released: 2025-06-18

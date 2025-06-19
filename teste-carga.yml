@@ -1,0 +1,9 @@
+config:
+  target: "http://previsao-cancer-colorretal-app-env.eba-ei8fc28z.us-east-1.elasticbeanstalk.com"
+  phases:
+    - duration: 60
+      arrivalRate: 51
+scenarios:
+  - flow:
+      - get:
+          url: "/"
